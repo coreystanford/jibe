@@ -1,0 +1,279 @@
+@charset "utf-8";
+
+/*  -------------------------  */
+/*  ----------RESET----------  */
+/*  -------------------------  */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public dosection)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a, a:hover {
+    text-decoration: none; 
+}
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/*  -------------------------  */
+/*  -----GENERAL STYLING-----  */
+/*  -------------------------  */
+
+html {
+    font-size: 1em;
+    line-height: 1.3;
+    overflow-x: hidden;
+}
+
+h1 { font-size: 30px; font-size: 1.875rem; line-height: 1.5; }
+h2 { font-size: 26px; font-size: 1.625rem; line-height: 1; }
+h3 { font-size: 22px; font-size: 1.375rem; line-height: 1.2; }
+h4 { font-size: 18px; font-size: 1.125rem; line-height: 1.125; }
+h5 { font-size: 16px; font-size: 1rem; line-height: 1.125; }
+h6 { font-size: 14px; font-size: 0.875rem; line-height: 1.125; }
+p { font-size: 16px; font-size: 1rem; line-height: 1.3; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: 'Arvo', serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    color: #eee;
+    background: #0f0f0f;
+}
+
+a {
+    color: #eee;
+}
+
+/*  ----------CONTAINERS---------  */
+
+
+
+/*  ----------ACCESSIBILITY---------  */
+
+.skip, .outline {
+    left: -9999px;
+    position: absolute;
+}
+
+.off{
+    display: none;
+}
+
+/*  ----------CLEARFIX---------  */
+
+.clearfix:after {
+   content: " ";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+/*  ----------BUTTONS---------  */
+
+.btn {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 8px 20px;
+    display: inline-block;
+    margin: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.link {
+    border: 3px solid #fff;
+    border-radius: 60px;
+}
+
+.link:hover {
+    background: #fff;
+    color: #26272a;
+}
+
+/*  --------------------------  */
+/*  ----------HEADER----------  */
+/*  --------------------------  */
+
+header {
+    background: #26272a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+    /*  -------------LOGO-------------  */
+
+    #logo {
+        position: absolute;
+        left: 50%;
+        margin-left: -60px;
+        margin-top: 21px;
+        width: 120px;
+
+    }
+
+    #logo img {
+        width: 100%;
+    }
+
+    /*  ----------NAVIGATION----------  */
+
+    #left-nav, #right-nav {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 20%;
+        min-width: 170px;
+        text-align: center;
+    }
+
+        #left-nav {
+            left: 0;
+        }
+
+        #right-nav {
+            right: 0;
+        }
+
+    /* First Tier */
+
+    #left-nav h4, #right-nav h4 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+    }
+
+        #left-nav h4:first-of-type, #right-nav h4:first-of-type {
+            left: 0;
+        }
+
+        #left-nav h4:last-of-type, #right-nav h4:last-of-type {
+            right: 0;
+        }
+
+        #left-nav h4 > a, #right-nav h4 > a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            line-height: 80px;
+        }
+
+            #left-nav h4 a:hover, #right-nav h4 a:hover {
+                background: #3e3e40;
+            }
+
+        #right-nav h4 > a i {
+            position: relative;
+            margin-left: 5px;
+        }
+
+        /* ----- Second Tier ----- */
+
+            /* hide/show */
+
+            #right-nav h4 div {
+                display: none;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                width: 200px;
+            }
+
+            #right-nav h4 div h5 {
+                display: block;
+                background: #26272a;
+            }
+
+            #right-nav h4 div h5 a {
+                display: block;
+                padding: 20px;
+            }
+
+            #right-nav h4 div h5:last-of-type {
+                background: #cd3232;
+            }
+
+            #right-nav h4 div h5 a span {
+                line-height: 20px;
+            }
+
+            #right-nav h4 div h5 a span i {
+                margin-right: 5px;
+            }
+
+            #right-nav h4:hover div {
+                display: inline-block;
+            }
+
+            /* style */
+
+            #right-nav h4 div h5 span {
+                
+            }
+
+
+
+
