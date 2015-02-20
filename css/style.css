@@ -94,7 +94,11 @@ a {
 
 /*  ----------CONTAINERS---------  */
 
-
+.feed {
+    margin: 60px auto;
+    width: 100%;
+    text-align: center;
+}
 
 /*  ----------ACCESSIBILITY---------  */
 
@@ -103,7 +107,7 @@ a {
     position: absolute;
 }
 
-.off{
+.off {
     display: none;
 }
 
@@ -138,15 +142,15 @@ a {
     transition: all 0.2s;
 }
 
-.link {
-    border: 3px solid #fff;
-    border-radius: 60px;
-}
+    .link {
+        border: 3px solid #fff;
+        border-radius: 60px;
+    }
 
-.link:hover {
-    background: #fff;
-    color: #26272a;
-}
+        .link:hover {
+            background: #fff;
+            color: #26272a;
+        }
 
 /*  --------------------------  */
 /*  ----------HEADER----------  */
@@ -159,6 +163,7 @@ header {
     left: 0;
     right: 0;
     height: 80px;
+    z-index: 3;
 }
 
     /*  -------------LOGO-------------  */
@@ -187,93 +192,209 @@ header {
         text-align: center;
     }
 
-        #left-nav {
-            left: 0;
-        }
-
-        #right-nav {
-            right: 0;
-        }
-
-    /* First Tier */
-
-    #left-nav h4, #right-nav h4 {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 50%;
+    #left-nav {
+        left: 0;
     }
 
-        #left-nav h4:first-of-type, #right-nav h4:first-of-type {
-            left: 0;
-        }
+    #right-nav {
+        right: 0;
+    }
 
-        #left-nav h4:last-of-type, #right-nav h4:last-of-type {
-            right: 0;
-        }
+        /* ----- First Tier ----- */
 
-        #left-nav h4 > a, #right-nav h4 > a {
+        #left-nav h4, #right-nav h4 {
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
             bottom: 0;
-            line-height: 80px;
+            width: 50%;
         }
 
-            #left-nav h4 a:hover, #right-nav h4 a:hover {
-                background: #3e3e40;
+            #left-nav h4:first-of-type, #right-nav h4:first-of-type {
+                left: 0;
             }
 
-        #right-nav h4 > a i {
-            position: relative;
-            margin-left: 5px;
-        }
-
-        /* ----- Second Tier ----- */
-
-            /* hide/show */
-
-            #right-nav h4 div {
-                display: none;
-                position: absolute;
-                top: 80px;
+            #left-nav h4:last-of-type, #right-nav h4:last-of-type {
                 right: 0;
-                width: 200px;
             }
 
-            #right-nav h4 div h5 {
-                display: block;
-                background: #26272a;
+            #left-nav h4 > a, #right-nav h4 > a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                line-height: 80px;
             }
 
-            #right-nav h4 div h5 a {
-                display: block;
-                padding: 20px;
+                #left-nav h4 a:hover, #right-nav h4 a:hover {
+                    background: #3e3e40;
+                }
+
+                #right-nav h4 > a i {
+                    position: relative;
+                    margin-left: 5px;
+                }
+
+                    /* ----- Second Tier ----- */
+
+                    /* hide/show */
+
+                    #right-nav h4 div {
+                        display: none;
+                        position: absolute;
+                        top: 80px;
+                        right: 0;
+                        width: 200px;
+                    }
+
+                        #right-nav h4:hover div {
+                            display: block;
+                        }
+
+                        /* style */
+
+                        #right-nav h4 div h5 {
+                            display: block;
+                            background: #26272a;
+                        }
+
+                            #right-nav h4 div h5 a {
+                                display: block;
+                                padding: 20px;
+                            }
+
+                            #right-nav h4 div h5:last-of-type {
+                                background: #cd3232;
+                            }
+
+                                #right-nav h4 div h5 a i {
+                                    margin-right: 5px;
+                                }
+
+/*  ---------------------------  */
+/*  ----------CONTENT----------  */
+/*  ---------------------------  */
+
+/*  ----------PROJECT----------  */
+
+.project {
+    max-width: 25%;
+    min-width: 225px;
+    height: 225px;
+    position: relative;
+    display: inline-block;
+    background: #26272a;
+    margin: 50px 5px 10px 5px;
+}
+
+    .project a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+        .project img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .project a:hover:after {
+            position: absolute;
+            background: #000;
+            background: rgba(0,0,0,0.4);
+            bottom: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            color: #fff;
+            content: attr(title);
+            z-index: 2;
+            padding: 20px;
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    .project h4 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 4px 8px;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: -38px;
+        background-color: #26272a;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+/*  --------------------------  */
+/*  ----------FOOTER----------  */
+/*  --------------------------  */
+
+
+
+
+
+/*  ------------------------------  */
+/*  ----------RESPONSIVE----------  */
+/*  ------------------------------  */
+
+@media only screen and (max-width: 380px)
+{
+
+    /*  -------CONTAINERS-------  */
+
+    .feed {
+        margin: 100px auto 60px auto;
+    }
+
+    /*  -------HEADER-------  */
+
+    header {
+        height: 120px;
+    }
+
+        #logo {
+            margin-top: 41px;
+        }
+
+        /*  -------NAVIGATION-------  */
+
+        #left-nav, #right-nav {
+            min-width: 100px;
+        }
+
+            /* ----- First Tier ----- */
+
+            #left-nav h4, #right-nav h4 {
+                position: absolute;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 50%;
             }
 
-            #right-nav h4 div h5:last-of-type {
-                background: #cd3232;
-            }
+                #left-nav h4:last-of-type, #right-nav h4:last-of-type {
+                    bottom: 0;
+                    top: 50%;
+                }
 
-            #right-nav h4 div h5 a span {
-                line-height: 20px;
-            }
+                    #left-nav h4 > a, #right-nav h4 > a {
+                        line-height: 60px;
+                    }
 
-            #right-nav h4 div h5 a span i {
-                margin-right: 5px;
-            }
+                    /* ----- Second Tier ----- */
 
-            #right-nav h4:hover div {
-                display: inline-block;
-            }
-
-            /* style */
-
-            #right-nav h4 div h5 span {
-                
-            }
-
-
-
+                    #right-nav h4 div {
+                        top: 60px;
+                    }
+}
 

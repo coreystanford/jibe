@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8">
+  <!-- Info -->
   <title>PHP Project</title>
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- Icons -->
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-
+  <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
-
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 </head>
 	<body>
 		<header id="header" class="u-full-width" role=banner>
@@ -28,27 +29,15 @@
 			    </div>
 			    <div id="right-nav">
 		        	<h4><a href="#">Feed</a></h4>
-	                <h4>
+		            <h4>
 		                <a href="#">Profile<i class="fa fa-angle-down"></i></a>
 		                <div>
-		                	<h5><a href="#"><span><i class="fa fa-user"></i>View Profile<span></a></h5>
-		                	<h5><a href="#"><span><i class="fa fa-plus"></i>Add Project<span></a></h5>
-		                	<h5><a href="#"><span><i class="fa fa-sign-out"></i>Logout<span></a></h5>
+		                	<h5><a href="#"><i class="fa fa-user"></i>View Profile</a></h5>
+		                	<h5><a href="#"><i class="fa fa-plus"></i>Add Project</a></h5>
+		                	<h5><a href="#"><i class="fa fa-sign-out"></i>Logout</a></h5>
 		                </div>
-	                </h4>
-	                
-                </div>
+		            </h4>
+		            
+		        </div>
 			</nav><!-- END navigation -->
 		</header><!-- END header -->
-		<section role=main>
-			
-		</section><!-- END main section -->
-		<footer>
-			<div class="container">
-				
-			</div><!--END footer container-->
-		</footer><!-- END footer -->
-		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="js/logo.js"></script>
-	</body>
-</html>
