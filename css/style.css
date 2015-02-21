@@ -117,6 +117,12 @@ a {
     width: 100%;
 }
 
+.main-img {
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    width: 100%;   
+}
+
 .slim {
     margin: 0 auto;
     padding: 80px 0 100px 0;
@@ -206,7 +212,7 @@ header {
 
     /*  -------------LOGO-------------  */
 
-    #logo {
+    #logo, #logo-anon {
         position: absolute;
         left: 50%;
         margin-left: -60px;
@@ -215,7 +221,7 @@ header {
 
     }
 
-    #logo img {
+    #logo img, #logo-anon img {
         width: 100%;
     }
 
@@ -234,28 +240,37 @@ header {
         left: 0;
     }
 
-    #right-nav {
+    #right-nav, #right-nav-anon {
         right: 0;
+    }
+
+    #right-nav-anon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 20%;
+        min-width: 200px;
+        text-align: center;
     }
 
         /* ----- First Tier ----- */
 
-        #left-nav h4, #right-nav h4 {
+        #left-nav h4, #right-nav h4, #right-nav-anon h4 {
             position: absolute;
             top: 0;
             bottom: 0;
             width: 50%;
         }
 
-            #left-nav h4:first-of-type, #right-nav h4:first-of-type {
+            #left-nav h4:first-of-type, #right-nav h4:first-of-type, #right-nav-anon h4:first-of-type {
                 left: 0;
             }
 
-            #left-nav h4:last-of-type, #right-nav h4:last-of-type {
+            #left-nav h4:last-of-type, #right-nav h4:last-of-type, #right-nav-anon h4:last-of-type {
                 right: 0;
             }
 
-            #left-nav h4 > a, #right-nav h4 > a {
+            #left-nav h4 > a, #right-nav h4 > a, #right-nav-anon h4 > a {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -264,13 +279,18 @@ header {
                 line-height: 80px;
             }
 
-                #left-nav h4 a:hover, #right-nav h4 a:hover {
+                #left-nav h4 a:hover, #right-nav h4 a:hover, #right-nav-anon h4 a:hover {
                     background: #3e3e40;
                 }
 
                 #right-nav h4 > a i {
                     position: relative;
                     margin-left: 5px;
+                }
+
+                #right-nav-anon h4 > a i {
+                    position: relative;
+                    margin-right: 5px;
                 }
 
                     /* ----- Second Tier ----- */
@@ -312,6 +332,17 @@ header {
 /*  ---------------------------  */
 /*  ----------CONTENT----------  */
 /*  ---------------------------  */
+
+/* HOMEPAGE FEATURED IMAGE */
+
+.featured {
+    width: 100%;
+    background: url('../images/slide1.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    height: 600px;
+}
+
 
 /*  ----------FORMS----------  */
 
@@ -782,6 +813,15 @@ footer {
 
     }
 
+    @media only screen and (max-width: 525px)
+    {
+
+        #logo-anon {
+            left: 30%;
+        }
+
+    }
+
     @media only screen and (max-width: 390px)
     {
 
@@ -801,19 +841,19 @@ footer {
             height: 120px;
         }
 
-            #logo {
+            #logo, #logo-anon {
                 margin-top: 41px;
             }
 
             /*  -------NAVIGATION-------  */
 
-            #left-nav, #right-nav {
+            #left-nav, #right-nav, #right-nav-anon {
                 min-width: 100px;
             }
 
                 /* ----- First Tier ----- */
 
-                #left-nav h4, #right-nav h4 {
+                #left-nav h4, #right-nav h4, #right-nav-anon h4 {
                     position: absolute;
                     left: 0;
                     right: 0;
@@ -821,12 +861,12 @@ footer {
                     height: 50%;
                 }
 
-                    #left-nav h4:last-of-type, #right-nav h4:last-of-type {
+                    #left-nav h4:last-of-type, #right-nav h4:last-of-type, #right-nav-anon h4:last-of-type {
                         bottom: 0;
                         top: 50%;
                     }
 
-                        #left-nav h4 > a, #right-nav h4 > a {
+                        #left-nav h4 > a, #right-nav h4 > a, #right-nav-anon h4 > a {
                             line-height: 60px;
                         }
 

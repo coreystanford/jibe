@@ -1,8 +1,8 @@
 	<?php 
 
-	require 'model/formValidator.php';
-	require 'model/displayList.php';
-	include_once 'view/header.php'; 
+	require '../model/formValidator.php';
+	require '../model/displayList.php';
+	include_once '../view/header.php'; 
 
 	$templates = ["Standard", "Slider", "Extended"];
 
@@ -32,4 +32,4 @@
 
 	</section><!-- END main section -->
 	
-	<?php include_once 'view/footer.php'; ?>
+	<?php include_once '../view/footer.php'; ?>
