@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <!-- Info -->
-  <title>PHP Project</title>
+  <title>Jibe - CMS</title>
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Viewport -->
@@ -14,31 +14,23 @@
   <!-- Icons -->
   <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
   <!-- Style -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
 </head>
 	<body>
 		<div id="wrapper">
-		<header id="header" class="scrollup" role=banner>
-			<h1 class="outline">PHP Project</h1>
+		<header id="header" role=banner>
+
+			<h1 class="outline">Jibe Content Management System</h1>
+
 			<figure id="logo"><a href="#"><img src="../images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+
 			<nav id="nav" role="navigation">
-			    <div id="left-nav">
-			        <h4><a href="#">Explore</a></h4>
-			        <h4><a href="#">Jobs</a></h4>
-			    </div>
-			    <div id="right-nav">
-		        	<h4><a href="../feed">Feed</a></h4>
-		            <h4>
-		                <a href="#">Profile<i class="fa fa-angle-down"></i></a>
-		                <div>
-		                	<h5><a href="../profile"><i class="fa fa-user"></i>View Profile</a></h5>
-		                	<h5><a href="../add"><i class="fa fa-plus"></i>Add Project</a></h5>
-		                	<h5><a href="#"><i class="fa fa-sign-out"></i>Logout</a></h5>
-		                </div>
-		            </h4>
-		            
-		        </div>
+		        <h4><a href="#"><i class="fa fa-home"></i>Homepage</a></h4>
+		        <h4><a href="#" id="jobs"><i class="fa fa-th-large"></i>Categories</a></h4>
+	        	<h4><a href="#"><i class="fa fa-th-list"></i>Job Board</a></h4>
+	            <h4><a href="#"><i class="fa fa-users"></i>Profiles</i></a></h4>
+		    	<h4><a href="#"><i class="fa fa-briefcase"></i>Projects</a></h4>
 			</nav><!-- END navigation -->
 		</header><!-- END header -->

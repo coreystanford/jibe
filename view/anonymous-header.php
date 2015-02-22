@@ -10,9 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
   <!-- Icons -->
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
   <!-- Favicon -->

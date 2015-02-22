@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+/*  -------------------------  */
+/*  ----------RESET----------  */
+/*  -------------------------  */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public dosection)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a, a:hover {
+    text-decoration: none; 
+}
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/*  -------------------------  */
+/*  -----GENERAL STYLING-----  */
+/*  -------------------------  */
+
+html {
+    font-size: 1em;
+    line-height: 1.3;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+h1 { font-size: 30px; font-size: 1.875rem; line-height: 1.5; }
+h2 { font-size: 26px; font-size: 1.625rem; line-height: 1; }
+h3 { font-size: 22px; font-size: 1.375rem; line-height: 1.2; }
+h4 { font-size: 18px; font-size: 1.125rem; line-height: 1.125; }
+h5 { font-size: 16px; font-size: 1rem; line-height: 1.125; }
+h6 { font-size: 14px; font-size: 0.875rem; line-height: 1.125; }
+p { font-size: 16px; font-size: 1rem; line-height: 1.3; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    color: #e1e1e1;
+    background: #0f0f0f;
+    height: 100%;
+}
+
+/*  ----------CONTAINERS---------  */
+
+#wrapper {
+    height: 100%;
+    margin-bottom: -50px;
+}
+
+/*  ----------ACCESSIBILITY---------  */
+
+.skip, .outline {
+    left: -9999px;
+    position: absolute;
+}
+
+.off {
+    display: none;
+}
+
+/*  ----------CLEARFIX---------  */
+
+.clearfix:after {
+   content: " ";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+/*  ----EDIT, DELETE ICON BUTTONS-----  */
+
+.edit, .delete {
+    height: 40px;
+    width: 53px;
+    position: absolute;
+    background: #3e3e40;
+    text-align: center;
+}
+
+    .edit:hover, .delete:hover {
+        color: #3d8cd9;
+        cursor: pointer;
+    }
+
+/*  --------------------------  */
+/*  ----------HEADER----------  */
+/*  --------------------------  */
+
+header {
+    background: #26272a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 210px;
+}
+
+a {
+    color: #e1e1e1;
+}
+
+    /*  -------------LOGO-------------  */
+
+    #logo, #logo-anon {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        height: auto;
+        text-align: center;
+    }
+
+    #logo img {
+        width: 60%;
+    }
+
+    /*  ----------NAVIGATION----------  */
+
+    nav {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-align: left;
+    }
+
+        /* ----- First Tier ----- */
+
+        nav h4 {
+            position: relative;
+            display: block;
+            height: 50px;
+            line-height: 50px;
+
+        }
+
+            nav h4 a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding-left: 30px;
+            }
+
+                nav h4 a:hover {
+                    background: #3e3e40;
+                }
+
+                nav h4 a i {
+                    position: relative;
+                    margin-right: 10px;
+                }
+
+/*  -------------CONTENT-------------  */
+
+section {
+    margin-left: 230px;
+    padding: 20px;
+}
+
+/*  -------------FOOTER-------------  */
+
+footer {
+    position: relative;
+    height: 50px;
+    background: #26272a;
+    overflow: hidden;
+    z-index: 2;
+    color: #e1e1e1;
+    padding-left: 210px;
+}
+
+    footer p {
+        line-height: 50px;
+        margin-left: 5%;
+        float: left;
+        font-size: 14px;
+    }
+
+        footer a:hover {
+            color: #3d8cd9;
+        }
+
