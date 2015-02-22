@@ -154,7 +154,7 @@ a {
 
 .btn {
     border: none;
-    font-family: inherit;
+    font-family: 'Montserrat', sans-serif ;
     font-size: inherit;
     color: inherit;
     background: none;
@@ -172,8 +172,8 @@ a {
 }
 
     .link {
-        border: 3px solid #fff;
-        border-radius: 60px;
+        border: 2px solid #fff;
+        border-radius: 10px;
     }
 
         .link:hover {
@@ -333,7 +333,7 @@ header {
 /*  ----------CONTENT----------  */
 /*  ---------------------------  */
 
-/* HOMEPAGE FEATURED IMAGE */
+/* ANONYMOUS HOMEPAGE FEATURED IMAGE + PROMO */
 
 .featured {
     width: 100%;
@@ -342,6 +342,29 @@ header {
     background-position: 50%;
     height: 600px;
 }
+
+.jibe-msg {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -30%;
+    top: 50%;
+    text-align: center;
+    color: #fff;
+}
+
+    .jibe-msg h1 {
+        font-size: 2.5rem;
+    }
+
+    .jibe-msg h2 {
+        padding-bottom: 20px;
+    }
+
+    .jibe-msg a.link:hover {
+        color: #26272a;
+    }
 
 
 /*  ----------FORMS----------  */

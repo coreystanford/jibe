@@ -14,7 +14,7 @@
 				
 		</footer><!-- END footer -->
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="/jibe/js/logo-anon.js"></script>
-		<script type="text/javascript" src="/jibe/js/featured.js"></script>
+		<script type="text/javascript" src="/js/logo.js"></script>
+		<script type="text/javascript" src="/js/featured.js"></script>
 	</body>
 </html>
