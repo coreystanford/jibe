@@ -43,7 +43,7 @@
 				<ul class="tab-list">
 					<li class="active"><a class="tab-control" href="#tab-1">Projects</a></li>
 					<li><a class="tab-control" href="#tab-2">Activity</a></li>
-					<li><a class="tab-control" href="#tab-3">Messaging</a></li>
+					<li><a class="tab-control" href="#tab-3">Statistics</a></li>
 				</ul>
 				<div class="tab-panel active on" id="tab-1">
 					<div class="personal">
@@ -106,7 +106,7 @@
 					</div>
 				</div>
 				<div class="tab-panel on" id="tab-3">
-					<div class="messaging">
+					<div class="stats">
 						
 					</div>
 				</div>

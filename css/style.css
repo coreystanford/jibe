@@ -316,13 +316,8 @@ header {
                 line-height: 80px;
             }
 
-                #left-nav h4 a:hover, #right-nav h4 a:hover, #right-nav-anon h4 a:hover {
+                #left-nav h4 a:hover, #right-nav h4 a:hover, #right-nav-anon h4 a:hover, #messages:hover, #search:hover  {
                     background: #3e3e40;
-                }
-
-                #messages:hover, #search:hover {
-                    background: #3e3e40;
-                    color: #3d8cd9;
                 }
 
                 #right-nav h4 > a i {
@@ -781,7 +776,7 @@ input[type="radio"] {
 
                 /*  --TAB CONTAINERS--  */
 
-                .personal, .activity, .messaging {
+                .personal, .activity, .stats {
                     width: 100%;
                     text-align: center;
                     padding-bottom: 40px;
