@@ -8,7 +8,7 @@
 					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can."><img src="../images/web1.1.jpg" /></a>
 					<div class="info">
 						<img src="../images/profile1.jpg" class="user-profile" />
-						<span class="category" title="Photography"><i class="fa fa-camera fa-lg"></i></span>
+						<span class="category" title="Typography"><i class='fa fa-font fa-lg'></i></span>
 						<span class="approvals"><i class="fa fa-check"></i> 15</span>
 					</div>
 				</div>
@@ -26,7 +26,7 @@
 					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web3.1.jpg" /></a>
 					<div class="info">
 						<img src="../images/profile1.jpg" class="user-profile" />
-						<span class="category" title="Web Development"><i class="fa fa-sitemap fa-lg"></i></span>
+						<span class="category" title="Videography"><i class="fa fa-video-camera fa-lg"></i></span>
 						<span class="approvals"><i class="fa fa-check"></i> 300</span>
 					</div>
 				</div>

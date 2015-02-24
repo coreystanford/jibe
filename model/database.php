@@ -1,7 +1,7 @@
 <?php
 class Database {
 	
-    private static $dsn = 'mysql:host=jibe.wikiplay.ca;dbname=jibe';
+    private static $dsn = 'mysql:host=dodder.arvixe.com;dbname=jibe';
     private static $username = 'jibeuser';
     private static $password = 'jibe2015';
    //reference to db connection
@@ -27,4 +27,8 @@ class Database {
         return self::$db;
     }
 }
+
+$database = new Database;
+
+echo $database.getDB();
 ?>
