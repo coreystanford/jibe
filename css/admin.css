@@ -183,7 +183,6 @@ a {
             display: block;
             height: 50px;
             line-height: 50px;
-
         }
 
             nav h4 a {
@@ -203,6 +202,33 @@ a {
                     position: relative;
                     margin-right: 10px;
                 }
+
+    #go-to-site {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    #go-to-site a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding-left: 30px;
+    }
+
+    #go-to-site a:hover {
+        background: #3e3e40;
+    }
+
+    #go-to-site a i {
+        position: relative;
+        margin-right: 10px;
+    }
 
 /*  -------------CONTENT-------------  */
 
