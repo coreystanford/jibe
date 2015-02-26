@@ -19,7 +19,7 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
 </head>
 	<body>
-		<div id="wrapper">
+
 		<header id="header" role=banner>
 
 			<h1 class="outline">Jibe Content Management System</h1>

@@ -66,7 +66,6 @@ html {
     font-size: 1em;
     line-height: 1.3;
     overflow-x: hidden;
-    height: 100%;
 }
 
 h1 { font-size: 30px; font-size: 1.875rem; line-height: 1.5; }
@@ -83,14 +82,19 @@ body {
     overflow-x: hidden;
     color: #e1e1e1;
     background: #0f0f0f;
-    height: 100%;
 }
 
 /*  ----------CONTAINERS---------  */
 
-#wrapper {
-    height: 100%;
-    margin-bottom: -50px;
+section {
+    margin-left: 230px;
+    padding: 20px;
+}
+
+.main-admin {
+    padding: 25px 25px 50px;
+    width: 750px;
+    margin: 0 auto;
 }
 
 /*  ----------ACCESSIBILITY---------  */
@@ -202,10 +206,172 @@ a {
 
 /*  -------------CONTENT-------------  */
 
-section {
-    margin-left: 230px;
-    padding: 20px;
+
+/* ----HOMEPAGE---- */
+
+#featured-info {
+    padding: 20px 0;
+    position: relative;
 }
+
+    #main-heading, #sub-heading, #btn-link-txt, #btn-link {
+        display: inline-block;
+        width: 48%;
+    }
+
+        #featured-info h3 {
+            padding: 5px 0;
+        }
+        #featured-info h4 {
+            padding: 10px 15px;
+        }
+
+    #featured-info > a.edit {
+        height: auto;
+        width: auto;
+        top: 0;
+        right: 45px;
+        line-height: 30px;
+        padding: 0 10px;
+    }
+
+        #featured-info > a.edit i {
+            margin-right: 8px;
+        }
+
+#featured-img {
+    width: 700px;
+    padding: 20px 0 40px;
+    position: relative;
+}
+
+    #featured-img img {
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    #featured-img > a.edit {
+            height: auto;
+            width: auto;
+            bottom: 60px;
+            right: 35px;
+            line-height: 30px;
+            padding: 0 10px;
+        }
+
+            #featured-img > a.edit i {
+                margin-right: 8px;
+            }
+
+.featured-proj {
+    position: relative;
+}
+
+    .featured-proj > a.edit {
+        height: auto;
+        width: auto;
+        top: 5px;
+        right: 55px;
+        line-height: 30px;
+        padding: 0 10px;
+    }
+
+    .feature {
+        max-width: 25%;
+        min-width: 225px;
+        height: 225px;
+        position: relative;
+        display: inline-block;
+        background: #26272a;
+        margin: 40px 5px 10px 5px;
+    }
+
+        .feature a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+            .feature img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
+            }
+
+                /* -- DESCRIPTION HOVER (TOOLTIP) -- */
+
+                .feature > a:hover:after {
+                    position: absolute;
+                    background: #000;
+                    background: rgba(0,0,0,0.4);
+                    bottom: 0;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    color: #fff;
+                    content: attr(title);
+                    z-index: 2;
+                    padding: 20px;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+        .info {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: -40px;
+            background-color: #26272a;
+        }
+
+            .info img.user-profile {
+                height: 40px;
+                width: 53px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .info span.category {
+                height: 40px;
+                width: 53px;
+                position: absolute;
+                top: 0;
+                left: 53px;
+                text-align: center;
+                background: #3e3e40;
+            }
+
+            .user-profile {
+                height: 40px;
+                width: 53px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+                .info span.approvals {
+                    height: 40px;
+                    width: 118px;
+                    position: absolute;
+                    top: 0;
+                    left: 53px;
+                    text-align: center;
+                }
+
+                .feature a.delete {
+                    top: 0;
+                    left: 171px;
+                }
+
 
 /*  -------------FOOTER-------------  */
 

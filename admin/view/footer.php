@@ -1,5 +1,5 @@
 
-		</div>
+
 		<footer class="clearfix">
 
 			<p>&copy;<?php echo date('Y'); ?> JIBE | All Rights Reserved</p>

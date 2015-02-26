@@ -110,6 +110,16 @@ a {
     text-align: center;
 }
 
+.home-feed {
+    margin: 0 auto;
+    width: 90%;
+    padding: 20px 0 70px 0;
+    text-align: center;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
 .main {
     margin: 0 auto;
     padding: 80px 0 100px 0;
@@ -379,6 +389,7 @@ header {
     background-size: cover;
     background-position: 50%;
     height: 600px;
+    position: relative;
 }
 
 .jibe-msg {
@@ -387,7 +398,7 @@ header {
     position: absolute;
     left: 50%;
     margin-left: -30%;
-    top: 50%;
+    top: 25%;
     text-align: center;
     color: #fff;
 }
@@ -403,6 +414,69 @@ header {
     .jibe-msg a.link:hover {
         color: #26272a;
     }
+
+#seeFeed {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 50%;
+    border: 2px solid #e1e1e1;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: -100px;
+}
+
+#seeFeed:hover {
+    color: #fff;
+}
+
+.home-project {
+    max-width: 25%;
+    min-width: 225px;
+    height: 225px;
+    position: relative;
+    display: inline-block;
+    background: #26272a;
+    margin: 0;
+}
+
+    .home-project a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+        .home-project img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+        }
+
+            /* -- DESCRIPTION HOVER (TOOLTIP) -- */
+
+            .home-project > a:hover:after {
+                position: absolute;
+                background: #000;
+                background: rgba(0,0,0,0.4);
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
+                color: #fff;
+                content: attr(title);
+                z-index: 2;
+                padding: 20px;
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
 
 /*  ----------FORMS----------  */
