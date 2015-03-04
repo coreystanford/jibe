@@ -144,6 +144,7 @@ header {
     left: 0;
     bottom: 0;
     min-width: 210px;
+    z-index: 3;
 }
 
 a {
