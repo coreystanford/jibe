@@ -1,4 +1,5 @@
 <?php
+
 class Database {
 	
     private static $dsn = 'mysql:host=dodder.arvixe.com;dbname=jibe';
@@ -28,7 +29,4 @@ class Database {
     }
 }
 
-$database = new Database;
-
-echo $database.getDB();
 ?>

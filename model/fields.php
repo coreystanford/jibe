@@ -35,11 +35,12 @@ class Field {
 	public function getHTML(){
 		$message = htmlspecialchars($this->message);
 		if($this->hasError()){
-			return "<span class='error'> " . $message . '</span>';
+			return "<span class='error'>" . $message . '</span>';
 		} else {
-			return "<span> " . $message . "</span>";
+			return "<span>" . $message . "</span>";
 		}
 	}
+
 }
 
 class Fields {
@@ -62,6 +63,26 @@ class Fields {
 			}
 		}
 		return false;
+	}
+
+	public function getSummary($array){
+		$summary = null;
+		$summary .= "<ul>";
+		foreach($array as $key=>$value){
+    		if(is_array($value)){
+    			$summary .= "<ul>";
+		           foreach ($value as $in){
+		                $summary .= "<li>".$in."</li>";
+		           }
+	           $summary .= "</ul>";
+    		}
+    		else
+    		{
+    			$summary .= "<li>".$value."</li>";
+    		}
+    	}
+    	$summary .= "</ul";
+    	return $summary;  
 	}
 
 }

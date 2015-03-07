@@ -1,7 +1,6 @@
 	<?php 
 
-	require '../model/formValidator.php';
-	require '../model/displayList.php';
+	require '../model/functions.php';
 	include_once '../view/header.php'; 
 
 	$templates = ["Standard", "Slider", "Extended"];
