@@ -88,7 +88,7 @@
 
                 // ------ Deny - Reshow form (with values) ------ //
 
-                $categoryList = Lists::getCategories();
+                $categoryList = Lists::getCategoryTitles();
                 include 'form.php';
 
             } else {

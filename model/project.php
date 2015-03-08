@@ -4,7 +4,7 @@ class Project {
 
 	private $proj_id, $user_id, $cat_id, $title, $desc, $thumb, $date, $featured;
 
-	public function __construct($user_id, $cat_id, $title, $desc, $thumb, $date, $featured){
+	public function __construct($user_id, $cat_id, $title, $desc, $thumb, $date, $featured = 0){
 		$this->user_id = $user_id;
 		$this->cat_id = $cat_id;
 		$this->title = $title;
