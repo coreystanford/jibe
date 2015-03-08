@@ -2,7 +2,7 @@
 
 class Lists {
 
-	public static function getCategories() {
+	public static function getCategoryTitles() {
 
         $db = Database::getDB();
 
@@ -19,8 +19,6 @@ class Lists {
 
         return $categories;
     }
-
-
 
 
 }

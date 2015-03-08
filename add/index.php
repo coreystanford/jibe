@@ -18,10 +18,10 @@
 			<form method="post" action="" class="add-project">
 				
 				<label for="cat-dropdown" class="bold-labels">Select a Category: </label>
-				<?php displayList("cat-dropdown", $categories, "dropdown"); ?>
+				<?php echo displayList("cat-dropdown", $categories, "dropdown"); ?>
 
 				<label for="template-radios" class="bold-labels">Choose a Template: </label>
-				<?php displayList("template-radios", $templates, "radio"); ?>
+				<?php echo displayList("template-radios", $templates, "radio"); ?>
 
 				
 

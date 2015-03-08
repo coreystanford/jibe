@@ -51,7 +51,7 @@
 
         case 'default':
 
-            $categoryList = Lists::getCategories();
+            $categoryList = Lists::getCategoryTitles();
             include 'form.php';
 
         break;
