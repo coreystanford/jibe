@@ -21,10 +21,10 @@ class JobDB {
         
         foreach ($result as $row) {
             $category = new Category(
-                    $row['cat_id'], 
                     $row['cat_title'],
                     $row['cat_description'],
                     $row['cat_icon']);
+            $category->setID($row['cat_id']);
             $user = new User(
                     $row['fname'],
                     $row['lname'],
@@ -36,6 +36,7 @@ class JobDB {
                     $row['specialty'],
                     $row['email']
                     );
+            $user->setID($row['user_id']);
             $job = new Job(
                     $user,
                     $category, 

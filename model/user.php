@@ -31,7 +31,7 @@ class User {
         return $this->fname = $value;
     }
 
-    public function getLName()) {
+    public function getLName() {
         return $this->lname;
     }
 
@@ -63,7 +63,7 @@ class User {
         return $this->website = $value;
     }
 
-    public function getImgURL()) {
+    public function getImgURL() {
         return $this->img_url;
     }
 
