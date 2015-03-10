@@ -42,7 +42,7 @@ function displayList($name, $array, $type = ""){
                 $result .= '<input type="radio" name="' . $name . '" value="' . $value . '"  />' . $value;
             }
         }
-        echo $result;
+        return $result;
 
     } else if($type == 'radiolist'){
 

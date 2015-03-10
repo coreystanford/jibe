@@ -133,6 +133,40 @@ section {
         cursor: pointer;
     }
 
+/*  ----------FORMS----------  */
+
+.labels {
+    display: block;
+    padding: 10px 0;
+}
+
+.bold-labels {
+    font-weight: 700;
+    display: block;
+    padding: 10px 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 10px 6px 10px 15px;
+}
+
+.error {
+    padding: 2px 5px;
+    font-size: 0.875rem;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: #3d8cd9;
+    margin-left: 7px;
+    margin-top: 2px;
+}
+
+    .error i {
+        padding-right: 4px;
+        font-size: 0.85rem;
+        font-size: 13px;
+    }
+
 /*  --------------------------  */
 /*  ----------HEADER----------  */
 /*  --------------------------  */
