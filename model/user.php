@@ -8,11 +8,11 @@ class User {
 		$this->fname = $fname;
 		$this->lname = $lname;
 		$this->city = $city;
-        $this->country = $country;
-        $this->website = $website;
-        $this->img_url = $img_url;
-        $this->bio = $bio;
-        $this->specialty = $specialty;
+                $this->country = $country;
+                $this->website = $website;
+                $this->img_url = $img_url;
+                $this->bio = $bio;
+                $this->specialty = $specialty;
 	}
 
 	public function getID() {

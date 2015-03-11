@@ -1,30 +1,18 @@
 <?php include '../view/header.php'; ?>
-<div id="main">
-<!--    <div id="sidebar">
-        <h1>Authors</h1>
-        <ul class="nav">
-             display links for all categories 
-            <?php // foreach($authors as $author) : ?>
-            <li>
-                <a href="?author_id=<?php // echo $author->getID(); ?>">
-                    <?php // echo $author->getName(); ?>
-                </a>
-            </li>
-            <?php // endforeach; ?>
-        </ul>
-    </div>-->
-    <div id="content">
+<section role=main>
+			
+    <div class="slim clearfix">
         
-        <div id="left_column">
+        <div class="left-column clearfix">
             <p>
                 <img src="<?php echo $job_listing->getJobLogoUrl(); ?>"
-                    alt="<?php echo $job_listing->getJobCompany(); ?>" />
+                     alt="<?php echo $job_listing->getJobCompany(); ?>" class="job-logo-url" />
             </p>
         </div>
 
-        <div id="right_column">
+        <div class="right-column clearfix">
             <h1><?php echo $job_listing->getJobTitle();?></h1>
-             <p>Listed by<?php  echo " by " . $job_listing->getUser()->getName(); ?></p>
+             <p>Listed by<?php  echo " by " . $job_listing->getUser()->getFName() . " " . $job_listing->getUser()->getLName()  ; ?></p>
             <p><b>Date created:</b> <?php echo $job_listing->getJobDate(); ?></p>
             <p><b>Description:</b> <?php echo $job_listing->getJobDescription(); ?></p>
 <!--            
@@ -38,5 +26,5 @@
             </form>-->
         </div>
     </div>
-</div>
+</section>
 <?php include '../view/footer.php'; ?>

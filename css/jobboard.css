@@ -1,0 +1,43 @@
+/* 
+    Created on : 10-Mar-2015, 6:37:49 PM
+    Author     : ILecoche
+*/
+
+/*  ----------CONTAINERS---------  */
+
+.left-column {
+    margin: 0 10px;
+    padding: 60px 0 100px 0;
+    width: 28%;
+    width: calc(30% - 20px);
+    float: left;
+    display: table-cell;
+}
+
+.right-column {
+    margin: 0 10px;
+    width: 68%;
+    width: calc(70% - 20px);
+    padding: 20px 0 70px 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    float: right;
+    display: table-cell;
+}
+
+.job-logo-url {
+    width: 98%;
+    margin: 10px 1%;
+}
+
+.job-drop-down {
+    margin: 10px 0;
+}
+
+.job-inline-button {
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+

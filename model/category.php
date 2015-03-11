@@ -2,15 +2,15 @@
 
 class Category {
 
-	private $id, $title, $desc, $icon;
+    private $id, $title, $desc, $icon;
 
-	public function __construct($title, $desc = '', $icon = '<i class="fa fa-question"></i>'){
+    public function __construct($title, $desc = '', $icon = '<i class="fa fa-question"></i>'){
 		$this->title = $title;
 		$this->desc = $desc;
 		$this->icon = $icon;
 	}
 
-	public function getID() {
+    public function getID() {
         return $this->id;
     }
 

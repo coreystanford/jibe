@@ -5,6 +5,10 @@ require('../model/user.php');
 require('../model/job.php');
 require('../model/jobDB.php');
 
+$cities = JobDB::getCitiesList();
+$countries = JobDB::getCountriesList();
+$categories = JobDB::getCategoriesList();
+
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
 } else if (isset($_GET['action'])) {
@@ -14,17 +18,24 @@ if (isset($_POST['action'])) {
 }
 
 if ($action == 'list_jobs') {
-    if(!isset($_GET['cat_id'])) {
-        $cat_id = 1;
-    }else
+    if(!isset($_POST['submitfilter'])) {
+        $jobs = JobDB::getJobs();
+    }
+    elseif(isset($_POST['resetfilter'])) {
+        $jobs = JobDB::getJobs();
+    }
+    else
     {
-       $cat_id = $_GET['cat_id'];   
+        $job_cat = $_POST['categories'];
+        $job_city = $_POST['cities'];
+        $job_country = $_POST['countries'];
+        $jobs = JobDB::getJobByFilter($job_cat, $job_city, $job_country);
     }
 
     //$current_category = CategoryDB::getCategoryById($cat_id);
     //$categories = CategoryDB::getCategories();
     //$jobs = JobDB::getJobsByCategory($cat_id);
-    $jobs = JobDB::getJobs();
+    //$jobs = JobDB::getJobs();
 
     include('job_list.php');
 } else if ($action == 'view_job') {
