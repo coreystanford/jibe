@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
   <!-- Info -->
   <title>PHP Project</title>
   <meta name="description" content="">
@@ -15,6 +17,7 @@
   <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
   <!-- Style -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/jobboard.css">
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
 </head>
@@ -22,11 +25,11 @@
 		<div id="wrapper">
 		<header id="header" class="scrollup" role=banner>
 			<h1 class="outline">PHP Project</h1>
-			<figure id="logo"><a href="#"><img src="../images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+                        <figure id="logo"><a href="#"><img src="/images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 			<nav id="nav" role="navigation">
 			    <div id="left-nav">
 			        <h4><a href="#">Explore</a></h4>
-			        <h4><a href="#" id="jobs">Jobs</a></h4>
+			        <h4><a href="../job-board" id="jobs">Jobs</a></h4>
 			        <a href="#" id="messages"><i class="fa fa-envelope-o"></i></a>
 			    </div>
 			    <div id="right-nav">
