@@ -2,7 +2,7 @@
 
 class User {
 
-	private $id, $fname, $lname, $city, $country, $website, $img_url, $bio, $specialty;
+	private $id, $fname, $lname, $city, $country, $website, $img_url, $bio, $specialty, $email;
 
 	public function __construct($fname, $lname, $city = '', $country = '', $website = '', $img_url = '', $bio = '', $specialty = ''){
 		$this->fname = $fname;
@@ -85,6 +85,14 @@ class User {
 
     public function setSpecialty($value) {
         return $this->specialty = $value;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function setEmail($value) {
+        return $this->email = $value;
     }
 
 }

@@ -14,27 +14,27 @@ class Project {
 		$this->featured = $featured;
 	}
 
-	public function getProjID() {
+	public function getID() {
         return $this->proj_id;
     }
 
-    public function setProjID($value) {
+    public function setID($value) {
         return $this->proj_id = $value;
     }
 
-    public function getUserID() {
+    public function getUser() {
         return $this->user_id;
     }
 
-    public function setUserID($value) {
+    public function setUser($value) {
         return $this->user_id = $value;
     }
 
-    public function getCatID() {
+    public function getCat() {
         return $this->cat_id;
     }
 
-    public function setCatID($value) {
+    public function setCat($value) {
         return $this->cat_id = $value;
     }
 

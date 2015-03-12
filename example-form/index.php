@@ -1,6 +1,6 @@
 <?php 
     require_once '../model/database.php';
-    require_once '../model/form_db.php';
+    require_once '../model/formDB.php';
     require_once '../model/fields.php';
     require_once '../model/validate.php';
     include '../model/functions.php';
