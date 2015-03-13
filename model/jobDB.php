@@ -68,7 +68,7 @@ class JobDB {
         
     }
     
-     public static function getCountriesList(){
+    public static function getCountriesList(){
         $db = Database::getDB();
         $query = "SELECT DISTINCT job_country FROM job_board "
                 . "ORDER BY job_country";
@@ -80,11 +80,12 @@ class JobDB {
                     $countries[] = $row['job_country'];
                 }
 
-        return $countries;
+    return $countries;
         
     }
     
-    public static function getCategoriesList(){
+
+    public static function getCategoriesWithJobs(){
         $db = Database::getDB();
         $query = "SELECT DISTINCT job_board.cat_id, cat_title FROM job_board "
                 . "JOIN category ON job_board.cat_id = category.cat_id "
@@ -101,7 +102,6 @@ class JobDB {
         return $categories;
         
     }
-
 
     public static function getJobByFilter($cat, $city, $country){
         $db = Database::getDB();
@@ -142,7 +142,7 @@ class JobDB {
 
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);        
-        //var_dump($result);
+
         $jobs = array();
         
         foreach ($result as $row) {
@@ -162,6 +162,7 @@ class JobDB {
                     $row['specialty']
                     );
             $user->setID($row['user_id']);
+            //$user->setEmail($row['email']);
             $job = new Job(
                     $user,
                     $category, 
@@ -234,7 +235,14 @@ class JobDB {
     public static function addJob($job){
         $db = Database::getDB();
         $user_id = $job->getUser()->getID();
-        $cat_id = $job->getCategory()->getID();
+        $cat_id = $job->getJobCategory()->getID();
+        $job_title = $job->getJobTitle();
+        $job_description = $job->getJobDescription();
+        $job_company = $job->getJobCompany();
+        $logo_url = $job->getLogoUrl();
+        $job_city = $job->getJobCity();
+        $job_country = $job->getJobCountry();
+        $job_date = $job->getJobDate();
        // $fname = $job->fname;
        // $lname = $job->lname;
         
@@ -251,13 +259,13 @@ class JobDB {
                     VALUES(
                         '$user_id',
                         '$cat_id',
-                        '$job->getJobTitle()',
-                        '$job->getJobDescription()',
-                        '$job->getJobCompany()',
-                        '$job->getLogoUrl()',
-                        '$job->getJobCity()',
-                        '$job->getJobCountry()',
-                        '$job->getJobDate()'
+                        '$job_title',
+                        '$job_description',
+                        '$job_company',
+                        '$logo_url',
+                        '$job_city',
+                        '$job_country',
+                        '$job_date'
                         )";
         $stm = $db->prepare($query);
         $row_count = $stm->execute();

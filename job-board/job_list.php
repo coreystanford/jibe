@@ -59,19 +59,7 @@
        </div>
 
         <div class="right-column clearfix">   
-    <h1>Jobs</h1>
-<!--        <ul class="nav">
-             display links for all categories 
-            <?php // foreach($categories as $category) : ?>
-            <li>
-                <a href="?cat_id=<?php // echo $category->getID(); ?>">
-                    <?php // echo $category->getTitle(); ?>
-                </a>
-            </li>
-            <?php // endforeach; ?>
-        </ul>-->
-
-<!--        <h1><?php // echo $current_author->getName(); ?></h1>-->
+    <h1>Current listings</h1>
         <ul class="nav">
             <?php foreach ($jobs as $job) : ?>
             <li>

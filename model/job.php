@@ -54,7 +54,7 @@ class Job {
         return $this->job_company;
     }
     
-    public function getJobLogoUrl(){
+    public function getLogoUrl(){
         return $this->logo_url;
     }
     
@@ -67,7 +67,8 @@ class Job {
     }
     
     public function getJobDate(){
-        return $this->job_date;
+        $date = new DateTime($this->job_date);
+        return $date->format('Y-m-d');
     }
     
     

@@ -5,7 +5,7 @@
         
         <div class="left-column clearfix">
             <p>
-                <img src="<?php echo $job_listing->getJobLogoUrl(); ?>"
+                <img src="<?php echo $job_listing->getLogoUrl(); ?>"
                      alt="<?php echo $job_listing->getJobCompany(); ?>" class="job-logo-url" />
             </p>
         </div>

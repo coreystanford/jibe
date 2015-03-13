@@ -25,7 +25,7 @@ class Content {
         return $this->proj_id = $value;
     }
 
-    public function getContent()) {
+    public function getContent() {
         return $this->content;
     }
 
