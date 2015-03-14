@@ -8,9 +8,13 @@ require('../model/job.php');
 require('../model/jobDB.php');
 require('../model/file_upload.php');
 
-$cities = JobDB::getCitiesList();
-$countries = JobDB::getCountriesList();
-$categories = JobDB::getCategoriesWithJobs();
+// current user id
+$user_id = 1;
+
+$current_user = userDB::getUserById($user_id);
+//$cities = JobDB::getCitiesList();
+//$countries = JobDB::getCountriesList();
+$allcategories = CategoryDB::getCategories();
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -21,32 +25,51 @@ if (isset($_POST['action'])) {
 }
 
 if ($action == 'list_jobs') {
-    if(!isset($_POST['submitfilter'])) {
-        $jobs = JobDB::getJobs();
-    }
-    elseif(isset($_POST['resetfilter'])) {
-        $jobs = JobDB::getJobs();
-    }
-    else
-    {
-        $job_cat = $_POST['categories'];
-        $job_city = $_POST['cities'];
-        $job_country = $_POST['countries'];
-        $jobs = JobDB::getJobByFilter($job_cat, $job_city, $job_country);
-    }
-
-    include('job_list.php');
-} else if ($action == 'view_job') {
+    $jobs = JobDB::getJobs($user_id);
+    include('myjob_list.php');
+} else if ($action == 'edit_job') {
    // $categories = CategoryDB::getCategories();
     $job_id = $_GET['job_id'];
     $job_listing = JobDB::getJobById($job_id);
     //echo $job_listing['job']->getJobTitle();
     //var_dump($job_listing);
-    include('job_view.php');
+    //job_add input validation goes here
+        $job_date = $job_listing->getJobDate();
+        $job_cat = $job_listing->getJobCategory()->getID();
+        $job_title = $job_listing->getJobTitle();
+        $job_description = $job_listing->getJobDescription();
+        $job_city = $job_listing->getJobCity();
+        $job_country = $job_listing->getJobCountry();
+        $job_company = $job_listing->getJobCompany();
+        $job_logo = $job_listing->getLogoUrl();
+ 
+    include('myjob_edit.php');
+    if(isset($_POST['submitjob'])) {
+        $user_id = $_POST['user_id'];
+        $job_date = $_POST['job_date'];
+        $job_cat = $_POST['job_cat'];
+        $job_title = $_POST['job_title'];
+        $job_description = $_POST['job_description'];
+        $job_city = $_POST['job_city'];
+        $job_country = $_POST['job_country'];
+        $job_company = $_POST['job_company'];
+        $job_logo = $_POST['job_logo'];
+        
+        
+    }
+
+} else if ($action == 'delete_job') {
+        $job_id = $_POST['job_id'];
+    
+        if (JobDB::deleteJob($job_id) != 1) {
+            echo "error";
+        } else {
+            echo "Success!";
+        }
+    $jobs = JobDB::getJobs($user_id);
+    include('myjob_list.php');    
 } else if ($action == 'add_job') {
     
-    $allcategories = CategoryDB::getCategories();
-    $user_id = 1;
     $job_title = '';
     $job_description = '';
     $job_city = '';
@@ -62,6 +85,8 @@ if ($action == 'list_jobs') {
     if(isset($_POST['submitjob'])) {
             
     //job_add input validation goes here
+        
+        
         $user_id = $_POST['user_id'];
         $job_date = $_POST['job_date'];
         $job_cat = $_POST['job_cat'];
@@ -72,7 +97,7 @@ if ($action == 'list_jobs') {
         $job_company = $_POST['job_company'];
  
         
-//DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
+    //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
         //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");
         //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION);
     // convert Job Title into file name - conversion function found here
@@ -94,10 +119,13 @@ if ($action == 'list_jobs') {
     
         include('job_posted.php');
     }
+    
+    
     elseif(isset($_POST['resetjob'])) {
         
         include('job_add.php');
     }
+    
     else {
         
         include('job_add.php');

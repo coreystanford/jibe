@@ -7,14 +7,22 @@
  * @author ILecoche
  */
 class JobDB {
-    
-    public static function getJobs(){
+
+//  getting a complete list of jobs with categories and users associated with them
+//  optional parameter also lets pick jobs posted by current user
+    public static function getJobs($user_id = 'all'){
         $db = Database::getDB();
         $query = "SELECT * FROM job_board "
                 . "JOIN category ON job_board.cat_id = category.cat_id "
                 . "JOIN users ON job_board.user_id = users.user_id "
                 . "JOIN user_info ON users.user_id = user_info.user_id";
+        if(!($user_id == 'all')) {
+            $query .= " WHERE job_board.user_id = :user_id";
+        }
         $stm = $db->prepare($query);
+        if(!($user_id == 'all')) {
+            $stm->bindParam(":user_id", $user_id, PDO::PARAM_STR);
+        }
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         $jobs = array();
@@ -36,6 +44,7 @@ class JobDB {
                     $row['specialty']
                     );
             $user->setID($row['user_id']);
+            $user->setEmail($row['email']);
             $job = new Job(
                     $user,
                     $category, 
@@ -51,7 +60,7 @@ class JobDB {
         }
         return $jobs;
     }
-    
+// getting list of cities that have jobs listed on Job Board    
     public static function getCitiesList(){
         $db = Database::getDB();
         $query = "SELECT DISTINCT job_city FROM job_board "
@@ -67,7 +76,7 @@ class JobDB {
         return $cities;
         
     }
-    
+// getting list of countries with jobs listed on Job Board    
     public static function getCountriesList(){
         $db = Database::getDB();
         $query = "SELECT DISTINCT job_country FROM job_board "
@@ -84,7 +93,7 @@ class JobDB {
         
     }
     
-
+// getting categories that have jobs listed on Job Board
     public static function getCategoriesWithJobs(){
         $db = Database::getDB();
         $query = "SELECT DISTINCT job_board.cat_id, cat_title FROM job_board "
@@ -102,7 +111,7 @@ class JobDB {
         return $categories;
         
     }
-
+// getting jobs filtered by category, city and/or country
     public static function getJobByFilter($cat, $city, $country){
         $db = Database::getDB();
         $query = "SELECT * FROM job_board "
@@ -162,7 +171,7 @@ class JobDB {
                     $row['specialty']
                     );
             $user->setID($row['user_id']);
-            //$user->setEmail($row['email']);
+            $user->setEmail($row['email']);
             $job = new Job(
                     $user,
                     $category, 
@@ -178,7 +187,8 @@ class JobDB {
         }
         return $jobs;
     }
-    
+
+// getting a job based on job_id parameter    
     public static function getJobById($job_id){
         $db = Database::getDB();
        $query = "SELECT * FROM job_board "
@@ -218,11 +228,11 @@ class JobDB {
                     $row['job_date']);
             $job->setID($row['job_id']);
             
-            //$job_listing = array("category" => $category, "user" => $user, "job" => $job);
 
         return $job;
     }
-    
+
+// deleting a job based on parameter job_id    
     public static function deleteJob($job_id){
         $db = Database::getDB();
         $query = "DELETE FROM job_board WHERE job_id = :id";
@@ -231,7 +241,8 @@ class JobDB {
         $row_count = $stm->execute();
         return $row_count;
     }
-    
+
+// adding new job based oon parameter (Job object)
     public static function addJob($job){
         $db = Database::getDB();
         $user_id = $job->getUser()->getID();
@@ -243,8 +254,6 @@ class JobDB {
         $job_city = $job->getJobCity();
         $job_country = $job->getJobCountry();
         $job_date = $job->getJobDate();
-       // $fname = $job->fname;
-       // $lname = $job->lname;
         
         $query = "INSERT INTO job_board
                    (user_id,
@@ -272,6 +281,5 @@ class JobDB {
         return $row_count;
                          
     }
-    
     
 }
