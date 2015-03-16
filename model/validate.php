@@ -2,17 +2,21 @@
 
 // -- Index -- //
 
-//  pattern(4-5) - Generic Regex Validation
-//  filter(4-5) - Generic PHP Validation Filters
-//  text(2-5) - Text Fields
-//    lists(2) - Dropdown, Radio, Multiple, Checkboxes
-//    range(4-5) - Ranges
-//    name(2-3) - Name Regex
-//    phone(2-3) - Phone Numbers Regex
-//    address(2-3) - Address Regex
-//    postal(2-3) - Postal Code Regex
-//    email(2-3) - Email Filter
-//    url(2-3) - URL Filter
+// -- A -- pattern(4-5) - Generic Regex Validation
+// -- B -- filter(4-5) - Generic PHP Validation Filters
+// -- C -- text(2-5) - Text Fields
+//      -- 1 -- lists(2) - Dropdown, Radio, Multiple, Checkboxes
+//      -- 2 -- range(4-5) - Ranges
+//      -- 3 -- username(2-3) - Username Regex
+//      -- 4 -- password(2-3) - Password Regex
+//	    -- 5 -- confirmPassword(3-4) - Confirm Password
+//      -- 6 -- name(2-3) - Name Regex
+//      -- 7 -- phone(2-3) - Phone Numbers Regex
+//      -- 8 -- address(2-3) - Address Regex
+//      -- 9 -- postal(2-3) - Postal Code Regex
+//      -- 10 -- slug(2-3) - Slug Regex
+//      -- 11 -- email(2-3) - Email Filter
+//      -- 12 -- url(2-3) - URL Filter
 
 class Validate {
 
@@ -26,6 +30,7 @@ class Validate {
 		return $this->fields;
 	}
 
+	// -- A --//
 	// ------ Generic Regex Validation ------ //
 
 	public function pattern($name, $value, $pattern, $message, $required = true){
@@ -48,6 +53,7 @@ class Validate {
 
 	}
 
+	// -- B --//
 	// ------ Generic PHP Validation Filters ------ //
 
 	public function filter($name, $value, $filter, $message, $required = true){
@@ -67,6 +73,7 @@ class Validate {
 
 	}
 
+	// -- C --//
 	// ------ Text Fields ------ //
 
 	public function text($name, $value, $required = true, $min = 1, $max = 255) {
@@ -90,7 +97,9 @@ class Validate {
 
 	}
 
-	// ------ Lists - Dropdown (default as 'Select'), Radio, Multiple, Checkbox ------ //
+	// -- 1 --//
+	// ------ Lists - Dropdown (default as 'Select'), 
+	//		  Radio, Multiple, Checkbox ------ //
 
 	public function lists($name, $value) {
 
@@ -104,6 +113,7 @@ class Validate {
 
 	}
 
+	// -- 2 --//
 	// ------ Ranges ------ //
 
 	public function range($name, $value, $min, $max, $required = true){
@@ -127,6 +137,90 @@ class Validate {
 
 	}
 
+	// -- 3 --//
+	// ------ Username Regex ------ //
+
+	public function username($name, $value, $required = true){
+
+		$field = $this->fields->getField($name);
+
+		$this->text($name, $value, $required);
+		if($field->hasError()){
+			return;
+		}
+
+		$pattern = "/^[a-z0-9_-]{3,16}$/";
+
+		//Source http://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149
+
+		$message = "Invalid Username";
+
+		$this->pattern($name, $value, $pattern, $message, $required);
+
+	}
+
+	// -- 4 --//
+	// ------ Password Regex ------ //
+
+	// 		8 characters
+	//		at least one letter
+	//		at least one number
+	//		at least one special character
+
+	public function password($name, $value, $required = true){
+
+		$field = $this->fields->getField($name);
+
+		$this->text($name, $value, $required);
+		if($field->hasError()){
+			return;
+		}
+
+		$pattern = "/^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? ']).*$/";
+
+			// ^.*              : Start
+			// (?=.{8,})        : Length
+			// (?=.*[a-zA-Z])   : Letters
+			// (?=.*\d)         : Digits
+			// (?=.*[!#$%&? "]) : Special characters
+			// .*$              : End
+
+			// Source http://stackoverflow.com/questions/2370015/regular-expression-for-password-validation
+
+		$message = "Invalid Password";
+
+		$this->pattern($name, $value, $pattern, $message, $required);
+
+	}
+
+	// -- 5 --//
+	// ------ Confirm Password ------ //
+
+	public function confirmPassword($name, $otherField, $thisField, $required = true){
+
+		$field = $this->fields->getField($name);
+
+		$this->text($name, $otherField, $required);
+		if($field->hasError()){
+			return;
+		}
+
+		$this->text($name, $thisField, $required);
+		if($field->hasError()){
+			return;
+		}
+
+		if($required && empty($thisField)){
+			$field->setErrorMessage('Required');
+		} else if ($otherField != $thisField) {
+			$field->setErrorMessage("Password Does Not Match");
+		} else {
+			$field->clearErrorMessage();
+		}
+
+	}
+
+	// -- 6 --//
 	// ------ Name Regex ------ //
 
 	public function name($name, $value, $required = true){
@@ -146,6 +240,7 @@ class Validate {
 
 	}
 
+	// -- 7 --//
 	// ------ Phone Numbers Regex ------ //
 
 	public function phone($name, $value, $required = true){
@@ -165,6 +260,7 @@ class Validate {
 
 	}
 
+	// -- 8 --//
 	// ------ Address Regex ------ //
 
 	public function address($name, $value, $required = true){
@@ -184,6 +280,7 @@ class Validate {
 
 	}
 
+	// -- 9 --//
 	// ------ Postal Code Regex ------ //
 
 	public function postal($name, $value, $required = true){
@@ -203,6 +300,27 @@ class Validate {
 
 	}
 
+	// -- 10 --//
+	// ------ Slug Regex ------ //
+
+	public function slug($name, $value, $required = true){
+
+		$field = $this->fields->getField($name);
+
+		$this->text($name, $value, $required);
+		if($field->hasError()){
+			return;
+		}
+
+		$pattern = "/^[a-z0-9-]+$/";
+
+		$message = "Invalid Slug";
+
+		$this->pattern($name, $value, $pattern, $message, $required);
+
+	}
+
+	// -- 11 --//
 	// ------ Email Filter ------ //
 
 	public function email($name, $value, $required = true){
@@ -222,6 +340,7 @@ class Validate {
 
 	}
 
+	// -- 12 --//
 	// ------ URL Filter ------ //
 
 	public function url($name, $value, $required = true){
