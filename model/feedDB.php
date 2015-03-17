@@ -1,15 +1,7 @@
 <?php
-/**
-* 
-*/
 
-//include './database.php';
-//include './category.php';
-//include './user.php';
-//include './project.php';
-
-class Feed
-{
+class Feed {
+    
 	public static function getProjects(){
 
         $db = Database::getDB();
