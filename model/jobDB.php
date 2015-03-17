@@ -282,4 +282,35 @@ class JobDB {
                          
     }
     
+    // update job based oon parameter (Job object)
+    public static function updateJob($job, $job_id){
+        $db = Database::getDB();
+        $user_id = $job->getUser()->getID();
+        $cat_id = $job->getJobCategory()->getID();
+        $job_title = $job->getJobTitle();
+        $job_description = $job->getJobDescription();
+        $job_company = $job->getJobCompany();
+        $logo_url = $job->getLogoUrl();
+        $job_city = $job->getJobCity();
+        $job_country = $job->getJobCountry();
+        $job_date = $job->getJobDate();
+        
+        $query = "UPDATE job_board SET 
+                    user_id = '$user_id',
+                    cat_id = '$cat_id',
+                    job_title = '$job_title',
+                    job_description = '$job_description',
+                    job_company = '$job_company',
+                    logo_url = '$logo_url',
+                    job_city = '$job_city',
+                    job_country = '$job_country',
+                    job_date = '$job_date' 
+                    WHERE job_id = :job_id";
+        $stm = $db->prepare($query);
+        $stm->bindParam(":job_id", $job_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+        return $row_count;
+                         
+    }
+    
 }

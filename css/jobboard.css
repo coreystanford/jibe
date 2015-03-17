@@ -3,7 +3,19 @@
     Author     : ILecoche
 */
 
-/*  ----------CONTAINERS---------  */
+/*  ----------JOB BOARD CONTAINERS---------  */
+
+ul.job-top-nav {
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+ul.job-top-nav li{
+    display: inline-block;
+    padding: 0 20px;
+    
+}
 
 .left-column {
     margin: 0 10px;
@@ -12,6 +24,7 @@
     width: calc(30% - 20px);
     float: left;
     display: table-cell;
+    //outline: lawngreen 1px solid;
 }
 
 .right-column {
@@ -24,6 +37,16 @@
     transition: all 0.2s;
     float: right;
     display: table-cell;
+    // outline: lawngreen 1px solid;
+
+}
+
+.job-filters {
+    width: 90%;
+    box-sizing: border-box;
+    padding: 10px;
+    float: left;
+    display: inline-block;
 }
 
 .job-logo-url {
@@ -32,12 +55,89 @@
 }
 
 .job-drop-down {
-    margin: 10px 0;
+    display: inline-block;
+    margin: 10px;
 }
 
 .job-inline-button {
+    display: inline-block;
+    margin-right: 0;
+    margin-top: 10px;
+}
+
+.job-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.job-form li{
+    clear: both;
+}
+.job-form-label {
+    width: 40%;
+    box-sizing: border-box;    
+    padding: 10px;
+    vertical-align: top;
+    //outline: 1px white solid;
+}
+
+.job-form-input {
+    width: 60%;
+    box-sizing: border-box;       
+    padding: 10px;
+    vertical-align: top;
+   // outline: 1px white solid;
+}
+
+.job-form-input input {
+    width: 95%;
+    min-width: 200px;
+}
+
+.job-logo img{
+
+    max-width: 95%;
+    min-width: 100px;
+    height: auto;
+    margin: 0 auto;
+    outline: 1px #eee solid;
+    }
+    
+.job-textarea { 
+    width: 98%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 75px;
+}
+
+.job-left {float: left;}
+.job-right {float: right;}
+.job-full {
+    float: none;
+    width: 100%;
+}
+.job-inline {
+    display: inline-block;
+    padding: 10px;
+}
+
+.job-success {color: greenyellow;}
+.job-failure {color: red;}
+
+@media only screen and (max-width: 525px) {
+.job-form-input, .job-form-label {
+    width: 100%;
+    }
+    
+.job-left, .job-right, .job-full {
+    float: none;
+    width: 100%;
+    }
+    
+ul.job-top-nav li{
     display: block;
-    float: left;
-    margin-right: 10px;
+    padding: 10px 10px;
+    
+}
 }
 

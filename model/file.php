@@ -26,7 +26,7 @@ class File {
         return $this->url = $value;
     }
 
-    public function getTag()) {
+    public function getTag() {
         return $this->tag;
     }
 

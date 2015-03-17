@@ -3,10 +3,12 @@
 <section role=main>
 
     <div class="slim clearfix">
+        <p><?php echo $message_success; ?><?php echo $message_fail; ?></p>
 
-        <div class="left-column clearfix">
+        <div class="job-filters clearfix job-left" >
+
             <form id="filter-jobs" name="filter-jobs" method="post">
-                <h4>Filter by Category</h4>
+                    <h4 class="job-inline">Filter results</h4>
                 <div class="job-drop-down">
                     <select name="categories" >
                         <option value="allcategories">--Select Category--</option>
@@ -21,7 +23,7 @@
                         ?>
                     </select>
                 </div>             
-                <h4>Filter by City</h4>
+               
                 <div class="job-drop-down">
                     <select name="cities" >
                         <option value="allcities">--Select City---------</option>
@@ -36,7 +38,6 @@
                         ?>
                     </select>
                 </div>
-                <h4>Filter by Country</h4>
                 <div class="job-drop-down">
                     <select name="countries" >
                         <option value="allcountries">--Select Country---</option>
@@ -51,15 +52,15 @@
                         ?>
                     </select>
                 </div>
-                <input type="submit" name="submitfilter" value="Filter" class="job-inline-button" />
+                    <button type="submit" name="submitfilter" value="Filter" class="fa fa-filter job-inline-button job-right"></button>
 
             </form>
-            <form method="post">
-                <input type="submit" name="resetfilter" value ="Reset" class="job-inline-button" />
-            </form>
-        </div>
+         </div><!--end filters div -->
 
-        <div class="right-column clearfix">   
+        <form method="post" class="job-inline job-right">
+            <button type="submit" name="resetfilter" value ="Reset" class="fa fa-remove job-inline-button job-right"></button>
+            </form>
+        <div class="clearfix">
             <h1>Current listings</h1>
             <ul class="nav">
                 <?php foreach ($jobs as $job) : ?>

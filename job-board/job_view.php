@@ -2,10 +2,11 @@
 <section role=main>
 
     <div class="slim clearfix">
+                <?php include_once 'menu.php'; ?>
 
         <div class="left-column clearfix">
             <p>
-                <img src="<?php echo $job_listing->getLogoUrl(); ?>"
+                <img src="<?php echo "../" . $job_listing->getLogoUrl(); ?>"
                      alt="<?php echo $job_listing->getJobCompany(); ?>" class="job-logo-url" />
             </p>
         </div>
