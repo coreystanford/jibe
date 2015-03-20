@@ -2,7 +2,7 @@
 
 class Category {
 
-    private $id, $title, $desc, $icon;
+    private $id, $title, $desc, $icon, $count;
 
     public function __construct($title, $desc = '', $icon = '<i class="fa fa-question"></i>'){
 		$this->title = $title;
@@ -40,6 +40,14 @@ class Category {
 
     public function setIcon($value) {
         return $this->icon = $value;
+    }
+
+    public function getProjCount() {
+        return $this->count;
+    }
+
+    public function setProjCount($value) {
+        return $this->count = $value;
     }
 
 }

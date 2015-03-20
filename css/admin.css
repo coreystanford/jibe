@@ -439,11 +439,14 @@ a {
 
 .cat-container {
     position: relative;
+    width: 100%;
+    text-align: center;
 }
 
     .cat-container h1 {
         margin-bottom: 20px;
         display: inline-block;
+        float: left;
     }
 
     .cat-container > .edit {
@@ -453,14 +456,16 @@ a {
         height: 30px;
         line-height: 30px;
         padding: 0 2px 2px 2px;
-        margin-top: 10px;
-        margin-left: 195px;
+        margin-top: 12px;
+        margin-right: 40px;
+        float: right;
+        position: relative;
     }
 
     .category {
-        width: 80%;
         display: inline-block;
-        margin: 5px 0;
+        margin: 5px auto;
+        width: 80%;
         height: 70px;
     }
 
@@ -486,7 +491,7 @@ a {
                 margin: 0 0 0 20px;
                 display: inline-block;
                 line-height: 70px;
-                
+                float: left;
             }
 
             .cat-title-options .edit {

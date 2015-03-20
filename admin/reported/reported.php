@@ -9,10 +9,8 @@ if(!isset($categories)){
 	<section role=main>
 
 		<div class="main-admin">
-			<div class="cat-container">
-				<h1>Categories</h1>
-				<a href="./?action=insert" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Category </a>
-			
+			<div class="report-container">
+				<h1>Reported</h1>
 
 				<?php foreach ($categories as $category) : ?>
 					

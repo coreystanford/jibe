@@ -54,8 +54,8 @@
 
         case 'default':
 
-        	$categories = CategoryDB::getCategoriesWithCount();
-            include 'categories.php';
+        	$categories = CategoryDB::getCategories();
+            include 'reported.php';
 
         break;
 	

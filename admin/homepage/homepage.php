@@ -4,6 +4,8 @@
 
 			<div class="main-admin">
 				
+				<h1>Homepage</h1>
+
 				<div id="featured-info">
 					<a href="#" class="edit"><i class="fa fa-pencil fa-lg"></i> Edit Details</a>
 					<div id="main-heading">

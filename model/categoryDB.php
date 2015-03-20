@@ -12,7 +12,9 @@
  * @author ILecoche
  */
 class CategoryDB {
-    //put your code here
+    
+    // ------ Get All Categories ------ //
+
     public static function getCategories(){
 
         $db = Database::getDB();
@@ -37,6 +39,8 @@ class CategoryDB {
 
         return $categories;
     }
+
+    // ------ Get A Category By ID ------ //
     
     public static function getCategoryById($id){
 
@@ -61,6 +65,42 @@ class CategoryDB {
         return $category;
     }
 
+    // ------ Get Project Count By Category ID ------ //
+
+    public static function getCategoriesWithCount(){
+
+        $db = Database::getDB();
+
+        $query = "SELECT COUNT(p.cat_id) AS cat_count, c.cat_id, cat_title, cat_description, cat_icon 
+                  FROM projects p 
+                  JOIN  category c 
+                  ON c.cat_id = p.cat_id 
+                  ORDER BY cat_title ";
+
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+        $categories = array();
+
+            foreach ($result as $row) {
+
+                $category = new Category(
+                                $row['cat_title'],
+                                $row['cat_description'],
+                                $row['cat_icon']
+                                );
+                $category->setID($row['cat_id']);
+                $category->setProjCount($row['cat_count']);
+
+                $categories[] = $category;
+            }
+
+        return $categories;
+    }
+
+    // ------ Insert A Category ------ //
+
     public static function insertCategory($category){
 
         $db = Database::getDB();
@@ -84,13 +124,15 @@ class CategoryDB {
         return $row_count;
     }
 
+    // ------ Update A Category ------ //
+
     public static function updateCategory($category, $cat_id){
 
         $db = Database::getDB();
 
         $cat_title = $category->getTitle();
         $cat_description = $category->getDesc();
-        $cat_icon = htmlentities($category->getIcon());
+        $cat_icon = $category->getIcon();
 
         $query = "UPDATE category SET 
                     cat_title = '$cat_title',
@@ -100,11 +142,12 @@ class CategoryDB {
 
         $stm = $db->prepare($query);
         $stm->bindParam(":cat_id", $cat_id, PDO::PARAM_INT);
-        var_dump($stm);
         $row_count = $stm->execute();
         
         return $row_count;    
     }
+
+    // ------ Delete A Category ------ //
 
     public static function deleteCategory($cat_id){
 

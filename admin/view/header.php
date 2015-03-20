@@ -16,7 +16,7 @@
   <!-- Style -->
   <link rel="stylesheet" href="../../css/admin.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="../../images/favicon.png">
 </head>
 	<body>
 
@@ -32,6 +32,7 @@
 	      <h4><a href="../job-board-admin"><i class="fa fa-th-list"></i>Job Board</a></h4>
 	      <h4><a href="../profiles"><i class="fa fa-users"></i>Profiles</i></a></h4>
 		    <h4><a href="../projects"><i class="fa fa-briefcase"></i>Projects</a></h4>
+        <h4><a href="../reported"><i class="fa fa-exclamation-circle"></i>Reported</a></h4>
 			</nav><!-- END navigation -->
       <h4 id="go-to-site"><a href="../"><i class="fa fa-chevron-left"></i>Go to Site</a></h4>
 		</header><!-- END header -->
