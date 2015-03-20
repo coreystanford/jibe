@@ -465,7 +465,7 @@ a {
     .category {
         display: inline-block;
         margin: 5px auto;
-        width: 80%;
+        width: 90%;
         height: 70px;
     }
 
@@ -492,6 +492,15 @@ a {
                 display: inline-block;
                 line-height: 70px;
                 float: left;
+            }
+
+            .cat-title-options .cat-count {
+                position: absolute;
+                height: 70px;
+                width: 90px;
+                right: 140px;
+                font-size: 1.4rem;
+                background-color: #26272a;
             }
 
             .cat-title-options .edit {

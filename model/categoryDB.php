@@ -65,23 +65,27 @@ class CategoryDB {
         return $category;
     }
 
-    // ------ Get Project Count By Category ID ------ //
+
+
+    // ------ Get Category With Project Count ------ //
 
     public static function getCategoriesWithCount(){
 
         $db = Database::getDB();
 
-        $query = "SELECT COUNT(p.cat_id) AS cat_count, c.cat_id, cat_title, cat_description, cat_icon 
-                  FROM projects p 
-                  JOIN  category c 
+        $query = "SELECT c.cat_id, cat_title, cat_description, cat_icon, COUNT(*) AS cat_count 
+                  FROM category c 
+                  JOIN projects p 
                   ON c.cat_id = p.cat_id 
-                  ORDER BY cat_title ";
+                  GROUP BY p.cat_id 
+                  ORDER BY cat_count DESC ";
 
         $stm = $db->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
         $categories = array();
+        $cat_title = array();
 
             foreach ($result as $row) {
 
@@ -91,10 +95,21 @@ class CategoryDB {
                                 $row['cat_icon']
                                 );
                 $category->setID($row['cat_id']);
-                $category->setProjCount($row['cat_count']);
+
+                    $category->setProjCount($row['cat_count']);
 
                 $categories[] = $category;
+                $cat_title[] = $row['cat_title'];
             }
+
+        $allcategories = CategoryDB::getCategories();
+
+        foreach($allcategories as $cat){
+            if(!in_array($cat->getTitle(), $cat_title)){
+                $cat->setProjCount(0);
+                $categories[] = $cat;
+            }
+        }
 
         return $categories;
     }

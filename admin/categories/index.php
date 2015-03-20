@@ -88,7 +88,7 @@
 	        	$category = new Category($title, $desc, $icon);
 	            CategoryDB::insertCategory($category);
 	            
-	            $categories = CategoryDB::getCategories();
+	            $categories = CategoryDB::getCategoriesWithCount();
 	            include 'categories.php';
 
         	}
@@ -132,7 +132,7 @@
 	        	$category = new Category($title, $desc, $icon);
 	            CategoryDB::updateCategory($category, $cat_id);
 
-	            $categories = CategoryDB::getCategories();
+	            $categories = CategoryDB::getCategoriesWithCount();
 	            include 'categories.php';
 
         	}
@@ -157,7 +157,7 @@
         	$id = $_POST['id'];
             CategoryDB::deleteCategory($id);
 
-            $categories = CategoryDB::getCategories();
+            $categories = CategoryDB::getCategoriesWithCount();
             include 'categories.php';
 
         break;
