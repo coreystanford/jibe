@@ -1,5 +1,10 @@
 <?php
 
+	require_once '../../model/database.php';
+	require_once '../../model/category.php';
+	require_once '../../model/categoryDB.php';
+	
+
  	// -------------------------------------- //
     // ------ Determine Current Action ------ //
     // -------------------------------------- //
@@ -32,6 +37,8 @@
         // ------ Show Default ------ //
 
         case 'default':
+
+        	$categories = CategoryDB::getCategories();
 
             include 'categories.php';
 

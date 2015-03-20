@@ -433,6 +433,82 @@ a {
                     left: 171px;
                 }
 
+/*  --------CATEGORIES--------  */
+
+.cat-container {
+    position: relative;
+}
+
+    .cat-container h1 {
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .cat-container > .edit {
+        display: inline;
+        width: 180px;
+        font-size: 1.1rem;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 2px 2px 2px;
+        margin-top: 10px;
+        margin-left: 195px;
+    }
+
+    .category {
+        width: 80%;
+        display: inline-block;
+        margin: 5px 0;
+        height: 70px;
+    }
+
+        .category span {
+            text-align: center;
+            float: left;
+            width: 10%;
+            line-height: 70px;
+            font-size: 1.65rem;
+            background: #3e3e40;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cat-title-options {
+            width: 90%;
+            position: relative;
+            height: 100%;
+            background: #26272a;
+        }
+
+            .cat-title-options h2 {
+                margin: 0 0 0 20px;
+                display: inline-block;
+                line-height: 70px;
+                
+            }
+
+            .cat-title-options .edit {
+                height: 70px;
+                width: 70px;
+                right: 70px;
+                font-size: 1.1rem;
+            }
+
+                .cat-title-options .edit i {
+                    line-height: 70px;
+                }
+
+            .cat-title-options .delete {
+                height: 70px;
+                width: 70px;
+                right: 0;
+                font-size: 1.1rem;
+            }
+
+                .cat-title-options .delete i {
+                    line-height: 70px;
+                }
+
 
 /*  -------------FOOTER-------------  */
 
