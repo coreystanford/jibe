@@ -24,9 +24,9 @@ if(!isset($categories)){
 
 							<h2><?php echo $category->getTitle(); ?></h2>
 
-							<span class="cat-count"><?php echo $category->getProjCount(); ?></span>
-							<a href="./?action=edit&id=<?php echo $category->getID(); ?>" class="edit" ><i class="fa fa-pencil fa-lg" title="Edit Category"></i></a>
-							<a href="./?action=delete&id=<?php echo $category->getID(); ?>" class="delete"><i class="fa fa-trash-o fa-lg" title="Delete Category"></i></a>
+							<span class="cat-count"><i class="fa fa-briefcase"></i><?php echo $category->getProjCount(); ?></span>
+							<a href="./?action=edit&id=<?php echo $category->getID(); ?>" class="edit" title="Edit Category"><i class="fa fa-pencil fa-lg"></i></a>
+							<a href="./?action=delete&id=<?php echo $category->getID(); ?>" class="delete" title="Delete Category"><i class="fa fa-trash-o fa-lg"></i></a>
 
 						</div><!-- END cat-title-options -->
 

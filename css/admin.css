@@ -476,6 +476,7 @@ a {
             line-height: 70px;
             font-size: 1.65rem;
             background: #3e3e40;
+            border-right: 2px solid #0f0f0f;
             position: relative;
             z-index: 2;
         }
@@ -497,16 +498,23 @@ a {
             .cat-title-options .cat-count {
                 position: absolute;
                 height: 70px;
-                width: 90px;
-                right: 140px;
+                width: 110px;
+                right: 142px;
                 font-size: 1.4rem;
                 background-color: #26272a;
+                border-left: 2px solid #0f0f0f;
+                border-right: 2px solid #0f0f0f;
             }
+
+                .cat-title-options .cat-count i {
+                    margin-right: 10px;
+                    font-size: 1.1rem;
+                }
 
             .cat-title-options .edit {
                 height: 70px;
                 width: 70px;
-                right: 70px;
+                right: 72px;
                 font-size: 1.1rem;
             }
 
@@ -519,6 +527,7 @@ a {
                 width: 70px;
                 right: 0;
                 font-size: 1.1rem;
+                border-left: 2px solid #0f0f0f;
             }
 
                 .cat-title-options .delete i {

@@ -45,7 +45,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can."><img src="../images/web1.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 1020</span>
 							</div>
 						</div>
@@ -54,7 +54,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web2.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 1020</span>
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web3.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 300</span>
 							</div>
 						</div>
@@ -71,7 +71,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another. This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web4.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 0</span>
 							</div>
 						</div>
@@ -79,7 +79,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web5.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 467</span>
 							</div>
 						</div>
@@ -87,7 +87,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web6.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 56</span>
 							</div>
 						</div>
@@ -97,7 +97,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can."><img src="../images/web1.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 1020</span>
 							</div>
 						</div>
@@ -106,7 +106,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web2.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 1020</span>
 							</div>
 						</div>
@@ -115,7 +115,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web3.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 300</span>
 							</div>
 						</div>
@@ -123,7 +123,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another. This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web4.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 0</span>
 							</div>
 						</div>
@@ -131,7 +131,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web5.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 467</span>
 							</div>
 						</div>
@@ -139,7 +139,7 @@
 							<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web6.1.jpg" /></a>
 							<div class="info">
 								<img src="../images/profile1.jpg" class="user-profile" />
-								<a href="#" class="delete"><i class="fa fa-times fa-lg"></i></a>
+								<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
 								<span class="approvals"><i class="fa fa-check"></i> 56</span>
 							</div>
 						</div>

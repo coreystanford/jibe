@@ -87,20 +87,19 @@ class CategoryDB {
         $categories = array();
         $cat_title = array();
 
-            foreach ($result as $row) {
+        foreach ($result as $row) {
 
-                $category = new Category(
-                                $row['cat_title'],
-                                $row['cat_description'],
-                                $row['cat_icon']
-                                );
-                $category->setID($row['cat_id']);
+            $category = new Category(
+                            $row['cat_title'],
+                            $row['cat_description'],
+                            $row['cat_icon']
+                            );
+            $category->setID($row['cat_id']);
+            $category->setProjCount($row['cat_count']);
 
-                    $category->setProjCount($row['cat_count']);
-
-                $categories[] = $category;
-                $cat_title[] = $row['cat_title'];
-            }
+            $categories[] = $category;
+            $cat_title[] = $row['cat_title'];
+        }
 
         $allcategories = CategoryDB::getCategories();
 
