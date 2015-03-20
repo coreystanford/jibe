@@ -1,4 +1,4 @@
-		<?php include 'view/header.php'; ?>
+		<?php include '../view/header.php'; ?>
 
 		<section role=main>
 
@@ -147,4 +147,4 @@
 
 		</section><!-- END main section -->
 		
-		<?php include 'view/footer.php'; ?>
+		<?php include '../view/footer.php'; ?>
