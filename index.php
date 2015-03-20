@@ -69,3 +69,4 @@
 		</section><!-- END main section -->
 		
 		<?php include 'view/anonymous-footer.php'; ?>
+                
