@@ -11,7 +11,7 @@ if(!isset($categories)){
 		<div class="main-admin">
 			<div class="cat-container">
 				<h1>Categories</h1>
-				<a href="#" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Category </a>
+				<a href="./?action=insert" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Category </a>
 			
 
 				<?php foreach ($categories as $category) : ?>
@@ -23,8 +23,8 @@ if(!isset($categories)){
 						<div class="cat-title-options">
 
 							<h2><?php echo $category->getTitle(); ?></h2>
-							<a href="#" class="edit" ><i class="fa fa-pencil fa-lg"></i></a>
-							<a href="#" class="delete"><i class="fa fa-trash-o fa-lg"></i></a>
+							<a href="./?action=edit&id=<?php echo $category->getID(); ?>" class="edit" ><i class="fa fa-pencil fa-lg"></i></a>
+							<a href="./?action=delete&id=<?php echo $category->getID(); ?>" class="delete"><i class="fa fa-trash-o fa-lg"></i></a>
 
 						</div><!-- END cat-title-options -->
 
