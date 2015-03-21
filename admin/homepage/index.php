@@ -82,35 +82,45 @@
 
         	$main = $_POST['main'];
             $sub = $_POST['sub'];
-            $btn_text = $_POST['btn_text'];
-            $btn_link = $_POST['btn_link'];
+            $btn_text = $_POST['btn-text'];
+            $btn_link = $_POST['btn-link'];
 
-			$updValidate->text('updtitle', $title);
-            $updValidate->text('upddesc', $desc, true, 1, 500);
-			$updValidate->text('updicon', $icon, true, 1, 200);
+			//$updValidate->text('updtitle', $title);
+            //$updValidate->text('upddesc', $desc, true, 1, 500);
+			//$updValidate->text('updicon', $icon, true, 1, 200);
 
-			if($updfields->hasErrors()){
+			//if($updfields->hasErrors()){
 
-				$home = HomepageDB::getHomeInfo();
-            	$projects = HomepageDB::getFeatured();
+				//$home = HomepageDB::getHomeInfo();
+            	//$projects = HomepageDB::getFeatured();
 
-                include 'text-edit.php';
-	            include 'image.php';
-	            include 'projects.php';
+                //include 'text-edit.php';
+	            //include 'image.php';
+	            //include 'projects.php';
 
-            } else {
+            //} else {
 
-	        	$text = new Category($title, $desc, $icon);
+	        	$text = ["main_text" => $main,
+                         "sub_text" => $sub,
+                         "button_text" => $btn_text,
+                         "button_link" => $btn_link];
+
 	            HomepageDB::updateText($text);
 
 	            $home = HomepageDB::getHomeInfo();
             	$projects = HomepageDB::getFeatured();
 
+                $main = $home['main_text'];
+                $sub = $home['sub_text'];
+                $btn_text = $home['button_text'];
+                $btn_link = $home['button_link'];
+                $img = $home['main_img_url'];
+
 	            include 'text.php';
 	            include 'image.php';
 	            include 'projects.php';
 
-        	}
+        	//}
 
         break;
 
@@ -137,35 +147,38 @@
 
         case 'image-update':
         	
-        	$cat_id = $_POST['id'];
-        	$title = $_POST['updtitle']; 
-			$desc = $_POST['upddesc'];
-			$icon = $_POST['updicon'];
+        	
+			$img = $_POST['main-img'];
 
-			$imgValidate->text('updtitle', $title);
+			//$imgValidate->text('updtitle', $title);
 
-			if($updfields->hasErrors()){
+			//if($updfields->hasErrors()){
 
-				$home = HomepageDB::getHomeInfo();
-            	$projects = HomepageDB::getFeatured();
+				//$home = HomepageDB::getHomeInfo();
+            	//$projects = HomepageDB::getFeatured();
 
-                include 'text.php';
-	            include 'image-edit.php';
-	            include 'projects.php';
+                //include 'text.php';
+	            //include 'image-edit.php';
+	            //include 'projects.php';
 
-            } else {
+            //} else {
 
-	        	$img = new Category($title, $desc, $icon);
-	            HomepageDB::updateCategory($category, $cat_id);
+	            HomepageDB::updateImage($img);
 
 	            $home = HomepageDB::getHomeInfo();
             	$projects = HomepageDB::getFeatured();
 	            
+                $main = $home['main_text'];
+                $sub = $home['sub_text'];
+                $btn_text = $home['button_text'];
+                $btn_link = $home['button_link'];
+                $img = $home['main_img_url'];
+                
 	            include 'text.php';
 	            include 'image.php';
 	            include 'projects.php';
 
-        	}
+        	//}
 
         break;
 

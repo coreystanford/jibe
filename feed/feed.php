@@ -7,9 +7,9 @@
 				<?php foreach ($projects as $project): ?>
 					
 					<div class="project">
-						<a href="#<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="<?php echo $project->getProjThumb(); ?>" /></a>
+						<a href="#<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="../images/<?php echo $project->getProjThumb(); ?>" /></a>
 						<div class="info">
-							<img src="<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
+							<a href="../profile?id=<?php echo $project->getUser()->getID(); ?>"><img src="../images/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" /></a>
 							<span class="category" title="<?php echo $project->getCat()->getTitle(); ?>"><i class='fa <?php echo $project->getCat()->getIcon(); ?>'></i></span>
 							<span class="approvals"><i class="fa fa-check"></i> 15</span>
 						</div>

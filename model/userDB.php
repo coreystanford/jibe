@@ -58,4 +58,34 @@ class userDB {
             $user->setID($row['user_id']);
         return $user;
     }
+
+    public static function updateUser($user, $user_id){
+
+        $db = Database::getDB();
+
+        $fname = $user->getFName();
+        $lname = $user->getLName();
+        $city = $user->getCity();
+        $country = $user->getCountry();
+        $website = $user->getWebsite();
+        $bio = addslashes($user->getBio());
+        $specialty = $user->getSpecialty();
+
+        $query = "UPDATE users SET 
+                    fname = '$fname', 
+                    lname = '$lname', 
+                    city = '$city', 
+                    country = '$country', 
+                    website = '$website', 
+                    bio = '$bio', 
+                    specialty = '$specialty' 
+                    WHERE user_id = :user_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+        $row_count = $stm->execute();
+
+        return $row_count;                 
+    }
 }

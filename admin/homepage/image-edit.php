@@ -15,7 +15,7 @@
 
 						<div class="cluster">
 							<input type="submit" name="submit" value="Update" class="btn submit" />
-                    		<a href="../homepage" class="btn submit">Cancel</a>
+                    		<a href="../homepage#featured-img" class="btn submit">Cancel</a>
 						</div>
 
 					</form>
