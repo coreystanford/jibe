@@ -38,7 +38,7 @@
 		            <h4>
 		                <a href="#">Profile<i class="fa fa-angle-down"></i></a>
 		                <div>
-		                	<h5><a href="../profile"><i class="fa fa-user"></i>View Profile</a></h5>
+		                	<h5><a href="../profile?id=1"><i class="fa fa-user"></i>View Profile</a></h5>
 		                	<h5><a href="../add"><i class="fa fa-plus"></i>Add Project</a></h5>
 		                	<h5><a href="#"><i class="fa fa-sign-out"></i>Logout</a></h5>
 		                </div>

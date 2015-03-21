@@ -15,6 +15,6 @@
 				<div class="bio">
 					<p><?php echo $bio; ?></p>
 				</div>
-				<a href="./?action=user-edit#user" class="edit" id="profileEdit" ><i class="fa fa-pencil fa-lg"></i> Edit Profile</a>
+				<a href="./?id=<?php echo $SESSION_ID; ?>&action=user-edit#user" class="edit" id="profileEdit" ><i class="fa fa-pencil fa-lg"></i> Edit Profile</a>
 			</div>
 			

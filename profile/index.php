@@ -36,7 +36,14 @@
     // ---------------------------- //
 
         //$id = $_SESSION['id'];
-        $id = 3;
+        $SESSION_ID = 1;
+
+        if(isset($_GET['id'])){
+            $GET_ID = $_GET['id'];
+        } else {
+            $GET_ID = 1;
+        }
+        
 
 	// ---------------------------- //
     // ------ Perform Switch ------ //
@@ -48,8 +55,8 @@
 
         case 'default':
 
-        	$user = userDB::getUserById($id);
-            $projects = ProjectDB::getProjectsByUserID($id);
+        	$user = userDB::getUserById($GET_ID);
+            $projects = ProjectDB::getProjectsByUserID($GET_ID);
 
             $id = $user->getID();
             $fname = $user->getFName();
@@ -61,9 +68,13 @@
             $bio = $user->getBio();
             $specialty = $user->getSpecialty();
 
-            include 'slider.php';
-            include 'user-info.php';
-            include 'tabs.php';
+            if($GET_ID == $SESSION_ID){
+                include 'slider.php';
+                include 'user-info.php';
+                include 'tabs.php';
+            } else {
+                include 'view-user.php';
+            }
 
         break;
 
@@ -71,8 +82,8 @@
 
         case 'user-edit':
 
-            $user = userDB::getUserById($id);
-            $projects = ProjectDB::getProjectsByUserID($id);
+            $user = userDB::getUserById($GET_ID);
+            $projects = ProjectDB::getProjectsByUserID($GET_ID);
 
             $id = $user->getID();
             $fname = $user->getFName();
@@ -110,8 +121,8 @@
 
 			if($updfields->hasErrors()){
 
-				$user = userDB::getUserById($id);
-                $projects = ProjectDB::getProjectsByUserID($id);
+				$user = userDB::getUserById($GET_ID);
+                $projects = ProjectDB::getProjectsByUserID($GET_ID);
 
                 $id = $user->getID();
                 $fname = $user->getFName();
@@ -132,8 +143,8 @@
                 //$user = new User($fname, $lname, $city = '', $country = '', $website = '', $img_url = '', $bio = '', $specialty = '');
 	            //userDB::updateUser($user);
 
-	            $user = userDB::getUserById($id);
-                $projects = ProjectDB::getProjectsByUserID($id);
+	            $user = userDB::getUserById($GET_ID);
+                $projects = ProjectDB::getProjectsByUserID($GET_ID);
 
                 $id = $user->getID();
                 $fname = $user->getFName();
@@ -159,8 +170,8 @@
 
             //$project = ProjectDB...;
 
-            $user = userDB::getUserById($id);
-            $projects = ProjectDB::getProjectsByUserID($id);
+            $user = userDB::getUserById($GET_ID);
+            $projects = ProjectDB::getProjectsByUserID($GET_ID);
 
             $id = $user->getID();
             $fname = $user->getFName();
