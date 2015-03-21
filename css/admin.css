@@ -140,6 +140,7 @@ section {
 
 .cluster {
     margin: 10px 0;
+    clear: both;
 }
 
 .cluser:after {
@@ -426,6 +427,7 @@ a {
             left: 0;
             right: 0;
             bottom: 0;
+            overflow: hidden;
         }
 
             .feature img {

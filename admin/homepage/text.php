@@ -7,22 +7,22 @@
 				<h1>Homepage</h1>
 
 				<div id="featured-info">
-					<a href="#" class="edit"><i class="fa fa-pencil fa-lg"></i> Edit Details</a>
+					<a href="./?action=text-edit" class="edit"><i class="fa fa-pencil fa-lg"></i> Edit Details</a>
 					<div id="main-heading">
 						<h3>Main Heading:</h3>
-						<h4>Share your inspiration.</h4>
+						<h4><?php echo $main; ?></h4>
 					</div>
 					<div id="sub-heading">
 						<h3>Subheading:</h3>
-						<h4>Collect. Collaborate. Create.</h4>
+						<h4><?php echo $sub; ?></h4>
 					</div>
 					<div id="btn-link-txt">
 						<h3>Button Text:</h3>
-						<h4>Register</h4>
+						<h4><?php echo $btn_text; ?></h4>
 					</div>
 					<div id="btn-link">
 						<h3>Button Link</h3>
-						<h4>http://www.jibe.com/register/</h4>
+						<h4><?php echo $btn_link; ?></h4>
 					</div>
 
 				</div>

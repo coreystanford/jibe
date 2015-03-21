@@ -1,72 +1,58 @@
-		<?php 
+<?php
 
-		include 'view/anonymous-header.php'; 
-		$url = "images/featured1.jpg";
+	require_once './model/database.php';
+	require_once './model/fields.php';
+	require_once './model/validate.php';
+	require_once './model/homepageDB.php';
+	require_once './model/category.php';
+	require_once './model/user.php';
+	require_once './model/project.php';
+	require_once './model/projectDB.php';
 
-		?>
-`
-		<section role=main>
-			<div class="main-img">	
-				<div class="featured">
+ 	// -------------------------------------- //
+    // ------ Determine Current Action ------ //
+    // -------------------------------------- //
 
-					<div class="jibe-msg">
-						<h1>Share your inspiration.</h1>
-						<h2>Collect. Collaborate. Create.</h2>
-						<a href="" class="btn link">Register   <i class="fa fa-arrow-right fa-lg"></i></a>
-					</div>
-				</div>
-			</div>
+    // ------ POST ------ //
 
-			<a href="#home-feed" id="seeFeed"><i class="fa fa-chevron-down"></i></a>
+    if (isset($_POST['action'])) {
+	    $action = $_POST['action'];
+	} 
 
-			<div class="home-feed" id="home-feed">
+	// ------ GET ------ //
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can."><img src="../images/web1.1.jpg" /></a>
-				</div>
+	else if (isset($_GET['action'])) {
+	    $action = $_GET['action'];
+	} 
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web2.1.jpg" /></a>
-				</div>
+	// ------ DEFAULT ------ //
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web3.1.jpg" /></a>
-				</div>
+	else {
+	    $action = 'default';
+	}
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another. This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web4.1.jpg" /></a>
-				</div>
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web5.1.jpg" /></a>
-				</div>
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web6.1.jpg" /></a>
-				</div>
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can."><img src="../images/web1.1.jpg" /></a>
-				</div>
+	// ---------------------------- //
+    // ------ Perform Switch ------ //
+    // ---------------------------- //
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web2.1.jpg" /></a>
-				</div>
+    switch ($action){
+        
+        // ------ Show Default ------ //
 
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web3.1.jpg" /></a>
-				</div>
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another. This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web4.1.jpg" /></a>
-				</div>
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web5.1.jpg" /></a>
-				</div>
-				<div class="home-project">
-					<a href="#" title="This is some popup content. We need to test for word breaks wherever we can. Another user might write some more than another"><img src="../images/web6.1.jpg" /></a>
-				</div>
+        case 'default':
 
-			</div>
-			<img class="off" id="invisible" src="<?php echo $url ?>" />
-		</section><!-- END main section -->
-		
-		<?php include 'view/anonymous-footer.php'; ?>
-                
+        	$home = HomepageDB::getHomeInfo();
+        	$projects = HomepageDB::getFeatured();
+
+        	$main = $home['main_text'];
+        	$sub = $home['sub_text'];
+        	$btn_text = $home['button_text'];
+        	$btn_link = $home['button_link'];
+        	$img = $home['main_img_url'];
+
+            include 'home.php';
+
+        break;
+	
+	}

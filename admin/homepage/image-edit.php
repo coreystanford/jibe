@@ -4,18 +4,18 @@
 
 					<form action="." method="post">
 
-						<input type="hidden" name="action" value="img-update"/>
+						<input type="hidden" name="action" value="image-update"/>
 
 						<h2>Featured Image: </h2>
 
-						<img src="../images/featured1.jpg" />
+						<img src="../../images/<?php echo $img; ?>" />
 
-						<input type="text" name="main-img" value="featured1.jpg"/>
-						<?php echo $textfields->getField('btn-link')->getHTML(); ?>
+						<input type="text" name="main-img" value="<?php echo $img; ?>"/>
+
 
 						<div class="cluster">
-							<input type="submit" name="submit" value="Insert" class="btn submit" />
-                    		<a href="../categories" class="btn submit">Cancel</a>
+							<input type="submit" name="submit" value="Update" class="btn submit" />
+                    		<a href="../homepage" class="btn submit">Cancel</a>
 						</div>
 
 					</form>

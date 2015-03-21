@@ -3,20 +3,33 @@
 
 				<div class="featured-proj">
 				
-					<a href="#" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Featured Project </a>
+					<a href="./?action=unfeatured" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Featured Project </a>
 
 					<h2>Featured Projects: </h2>
 						
-					<div class="feature">
-						<a href="#" title="This is some popup content. We need to test for word breaks wherever we can."><img src="../images/web1.1.jpg" /></a>
-						<div class="info">
-							<img src="../images/profile1.jpg" class="user-profile" />
-							<a href="#" class="delete" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></a>
-							<span class="approvals"><i class="fa fa-check"></i> 1020</span>
-						</div>
-					</div>
+					<?php foreach ($projects as $project) : ?>
 
-				</div>
+						<div class="feature">
+
+							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
+							<div class="info">
+								<img src="../../images/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
+
+								<form action="." method="post">
+				                    <input type="hidden" name="action" value="remove-project" />
+				                    <input type="hidden" name="id" value="<?php echo $project->getID(); ?>" />
+				                    <input type="submit" class="delete" value="" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></input>
+				                </form>
+
+								<span class="approvals"><i class="fa fa-check"></i> 1020</span>
+							</div>
+
+						</div><!-- END featured -->
+
+					<?php endforeach; ?>
+
+				</div><!-- END featured-proj -->
+
 			</div>
 
 		</section><!-- END main section -->

@@ -43,7 +43,13 @@
         case 'default':
 
         	$home = HomepageDB::getHomeInfo();
-        	$projects = ProjectDB::getProjects();
+        	$projects = HomepageDB::getFeatured();
+
+        	$main = $home['main_text'];
+        	$sub = $home['sub_text'];
+        	$btn_text = $home['button_text'];
+        	$btn_link = $home['button_link'];
+        	$img = $home['main_img_url'];
 
             include 'text.php';
             include 'image.php';
@@ -54,15 +60,15 @@
         // ------ Show Text Update ------ //
 
         case 'text-edit':
-        	
-			$id = $_GET['id'];
 
-            $home = CategoryDB::getHomeInfo();
-            $projects = ProjectDB::getProjects();
+            $home = HomepageDB::getHomeInfo();
+            $projects = HomepageDB::getFeatured();
 
-            $title = $category->getTitle();
-            $desc = $category->getDesc();
-            $icon = $category->getIcon();
+            $main = $home['main_text'];
+            $sub = $home['sub_text'];
+            $btn_text = $home['button_text'];
+            $btn_link = $home['button_link'];
+            $img = $home['main_img_url'];
 
             include 'text-edit.php';
             include 'image.php';
@@ -73,11 +79,11 @@
         // ------ Perform Text Update ------ //
 
         case 'text-update':
-        	
-        	$cat_id = $_POST['id'];
-        	$title = $_POST['updtitle']; 
-			$desc = $_POST['upddesc'];
-			$icon = $_POST['updicon'];
+
+        	$main = $_POST['main'];
+            $sub = $_POST['sub'];
+            $btn_text = $_POST['btn_text'];
+            $btn_link = $_POST['btn_link'];
 
 			$updValidate->text('updtitle', $title);
             $updValidate->text('upddesc', $desc, true, 1, 500);
@@ -85,8 +91,8 @@
 
 			if($updfields->hasErrors()){
 
-				$home = CategoryDB::getHomeInfo();
-            	$projects = ProjectDB::getProjects();
+				$home = HomepageDB::getHomeInfo();
+            	$projects = HomepageDB::getFeatured();
 
                 include 'text-edit.php';
 	            include 'image.php';
@@ -94,11 +100,11 @@
 
             } else {
 
-	        	$category = new Category($title, $desc, $icon);
-	            CategoryDB::updateCategory($category, $cat_id);
+	        	$text = new Category($title, $desc, $icon);
+	            HomepageDB::updateText($text);
 
-	            $home = CategoryDB::getHomeInfo();
-            	$projects = ProjectDB::getProjects();
+	            $home = HomepageDB::getHomeInfo();
+            	$projects = HomepageDB::getFeatured();
 
 	            include 'text.php';
 	            include 'image.php';
@@ -110,15 +116,16 @@
 
         // ------ Show Image Update ------ //
 
-        case 'img-edit':
+        case 'image-edit':
         	
-			$id = $_GET['id'];
-            $home = CategoryDB::getHomeInfo();
-            $projects = ProjectDB::getProjects();
+            $home = HomepageDB::getHomeInfo();
+            $projects = HomepageDB::getFeatured();
 
-            $title = $category->getTitle();
-            $desc = $category->getDesc();
-            $icon = $category->getIcon();
+            $main = $home['main_text'];
+            $sub = $home['sub_text'];
+            $btn_text = $home['button_text'];
+            $btn_link = $home['button_link'];
+            $img = $home['main_img_url'];
 
             include 'text.php';
             include 'image-edit.php';
@@ -128,7 +135,7 @@
 
         // ------ Perform Image Update ------ //
 
-        case 'img-update':
+        case 'image-update':
         	
         	$cat_id = $_POST['id'];
         	$title = $_POST['updtitle']; 
@@ -139,8 +146,8 @@
 
 			if($updfields->hasErrors()){
 
-				$home = CategoryDB::getHomeInfo();
-            	$projects = ProjectDB::getProjects();
+				$home = HomepageDB::getHomeInfo();
+            	$projects = HomepageDB::getFeatured();
 
                 include 'text.php';
 	            include 'image-edit.php';
@@ -148,11 +155,11 @@
 
             } else {
 
-	        	$category = new Category($title, $desc, $icon);
-	            CategoryDB::updateCategory($category, $cat_id);
+	        	$img = new Category($title, $desc, $icon);
+	            HomepageDB::updateCategory($category, $cat_id);
 
-	            $$home = CategoryDB::getHomeInfo();
-            	$projects = ProjectDB::getProjects();
+	            $home = HomepageDB::getHomeInfo();
+            	$projects = HomepageDB::getFeatured();
 	            
 	            include 'text.php';
 	            include 'image.php';
@@ -165,12 +172,8 @@
         // ------ Show Unfeatured Projects ------ //
 
         case 'unfeatured':
-        	
-        	$id = $_POST['id'];
-            CategoryDB::deleteCategory($id);
 
-            $home = CategoryDB::getHomeInfo();
-            $projects = ProjectDB::getProjects();
+            $projects = HomepageDB::getUnfeatured();
 
             include 'unfeatured.php';
 
@@ -183,8 +186,8 @@
         	$id = $_POST['id'];
             CategoryDB::addFeature($id);
 
-            $home = CategoryDB::getHomeInfo();
-            $projects = ProjectDB::getProjects();
+            $home = HomepageDB::getHomeInfo();
+            $projects = HomepageDB::getFeatured();
 
             include 'text.php';
             include 'image.php';
@@ -199,8 +202,8 @@
         	$id = $_POST['id'];
             CategoryDB::removeFeature($id);
 
-            $home = CategoryDB::getHomeInfo();
-            $projects = ProjectDB::getProjects();
+            $home = HomepageDB::getHomeInfo();
+            $projects = HomepageDB::getFeatured();
 
             include 'text.php';
             include 'image.php';
