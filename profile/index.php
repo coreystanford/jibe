@@ -36,7 +36,7 @@
     // ---------------------------- //
 
         //$id = $_SESSION['id'];
-        $id = 1;
+        $id = 3;
 
 	// ---------------------------- //
     // ------ Perform Switch ------ //
@@ -49,6 +49,7 @@
         case 'default':
 
         	$user = userDB::getUserById($id);
+            $projects = ProjectDB::getProjectsByUserID($id);
 
             $id = $user->getID();
             $fname = $user->getFName();
@@ -71,6 +72,7 @@
         case 'user-edit':
 
             $user = userDB::getUserById($id);
+            $projects = ProjectDB::getProjectsByUserID($id);
 
             $id = $user->getID();
             $fname = $user->getFName();
@@ -109,6 +111,7 @@
 			if($updfields->hasErrors()){
 
 				$user = userDB::getUserById($id);
+                $projects = ProjectDB::getProjectsByUserID($id);
 
                 $id = $user->getID();
                 $fname = $user->getFName();
@@ -130,6 +133,7 @@
 	            //userDB::updateUser($user);
 
 	            $user = userDB::getUserById($id);
+                $projects = ProjectDB::getProjectsByUserID($id);
 
                 $id = $user->getID();
                 $fname = $user->getFName();
@@ -156,6 +160,7 @@
             //$project = ProjectDB...;
 
             $user = userDB::getUserById($id);
+            $projects = ProjectDB::getProjectsByUserID($id);
 
             $id = $user->getID();
             $fname = $user->getFName();
