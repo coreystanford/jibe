@@ -10,8 +10,8 @@
 			
 				<a href="../homepage" class="edit"><i class="fa fa-arrow-left fa-lg"></i> Return </a>
 
-				<h2>Feature Projects: </h2>
-					
+				<h2>Add Featured Projects: </h2>
+
 				<?php foreach ($projects as $project) : ?>
 
 						<div class="feature">

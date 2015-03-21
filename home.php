@@ -20,7 +20,7 @@
 
 						<div class="home-project">
 
-							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
+							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="./images/<?php echo $project->getProjThumb(); ?>" /></a>
 
 						</div><!-- END featured -->
 
