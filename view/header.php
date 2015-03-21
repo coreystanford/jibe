@@ -28,13 +28,13 @@
                         <figure id="logo"><a href="#"><img src="/images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 			<nav id="nav" role="navigation">
 			    <div id="left-nav">
-			        <h4><a href="../explore">Explore</a></h4>
+			        <h4><a href="../explore?id=1">Explore</a></h4>
 			        <h4><a href="../job-board" id="jobs">Jobs</a></h4>
 			        <a href="#" id="messages"><i class="fa fa-envelope-o"></i></a>
 			    </div>
 			    <div id="right-nav">
 			    	<a href="#" id="search"><i class="fa fa-search"></i></a>
-		        	<h4><a href="../feed">Feed</a></h4>
+		        	<h4><a href="../feed?id=1">Feed</a></h4>
 		            <h4>
 		                <a href="#">Profile<i class="fa fa-angle-down"></i></a>
 		                <div>

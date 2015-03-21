@@ -9,13 +9,13 @@
 				
 				<form action="." method="post">
 
-					<input type="hidden" name="action" value="text-update"/>
+					<input type="hidden" name="action" value="user-update"/>
 
 					<div class="name">
-						<h1><input type="text" name="fname" value="<?php echo $fname; ?>"/> <input type="text" name="lname" value="<?php echo $lname; ?>"/></h1>
-						<h3><input type="text" name="specialty" value="<?php echo $specialty; ?>"/></h3>
-						<h4><input type="text" name="website" value="<?php echo $website; ?>"/></h4>
-						<h4><input type="text" name="city" value="<?php echo $city; ?>" />, <input type="text" name="country" value="<?php echo $country; ?>" /></h4>
+						<h1><input type="text" name="fname" value="<?php echo htmlspecialchars($fname); ?>"/> <input type="text" name="lname" value="<?php echo htmlspecialchars($lname); ?>"/></h1>
+						<h3><input type="text" name="specialty" value="<?php echo htmlspecialchars($specialty); ?>"/></h3>
+						<h4><input type="text" name="website" value="<?php echo htmlspecialchars($website); ?>"/></h4>
+						<h4><input type="text" name="city" value="<?php echo htmlspecialchars($city); ?>" />, <input type="text" name="country" value="<?php echo htmlspecialchars($country); ?>" /></h4>
 					</div>
 					<div class="bio">
 						<p><textarea type="text" name="bio"  rows="4" cols="50"><?php echo htmlspecialchars($bio); ?></textarea></p>
