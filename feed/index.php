@@ -3,7 +3,7 @@
     include '../model/category.php';
 	include '../model/user.php';
 	include '../model/project.php';
-    require_once '../model/feedDB.php';
+    require_once '../model/projectDB.php';
     include '../model/functions.php';
 
     // -------------------------------------- //
@@ -35,7 +35,7 @@
 
         case 'default':
 
-            $projects = Feed::getProjects();
+            $projects = ProjectDB::getProjects();
 
             if(count($projects) < 1){
                 include 'nofeed.php';

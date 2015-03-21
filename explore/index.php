@@ -3,7 +3,7 @@
     include '../model/category.php';
 	include '../model/user.php';
 	include '../model/project.php';
-    require_once '../model/exploreDB.php';
+    require_once '../model/projectDB.php';
     include '../model/functions.php';
 
     // -------------------------------------- //
@@ -35,7 +35,7 @@
 
         case 'default':
 
-            $projects = Explore::getProjects();
+            $projects = ProjectDB::getProjects();
             include 'explore.php';
 
         break;

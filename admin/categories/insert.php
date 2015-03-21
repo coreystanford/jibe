@@ -20,20 +20,20 @@ if(!isset($_POST['submit'])){
 
                 <div class="cluster">
                     <label for="institle" class="bold-labels">Title: </label>
-                    <input type="text" name="institle" value="<?php echo htmlspecialchars($title); ?>"><?php echo $insfields->getField('institle')->getHTML(); ?>
+                    <input type="text" name="institle" value="<?php echo htmlspecialchars($title); ?>" /><?php echo $insfields->getField('institle')->getHTML(); ?>
 
                     <label for="insdesc" class="bold-labels">Description: </label>
-                    <input type="text" name="insdesc" value="<?php echo htmlspecialchars($desc); ?>"><?php echo $insfields->getField('insdesc')->getHTML(); ?>
+                    <textarea type="text" name="insdesc"  rows="4" cols="50" value="<?php echo htmlspecialchars($desc); ?>"><?php echo htmlspecialchars($desc); ?></textarea><?php echo $insfields->getField('insdesc')->getHTML(); ?>
 
                     <label for="insicon" class="bold-labels">Icon: </label>
-                    <input type="text" name="insicon" value="<?php echo htmlspecialchars($icon); ?>"><?php echo $insfields->getField('insicon')->getHTML(); ?>
+                    <input type="text" name="insicon" value="<?php echo htmlspecialchars($icon); ?>" /><?php echo $insfields->getField('insicon')->getHTML(); ?>
 
-                    <br />
-                    <br />
-                    <input type="submit" name="submit" value="Insert" />
-                    <br />
-                    <br />
-                    <h5><a href="../categories">Cancel</a></h5>
+                </div>
+
+                <div class="cluster">
+
+                    <input type="submit" name="submit" value="Insert" class="btn submit" />
+                    <h5><a href="../categories" class="btn submit">Cancel</a></h5>
                 </div>
 
             </form>

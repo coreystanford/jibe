@@ -1,6 +1,6 @@
 <?php
 
-class Feed {
+class ProjectDB {
     
 	public static function getProjects(){
 

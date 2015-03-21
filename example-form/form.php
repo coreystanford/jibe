@@ -23,7 +23,8 @@
             <form method="post" action="." >
                 <input type="hidden" name="action" value="example-submit" />
 
-                <div class="cluster">
+                <div class="cluster clearfix">
+
                     <label for="fname" class="bold-labels">First Name: </label>
                     <input type="text" name="fname" value="<?php echo htmlspecialchars($fname); ?>"><?php echo $fields->getField('fname')->getHTML(); ?>
 
@@ -44,10 +45,13 @@
 
                     <label for="categoryCheckbox" class="bold-labels">A Category Checkbox List (from DB): </label>
                     <?php echo displayList("categoryCheckbox", $categoryList, 'checkboxlist'); ?><?php echo $fields->getField('categoryCheckbox')->getHTML(); ?>
-                    <br />
-                    <br />
-                    <input type="submit" name="submit" value="Submit" />
 
+                </div>
+                <div class="cluster clearfix">
+
+                    <input type="submit" name="submit" value="Submit" class="btn submit" />
+                    <a href="." class="btn submit">Cancel</a>
+                
                 </div>
             </form>
 

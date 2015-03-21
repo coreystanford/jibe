@@ -15,15 +15,14 @@
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../css/jobboard.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
 </head>
 	<body>
 		<div id="wrapper">
 		<header id="header"role=banner>
 			<h1 class="outline">PHP Project</h1>
-                        <figure id="logo-anon"><a href="#"><img src="/images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+                        <figure id="logo-anon"><a href="#"><img src="./images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 			<nav id="nav" role="navigation">
 			    <div id="right-nav-anon">
 	        	<h4><a href="#"><i class="fa fa-user-plus"></i>Register</a></h4>
