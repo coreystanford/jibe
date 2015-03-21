@@ -123,6 +123,21 @@ ul.job-top-nav li{
 
 .job-success {color: greenyellow;}
 .job-failure {color: red;}
+.confirm-delete {display: none; margin-top: 0;}
+.confirm-delete .cat-title-options {background-color: #cd3232;}
+.confirm-delete .cat-title-options h5 {width: 72%; float: left; margin-top: 20px; padding-left: 10px;}
+.confirm-delete .cat-title-options button {
+    float: right; 
+    background-color: transparent; 
+    border: none; 
+    color:#fff; 
+    width: 70px; 
+    cursor:pointer;
+    margin-right: 0; 
+    margin-top: 20px;
+}
+
+
 
 @media only screen and (max-width: 525px) {
 .job-form-input, .job-form-label {

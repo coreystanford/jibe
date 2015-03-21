@@ -6,5 +6,6 @@
 				
 		</footer><!-- END footer -->
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+                <script src="../../js/job-board.js"></script>
 	</body>
 </html>
