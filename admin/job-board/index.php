@@ -14,6 +14,8 @@ require($model_path . 'userDB.php');
 require($model_path . 'job.php');
 require($model_path . 'jobDB.php');
 require($model_path . 'file_upload.php');
+require($model_path . 'fields.php');
+require($model_path . 'validate.php');
 
    
 // current user id
@@ -25,10 +27,7 @@ $current_user = userDB::getUserById($user_id);
 $allcategories = CategoryDB::getCategories();
 $jobs = JobDB::getJobs($user_id);
 
-$menu = array (
-    "List Jobs" => "?action=list_jobs",
-    "Add New Listing" => "?action=add_job"
-    );
+
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -38,11 +37,24 @@ if (isset($_POST['action'])) {
     $action = 'list_jobs';
 }
 
+    $newJobValidate = new Validate;
+    $newjobfields = $newJobValidate->getFields();
+    $newjobfields->addField('job_cat');
+    $newjobfields->addField('job_title');
+    $newjobfields->addField('job_company');
+    $newjobfields->addField('job_city');
+    $newjobfields->addField('job_country');
+    $newjobfields->addField('job_description');
+
+//    $updJobValidate = new Validate;
+//    $updjobfields = $updJobValidate->getFields();
+//    $updjobfields->addField('updtitle');
+//    $updjobfields->addField('upddesc');
+//    $updjobfields->addField('updicon');
+
 switch ($action){
 
 case 'edit_job' :
-   // $categories = CategoryDB::getCategories();
-    $menu_links = array();
     if(isset($_GET['job_id'])){
         $job_id = $_GET['job_id'];
     } elseif (isset($_POST['job_id'])){
@@ -55,7 +67,7 @@ case 'edit_job' :
             $message_fail = "Job not found";
             include('list.php');
         } else {
-        //add input validation goes here
+            //if job exists in the database - pull job details for update
             $job_date = $listing->getJobDate();
             $job_cat = $listing->getJobCategory()->getID();
             $job_title = $listing->getJobTitle();
@@ -69,7 +81,7 @@ case 'edit_job' :
                 include('edit.php');   
                    
 
-            } // if update form is submitted
+            } 
             
             elseif(isset($_POST['resetjob'])){
                 $jobs = JobDB::getJobs($user_id);
@@ -123,20 +135,76 @@ case 'add_job' :
            $now_date = new DateTime();
         $job_date = $now_date->format('Y-m-d H:i:s');
         $job_cat = '';
-
+        $fileuploaderrors = '';
 
         if(isset($_POST['submitjob'])) {
+            
+            $user_id = $_POST['user_id'];
+            $job_date = $_POST['job_date'];
+            $job_cat = $_POST['job_cat'];
+            $job_title = $_POST['job_title'];
+            $job_description = $_POST['job_description'];
+            $job_city = $_POST['job_city'];
+            $job_country = $_POST['job_country'];
+            $job_company = $_POST['job_company'];
+        
+        $newJobValidate->lists('job_cat', $job_cat, "allcategories");
+        $newJobValidate->text('job_title', $job_title, true, 1, 50);
+        $newJobValidate->text('job_description', $job_description, true, 1);
+        $newJobValidate->text('job_city', $job_city, true, 1, 50);
+        $newJobValidate->lists('job_country', $job_country, "allcountries");
+        $newJobValidate->text('job_company', $job_company, true, 1, 50);
 
-            include ('_add_job.php');
-            $jobs = JobDB::getJobs($user_id);
-            include('list.php');    
+            if($newjobfields->hasErrors()){
+
+                include 'add.php';
+
+            } else {
+
+           // include ('_add_job.php');     
+                    
+            //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
+                //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");
+                //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION);
+            // convert Job Title into file name - conversion function found here
+            // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
+                $upload_directory = "../../images_upload/";
+
+                $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
+                $job_logo = $newfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION);
+                $fileupload = new FileUpload;
+                $fileupload->setTarget($upload_directory);
+
+                //$filemanager->setExtensions(array('jpg'));
+                $fileupload->setFilename($job_logo);
+                $fileupload->uploadFile($_FILES['job_logo']);
+                $fileuploaderrors = $fileupload->displayErrors();
+
+                if (!empty($fileuploaderrors)) { 
+                    //$message_fail = $fileuploaderrors; 
+                    include 'add.php';
+                } else {
+                    $postedby = UserDB::getUserById($user_id);
+                    $category = CategoryDB::getCategoryById($job_cat);
+
+                    $job_logo = "images_upload/" . $job_logo;
+                    $new_job = new Job($postedby, $category, $job_title, $job_description, $job_company, $job_logo, $job_city, $job_country, $job_date);
+                    if (JobDB::addJob($new_job) != 1) {
+                        //$message_fail = "Failed to create new job";
+                        include 'add.php';
+
+                    } else {
+                        $message_success = "New job created successfully!";
+                        $jobs = JobDB::getJobs($user_id);
+                        include('list.php');   
+                    }
+                }
+            }//if passed validation
+            
 
         } //if new job form is submitted
-    
         else {
-         
             include('add.php');
-
         }
     break;
     

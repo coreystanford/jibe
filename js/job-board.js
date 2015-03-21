@@ -2,7 +2,7 @@ $().ready(function(){
 
 	$('a.job-delete').click(function() {
         $('div.confirm-delete').hide();
-        $(this).parent('div').parent('div').next('div.confirm-delete').show();
+        $(this).parent('div').parent('div').next('div.confirm-delete').show(300);
     
         });
         

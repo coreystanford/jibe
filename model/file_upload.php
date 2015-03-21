@@ -51,15 +51,16 @@ class FileUpload {
         $validationError = '';
         //check if file exists
         if(empty($file['name'])) {
-            $validationError .= 'You are attempting to upload non-existent file';
-        }
-        //check if file has an extension the is allowed for upload
-        if(!in_array($this->getExtension($file), $this->_extensions)){
-            $validationError .= 'File extension ' . $file . ' is not allowed';
-        }
-        //check if file is within size limit
-        if($file['size'] > $this->_sizelimit){
-            $validationError .= 'File exceeded size limit of ' . $this->_sizelimit . " bytes.";
+            $validationError = 'You are attempting to upload non-existent file. ';
+        } else {
+            //check if file has an extension the is allowed for upload
+            if(!in_array($this->getExtension($file), $this->_extensions)){
+                $validationError = 'File extension ' . $this->getExtension($file) . ' is not allowed. ';
+            }
+            //check if file is within size limit
+            if($file['size'] > $this->_sizelimit){
+                $validationError .= 'File exceeded size limit of ' . $this->_sizelimit . " bytes.";
+            }
         }
         $this->_fm_error  = $validationError;
     }
@@ -97,6 +98,12 @@ class FileUpload {
         if($this->_fm_error ){
             echo $this->_fm_error ;
         }
+    }
+    //function to display errors
+    public function displayErrors(){
+        if ($this->_fm_error !=''){
+        return "<span class='error'>" . $this->_fm_error . "</span>";
+        } else {return '';}
     }
     
 }
