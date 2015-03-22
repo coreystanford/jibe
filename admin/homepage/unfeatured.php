@@ -21,9 +21,9 @@
 								<img src="../../images/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
 
 								<form action="." method="post">
-				                    <input type="hidden" name="action" value="remove-project" />
+				                    <input type="hidden" name="action" value="add-project" />
 				                    <input type="hidden" name="id" value="<?php echo $project->getID(); ?>" />
-				                    <input type="submit" class="delete" value="" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></input>
+				                    <input type="submit" class="delete" value="" title="Add Featured Project"><i class="fa fa-plus fa-lg"></i></input>
 				                </form>
 
 								<span class="approvals"><i class="fa fa-check"></i> 1020</span>

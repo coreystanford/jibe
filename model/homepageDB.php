@@ -169,19 +169,13 @@ class HomepageDB {
 
     // ------ Add A Featured Project------ //
 
-    public static function addFeatured($project, $proj_id){
+    public static function addFeature($proj_id){
 
         $db = Database::getDB();
 
-        $cat_title = $project->getTitle();
-        $cat_description = $project->getDesc();
-        $cat_icon = $project->getIcon();
-
         $query = "UPDATE projects SET 
-                    cat_title = '$cat_title',
-                    cat_description = '$cat_description',
-                    cat_icon = '$cat_icon'
-                    WHERE cat_id = :proj_id";
+                    featured = 1
+                    WHERE proj_id = :proj_id";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
@@ -192,19 +186,13 @@ class HomepageDB {
 
     // ------ Remove A Featured Project ------ //
 
-    public static function removeFeatured($project, $proj_id){
+    public static function removeFeature($proj_id){
 
         $db = Database::getDB();
 
-        $cat_title = $project->getTitle();
-        $cat_description = $project->getDesc();
-        $cat_icon = $project->getIcon();
-
         $query = "UPDATE projects SET 
-                    cat_title = '$cat_title',
-                    cat_description = '$cat_description',
-                    cat_icon = '$cat_icon'
-                    WHERE cat_id = :proj_id";
+                    featured = 0
+                    WHERE proj_id = :proj_id";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);

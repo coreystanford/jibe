@@ -197,14 +197,23 @@
         case 'add-project':
         	
         	$id = $_POST['id'];
-            CategoryDB::addFeature($id);
+            HomepageDB::addFeature($id);
 
-            $home = HomepageDB::getHomeInfo();
-            $projects = HomepageDB::getFeatured();
+            $projects = HomepageDB::getUnfeatured();
+            include 'unfeatured.php';
 
-            include 'text.php';
-            include 'image.php';
-            include 'projects.php';
+            //$home = HomepageDB::getHomeInfo();
+            //$projects = HomepageDB::getFeatured();
+//
+            //$main = $home['main_text'];
+            //$sub = $home['sub_text'];
+            //$btn_text = $home['button_text'];
+            //$btn_link = $home['button_link'];
+            //$img = $home['main_img_url'];
+//
+            //include 'text.php';
+            //include 'image.php';
+            //include 'projects.php';
 
         break;
 
@@ -213,10 +222,16 @@
         case 'remove-project':
         	
         	$id = $_POST['id'];
-            CategoryDB::removeFeature($id);
+            HomepageDB::removeFeature($id);
 
             $home = HomepageDB::getHomeInfo();
             $projects = HomepageDB::getFeatured();
+
+            $main = $home['main_text'];
+            $sub = $home['sub_text'];
+            $btn_text = $home['button_text'];
+            $btn_link = $home['button_link'];
+            $img = $home['main_img_url'];
 
             include 'text.php';
             include 'image.php';

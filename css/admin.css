@@ -465,7 +465,7 @@ a {
             height: 40px;
             line-height: 40px;
             margin-bottom: -40px;
-            background-color: #26272a;
+            background-color: #3e3e40;
         }
 
             .info img.user-profile {
@@ -501,11 +501,27 @@ a {
                     top: 0;
                     left: 53px;
                     text-align: center;
+                    background: #26272a;
                 }
 
-                .feature a.delete {
+                .feature form {
+                    position: absolute;
+                    right: 0;
+                    width: 53px;
+                }
+
+                .feature form input.delete {
+                    position: absolute;
                     top: 0;
-                    left: 171px;
+                    left: 0;
+                    border: none;
+                    background: transparent;
+                    z-index: 2;
+                }
+
+                .feature form i {
+                    text-align: center;
+                    width: 53px;
                 }
 
 /*  --------CATEGORIES--------  */
