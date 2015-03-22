@@ -60,17 +60,27 @@
         <form method="post" class="job-inline job-right">
             <button type="submit" name="resetfilter" value ="Reset" class="fa fa-remove job-inline-button job-right"></button>
             </form>
-        <div class="clearfix">
-            <h1>Current listings</h1>
-            <ul class="nav">
+        
+         <div class="job-container" >
+            
                 <?php foreach ($jobs as $job) : ?>
-                    <li>
-                        <a href="?action=view_job&job_id=<?php echo $job->getID(); ?>">
-                            <?php echo $job->getJobTitle(); ?>
-                        </a>
-                    </li>
+                    <div class="jobrow">
+                        <span style="background: url('/5202/jibe/<?php echo $job->getLogoUrl(); ?>') 50% 50%; width: 70px; display: block; background-size: cover;">
+                            &nbsp;
+                            <?php //echo $job->getJobCategory()->getIcon(); ?>
+                        </span>
+                        <div class="job-title-options">
+                            
+                            <h2><?php echo $job->getJobTitle(); ?></h2>
+                            <span class="job-date"><i class="fa fa-calendar"> <?php echo $job->getJobDate(); ?></i></span>
+                            <a href="?action=view_job&job_id=<?php echo $job->getID(); ?>" class="delete" title="View Details">
+                                <i class="fa fa-eye fa-lg"></i>
+                            </a>
+                           
+                        </div>
+                    </div>
+                    
                 <?php endforeach; ?>
-            </ul>
         </div>
     </div>
 </section>

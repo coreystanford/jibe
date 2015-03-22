@@ -96,9 +96,9 @@ ul.job-top-nav li{
 
 .job-logo img{
 
-    max-width: 95%;
-    min-width: 100px;
-    height: auto;
+    height: 100px;
+    
+    width: 100px;
     margin: 0 auto;
     outline: 1px #eee solid;
     }
@@ -136,6 +136,106 @@ ul.job-top-nav li{
     margin-right: 0; 
     margin-top: 20px;
 }
+
+/*  --------CATEGORIES--------  */
+
+.job-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+    .job-container h1 {
+        margin-bottom: 20px;
+        display: inline-block;
+        float: left;
+    }
+
+    .job-container > .edit {
+        display: inline;
+        width: 180px;
+        font-size: 1.1rem;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 2px 2px 2px;
+        margin-top: 12px;
+        margin-right: 40px;
+        float: right;
+        position: relative;
+    }
+
+    .jobrow {
+        display: inline-block;
+        margin: 5px auto;
+        width: 90%;
+        height: 70px;
+    }
+
+        .jobrow span {
+            text-align: center;
+            float: left;
+            width: 10%;
+            line-height: 70px;
+            font-size: 1.65rem;
+            background: #3e3e40;
+            border-right: 2px solid #0f0f0f;
+            position: relative;
+            z-index: 2;
+        }
+
+        .job-title-options {
+            width: 90%;
+            position: relative;
+            height: 100%;
+            background: #26272a;
+        }
+
+            .job-title-options h2 {
+                margin: 0 0 0 20px;
+                display: inline-block;
+                line-height: 70px;
+                float: left;
+            }
+
+            .job-title-options .job-date {
+                position: absolute;
+                height: 70px;
+                width: 160px;
+                right: 70px;
+                font-size: 1.4rem;
+                background-color: #26272a;
+                border-left: 2px solid #0f0f0f;
+                border-right: 2px solid #0f0f0f;
+            }
+
+                .job-title-options .job-date i {
+                    margin-right: 10px;
+                    font-size: 1.1rem;
+                }
+
+            .job-title-options .details {
+                height: 70px;
+                width: 70px;
+                right: 0;
+                font-size: 1.1rem;
+            }
+
+                .job-title-options .details i {
+                    line-height: 70px;
+                }
+
+            .job-title-options .delete {
+                height: 70px;
+                width: 70px;
+                right: 0;
+                font-size: 1.1rem;
+                border-left: 2px solid #0f0f0f;
+            }
+
+                .job-title-options .delete i {
+                    line-height: 70px;
+                }
+
 
 
 

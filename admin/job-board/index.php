@@ -6,7 +6,7 @@ $admin_path = $root_path."admin/";
 $model_path = $root_path."model/";
 
 
-require($model_path . 'database_il.php');
+require($model_path . 'database.php');
 require($model_path . 'category.php');
 require($model_path . 'categoryDB.php');
 require($model_path . 'user.php');

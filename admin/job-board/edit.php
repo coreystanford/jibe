@@ -10,7 +10,6 @@ $allcountries = array(
 
     <div class="main-admin">
 
-        <?php include_once 'admin_menu.php'; ?>
 
         <h1>Edit a job posting <?php echo $job_title; ?>
            
