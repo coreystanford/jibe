@@ -22,7 +22,7 @@ var modal = (function () {
                 data: {id: id},
                 beforeSend:function(){
                     $('#modal').css('display', 'block');
-                    $('#modal').append('./model/loading.php');
+                    $('#modal').load('./model/loading.php');
                 },
                 success:function(response){
 
