@@ -62,6 +62,9 @@ case 'edit_job' :
     }
     
     if(!empty($job_id)){
+        $anyerrors = '';
+        $fileuploaderrors = '';
+
         $listing = JobDB::getJobById($job_id);
         if($listing->getID() == NULL) {
             $message_fail = "Job not found";
@@ -77,11 +80,94 @@ case 'edit_job' :
             $job_company = $listing->getJobCompany();
             $job_logo = $listing->getLogoUrl();
 
-            if(!isset($_POST['submitjob'])) {
-                include('edit.php');   
-                   
+            if(isset($_POST['submitjob'])) {
+                //include('_update_job.php');
+                $job_id = $_POST['job_id'];
+                $user_id = $_POST['user_id'];
+                $job_date = $_POST['job_date'];
+                $job_cat = $_POST['job_cat'];
+                $job_title = $_POST['job_title'];
+                $job_description = $_POST['job_description'];
+                $job_city = $_POST['job_city'];
+                $job_country = $_POST['job_country'];
+                $job_company = $_POST['job_company'];
+                $job_logo = $_POST['job_logo'];
+                
+            $newJobValidate->lists('job_cat', $job_cat, "allcategories");
+            $newJobValidate->text('job_title', $job_title, true, 1, 50);
+            $newJobValidate->text('job_description', $job_description, true, 1, 2000);
+            $newJobValidate->text('job_city', $job_city, true, 1, 50);
+            $newJobValidate->lists('job_country', $job_country, "allcountries");
+            $newJobValidate->text('job_company', $job_company, true, 1, 50);
+         
+            if(!$newjobfields->hasErrors()){
 
-            } 
+                //include 'edit.php';
+
+            //} else {
+                if (!empty($_FILES['upd_job_logo']['name'])) {
+
+        //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
+        //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");
+        //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION);
+        // convert Job Title into file name - conversion function found here
+        // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
+        
+                $upload_directory = '../../images_upload/';
+
+                $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
+                $job_logo = $newfilename . "." . pathinfo($_FILES['upd_job_logo']['name'],PATHINFO_EXTENSION);
+                $fileupload = new FileUpload;
+                $fileupload->setTarget($upload_directory);
+                //$filemanager->setExtensions(array('jpg'));
+                $fileupload->deleteFile($job_logo);
+                $fileupload->setFilename($job_logo);
+                echo $fileupload->displayErrors();
+                $fileupload->uploadFile($_FILES['upd_job_logo']);
+                $fileuploaderrors = $fileupload->_fm_error;
+                
+                $job_logo = "images_upload/" . $job_logo;
+        
+                if (!empty($fileuploaderrors)) {
+                    //echo $fileuploaderrors; 
+                    //include('edit.php'); 
+                    $anyerrors .= $fileuploaderrors . "<br />";
+                }
+            }//if new logo is not empty 
+            
+                //else {
+
+               
+            //} // end if there are no fileupload errors    
+                 
+            }//if passed validation 
+            else {
+                $anyerrors .= "Form contains errors.";
+            } //if form validation failed
+            
+            if (empty($anyerrors)){
+                 $postedby = UserDB::getUserById($user_id);
+                $category = CategoryDB::getCategoryById($job_cat);
+
+                $new_job = new Job($postedby, $category, $job_title, $job_description, $job_company, $job_logo, $job_city, $job_country, $job_date);
+                $new_job->setID($job_id);
+                //var_dump($new_job);
+                if (JobDB::updateJob($new_job, $job_id) != 1) {
+                    $message_fail = 'There was an error updating this job listing';
+                    $jobs = JobDB::getJobs($user_id);
+                    include('list.php'); 
+                } else {
+                    $message_success = 'Job listing was updated successfully!';
+                    $jobs = JobDB::getJobs($user_id);
+                    include('list.php');   
+                }
+            } else {
+                echo $anyerrors;
+                include('edit.php'); 
+            }
+            
+
+            } //if update form is submitted
             
             elseif(isset($_POST['resetjob'])){
                 $jobs = JobDB::getJobs($user_id);
@@ -89,11 +175,8 @@ case 'edit_job' :
             } // if reset form is submitted
             
             else {         
-                include('_update_job.php');
-
-                $jobs = JobDB::getJobs($user_id);
-                include('list.php');    
-            } // if update form is submitted
+                include('edit.php'); 
+            } // if update form is neither submitted nor reset
         } // if job was found    
     } // if job_id is not empty
     else {
@@ -150,7 +233,7 @@ case 'add_job' :
         
         $newJobValidate->lists('job_cat', $job_cat, "allcategories");
         $newJobValidate->text('job_title', $job_title, true, 1, 50);
-        $newJobValidate->text('job_description', $job_description, true, 1);
+        $newJobValidate->text('job_description', $job_description, true, 1, 2000);
         $newJobValidate->text('job_city', $job_city, true, 1, 50);
         $newJobValidate->lists('job_country', $job_country, "allcountries");
         $newJobValidate->text('job_company', $job_company, true, 1, 50);
@@ -161,7 +244,6 @@ case 'add_job' :
 
             } else {
 
-           // include ('_add_job.php');     
                     
             //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
                 //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");

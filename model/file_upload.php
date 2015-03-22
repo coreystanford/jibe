@@ -86,8 +86,8 @@ class FileUpload {
     }
     // function to delete file
     public function deleteFile($file){
-        if(file_exists($file)) {
-            $delete_result = unlink($file);
+        if(file_exists($this->_target.$file)) {
+            $delete_result = unlink($this->_target.$file);
             if(!$delete_result){
                 $this->_fm_error  .= 'Image file ' . $file . ' exists but was not deleted';
             }

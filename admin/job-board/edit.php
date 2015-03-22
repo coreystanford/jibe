@@ -39,7 +39,9 @@ $allcountries = array(
                                 <?php
                             }
                             ?>
-                        </select>            
+                        </select> 
+                        <?php echo $newjobfields->getField('job_cat')->getHTML(); ?>
+
                     </div>       
                 </li>
                 <li>
@@ -48,6 +50,7 @@ $allcountries = array(
                     </div>
                     <div class="job-form-input job-right">
                         <input type="text" name="job_title" class="job-text" value="<?php echo $job_title; ?>" />
+                        <?php echo $newjobfields->getField('job_title')->getHTML(); ?>
                     </div>
                 </li>
                 <li>
@@ -56,6 +59,7 @@ $allcountries = array(
                     </div>
                     <div class="job-form-input job-right">
                         <input type="text" name="job_company" class="job-text" value="<?php echo $job_company; ?>" />
+                        <?php echo $newjobfields->getField('job_company')->getHTML(); ?>
                     </div>
                 </li>  
                 <li>
@@ -64,10 +68,11 @@ $allcountries = array(
                     </div>
                     <div class="job-form-input job-right">
                         <div class="job-logo">
-                        <img src="<?php echo $root_path . $job_logo; ?>" />
+                        <img src="../../<?php echo $job_logo; ?>" />
                         </div>
                         <input type="hidden" name="job_logo" id="job_logo" value="<?php echo $job_logo; ?>" />
-                 <!--   <input type="file" name="job_logo" id="job_logo" > -->
+                        <input type="file" name="upd_job_logo" id="upd_job_logo" >
+                        <?php echo $fileuploaderrors; ?>
                     </div>
                 </li>
                 <li>
@@ -76,6 +81,7 @@ $allcountries = array(
                     </div>
                     <div class="job-form-input job-right">
                         <input type="text" name="job_city" class="job-text" value="<?php echo $job_city; ?>" />
+                        <?php echo $newjobfields->getField('job_city')->getHTML(); ?>
                     </div>
                 </li>
                 <li>
@@ -95,6 +101,7 @@ $allcountries = array(
                             } // end foreach loop
                             ?>
                         </select>
+                        <?php echo $newjobfields->getField('job_country')->getHTML(); ?>
                     </div>
                 </li>
                 <li>
@@ -104,6 +111,7 @@ $allcountries = array(
                         <textarea type="text" name="job_description" class="job-textarea" >
                             <?php echo $job_description; ?>
                         </textarea>                
+                        <?php echo $newjobfields->getField('job_description')->getHTML(); ?>
                     </div>
                 </li>
             </ul>
