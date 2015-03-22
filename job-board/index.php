@@ -30,6 +30,9 @@ $jobs = JobDB::getJobs();
 
 switch($action) {
     case 'list_jobs' :
+        $job_cat = '';
+        $job_city = '';
+        $job_country = '';
 
         if(!isset($_POST['submitfilter'])) {
             $jobs = JobDB::getJobs();

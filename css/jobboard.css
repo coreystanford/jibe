@@ -120,7 +120,13 @@ ul.job-top-nav li{
     display: inline-block;
     padding: 10px;
 }
-
+.job-hidden {display: none;}
+.job-button-clear {
+    background-color: transparent; 
+    border: none;
+    color: #fff;
+    margin-left: 20px;
+}
 .job-success {color: greenyellow;}
 .job-failure {color: red;}
 .confirm-delete {display: none; margin-top: 0;}
@@ -140,7 +146,7 @@ ul.job-top-nav li{
 /*  --------CATEGORIES--------  */
 
 .job-container {
-    position: relative;
+    //position: relative;
     width: 100%;
     text-align: center;
 }

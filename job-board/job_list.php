@@ -7,25 +7,23 @@
 
         <div class="job-filters clearfix job-left" >
 
-            <form id="filter-jobs" name="filter-jobs" method="post">
+            <form id="filter-jobs" name="filter-jobs" method="post" action="?action=list_jobs">
                     <h4 class="job-inline">Filter results</h4>
                 <div class="job-drop-down">
-                    <select name="categories" >
+                    <select name="categories" id="categories" >
                         <option value="allcategories">--Select Category--</option>
                         <?php
-                        foreach ($categories as $category) {
+                        foreach ($categories as $category) :
                             ($job_cat == $category->getID()) ? $attr_selected = 'selected = "selected"' : $attr_selected = '';
                             ?>
                             <option value="<?php echo $category->getID(); ?>" <?php echo $attr_selected; ?> ><?php echo $category->getTitle(); ?></option>
 
-                            <?php
-                        }
-                        ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>             
                
                 <div class="job-drop-down">
-                    <select name="cities" >
+                    <select name="cities" id="cities" >
                         <option value="allcities">--Select City---------</option>
                         <?php
                         foreach ($cities as $city) {
@@ -39,7 +37,7 @@
                     </select>
                 </div>
                 <div class="job-drop-down">
-                    <select name="countries" >
+                    <select name="countries" id="countries">
                         <option value="allcountries">--Select Country---</option>
                         <?php
                         foreach ($countries as $country) {
@@ -52,14 +50,18 @@
                         ?>
                     </select>
                 </div>
-                    <button type="submit" name="submitfilter" value="Filter" class="fa fa-filter job-inline-button job-right"></button>
-
+                    <input type="submit" name="submitfilter" id="submitfilter" value="Filter" class="job-hidden" />
+                    <button type="submit" name="resetfilter" class="fa fa-remove fa-lg job-button-clear" title="Remove filters">
+                            
+                        </button>
             </form>
+            
          </div><!--end filters div -->
-
-        <form method="post" class="job-inline job-right">
+<!--        <div class="job-filters clearfix job-left" >
+           <form method="post" class="job-inline job-right">
             <button type="submit" name="resetfilter" value ="Reset" class="fa fa-remove job-inline-button job-right"></button>
             </form>
+        </div>-->
         
          <div class="job-container" >
             
@@ -84,4 +86,11 @@
         </div>
     </div>
 </section>
+<script type="text/javascript" src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type="text/javascript">
+$("#categories, #cities, #countries").on("change", function() {
+    //var form = $("#filter-jobs");
+    $("#submitfilter").click();
+});
+</script>
 <?php include '../view/footer.php'; ?>

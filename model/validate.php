@@ -101,11 +101,11 @@ class Validate {
 	// ------ Lists - Dropdown (default as 'Select'), 
 	//		  Radio, Multiple, Checkbox ------ //
 
-	public function lists($name, $value) {
+	public function lists($name, $value, $default_value = 'Select') {
 
 		$field = $this->fields->getField($name);
 
-		if(empty($value) || $value == 'Select'){
+		if(empty($value) || $value == $default_value){
 			$field->setErrorMessage('Required');
 		} else {
 			$field->clearErrorMessage();
