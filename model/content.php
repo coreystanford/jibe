@@ -2,10 +2,10 @@
 
 class Content {
 
-	private $id, $proj_id, $content, $attribute;
+	private $id, $project, $content, $attribute;
 
-	public function __construct($proj_id, $content){
-		$this->proj_id = $proj_id;
+	public function __construct($project, $content){
+		$this->proj_id = $project;
 		$this->content = $content;
 	}
 
@@ -17,12 +17,12 @@ class Content {
         return $this->id = $value;
     }
 
-    public function getProjID() {
-        return $this->proj_id;
+    public function getProject() {
+        return $this->project;
     }
 
-    public function setProjID($value) {
-        return $this->proj_id = $value;
+    public function setProj($value) {
+        return $this->project = $value;
     }
 
     public function getContent() {

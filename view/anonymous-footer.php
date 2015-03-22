@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="./js/home-logo.js"></script>
 		<script type="text/javascript" src="./js/featured.js"></script>
 		<script type="text/javascript" src="./js/scroll.js"></script>
-		<script type="text/javascript" src="./js/modal-window.js"></script>
-		<script type="text/javascript" src="./js/modal-init.js"></script>
+		<script type="text/javascript" src="./js/home-modal.js"></script>
+		<script type="text/javascript" src="./js/home-modal-init.js"></script>
 	</body>
 </html>

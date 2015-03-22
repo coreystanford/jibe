@@ -608,28 +608,14 @@ header {
         width: 100%;
         height: auto;
         margin-left: -50%;
+        margin-top: -27px;
         background: transparent;
         text-align: center;
     }
 
         #modal-loading span {
-            color: #3d8cd9;
+            color: #26272a;
         }
-
-    #modal-content {
-        position: absolute;
-        left: 50%;
-        top: 30px;
-        max-width: 80%;
-        max-height: 80%;
-        background: #fff;
-        background: #454545;
-        overflow: hidden;
-    }
-
-    #modal-img {
-
-    }
 
     #modal-close {
         border: none;
@@ -650,6 +636,67 @@ header {
             color: #3d8cd9;
             cursor: pointer;
         }
+
+    /* ----- Home Modal -----*/
+
+    #home-content {
+        position: absolute;
+        left: 50%;
+        top: 30px;
+        max-width: 80%;
+        max-height: 80%;
+        background: transparent;
+        overflow: hidden;
+    }
+
+        #modal-img {
+
+        }
+
+    /* ----- Feed/Explore Modal -----*/
+
+    #feed-content {
+        position: absolute;
+        left: 50%;
+        top: 30px;
+        width: 90%;
+        height: 90%;
+        margin-left: -45%;
+        background: #0f0f0f;
+        overflow: scroll;
+    }
+
+        #head {
+            height: 140px;
+            width: 100%;
+            background: #26272a;
+        }
+
+            #proj-thumb {
+                width: 140px;
+                height: 140px;
+                overflow: hidden;
+                float: left;
+            }
+
+                #proj-thumb img {
+                    width: 100%;
+                }
+
+            #proj-details {
+                float: left;
+                width: calc(100% - 140px);
+            }
+
+                #feed-content h2 {
+                    display: block;
+                    padding: 10px 40px 10px 20px;
+                }
+
+                #feed-content p {
+                    display: block;
+                    padding: 10px 20px;
+                }
 
 
 /*  ----------PROJECT----------  */

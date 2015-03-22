@@ -51,6 +51,50 @@ class ProjectDB {
 
 	}
 
+    public static function getProjectByID($proj_id){
+
+        $db = Database::getDB();
+        $query = "SELECT * FROM projects 
+                JOIN category ON projects.cat_id = category.cat_id 
+                JOIN users ON projects.user_id = users.user_id 
+                WHERE proj_id = :proj_id ";
+        $stm = $db->prepare($query);
+        $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_STR);
+        $stm->execute();
+        $row = $stm->fetch(PDO::FETCH_ASSOC);
+
+            $category = new Category(
+                    $row['cat_title'],
+                    $row['cat_description'],
+                    $row['cat_icon']);
+            $category->setID($row['cat_id']);
+
+            $user = new User(
+                    $row['fname'],
+                    $row['lname'],
+                    $row['city'],
+                    $row['country'],
+                    $row['website'],
+                    $row['img_url'],
+                    $row['bio'],
+                    $row['specialty']);
+            $user->setID($row['user_id']);
+
+            $project = new Project(
+                    $user,
+                    $category,
+                    $row['proj_title'],
+                    $row['proj_description'],
+                    $row['proj_thumb'],
+                    $row['proj_date'],
+                    $row['featured']);
+            $project->setID($row['proj_id']);
+
+        //var_dump($project);
+        return $project;
+
+    }
+
     public static function getProjectsByUserID($user_id){
 
         $db = Database::getDB();
