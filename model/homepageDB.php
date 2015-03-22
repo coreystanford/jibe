@@ -117,6 +117,23 @@ class HomepageDB {
         return $projects;
     }
 
+    // ------ Get Featured Project by ID for Homepage Modal ------ //
+
+    public static function getFeaturedByID($proj_id){
+
+        $db = Database::getDB();
+        $query = "SELECT proj_thumb FROM projects 
+                WHERE proj_id = :proj_id";
+        $stm = $db->prepare($query);
+        $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
+        $stm->execute();
+        $project = $stm->fetch(PDO::FETCH_ASSOC);
+
+        //$project = ["proj_id" => $row['proj_id'], "thumb" => $row['proj_thumb'] ];
+
+        return $project;
+    }
+
     // ------ Get All Unfeatured Projects ------ //
 
     public static function getUnfeatured(){

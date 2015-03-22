@@ -20,7 +20,7 @@
 
 						<div class="home-project">
 
-							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="./images/<?php echo $project->getProjThumb(); ?>" /></a>
+							<a href="#modal" rel="<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="./images/<?php echo $project->getProjThumb(); ?>" /></a>
 
 						</div><!-- END featured -->
 
@@ -33,4 +33,6 @@
 		</section><!-- END main section -->
 		
 		<?php include 'view/anonymous-footer.php'; ?>
+
+		<div id="modal"></div>
                 
