@@ -44,7 +44,7 @@
 
         case 'default':
 
-            $reports = ReportDB::getReports();
+            $reports = ReportDB::getUnresolvedReports();
 
             $sum = array();
 
@@ -62,9 +62,31 @@
 
         break;
 
-        // ------ Show Update ------ //
+        // ------ Show Resolved Reports ------ //
 
-        case 'edit':
+        case 'resolved':
+
+            $reports = ReportDB::getResolvedReports();
+
+            $sum = array();
+
+            foreach($reports as $report){
+                $rp = [
+                "id" => $report->getID(),
+                "reporter" => UserDB::getUserById($report->getReporter()),
+                "reported" => ProjectDB::getProjectByID($report->getReportedProj())
+                ];
+
+                $sum[] = $rp;
+            }
+
+            include 'resolved-reports.php';
+
+        break;
+
+        // ------ Show Options ------ //
+
+        case 'options':
         	
 			$id = $_GET['id'];
             $report = ReportDB::getReportById($id);
@@ -77,58 +99,77 @@
             $project = ProjectDB::getProjectByID();
             $reported = $project->getUser();
 
-            include 'edit.php';
+            include 'options.php';
 
         break;
 
-        // ------ Show Reported Project ------ //
+        // ------ Resolve A Report ------ //
 
-        case 'edit':
+        case 'resolve':
             
             $id = $_GET['id'];
-            $report = ProjectDB::getProjectByID($id);
+            ReportDB::resolveReport($id);
 
+            $reports = ReportDB::getUnresolvedReports();
 
+            $sum = array();
 
-            include 'edit.php';
+            foreach($reports as $report){
+                $rp = [
+                "id" => $report->getID(),
+                "reporter" => UserDB::getUserById($report->getReporter()),
+                "reported" => ProjectDB::getProjectByID($report->getReportedProj())
+                ];
+
+                $sum[] = $rp;
+            }
+
+            include 'reports.php';
+
+        break;
+
+        // ------ Unresolve A Report ------ //
+
+        case 'unresolve':
+            
+            $id = $_GET['id'];
+            ReportDB::unresolveReport($id);
+
+            $reports = ReportDB::getResolvedReports();
+
+            $sum = array();
+
+            foreach($reports as $report){
+                $rp = [
+                "id" => $report->getID(),
+                "reporter" => UserDB::getUserById($report->getReporter()),
+                "reported" => ProjectDB::getProjectByID($report->getReportedProj())
+                ];
+
+                $sum[] = $rp;
+            }
+
+            include 'resolved-reports.php';
 
         break;
 
-        // ------ Perform Update ------ //
 
-        case 'update':
-        	
-        	$cat_id = $_POST['id'];
-        	$title = $_POST['updtitle']; 
-			$desc = $_POST['upddesc'];
-			$icon = $_POST['updicon'];
 
-			$updValidate->text('updtitle', $title);
-            $updValidate->text('upddesc', $desc, true, 1, 500);
-			$updValidate->text('updicon', $icon, true, 1, 200);
-
-			if($updfields->hasErrors()){
-
-                include 'edit.php';
-
-            } else {
-
-	        	$category = new Category($title, $desc, $icon);
-	            CategoryDB::updateCategory($category, $cat_id);
-
-	            $categories = CategoryDB::getCategories();
-	            include 'categories.php';
-
-        	}
-
-        break;
 
         // ------ Show Delete ------ //
 
         case 'delete':
         	
         	$id = $_GET['id'];
-            $category = CategoryDB::getCategoryByID($id);
+            $report = ReportDB::getReportById($id);
+
+            $reporter_id = $report->getReporter();
+            $reported_id = $report->getReported();
+            $project_id = $report->getReportedProj();
+
+            $reporter = UserDB::getUserById($reporter_id);
+            $project = ProjectDB::getProjectByID($project_id);
+            $reported = $project->getUser();
 
             include 'delete.php';
 
@@ -139,10 +180,23 @@
         case 'confirmed-delete':
         	
         	$id = $_POST['id'];
-            CategoryDB::deleteCategory($id);
+            ReportDB::deleteReport($id);
 
-            $categories = CategoryDB::getCategories();
-            include 'categories.php';
+            $reports = ReportDB::getResolvedReports();
+
+            $sum = array();
+
+            foreach($reports as $report){
+                $rp = [
+                "id" => $report->getID(),
+                "reporter" => UserDB::getUserById($report->getReporter()),
+                "reported" => ProjectDB::getProjectByID($report->getReportedProj())
+                ];
+
+                $sum[] = $rp;
+            }
+
+            include 'resolved-reports.php';
 
         break;
 

@@ -625,6 +625,24 @@ a {
 
 /*  --------REPORTED--------  */
 
+.report-container .resolved {
+    display: inline-block;
+    width: auto;
+    font-size: 1rem;
+    font-size: 16px;
+    padding: 4px 5px;
+    margin-top: -20px;
+    float: right;
+    position: relative;
+    background: #3e3e40;
+    text-align: center;
+}
+
+    .report-container .resolved:hover {
+        color: #3d8cd9;
+        cursor: pointer;
+    }
+
 #reports {
     width: 100%;
     margin: 20px 0;

@@ -7,18 +7,17 @@
 	<section role=main>
 
 		<div class="main-admin">
-			<div class="main-admin">
-				<h1>Delete <?php echo $category->getTitle(); ?></h1>
+
+				<h1>Remove this Report?</h1>
 			
 				<form action="." method="post" id="delete_form">
-                    <input type="hidden" name="action" value="confirmed-delete" />
-                    <input type="hidden" name="id" value="<?php echo $category->getID(); ?>" />
-                    <input type="submit" value="Delete" />
-                </form>
-                <br />
-                <h5><a href="../categories">Cancel</a></h5>
-
-			</div><!-- END cat-container -->
+					<div class="cluster">
+	                    <input type="hidden" name="action" value="confirmed-delete" />
+	                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
+	                    <input type="submit" class="btn deletebtn" value="Delete" />
+	                    <h5><a href="../reported?action=resolved" class="btn submit">Cancel</a></h5>
+	                </div>
+                </form>                
 
 		</div><!-- END main-admin -->
 

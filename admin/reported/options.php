@@ -13,7 +13,7 @@
             <form method="post" action="." >
             
                 <input type="hidden" name="action" value="update" />
-                <input type="hidden" name="id" value="<?php echo $category->getID(); ?>">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
 
                 <div class="cluster">
 

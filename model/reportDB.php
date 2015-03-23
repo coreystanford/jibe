@@ -2,13 +2,41 @@
 
 class ReportDB {
 
-    // ------ Get All Reports ------ //
+    // ------ Get All Unresolved Reports ------ //
 
-     public static function getReports(){
+     public static function getUnresolvedReports(){
 
         $db = Database::getDB();
 
-        $query = "SELECT * FROM reports";
+        $query = "SELECT * FROM reports 
+                WHERE resolved = 0";
+
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+        $reports = array();
+
+        foreach ($result as $row) {
+            $report = new Report(
+                $row['reporter_id'],
+                $row['reported_id'],
+                $row['reported_proj']);
+            $report->setID($row['report_id']);
+            $reports[] = $report;
+        }
+
+        return $reports;
+    }
+
+    // ------ Get All Resolved Reports ------ //
+
+     public static function getResolvedReports(){
+
+        $db = Database::getDB();
+
+        $query = "SELECT * FROM reports 
+                WHERE resolved = 1";
 
         $stm = $db->prepare($query);
         $stm->execute();
@@ -155,6 +183,40 @@ class ReportDB {
         
         return $row_count;    
     }
+
+    // ------ Resolve A Report ------ //
+
+    public static function resolveReport($report_id){
+
+        $db = Database::getDB();
+
+        $query = "UPDATE reports SET 
+                    resolved = 1
+                    WHERE report_id = :report_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(':report_id', $report_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
+        return $row_count;
+    }  
+
+    // ------ Unresolve A Report ------ //
+
+    public static function unresolveReport($report_id){
+
+        $db = Database::getDB();
+
+        $query = "UPDATE reports SET 
+                    resolved = 0
+                    WHERE report_id = :report_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(':report_id', $report_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
+        return $row_count;
+    }  
 
     // ------ Delete A Report ------ //
 

@@ -12,9 +12,9 @@
 
 				<h1>Reported</h1>
 
-				<h2>Current Reports</h2>
+				<h2>Resolved Reports</h2>
 
-				<a href="./?action=resolved" class="resolved">Resolved Reports <i class="fa fa-arrow-right fa-lg"></i></a>
+				<a href="." class="resolved"><i class="fa fa-arrow-left fa-lg"></i>  Back</a>
 
 				<table id="reports">
 					<tr>
@@ -22,6 +22,7 @@
 						<th>Reported</th>
 						<th>Project</th>
 						<th>Reported By</th>
+						<th> </th>
 						<th> </th>
 						<th> </th>
 					</tr>
@@ -39,7 +40,8 @@
 							<td><?php echo $report['reporter']->getFName(); ?> <?php echo $report['reporter']->getLName(); ?></td>
 
 							<td class="edit-td"><a href="./?action=options&id=<?php echo $report['id']; ?>" title="Options"><i class="fa fa-cog fa-lg"></i></a></td>
-							<td class="delete-td"><a href="./?action=resolve&id=<?php echo $report['id']; ?>" title="Resolve Report"><i class="fa fa-check fa-lg"></i></a></td>
+							<td class="delete-td"><a href="./?action=unresolve&id=<?php echo $report['id']; ?>" title="Unresolve Report"><i class="fa fa-times fa-lg"></i></a></td>
+							<td class="delete-td"><a href="./?action=delete&id=<?php echo $report['id']; ?>" title="Delete Report"><i class="fa fa-trash fa-lg"></i></a></td>
 
 						</tr>
 
