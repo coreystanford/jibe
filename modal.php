@@ -14,4 +14,4 @@ $project = HomepageDB::getFeaturedByID($id) ;
         <img src="./images/<?php echo $project['proj_thumb']; ?>" />
     </div>
 
-</div><!-- END modal-content -->
+</div><!-- END home-content -->

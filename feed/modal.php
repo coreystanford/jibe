@@ -31,6 +31,17 @@ $project = ProjectDB::getProjectByID($proj_id);
 
 	</div>
 
+	<div id="sub" class="clearfix">
+
+		<form method="post" action="." class="report-form">
+			<input type="hidden" name="action" value="report" />
+            <input type="hidden" name="reported_id" value="<?php echo $project->getUser()->getID(); ?>" />
+            <input type="hidden" name="proj_id" value="<?php echo $project->getID(); ?>" />
+            <input type="submit" value="Report" class="report" />
+		</form>
+
+	</div>
+
     <div id="content" class="clearfix">
 
         
@@ -38,4 +49,4 @@ $project = ProjectDB::getProjectByID($proj_id);
 
     </div>
 
-</div><!-- END modal-content -->
+</div><!-- END feed-content -->

@@ -3,8 +3,14 @@
 	require_once '../../model/database.php';
 	require_once '../../model/fields.php';
 	require_once '../../model/validate.php';
-	require_once '../../model/category.php';
-	require_once '../../model/categoryDB.php';
+	require_once '../../model/report.php';
+	require_once '../../model/reportDB.php';
+    require_once '../../model/user.php';
+    require_once '../../model/userDB.php';
+    require_once '../../model/category.php';
+    require_once '../../model/project.php';
+    require_once '../../model/content.php';
+    require_once '../../model/projectDB.php';
 
  	// -------------------------------------- //
     // ------ Determine Current Action ------ //
@@ -28,22 +34,6 @@
 	    $action = 'default';
 	}
 
-	// ------------------------------ //
-    // ------ Setup Validation ------ //
-    // ------------------------------ //
-
-	$insValidate = new Validate;
-    $insfields = $insValidate->getFields();
-    $insfields->addField('institle');
-    $insfields->addField('insdesc');
-    $insfields->addField('insicon');
-
-    $updValidate = new Validate;
-    $updfields = $updValidate->getFields();
-    $updfields->addField('updtitle');
-    $updfields->addField('upddesc');
-    $updfields->addField('updicon');
-
 	// ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //
@@ -54,44 +44,21 @@
 
         case 'default':
 
-        	$categories = CategoryDB::getCategories();
-            include 'reported.php';
+            $reports = ReportDB::getReports();
 
-        break;
-	
-        // ------ Show Insert ------ //
+            $sum = array();
 
-        case 'insert':
-        	
-            include 'insert.php';
+            foreach($reports as $report){
+                $rp = [
+                "id" => $report->getID(),
+                "reporter" => UserDB::getUserById($report->getReporter()),
+                "reported" => ProjectDB::getProjectByID($report->getReportedProj())
+                ];
 
-        break;
+                $sum[] = $rp;
+            }
 
-        // ------ Perform Insert ------ //
-
-        case 'commit-insert':
-        	
-        	$title = $_POST['institle']; 
-			$desc = $_POST['insdesc'];
-			$icon = $_POST['insicon'];
-
-            $insValidate->text('institle', $title, true, 1, 50);
-            $insValidate->text('insdesc', $desc, true, 1, 500);
-			$insValidate->text('insicon', $icon, true, 1, 200);
-
-			if($insfields->hasErrors()){
-
-                include 'insert.php';
-
-            } else {
-
-	        	$category = new Category($title, $desc, $icon);
-	            CategoryDB::insertCategory($category);
-	            
-	            $categories = CategoryDB::getCategories();
-	            include 'categories.php';
-
-        	}
+            include 'reports.php';
 
         break;
 
@@ -100,11 +67,28 @@
         case 'edit':
         	
 			$id = $_GET['id'];
-            $category = CategoryDB::getCategoryByID($id);
+            $report = ReportDB::getReportById($id);
 
-            $title = $category->getTitle();
-            $desc = $category->getDesc();
-            $icon = $category->getIcon();
+            $reporter_id = $report->getReporter();
+            $reported_id = $report->getReported();
+            $project_id = $report->getReportedProj();
+
+            $reporter = UserDB::getUserById($reporter_id);
+            $project = ProjectDB::getProjectByID();
+            $reported = $project->getUser();
+
+            include 'edit.php';
+
+        break;
+
+        // ------ Show Reported Project ------ //
+
+        case 'edit':
+            
+            $id = $_GET['id'];
+            $report = ProjectDB::getProjectByID($id);
+
+
 
             include 'edit.php';
 

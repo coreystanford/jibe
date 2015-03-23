@@ -3,11 +3,10 @@
 	require_once './model/database.php';
 	require_once './model/fields.php';
 	require_once './model/validate.php';
-	require_once './model/homepageDB.php';
 	require_once './model/category.php';
 	require_once './model/user.php';
 	require_once './model/project.php';
-	require_once './model/projectDB.php';
+	require_once './model/homepageDB.php';
 
  	// -------------------------------------- //
     // ------ Determine Current Action ------ //

@@ -4,6 +4,8 @@
 	include '../model/user.php';
 	include '../model/project.php';
     require_once '../model/projectDB.php';
+    require_once '../model/report.php';
+    require_once '../model/reportDB.php';
     include '../model/functions.php';
 
     // -------------------------------------- //
@@ -28,6 +30,16 @@
 	    $action = 'default';
 	}
 
+    // -------------------------------- //
+    // ------ Session ID + $_GET ------ //
+    // -------------------------------- //
+
+        if(isset($_SESSION['id'])){
+            $SESSION_ID = $_SESSION['id'];
+        } else {
+            $SESSION_ID = 1;
+        }
+
 
 	switch ($action){
         
@@ -39,9 +51,20 @@
             include 'explore.php';
 
         break;
-        case 'other':
+        
+        // ------ Report a Project/User ------ //
 
-            include 'explore.php';
+        case 'report':
+
+            $reporter_id = $SESSION_ID;
+            $reported_id = $_POST['reported_id'];
+            $proj_id = $_POST['proj_id'];
+
+            $report = new Report ($reporter_id, $reported_id, $proj_id);
+            
+            ReportDB::insertReport($report);
+
+            include 'reported.php';
 
         break;
     }

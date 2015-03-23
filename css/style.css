@@ -175,7 +175,6 @@ a {
     padding: 8px 20px;
     display: inline-block;
     margin: 10px;
-    letter-spacing: 1px;
     font-weight: 700;
     outline: none;
     position: relative;
@@ -697,6 +696,32 @@ header {
                     display: block;
                     padding: 10px 20px;
                 }
+
+        #sub {
+            height: 40px;
+            background-color: #3e3e40;
+        }
+
+            .report-form {
+                width: 60px;
+                height: 40px;
+                float: right;
+                line-height: 40px;
+            }
+
+                .report {
+                    color: #e1e1e1;
+                    font-weight: 700;
+                    border: none;
+                    outline: none;
+                    font-size: 12px;
+                    background: #26272a;
+                    cursor: pointer;
+                }
+
+                    .report:hover {
+                        background: #3d8cd9;
+                    }
 
 
 /*  ----------PROJECT----------  */

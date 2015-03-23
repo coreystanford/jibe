@@ -623,6 +623,46 @@ a {
                     line-height: 70px;
                 }
 
+/*  --------REPORTED--------  */
+
+#reports {
+    width: 100%;
+    margin: 20px 0;
+}
+
+    .center {
+        text-align: center!important;
+    }
+
+    #reports tbody tr th {
+        text-align: left;
+        font-weight: 700;
+        background-color: #26272a;
+        padding: 10px;
+    }
+
+    #reports tbody tr td {
+        padding: 10px;
+        border-bottom: 2px solid #26272a;
+        overflow: hidden;
+    }
+
+    .report-id {
+        background-color: #26272a;
+        text-align: center;
+        width: 30px;
+    }
+
+    .edit-td, .delete-td {
+        background-color: #26272a;
+        text-align: center;
+        width: 30px;
+    }
+
+    .edit-td a:hover, .delete-td a:hover {
+        color: #3d8cd9;
+    }
+
 
 /*  -------------FOOTER-------------  */
 

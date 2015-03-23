@@ -1,8 +1,6 @@
 <?php include '../view/header.php'; 
 
-if(!isset($category)){
-    header('Location: ../categories');
-}
+
 
 ?>
 
