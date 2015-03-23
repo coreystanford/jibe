@@ -595,9 +595,10 @@ header {
     right: 0;
     bottom: 0;
     z-index: 4;
-    background: rgba(250, 250, 250, 0.6);
+    background: rgba(250, 250, 250, 0.4);
     overflow: hidden;
     display: none;
+    cursor: zoom-out;
 }
 
     #modal-loading {
@@ -646,6 +647,7 @@ header {
         max-height: 80%;
         background: transparent;
         overflow: hidden;
+        cursor: default;
     }
 
         #modal-img {
@@ -663,6 +665,7 @@ header {
         margin-left: -45%;
         background: #0f0f0f;
         overflow: scroll;
+        cursor: default;
     }
 
         #head {
@@ -695,6 +698,27 @@ header {
                 #feed-content p {
                     display: block;
                     padding: 10px 20px;
+                }
+
+            .follow-modal {
+                width: 140px;
+                height: 40px;
+                line-height: 40px;
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;
+                float: left;
+                color: #e1e1e1;
+                font-weight: 700;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                font-size: 1rem;
+                background: #3d8cd9;
+                cursor: pointer;
+            }
+
+                .follow-modal:hover {
+                    background: #26272a;
                 }
 
         #sub {

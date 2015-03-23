@@ -36,6 +36,22 @@ var modal = (function () {
                         modal.close();
                     });
 
+                    //Source http://stackoverflow.com/questions/9333531/hiding-a-div-with-esc-key-and-off-click-in-jquery
+
+                    $('#modal').on( 'click', function ( e ) {
+                        if ( $(e.target).closest('#home-content').length === 0 ) {
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+
+                    $(document).on( 'keydown', function ( e ) {
+                        if ( e.keyCode === 27 ) { // ESC
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+
                 }
             });
 

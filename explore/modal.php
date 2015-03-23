@@ -32,6 +32,8 @@ $project = ProjectDB::getProjectByID($proj_id);
 
 	<div id="sub" class="clearfix">
 
+		<a href="" rel="<?php echo $project->getUser()->getID(); ?>" class="follow-modal" ><span>Follow</span></a>
+
 		<form method="post" action="." class="report-form">
 			<input type="hidden" name="action" value="report" />
             <input type="hidden" name="reported_id" value="<?php echo $project->getUser()->getID(); ?>" />

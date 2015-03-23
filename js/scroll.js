@@ -13,7 +13,7 @@ setInterval(function() {
     hasScrolled();
     didScroll = false;
   }
-}, 250);
+}, 200);
 
 function hasScrolled() {
   var sc = $(this).scrollTop();
