@@ -8,7 +8,7 @@ require('../model/job.php');
 require('../model/jobDB.php');
 require('../model/file_upload.php');
 
-$root_path = "/5202/jibe/";
+//$root_path = "/5202/jibe/";
 
 
 $cities = JobDB::getCitiesList();

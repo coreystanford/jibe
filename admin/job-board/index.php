@@ -1,6 +1,6 @@
 <?php
 
-$root_path = $_SERVER['DOCUMENT_ROOT']."/5202/jibe/";
+$root_path = "../../";
 $css_path = $root_path."css/";
 $admin_path = $root_path."admin/";
 $model_path = $root_path."model/";
