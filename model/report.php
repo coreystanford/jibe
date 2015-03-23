@@ -2,12 +2,13 @@
 
 class Report {
 
-	private $report_id, $reporter_id, $reported_id, $reported_proj;
+	private $report_id, $reporter_id, $reported_id, $reported_proj, $resolved;
 
-	public function __construct($reporter_id, $reported_id, $reported_proj = null){
+	public function __construct($reporter_id, $reported_id, $reported_proj = null, $resolved = 0){
 		$this->reporter_id = $reporter_id;
 		$this->reported_id = $reported_id;
         $this->reported_proj = $reported_proj;
+        $this->resolved = $resolved;
 	}
 
 	public function getID() {
@@ -40,6 +41,14 @@ class Report {
 
     public function setReportedProj($value) {
         return $this->reported_proj = $value;
+    }
+
+    public function getResolved() {
+        return $this->resolved;
+    }
+
+    public function setResolved($value) {
+        return $this->resolved = $value;
     }
 
 }

@@ -96,7 +96,7 @@
             $project_id = $report->getReportedProj();
 
             $reporter = UserDB::getUserById($reporter_id);
-            $project = ProjectDB::getProjectByID();
+            $project = ProjectDB::getProjectByID($project_id);
             $reported = $project->getUser();
 
             include 'options.php';

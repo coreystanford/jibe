@@ -8,36 +8,34 @@
 
         <div class="main-admin">
 
-            <h1>Edit <?php echo $category->getTitle(); ?></h1>
+            <div class="report-container">
 
-            <form method="post" action="." >
-            
-                <input type="hidden" name="action" value="update" />
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <h1>Reports</h1>
+                
+                <a href="." class="resolved"><i class="fa fa-arrow-left fa-lg"></i>  Back</a>
 
                 <div class="cluster">
-
-                    <label for="updtitle" class="bold-labels">Reporter: </label>
-                    <input type="text" name="updtitle" value="<?php echo htmlspecialchars($title); ?>">
-
-                    <label for="upddesc" class="bold-labels">Reported: </label>
-                    <input type="text" name="upddesc" value="<?php echo htmlspecialchars($desc); ?>">
-
-                    <label for="updicon" class="bold-labels">Reported Project: </label>
-                    <input type="text" name="updicon" value="<?php echo htmlspecialchars($icon); ?>">
-
-
-                    <div class="cluster">
-                        <input type="submit" name="submit" value="Update" class="btn submit" />
-                        <h5><a href="../categories" class="btn submit">Cancel</a></h5>
-                    </div>
-
+                    <h2>Report ID: <?php echo $id; ?></h2>
                 </div>
 
-            </form>
+                <div class="cluster">
+                    <h3>Reported User:</h3>
+                    <p><?php echo $reported->getFName(); ?> <?php echo $reported->getLName(); ?></p>
+                </div>
+                <div class="cluster">
+                    <h3>Reported Project:</h3>
+                    <p><?php echo $project->getProjTitle(); ?></p>
+                    <p><?php echo $project->getProjDesc(); ?></p>
+                </div>
+                <div class="cluster">
+                    <h3>Reported By:</h3>
+                    <p><?php echo $reporter->getFName(); ?> <?php echo $reporter->getLName(); ?></p>
+                </div>             
 
-        </div>
+            </div>
 
-    </section>
+        </div><!-- END main-admin -->
+
+    </section><!-- END main section -->
 
 <?php include '../view/footer.php'; ?>

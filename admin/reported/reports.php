@@ -10,7 +10,7 @@
 
 			<div class="report-container">
 
-				<h1>Reported</h1>
+				<h1>Reports</h1>
 
 				<h2>Current Reports</h2>
 

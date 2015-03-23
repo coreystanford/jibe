@@ -21,7 +21,8 @@ class ReportDB {
             $report = new Report(
                 $row['reporter_id'],
                 $row['reported_id'],
-                $row['reported_proj']);
+                $row['reported_proj'],
+                $row['resolved']);
             $report->setID($row['report_id']);
             $reports[] = $report;
         }
@@ -48,7 +49,8 @@ class ReportDB {
             $report = new Report(
                 $row['reporter_id'],
                 $row['reported_id'],
-                $row['reported_proj']);
+                $row['reported_proj'],
+                $row['resolved']);
             $report->setID($row['report_id']);
             $reports[] = $report;
         }
@@ -129,7 +131,8 @@ class ReportDB {
         $report = new Report(
             $row['reporter_id'],
             $row['reported_id'],
-            $row['reported_proj']);
+            $row['reported_proj'],
+            $row['resolved']);
         $report->setID($row['report_id']);
 
         return $report;
@@ -144,15 +147,18 @@ class ReportDB {
         $reporter_id = $report->getReporter();
         $reported_id = $report->getReported();
         $reported_proj = $report->getReportedProj();
+        $resolved = $report->getResolved();
 
         $query = "INSERT INTO reports
                    (reporter_id, 
                     reported_id, 
-                    reported_proj) 
+                    reported_proj,
+                    resolved) 
                     VALUES(
                         '$reporter_id', 
                         '$reported_id', 
-                        '$reported_proj' 
+                        '$reported_proj',
+                        '$resolved' 
                         )";
 
         $stm = $db->prepare($query);
@@ -170,11 +176,13 @@ class ReportDB {
         $reporter_id = $report->getReporter();
         $reported_id = $report->getReported();
         $reported_proj = $report->getReportedProj();
+        $resolved = $report->getResolved();
 
         $query = "UPDATE reports SET 
                     reporter_id = '$reporter_id',
                     reported_id = '$reported_id',
-                    reported_proj = '$reported_proj'
+                    reported_proj = '$reported_proj',
+                    resolved = '$resolved'
                     WHERE report_id = :report_id";
 
         $stm = $db->prepare($query);
