@@ -22,13 +22,14 @@ if($row != false) {
     
     $_SESSION['email'] = $row['email'];
     $_SESSION['role'] = $row['role'];
+    $_SESSION['user_id'] = $row['user_id'];
     
     if($row['role'] = 0) {
         
-        header('location:../profile/index.php');
+        header('location:../profile/');
     }else{
         
-        header('location:../admin/index.php');
+        header('location:../admin/');
     }
     
   
