@@ -67,7 +67,7 @@
             
                 <?php foreach ($jobs as $job) : ?>
                     <div class="jobrow">
-                        <span style="background: url('/5202/jibe/<?php echo $job->getLogoUrl(); ?>') 50% 50%; width: 70px; display: block; background-size: cover;">
+                        <span style="background: url('../<?php echo $job->getLogoUrl(); ?>') 50% 50%; width: 70px; display: block; background-size: cover;">
                             &nbsp;
                             <?php //echo $job->getJobCategory()->getIcon(); ?>
                         </span>
