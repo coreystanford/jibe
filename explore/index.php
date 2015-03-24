@@ -47,7 +47,7 @@
 
         case 'default':
 
-            $projects = ProjectDB::getProjects();
+            $projects = ProjectDB::getExploreProjects($SESSION_ID);
             include 'explore.php';
 
         break;

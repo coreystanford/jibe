@@ -1,4 +1,11 @@
-<?php include '../view/header.php'; ?>
+<?php
+
+include '../view/header.php'; 
+require_once '../model/followDB.php';
+
+$followStatus = FollowDB::checkFollow($id, $SESSION_ID);
+
+?>
 
 	<section role=main>
 		
@@ -40,6 +47,16 @@
 				<div class="bio">
 					<p><?php echo $bio; ?></p>
 				</div>
+
+				<?php if ($followStatus): ?>
+			
+					<a href="" rel="<?php echo $id; ?>" class="unfollow-profile" ><span>Following</span></a>
+
+				<?php else: ?>
+
+					<a href="" rel="<?php echo $id; ?>" class="follow-profile" ><span>Follow</span></a>
+
+				<?php endif ?>
 
 			</div>
 

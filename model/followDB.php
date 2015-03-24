@@ -24,17 +24,38 @@ class FollowDB {
 
     // ------ Unfollow a Profile ------ //
 
-    public static function unfollowUser($follow_id){
+    public static function unfollowUser($followed, $follower){
 
         $db = Database::getDB();
 
-        $query = "DELETE FROM follow WHERE follow_id = :follow_id";
+        $query = "DELETE FROM follow
+                  WHERE user_followed = :followed AND user_follower = :follower";
 
         $stm = $db->prepare($query);
-        $stm->bindParam(':follow_id', $follow_id, PDO::PARAM_INT);
+        $stm->bindParam(':followed', $followed, PDO::PARAM_INT);
+        $stm->bindParam(':follower', $follower, PDO::PARAM_INT);
         $row_count = $stm->execute();
 
         return $row_count;
+    }    
+
+    // ------ Check Follow Status ------ //
+
+    public static function checkFollow($followed, $follower){
+
+        $db = Database::getDB();
+
+        $query = "SELECT *
+                  FROM follow 
+                  WHERE user_followed = :followed AND user_follower = :follower";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(':followed', $followed, PDO::PARAM_INT);
+        $stm->bindParam(':follower', $follower, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+        $result = $stm->fetch();
+
+        return $result;
     }   
 
 }

@@ -6,10 +6,20 @@ require '../model/category.php';
 require '../model/project.php';
 require '../model/content.php';
 require '../model/projectDB.php';
+require '../model/followDB.php';
+
+if(isset($_SESSION['id'])){
+    $SESSION_ID = $_SESSION['id'];
+} else {
+    $SESSION_ID = 1;
+}
 
 $proj_id = $_POST['id'];
-
 $project = ProjectDB::getProjectByID($proj_id);
+
+$id = $project->getUser()->getID();
+
+$followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
 ?>
 
@@ -33,7 +43,15 @@ $project = ProjectDB::getProjectByID($proj_id);
 
 	<div id="sub" class="clearfix">
 
-		<a href="" rel="<?php echo $project->getUser()->getID(); ?>" class="follow-modal" ><span>Follow</span></a>
+		<?php if ($followStatus): ?>
+			
+			<a href="" rel="<?php echo $project->getUser()->getID(); ?>" class="unfollow-modal" ><span>Following</span></a>
+
+		<?php else: ?>
+
+			<a href="" rel="<?php echo $project->getUser()->getID(); ?>" class="follow-modal" ><span>Follow</span></a>
+
+		<?php endif ?>
 
 		<form method="post" action="." class="report-form">
 			<input type="hidden" name="action" value="report" />

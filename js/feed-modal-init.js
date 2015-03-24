@@ -10,8 +10,6 @@ $(document).ready(function () {
         	
         	modal.open(id);
 
-        	console.log($(this));
-
         });
 
     });

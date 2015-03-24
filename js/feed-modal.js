@@ -23,8 +23,6 @@ var modal = (function () {
 
                     var follow_id = $('#modal').find('.follow-modal').attr('rel');
 
-                    console.log($('#modal'));
-
                     $('#modal').on('click', '.follow-modal', function (e) {
 
                         e.preventDefault();
@@ -40,6 +38,36 @@ var modal = (function () {
                                 $('#modal').find('.follow-modal span').html('Error');
                             }
                         });
+
+                    });
+
+                    var unfollow_id = $('#modal').find('.unfollow-modal').attr('rel');
+
+                    console.log(unfollow_id);
+
+                    $(".unfollow-modal").hover(function(){
+                        $('.unfollow-modal span').html('Unfollow');
+                        }, function(){
+                        $('.unfollow-modal span').html('Following');
+                    });
+
+                    $('#modal').on('click', '.unfollow-modal', function (e) {
+
+                        e.preventDefault();
+                        
+                        $.ajax({
+                            type: "POST",
+                            url: "unfollow.php",
+                            data: {id: unfollow_id},
+                            success:function(){
+                                $('#modal').find('.unfollow-modal span').html('Unfollowed');
+                            },
+                            fail:function(){
+                                $('#modal').find('.unfollow-modal span').html('Error');
+                            }
+                        });
+
+                         $('.unfollow-modal').unbind('mouseenter mouseleave');
 
                     });
 
