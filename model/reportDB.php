@@ -64,10 +64,9 @@ class ReportDB {
 
         $db = Database::getDB();
 
-        $query = "SELECT report_id DISTINCT(reporter_id) AS reporter, reported_id, COUNT(*) AS num_reported 
+        $query = "SELECT DISTINCT(reporter_id) AS reporter, COUNT(*) AS num_reported 
                     FROM reports 
-                    GROUP BY reporter_id 
-                    ORDER BY report_id DESC";
+                    GROUP BY reporter_id ";
 
         $stm = $db->prepare($query);
         $stm->execute();
@@ -92,10 +91,9 @@ class ReportDB {
 
         $db = Database::getDB();
 
-        $query = "SELECT report_id, reporter_id, DISTINCT(reported_id) AS reported, COUNT(*) AS num_reported 
+        $query = "SELECT DISTINCT(reported_id) AS reported, COUNT(*) AS num_reported 
                     FROM reports 
-                    GROUP BY reported_id 
-                    ORDER BY report_id DESC";
+                    GROUP BY reported_id ";
 
         $stm = $db->prepare($query);
         $stm->execute();

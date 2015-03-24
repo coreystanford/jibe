@@ -103,6 +103,40 @@
 
         break;
 
+        // ------ Show Statistics ------ //
+
+        case 'stats':
+
+            $reported = ReportDB::getReported();
+
+            $all_reported = array();
+
+            foreach($reported as $report){
+                $rp = [
+                "reported" => UserDB::getUserById($report['reported']),
+                "num" => $report['num_reported']
+                ];
+
+                $all_reported[] = $rp;
+            }
+
+            $reporters = ReportDB::getReporters();
+
+            $all_reporters = array();
+
+            foreach($reporters as $reporter){
+                $rp = [
+                "reporter" => UserDB::getUserById($reporter['reporter']),
+                "num" => $reporter['num_reported']
+                ];
+
+                $all_reporters[] = $rp;
+            }
+
+            include 'stats.php';
+
+        break;
+
         // ------ Resolve A Report ------ //
 
         case 'resolve':
@@ -153,8 +187,7 @@
 
         break;
 
-
-
+        
 
         // ------ Show Delete ------ //
 

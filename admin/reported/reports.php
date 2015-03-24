@@ -16,7 +16,10 @@
 
 				<a href="./?action=resolved" class="resolved">Resolved Reports <i class="fa fa-arrow-right fa-lg"></i></a>
 
+				<a href="./?action=stats" class="stats">Report Statistics</a>
+
 				<table id="reports">
+					
 					<tr>
 						<th class="center">ID</th>
 						<th>Reported</th>

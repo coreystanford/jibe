@@ -626,12 +626,13 @@ a {
 /*  --------REPORTED--------  */
 
 .report-container .resolved {
-    display: inline-block;
+    display: block;
     width: auto;
     font-size: 1rem;
     font-size: 16px;
-    padding: 4px 5px;
-    margin-top: -20px;
+    padding: 8px 10px;
+    margin-top: -36px;
+    margin-left: 20px;
     float: right;
     position: relative;
     background: #3e3e40;
@@ -639,9 +640,34 @@ a {
 }
 
     .report-container .resolved:hover {
-        color: #3d8cd9;
+        background: #3d8cd9;
         cursor: pointer;
     }
+
+.report-container .stats {
+    display: block;
+    width: auto;
+    font-size: 1rem;
+    font-size: 16px;
+    padding: 8px 10px;
+    margin-top: -36px;
+    margin-right: 200px;
+    float: right;
+    position: relative;
+    background: #3e3e40;
+    text-align: center;
+}
+
+    .report-container .stats:hover {
+        background: #3d8cd9;
+        cursor: pointer;
+    }
+
+.half-reports {
+    width: 46%;
+    margin: 20px 10px;
+    float: left;
+}
 
 #reports {
     width: 100%;
@@ -652,6 +678,14 @@ a {
         text-align: center!important;
     }
 
+    .half-reports tbody tr th {
+        text-align: left;
+        font-weight: 700;
+        background-color: #26272a;
+        border-bottom: 2px solid #0f0f0f;
+        padding: 10px;
+    }
+
     #reports tbody tr th {
         text-align: left;
         font-weight: 700;
@@ -659,16 +693,32 @@ a {
         padding: 10px;
     }
 
+    .half-reports tbody tr td {
+        padding: 10px;
+        border-bottom: 2px solid #0f0f0f;
+    }
+
     #reports tbody tr td {
         padding: 10px;
         border-bottom: 2px solid #26272a;
-        overflow: hidden;
     }
 
     .report-id {
         background-color: #26272a;
         text-align: center;
         width: 30px;
+    }
+
+    .bkgd {
+        background-color: #26272a;
+    }
+
+    .bkgd-light-grey {
+        background-color: #3e3e40!important;
+    }
+
+    .bkgd-red {
+        background-color: #cd3232!important;
     }
 
     .edit-td, .delete-td {
