@@ -6,7 +6,7 @@
 				
 				<h1>Well, darn. It looks like you haven't followed anyone yet!</h1>
 
-				<h3>Find people to follow</h3>
+				<a href="../explore/"><h3>Find people to follow</h3></a>
 
 			</div>
 

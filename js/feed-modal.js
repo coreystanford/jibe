@@ -2,77 +2,96 @@ var modal = (function () {
 
     return {
 
+        // Open modal window
+
         open: function (id) {
 
+            // Send AJAX Request
+
             $.ajax({
+
                 type: "POST",
-                url: "modal.php",
-                data: {id: id},
-                beforeSend:function(){
+                url: "modal.php", // Process request here
+                data: {id: id}, // POST the ID to 'modal.php'
+                beforeSend:function(){ // "loading icon"
                     $('#modal').css('display', 'block');
                     $('#modal').load('../model/loading.php');
                 },
-                success:function(response){
+                success:function(response){ 
 
+                    // Add the response from the server to the HTML
                     $('#modal').empty().append(response);
 
+                    // On click of #modal-close, execute close function
                     $('#modal-close').on('click', function (e) {
                         e.preventDefault();
                         modal.close();
                     });
 
+                    // Find ID associated with the profile in the 'follow' button
                     var follow_id = $('#modal').find('.follow-modal').attr('rel');
 
+                    // On click of the 'follow' button
                     $('#modal').on('click', '.follow-modal', function (e) {
 
                         e.preventDefault();
                         
+                        // Send AJAX Request
                         $.ajax({
                             type: "POST",
-                            url: "follow.php",
-                            data: {id: follow_id},
+                            url: "follow.php", // Process request here
+                            data: {id: follow_id}, // POST the ID
                             success:function(){
+                                // On success, change span text of button
                                 $('#modal').find('.follow-modal span').html('Following');
                             },
                             fail:function(){
+                                // On failure, change span text of button
                                 $('#modal').find('.follow-modal span').html('Error');
                             }
                         });
 
                     });
 
+                    // Find ID associated with the profile in the 'unfollow' button
                     var unfollow_id = $('#modal').find('.unfollow-modal').attr('rel');
 
-                    console.log(unfollow_id);
-
+                    // On hover of the 'following' button, change text
                     $(".unfollow-modal").hover(function(){
                         $('.unfollow-modal span').html('Unfollow');
                         }, function(){
                         $('.unfollow-modal span').html('Following');
                     });
 
+                    // On click of the 'following' button
                     $('#modal').on('click', '.unfollow-modal', function (e) {
 
                         e.preventDefault();
                         
+                        // Send AJAX Request
                         $.ajax({
                             type: "POST",
-                            url: "unfollow.php",
-                            data: {id: unfollow_id},
+                            url: "unfollow.php", // Process request here
+                            data: {id: unfollow_id}, // POST the iD
                             success:function(){
+                                // On success, change span text of button
                                 $('#modal').find('.unfollow-modal span').html('Unfollowed');
                             },
                             fail:function(){
+                                // On failure, change span text of button
                                 $('#modal').find('.unfollow-modal span').html('Error');
                             }
                         });
 
-                         $('.unfollow-modal').unbind('mouseenter mouseleave');
+                        // After click, unbind the hover effect
+                        $('.unfollow-modal').unbind('mouseenter mouseleave');
 
                     });
 
                     //Source http://stackoverflow.com/questions/9333531/hiding-a-div-with-esc-key-and-off-click-in-jquery
 
+                    // On click of anywhere in #modal tag, 
+                    // but outside the #feed-content tag, close window
                     $('#modal').on( 'click', function ( e ) {
                         if ( $(e.target).closest('#feed-content').length === 0 ) {
                             e.preventDefault();
@@ -80,8 +99,9 @@ var modal = (function () {
                         }
                     });
 
+                    // ESC key - close the modal window on keydown
                     $(document).on( 'keydown', function ( e ) {
-                        if ( e.keyCode === 27 ) { // ESC
+                        if ( e.keyCode === 27 ) {
                             e.preventDefault();
                             modal.close();
                         }
@@ -92,13 +112,17 @@ var modal = (function () {
 
         },
 
+        // Close modal window
+
         close: function () {
 
+            // Remove content from the inner tag
             $('#feed-content').remove();
+            // Change CSS back to initial state of hidden
             $('#modal').css('display', 'none');
 
         }
 
-    };
+    };2
 
 }());
