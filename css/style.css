@@ -760,7 +760,7 @@ header {
     margin: 50px 5px 10px 5px;
 }
 
-    .project a {
+    .project > a {
         position: absolute;
         top: 0;
         left: 0;
@@ -807,13 +807,53 @@ header {
         background-color: #26272a;
     }
 
-        .info img.user-profile {
+        .info .user-profile {
             height: 40px;
             width: 53px;
             position: absolute;
             top: 0;
             left: 0;
         }
+
+                /* -- PROFILE NAME TOOLTIP -- */
+
+                .info .user-profile:hover:before{
+                    background: #333;
+                    background: rgba(0,0,0,.8);
+                    border-radius: 5px;
+                    bottom: 48px;
+                    color: #fff;
+                    content: attr(title);
+                    left: -15%;
+                    padding: 0 10px;
+                    position: absolute;
+                    z-index: 5;
+                    min-width: 150px;
+                    width: auto;
+                    height: auto;
+                    line-height: 30px;
+                }
+
+                .info .user-profile:hover:after {
+                    border: solid;
+                    border-color: #111 transparent;
+                    border-width: 6px 6px 0 6px;
+                    bottom: 42px;
+                    content: "";
+                    left: 40%;
+                    position: absolute;
+                    z-index: 5;
+                }
+
+            .info .user-profile img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            /* -- DESCRIPTION HOVER (TOOLTIP) -- */
 
         .info span.category {
             height: 40px;
