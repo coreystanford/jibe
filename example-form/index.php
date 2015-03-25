@@ -1,6 +1,7 @@
 <?php 
     require_once '../model/database.php';
-    require_once '../model/formDB.php';
+    require_once '../model/category.php';
+    require_once '../model/categoryDB.php';
     require_once '../model/fields.php';
     require_once '../model/validate.php';
     include '../model/functions.php';
@@ -51,7 +52,15 @@
 
         case 'default':
 
-            $categoryList = Lists::getCategoryTitles();
+            $categories = CategoryDB::getCategories();
+
+            $categoryList = array();
+
+            foreach ($categories as $category) {
+                $cat = $category->getTitle();
+                $categoryList[] = $cat;
+            }
+
             include 'form.php';
 
         break;
@@ -88,7 +97,15 @@
 
                 // ------ Deny - Reshow form (with values) ------ //
 
-                $categoryList = Lists::getCategoryTitles();
+                $categories = CategoryDB::getCategories();
+
+                $categoryList = array();
+
+                foreach ($categories as $category) {
+                    $cat = $category->getTitle();
+                    $categoryList[] = $cat;
+                }
+
                 include 'form.php';
 
             } else {

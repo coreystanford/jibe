@@ -700,7 +700,7 @@ header {
                     padding: 10px 20px;
                 }
 
-            .follow-modal {
+            .follow-modal, .unfollow-modal {
                 width: 140px;
                 height: 40px;
                 line-height: 40px;
@@ -717,28 +717,7 @@ header {
                 cursor: pointer;
             }
 
-                .follow-modal:hover {
-                    background: #26272a;
-                }
-
-            .unfollow-modal {
-                width: 140px;
-                height: 40px;
-                line-height: 40px;
-                font-family: 'Montserrat', sans-serif;
-                text-align: center;
-                float: left;
-                color: #e1e1e1;
-                font-weight: 700;
-                border: none;
-                outline: none;
-                font-size: 16px;
-                font-size: 1rem;
-                background: #3d8cd9;
-                cursor: pointer;
-            }
-
-                .unfollow-modal:hover {
+                .follow-modal:hover, .unfollow-modal:hover {
                     background: #26272a;
                 }
 
