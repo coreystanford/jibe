@@ -1100,6 +1100,24 @@ header {
             background: #26272a;
         }
 
+    #img-content {
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        width: 60%;
+        height: 50%;
+        margin-left: -30%;
+        background: transparent;
+        overflow: hidden;
+        cursor: default;
+        background: #0f0f0f;
+    }
+        
+        #img-content h2 {
+            text-align: center;
+        }
+
+
 
 /*  ------PROFILE TABS------  */
 

@@ -4,6 +4,7 @@
 	require_once '../model/fields.php';
 	require_once '../model/validate.php';
 	require_once '../model/category.php';
+    require_once '../model/file_upload.php';
 	require_once '../model/user.php';
     require_once '../model/userDB.php';
 	require_once '../model/project.php';
@@ -162,6 +163,47 @@
                 include 'tabs.php';
 
         	//}
+
+        break;
+
+        case 'img-update':
+
+            if (!empty($_FILES['pro_thumb'])) {
+
+                //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
+                //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");
+                //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION); 
+                // convert Job Title into file name - conversion function found here
+                // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
+        
+                $upload_directory = '../../images_upload/';
+
+                $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
+                $job_logo = $newfilename . "." . pathinfo($_FILES['upd_job_logo']['name'],PATHINFO_EXTENSION);
+                $fileupload = new FileUpload;
+                $fileupload->setTarget($upload_directory);
+                //$filemanager->setExtensions(array('jpg'));
+                $fileupload->deleteFile($job_logo);
+                $fileupload->setFilename($job_logo);
+                echo $fileupload->displayErrors();
+                $fileupload->uploadFile($_FILES['upd_job_logo']);
+                $fileuploaderrors = $fileupload->_fm_error;
+                
+                $job_logo = "images_upload/" . $job_logo;
+        
+                if (!empty($fileuploaderrors)) {
+                    $anyerrors .= $fileuploaderrors . "<br />";
+                }
+
+                ProjectDB::updateImagePath($SESSION_ID, $img);
+
+            }
+
+        break;
+
+        case 'img-delete':
+
+
 
         break;
 

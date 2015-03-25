@@ -88,4 +88,20 @@ class userDB {
 
         return $row_count;                 
     }
+
+    public static function updateImagePath($user_id, $img){
+
+        $db = Database::getDB();
+
+        $query = "UPDATE users SET 
+                    img_url' = '$img' 
+                    WHERE user_id = :user_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+        $row_count = $stm->execute();
+
+        return $row_count;                 
+    }
 }

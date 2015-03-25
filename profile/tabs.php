@@ -39,3 +39,5 @@
 	</section><!-- END main section -->
 	
 	<?php include '../view/footer.php'; ?>
+
+	<div id="modal"></div>
