@@ -12,6 +12,10 @@
 	    $SESSION_ID = 1;
 	}
 
+	if(!isset($_POST['limit'])){
+		header('Location: .');
+	}
+
 	$limit = $_POST['limit'];
 	$offset = $_POST['offset'];
 	

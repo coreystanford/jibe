@@ -1,5 +1,5 @@
 var loads = 1;
-var limit = 2;
+var limit = 1;
 var offset;
 
 $(function(){
@@ -38,12 +38,17 @@ $(function(){
 	        },
             success:function(response){
                 // On success, change span text of button
-                $('#load-more span').html('Load More <i class="fa fa-chevron-down fa-lg"></i>');
-                $('.feed').append(response);
-                feedModal.initialize(); // load initializer from feed-modal-init.js
+                if(loads > 5){
+                    $('.load-more span').html('Fully Loaded');
+                } else {
+                    $('.load-more span').html('Load More <i class="fa fa-chevron-down fa-lg"></i>');
+                    $('.feed').append(response);
+                    feedModal.initialize(); // load initializer from feed-modal-init.js
+                }
             }
         });
-
     });
-
 });
+
+
+

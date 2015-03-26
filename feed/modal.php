@@ -69,4 +69,11 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
     </div>
 
+    <div id="comments" class="clearfix">
+
+        
+        
+
+    </div>
+
 </div><!-- END feed-content -->

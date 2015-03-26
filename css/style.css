@@ -108,7 +108,7 @@ a {
     padding: 80px 0 20px 0;
     width: 100%;
     text-align: center;
-    min-height: 600px;
+    min-height: 450px;
 }
 
 .home-feed {
@@ -670,14 +670,14 @@ header {
 
     .load-more {
         position: relative;
-        height: 100px;
+        height: 120px;
         width: 100%;
         padding-bottom: 50px;
     }
 
         #load-more, .end {
             position: absolute;
-            top: 0;
+            top: 30px;
             right: 0;
             bottom: 0;
             left: 0;
@@ -686,12 +686,12 @@ header {
         }
 
             #load-more span, .end span {
-                line-height: 100px;
+                line-height: 90px;
                 font-size: 1.25rem;
             }
 
                 #load-more span .loading {
-                    line-height: 100px;
+                    line-height: 90px;
                 }
 
             #load-more:hover {
