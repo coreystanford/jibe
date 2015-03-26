@@ -47,13 +47,11 @@
 
         case 'default':
 
-            $projects = ProjectDB::getFeedProjects($SESSION_ID);
-
-            if(count($projects) < 1){
-                include 'nofeed.php';
-            } else {
+            //if(count($projects) < 1){
+            //    include 'nofeed.php';
+            //} else {
                 include 'feed.php';
-            }
+            //}
 
         break;
 

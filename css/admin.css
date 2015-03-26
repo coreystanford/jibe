@@ -570,6 +570,20 @@ a {
             z-index: 2;
         }
 
+            /* ----- PROFILE IMAGE ----- */
+
+            .cat-container .category > img {
+                float: left;
+                width: auto;
+                height: 70px;
+                line-height: 70px;
+                font-size: 1.65rem;
+                border-right: 2px solid #0f0f0f;
+                position: relative;
+                z-index: 2;
+                overflow: hidden;
+            }
+
         .cat-title-options {
             width: 90%;
             position: relative;

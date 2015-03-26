@@ -12,7 +12,7 @@
  * @author ILecoche
  */
 class userDB {
-    //put your code here
+
      public static function getUsers($sortby = 'lname'){
         $db = Database::getDB();
         $query = "SELECT * FROM users "
@@ -95,6 +95,22 @@ class userDB {
 
         $query = "UPDATE users SET 
                     img_url' = '$img' 
+                    WHERE user_id = :user_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+        $row_count = $stm->execute();
+
+        return $row_count;                 
+    }
+
+    public static function deleteImagePath($user_id){
+
+        $db = Database::getDB();
+
+        $query = "UPDATE users SET 
+                    img_url' = 'default.jpg' 
                     WHERE user_id = :user_id";
 
         $stm = $db->prepare($query);

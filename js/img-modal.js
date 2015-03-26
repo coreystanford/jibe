@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // Find ID associated with the profile in the 'follow' button
-    var edit_id = $('.photo').find('.edit').attr('rel');
+    var edit_id = $('#photoEdit').attr('rel');
     var img = $('.photo img').attr('src');
 
     // On click of the 'edit' button
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     });
 
-    var delete_id = $('.photo').find('.delete').attr('rel');
+    var delete_id = $('#photoDelete').attr('rel');
 
     // On click of the 'delete' button
     $('.photo').on('click', '.delete', function (e) {

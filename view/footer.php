@@ -1,4 +1,6 @@
 
+
+
 		</div>
 		<footer class="clearfix">
 
@@ -20,6 +22,7 @@
 		<script type="text/javascript" src="../js/tab.js"></script>
 		<script type="text/javascript" src="../js/feed-modal.js"></script>
 		<script type="text/javascript" src="../js/feed-modal-init.js"></script>
+		<script type="text/javascript" src="../js/infinite.js"></script>
 		<script type="text/javascript" src="../js/profile-follow.js"></script>
 		<script type="text/javascript" src="../js/img-modal.js"></script>
 	</body>

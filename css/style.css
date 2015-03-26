@@ -105,7 +105,7 @@ a {
 
 .feed, .nofeed {
     margin: 0 auto;
-    padding: 80px 0 100px 0;
+    padding: 80px 0 20px 0;
     width: 100%;
     text-align: center;
     min-height: 600px;
@@ -668,6 +668,36 @@ header {
         cursor: default;
     }
 
+    .load-more {
+        position: relative;
+        height: 100px;
+        width: 100%;
+        padding-bottom: 50px;
+    }
+
+        #load-more, .end {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+            #load-more span, .end span {
+                line-height: 100px;
+                font-size: 1.25rem;
+            }
+
+                #load-more span .loading {
+                    line-height: 100px;
+                }
+
+            #load-more:hover {
+                background: #3e3e40;
+            }
+
         #head {
             height: 140px;
             width: 100%;
@@ -1104,9 +1134,9 @@ header {
         position: absolute;
         left: 50%;
         top: 100px;
-        width: 60%;
-        height: 50%;
-        margin-left: -30%;
+        width: 500px;
+        height: 200px;
+        margin-left: -250px;
         background: transparent;
         overflow: hidden;
         cursor: default;
@@ -1115,6 +1145,12 @@ header {
         
         #img-content h2 {
             text-align: center;
+            padding: 20px 0;
+        }
+
+        #img-content form {
+            margin: 0 auto;
+            width: 50%;
         }
 
 

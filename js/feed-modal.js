@@ -17,7 +17,7 @@ var modal = (function () {
                     $('#modal').css('display', 'block');
                     $('#modal').load('../model/loading.php');
                 },
-                success:function(response){ 
+                success:function(response){
 
                     // Add the response from the server to the HTML
                     $('#modal').empty().append(response);

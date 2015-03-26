@@ -7,7 +7,7 @@ $img = $_POST['img'];
 
 <div id="img-content">
 	
-	<h2>Delete Image</h2>
+	<h2>Delete Your Profile Image?</h2>
 
 	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
 
@@ -15,7 +15,10 @@ $img = $_POST['img'];
 
 		<input type="hidden" value="<?php echo $id ?>">
 
-		<input type="submit" value="Delete">
+		<div class="cluster">
+			<input type="submit" value="Delete" class="btn submit">
+			<a href="../profile/?id=<?php echo $id; ?>" class="btn submit">Cancel</a>
+		</div>	
 
 	</form>
 

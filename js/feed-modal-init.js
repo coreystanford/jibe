@@ -1,17 +1,27 @@
-$(document).ready(function () {
+var feedModal = (function () {
 
-    $('.project').each(function () {
+    return {
 
-    	var id = $(this).find('.open-modal').attr('rel');
+    	// Open modal window
 
-        $(this).on('click', '.open-modal', function (e) {
+	    initialize: function (id) {
 
-        	e.preventDefault();
-        	
-        	modal.open(id);
+		    $('.project').each(function () {
 
-        });
+		    	var id = $(this).find('.open-modal').attr('rel');
 
-    });
+		        $(this).on('click', '.open-modal', function (e) {
+
+		        	e.preventDefault();
+		        	
+		        	modal.open(id);
+
+		        });
+
+		    });
+
+		}
+
+	}
 
 }());

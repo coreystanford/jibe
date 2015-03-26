@@ -3,8 +3,8 @@
 			<div id="user" class="user clearfix">
 				<div class="photo" >
 					<img src="../images/<?php echo $pro_img; ?>"  />
-					<a href="#" class="edit" id="photoEdit" ><i class="fa fa-pencil fa-lg"></i></a>
-					<a href="#" class="delete" id="photoDelete"><i class="fa fa-trash-o fa-lg"></i></a>
+					<a href="#modal" class="edit" id="photoEdit" rel="<?php echo $id; ?>"><i class="fa fa-pencil fa-lg"></i></a>
+					<a href="#modal" class="delete" id="photoDelete" rel="<?php echo $id; ?>"><i class="fa fa-trash-o fa-lg"></i></a>
 				</div>
 				<div class="name">
 					<h1><?php echo $fname; ?> <?php echo $lname; ?></h1>

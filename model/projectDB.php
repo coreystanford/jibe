@@ -134,7 +134,7 @@ class ProjectDB {
 
     }
 
-    public static function getFeedProjects($user_id){
+    public static function getFeedProjects($user_id, $offset, $limit){
 
         $db = Database::getDB();
 
@@ -143,7 +143,8 @@ class ProjectDB {
                 JOIN users ON projects.user_id = users.user_id 
                 WHERE users.user_id IN (SELECT user_followed 
                                         FROM follow 
-                                        WHERE user_follower = :user_id )";
+                                        WHERE user_follower = :user_id ) 
+                LIMIT $offset, $limit";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":user_id", $user_id, PDO::PARAM_STR);
@@ -188,7 +189,7 @@ class ProjectDB {
 
     }
 
-    public static function getExploreProjects($user_id){
+    public static function getExploreProjects($user_id, $offset, $limit){
 
         $db = Database::getDB();
 
@@ -198,7 +199,8 @@ class ProjectDB {
                 WHERE users.user_id NOT IN (SELECT user_followed 
                                         FROM follow 
                                         WHERE user_follower = :user_id ) 
-                AND users.user_id != :user_id";
+                AND users.user_id != :user_id 
+                LIMIT $offset, $limit";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":user_id", $user_id, PDO::PARAM_STR);
