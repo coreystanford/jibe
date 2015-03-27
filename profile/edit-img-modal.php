@@ -11,13 +11,13 @@ $img = $_POST['img'];
 
 	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
 
-	<form action="." method="post">
+	<form action="." method="post" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="img-update">
 		<input type="hidden" name="id" value="<?php echo $id ?>">
 
 
 		<div class="cluster">
-			<input type="file" name="img" />
+			<input type="file" name="pro_thumb" />
 		</div>
 		
 		<div class="cluster">

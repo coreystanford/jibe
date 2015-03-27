@@ -89,7 +89,7 @@ class userDB {
         $db = Database::getDB();
 
         $query = "UPDATE users SET 
-                    img_url' = '$img' 
+                    img_url = '$img' 
                     WHERE user_id = :user_id";
 
         $stm = $db->prepare($query);
@@ -105,7 +105,7 @@ class userDB {
         $db = Database::getDB();
 
         $query = "UPDATE users SET 
-                    img_url' = 'default.jpg' 
+                    img_url = 'default.jpg' 
                     WHERE user_id = :user_id";
 
         $stm = $db->prepare($query);

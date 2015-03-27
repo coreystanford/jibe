@@ -1,7 +1,7 @@
 				
 
 
-				<div class="featured-proj">
+				<div class="featured-proj" id="featured-proj">
 				
 					<a href="./?action=unfeatured" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Featured Project </a>
 
@@ -11,11 +11,11 @@
 
 						<div class="feature">
 
-							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
+							<a href="#featured-proj" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
 							<div class="info">
 								<img src="../../images/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
 
-								<form action="." method="post">
+								<form action="./#featured-proj" method="post">
 				                    <input type="hidden" name="action" value="remove-project" />
 				                    <input type="hidden" name="id" value="<?php echo $project->getID(); ?>" />
 				                    <input type="submit" class="delete" value="" title="Remove Featured Project"><i class="fa fa-times fa-lg"></i></input>

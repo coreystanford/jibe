@@ -6,23 +6,32 @@
 					<a href="#modal" class="delete" id="photoDelete" rel="<?php echo $id; ?>"><i class="fa fa-trash-o fa-lg"></i></a>
 				</div>
 				
-				<form action="." method="post">
+				<form action="./#user" method="post">
 
 					<input type="hidden" name="action" value="user-update"/>
 
 					<div class="name">
-						<h1><input type="text" name="fname" placeholder="First Name" value="<?php echo htmlspecialchars($fname); ?>"/> <input type="text" name="lname" placeholder="Last Name" value="<?php echo htmlspecialchars($lname); ?>"/></h1>
+						<h1><input type="text" name="fname" placeholder="First Name" value="<?php echo htmlspecialchars($fname); ?>"/>
+						<?php echo $textfields->getField('fname')->getHTML(); ?> 
+						<input type="text" name="lname" placeholder="Last Name" value="<?php echo htmlspecialchars($lname); ?>"/></h1>
+						<?php echo $textfields->getField('lname')->getHTML(); ?>
 						<h3><input type="text" name="specialty" placeholder="Specialty" value="<?php echo htmlspecialchars($specialty); ?>"/></h3>
+						<?php echo $textfields->getField('specialty')->getHTML(); ?>
 						<h4><input type="text" name="website" placeholder="Website URL" value="<?php echo htmlspecialchars($website); ?>"/></h4>
-						<h4><input type="text" name="city" placeholder="City" value="<?php echo htmlspecialchars($city); ?>" />, <input type="text" name="country" placeholder="Country" value="<?php echo htmlspecialchars($country); ?>" /></h4>
+						<?php echo $textfields->getField('website')->getHTML(); ?>
+						<h4><input type="text" name="city" placeholder="City" value="<?php echo htmlspecialchars($city); ?>" />, 
+						<?php echo $textfields->getField('city')->getHTML(); ?>
+						<input type="text" name="country" placeholder="Country" value="<?php echo htmlspecialchars($country); ?>" /></h4>
+						<?php echo $textfields->getField('country')->getHTML(); ?>
 					</div>
 					<div class="bio">
 						<p><textarea type="text" name="bio"  rows="4" cols="50" placeholder="Personal Bio"><?php echo htmlspecialchars($bio); ?></textarea></p>
+						<?php echo $textfields->getField('bio')->getHTML(); ?>
 					</div>
 
 					<div class="cluster">
 						<input type="submit" name="submit" value="Update" class="btn submit" />
-                		<a href="../profile/?id=<?php echo $SESSION_ID; ?>" class="btn submit">Cancel</a>
+                		<a href="../profile/?id=<?php echo $SESSION_ID; ?>#user" class="btn submit">Cancel</a>
 					</div>
 
 				</form>

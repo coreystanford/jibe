@@ -527,18 +527,20 @@ header {
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 50%;
-    border: 2px solid #e1e1e1;
+    border: 2px solid #fff;
     z-index: 2;
     width: 30px;
     height: 30px;
     text-align: center;
     line-height: 30px;
     margin-top: -100px;
-}
-
-#seeFeed:hover {
     color: #fff;
 }
+
+    #seeFeed:hover {
+        color: #26272a;
+        background: #fff;
+    }
 
 .home-project {
     max-width: 25%;

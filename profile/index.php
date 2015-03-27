@@ -39,7 +39,20 @@
         } else {
             $GET_ID = 1;
         }
-        
+
+    // ------------------------------ //
+    // ------ Setup Validation ------ //
+    // ------------------------------ //
+
+    $textValidate = new Validate;
+    $textfields = $textValidate->getFields();
+    $textfields->addField('fname');
+    $textfields->addField('lname');
+    $textfields->addField('city');
+    $textfields->addField('country');
+    $textfields->addField('website');
+    $textfields->addField('bio');
+    $textfields->addField('specialty');
 
 	// ---------------------------- //
     // ------ Perform Switch ------ //
@@ -109,30 +122,34 @@
             $bio = $_POST['bio'];
             $specialty = $_POST['specialty'];
 
-			//$updValidate->text('updtitle', $title);
-            //$updValidate->text('upddesc', $desc, true, 1, 500);
-			//$updValidate->text('updicon', $icon, true, 1, 200);
-//
-			//if($updfields->hasErrors()){
-//
-			//	$user = userDB::getUserById($GET_ID);
-            //    $projects = ProjectDB::getProjectsByUserID($GET_ID);
-//
-            //    $id = $user->getID();
-            //    $fname = $user->getFName();
-            //    $lname = $user->getLName();
-            //    $city = $user->getCity();
-            //    $country = $user->getCountry();
-            //    $website = $user->getWebsite();
-            //    $pro_img = $user->getImgURL();
-            //    $bio = $user->getBio();
-            //    $specialty = $user->getSpecialty();
-//
-            //    include 'slider.php';
-            //    include 'user-edit.php';
-            //    include 'tabs.php';
-//
-            //} else {
+			$textValidate->text('fname', $fname, true, 1, 50);
+            $textValidate->text('lname', $lname, true, 1, 50);
+			$textValidate->text('city', $city, false, 1, 50);
+            $textValidate->text('country', $country, false, 1, 50);
+            $textValidate->text('website', $website, false, 1, 60);
+            $textValidate->text('bio', $bio, false, 1, 220);
+            $textValidate->text('specialty', $specialty, false, 1, 100);
+
+			if($textfields->hasErrors()){
+
+                $fname = $_POST['fname'];
+                $lname = $_POST['lname'];
+                $city = $_POST['city'];
+                $country = $_POST['country'];
+                $website = $_POST['website'];
+                $bio = $_POST['bio'];
+                $specialty = $_POST['specialty'];
+
+				$user = userDB::getUserById($GET_ID);
+                $projects = ProjectDB::getProjectsByUserID($GET_ID);
+
+                $pro_img = $user->getImgURL();
+
+                include 'slider.php';
+                include 'user-edit.php';
+                include 'tabs.php';
+
+            } else {
 
                 $user = new User($fname, $lname, $city, $country, $website, null, $bio, $specialty);
 	            userDB::updateUser($user, $SESSION_ID);
@@ -154,70 +171,32 @@
                 include 'user-info.php';
                 include 'tabs.php';
 
-        	//}
+        	}
 
         break;
+
+        // ------ Update Profile Image ------ //
 
         case 'img-update':
 
-            if (!empty($_FILES['pro_thumb'])) {
+            if (!empty($_FILES['pro_thumb'])) { 
 
-                //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
-                //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");
-                //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION); 
-                // convert Job Title into file name - conversion function found here
-                // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
-        
-                $upload_directory = '../../images_upload/';
-
-                $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
-                $job_logo = $newfilename . "." . pathinfo($_FILES['upd_job_logo']['name'],PATHINFO_EXTENSION);
                 $fileupload = new FileUpload;
-                $fileupload->setTarget($upload_directory);
-                $fileupload->deleteFile($job_logo);
-                $fileupload->setFilename($job_logo);
-                echo $fileupload->displayErrors();
-                $fileupload->uploadFile($_FILES['upd_job_logo']);
+                $fileupload->setFilename($_FILES['pro_thumb']['name']);
+                //echo $fileupload->displayErrors();
+                $fileupload->uploadFile($_FILES['pro_thumb']);
                 $fileuploaderrors = $fileupload->_fm_error;
-                
-                $job_logo = "images_upload/" . $job_logo;
         
                 if (!empty($fileuploaderrors)) {
-                    $anyerrors .= $fileuploaderrors . "<br />";
+                    $fileuploaderrors . "<br />";
+                } else {
+                    $img = $_FILES['pro_thumb']['name'];
+                    userDB::updateImagePath($SESSION_ID, $img);
                 }
 
-                ProjectDB::updateImagePath($SESSION_ID, $img);
-
+            } else {
+                echo "No file to upload!";
             }
-
-        break;
-
-        case 'img-delete':
-
-            if (!empty($_FILES['pro_thumb'])) {
-
-                //DO NOT DELETE TEMPFILENAME - USED TO CREATE A RANDOM NEW FILE NAME        
-                //$tempfilename = basename($_FILES['job_logo']['tmp_name'], ".tmp");
-                //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION); 
-                // convert Job Title into file name - conversion function found here
-                // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
-        
-                $upload_directory = '../../images_upload/';
-
-                $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
-                $job_logo = $newfilename . "." . pathinfo($_FILES['upd_job_logo']['name'],PATHINFO_EXTENSION);
-                $fileupload = new FileUpload;
-                $fileupload->setTarget($upload_directory);
-                $fileupload->deleteFile($job_logo);
-            }
-
-        break;
-
-        // ------ Edit a Featured Project ------ //
-
-        case 'edit-project':
-
-            //$project = ProjectDB...;
 
             $user = userDB::getUserById($SESSION_ID);
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
@@ -234,7 +213,38 @@
 
             include 'slider.php';
             include 'user-info.php';
-            include 'tabs.php';
+            include 'tabs.php';            
+
+        break;
+
+        // ------ Delete Profile Image ------ //
+
+        case 'img-delete':
+
+            $user_id = $_POST['user_id'];
+            $img = $_POST['img'];
+
+            $fileupload = new FileUpload;
+            $fileupload->deleteFile($img);
+
+            userDB::deleteImagePath($user_id);
+
+            $user = userDB::getUserById($user_id);
+            $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
+
+            $id = $user->getID();
+            $fname = $user->getFName();
+            $lname = $user->getLName();
+            $city = $user->getCity();
+            $country = $user->getCountry();
+            $website = $user->getWebsite();
+            $pro_img = $user->getImgURL();
+            $bio = $user->getBio();
+            $specialty = $user->getSpecialty();
+
+            include 'slider.php';
+            include 'user-info.php';
+            include 'tabs.php'; 
 
         break;
 
