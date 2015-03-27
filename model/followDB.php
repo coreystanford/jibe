@@ -1,5 +1,9 @@
 <?php
 
+spl_autoload_register('FollowDB::followUser');
+spl_autoload_register('FollowDB::unfollowUser');
+spl_autoload_register('FollowDB::checkFollow');
+
 class FollowDB {
 
     // ------ Follow a Profile ------ //

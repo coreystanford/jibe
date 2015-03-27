@@ -1,5 +1,14 @@
 <?php
 
+spl_autoload_register('HomepageDB::getHomeInfo');
+spl_autoload_register('HomepageDB::updateText');
+spl_autoload_register('HomepageDB::updateImage');
+spl_autoload_register('HomepageDB::getFeatured');
+spl_autoload_register('HomepageDB::getFeaturedByID');
+spl_autoload_register('HomepageDB::getUnfeatured');
+spl_autoload_register('HomepageDB::addFeature');
+spl_autoload_register('HomepageDB::removeFeature');
+
 class HomepageDB {
 
     // ------ Get All Homepage Information ------ //
@@ -15,13 +24,13 @@ class HomepageDB {
         $stm->execute();
         $row = $stm->fetch(PDO::FETCH_ASSOC);
 
-            $home = [
-                        'main_text'=>$row['main_text'],
-                        'sub_text'=>$row['sub_text'],
-                        'button_text'=>$row['button_text'],
-                        'button_link'=>$row['button_link'],
-                        'main_img_url'=>$row['main_img_url']
-                        ];
+        $home = [
+                    'main_text'=>$row['main_text'],
+                    'sub_text'=>$row['sub_text'],
+                    'button_text'=>$row['button_text'],
+                    'button_link'=>$row['button_link'],
+                    'main_img_url'=>$row['main_img_url']
+                    ];
              
         return $home;
 
@@ -80,41 +89,7 @@ class HomepageDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        $projects = array();
-
-        foreach ($result as $row) {
-
-            $category = new Category(
-                    $row['cat_title'],
-                    $row['cat_description'],
-                    $row['cat_icon']);
-            $category->setID($row['cat_id']);
-
-            $user = new User(
-                    $row['fname'],
-                    $row['lname'],
-                    $row['city'],
-                    $row['country'],
-                    $row['website'],
-                    $row['img_url'],
-                    $row['bio'],
-                    $row['specialty']);
-            $user->setID($row['user_id']);
-
-            $project = new Project(
-                    $user,
-                    $category,
-                    $row['proj_title'],
-                    $row['proj_description'],
-                    $row['proj_thumb'],
-                    $row['proj_date'],
-                    $row['featured']);
-            $project->setID($row['proj_id']);
-
-            $projects[] = $project;
-
-        }
-        return $projects;
+        return self::processProjects($result);
     }
 
     // ------ Get Featured Project by ID for Homepage Modal ------ //
@@ -128,8 +103,6 @@ class HomepageDB {
         $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
         $stm->execute();
         $project = $stm->fetch(PDO::FETCH_ASSOC);
-
-        //$project = ["proj_id" => $row['proj_id'], "thumb" => $row['proj_thumb'] ];
 
         return $project;
     }
@@ -147,41 +120,7 @@ class HomepageDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        $projects = array();
-
-        foreach ($result as $row) {
-
-            $category = new Category(
-                    $row['cat_title'],
-                    $row['cat_description'],
-                    $row['cat_icon']);
-            $category->setID($row['cat_id']);
-
-            $user = new User(
-                    $row['fname'],
-                    $row['lname'],
-                    $row['city'],
-                    $row['country'],
-                    $row['website'],
-                    $row['img_url'],
-                    $row['bio'],
-                    $row['specialty']);
-            $user->setID($row['user_id']);
-
-            $project = new Project(
-                    $user,
-                    $category,
-                    $row['proj_title'],
-                    $row['proj_description'],
-                    $row['proj_thumb'],
-                    $row['proj_date'],
-                    $row['featured']);
-            $project->setID($row['proj_id']);
-
-            $projects[] = $project;
-
-        }
-        return $projects;
+        return self::processProjects($result);
     }
 
     // ------ Add A Featured Project------ //
@@ -218,8 +157,46 @@ class HomepageDB {
         return $row_count; 
     }
 
-    public static function autoload($class) {
-        include(__DIR__ . "/" . $class . ".php");
+    // ------ Helper - Process Projects ------ //
+
+    private function processProjects($result){
+
+        $projects = array();
+
+        foreach ($result as $row) {
+
+            $category = new Category(
+                    $row['cat_title'],
+                    $row['cat_description'],
+                    $row['cat_icon']);
+            $category->setID($row['cat_id']);
+
+            $user = new User(
+                    $row['fname'],
+                    $row['lname'],
+                    $row['city'],
+                    $row['country'],
+                    $row['website'],
+                    $row['img_url'],
+                    $row['bio'],
+                    $row['specialty']);
+            $user->setID($row['user_id']);
+
+            $project = new Project(
+                    $user,
+                    $category,
+                    $row['proj_title'],
+                    $row['proj_description'],
+                    $row['proj_thumb'],
+                    $row['proj_date'],
+                    $row['featured']);
+            $project->setID($row['proj_id']);
+
+            $projects[] = $project;
+
+        }
+
+        return $projects;
     }
 
 }

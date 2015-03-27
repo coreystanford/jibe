@@ -28,17 +28,11 @@
     // ------ Setup Validation ------ //
     // ------------------------------ //
 
-	$insValidate = new Validate;
-    $insfields = $insValidate->getFields();
-    $insfields->addField('institle');
-    $insfields->addField('insdesc');
-    $insfields->addField('insicon');
-
-    $updValidate = new Validate;
-    $updfields = $updValidate->getFields();
-    $updfields->addField('updtitle');
-    $updfields->addField('upddesc');
-    $updfields->addField('updicon');
+	$Validate = new Validate;
+    $fields = $Validate->getFields();
+    $fields->addField('title');
+    $fields->addField('desc');
+    $fields->addField('icon');
 
 	// ---------------------------- //
     // ------ Perform Switch ------ //
@@ -67,15 +61,15 @@
 
         case 'commit-insert':
         	
-        	$title = $_POST['institle']; 
-			$desc = $_POST['insdesc'];
-			$icon = $_POST['insicon'];
+        	$title = $_POST['title']; 
+			$desc = $_POST['desc'];
+			$icon = $_POST['icon'];
 
-            $insValidate->text('institle', $title, true, 1, 50);
-            $insValidate->text('insdesc', $desc, true, 1, 500);
-			$insValidate->text('insicon', $icon, true, 1, 200);
+            $Validate->text('title', $title, true, 1, 50);
+            $Validate->text('desc', $desc, true, 1, 500);
+			$Validate->text('icon', $icon, true, 1, 200);
 
-			if($insfields->hasErrors()){
+			if($fields->hasErrors()){
 
                 include 'insert.php';
 
@@ -111,15 +105,15 @@
         case 'update':
         	
         	$cat_id = $_POST['id'];
-        	$title = $_POST['updtitle']; 
-			$desc = $_POST['upddesc'];
-			$icon = $_POST['updicon'];
+        	$title = $_POST['title'];
+			$desc = $_POST['desc'];
+			$icon = $_POST['icon'];
 
-			$updValidate->text('updtitle', $title);
-            $updValidate->text('upddesc', $desc, true, 1, 500);
-			$updValidate->text('updicon', $icon, true, 1, 200);
+			$Validate->text('title', $title);
+            $Validate->text('desc', $desc, true, 1, 500);
+			$Validate->text('icon', $icon, true, 1, 200);
 
-			if($updfields->hasErrors()){
+			if($fields->hasErrors()){
 
                 include 'edit.php';
 

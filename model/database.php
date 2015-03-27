@@ -1,5 +1,7 @@
 <?php
 
+spl_autoload_register('Database::getDB');
+
 class Database {
 	
     private static $dsn = 'mysql:host=dodder.arvixe.com;dbname=jibe';

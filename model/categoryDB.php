@@ -1,5 +1,12 @@
 <?php
 
+spl_autoload_register('CategoryDB::getCategories');
+spl_autoload_register('CategoryDB::getCategoryById');
+spl_autoload_register('CategoryDB::getCategoriesWithCount');
+spl_autoload_register('CategoryDB::insertCategory');
+spl_autoload_register('CategoryDB::updateCategory');
+spl_autoload_register('CategoryDB::deleteCategory');
+
 class CategoryDB {
     
     // ------ Get All Categories ------ //
@@ -16,15 +23,15 @@ class CategoryDB {
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         $categories = array();
 
-                foreach ($result as $row) {
-                    $category = new Category(
-                            $row['cat_title'],
-                            $row['cat_description'],
-                            $row['cat_icon']
-                            );
-                    $category->setID($row['cat_id']);
-                    $categories[] = $category;
-                }
+        foreach ($result as $row) {
+            $category = new Category(
+                    $row['cat_title'],
+                    $row['cat_description'],
+                    $row['cat_icon']
+                    );
+            $category->setID($row['cat_id']);
+            $categories[] = $category;
+        }
 
         return $categories;
     }
@@ -53,8 +60,6 @@ class CategoryDB {
              
         return $category;
     }
-
-
 
     // ------ Get Category With Project Count ------ //
 

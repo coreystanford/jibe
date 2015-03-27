@@ -1,5 +1,16 @@
 <?php
 
+spl_autoload_register('ReportDB::getUnresolvedReports');
+spl_autoload_register('ReportDB::getResolvedReports');
+spl_autoload_register('ReportDB::getReporters');
+spl_autoload_register('ReportDB::getReported');
+spl_autoload_register('ReportDB::getReportById');
+spl_autoload_register('ReportDB::resolveReport');
+spl_autoload_register('ReportDB::unresolveReport');
+spl_autoload_register('ReportDB::insertReport');
+spl_autoload_register('ReportDB::updateReport');
+spl_autoload_register('ReportDB::deleteReport');
+
 class ReportDB {
 
     // ------ Get All Unresolved Reports ------ //
@@ -136,6 +147,40 @@ class ReportDB {
         return $report;
     }
 
+    // ------ Resolve A Report ------ //
+
+    public static function resolveReport($report_id){
+
+        $db = Database::getDB();
+
+        $query = "UPDATE reports SET 
+                    resolved = 1
+                    WHERE report_id = :report_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(':report_id', $report_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
+        return $row_count;
+    }
+
+    // ------ Unresolve A Report ------ //
+
+    public static function unresolveReport($report_id){
+
+        $db = Database::getDB();
+
+        $query = "UPDATE reports SET 
+                    resolved = 0
+                    WHERE report_id = :report_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(':report_id', $report_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
+        return $row_count;
+    }
+
     // ------ Insert A Report ------ //
 
     public static function insertReport($report){
@@ -190,40 +235,6 @@ class ReportDB {
         return $row_count;    
     }
 
-    // ------ Resolve A Report ------ //
-
-    public static function resolveReport($report_id){
-
-        $db = Database::getDB();
-
-        $query = "UPDATE reports SET 
-                    resolved = 1
-                    WHERE report_id = :report_id";
-
-        $stm = $db->prepare($query);
-        $stm->bindParam(':report_id', $report_id, PDO::PARAM_INT);
-        $row_count = $stm->execute();
-
-        return $row_count;
-    }  
-
-    // ------ Unresolve A Report ------ //
-
-    public static function unresolveReport($report_id){
-
-        $db = Database::getDB();
-
-        $query = "UPDATE reports SET 
-                    resolved = 0
-                    WHERE report_id = :report_id";
-
-        $stm = $db->prepare($query);
-        $stm->bindParam(':report_id', $report_id, PDO::PARAM_INT);
-        $row_count = $stm->execute();
-
-        return $row_count;
-    }  
-
     // ------ Delete A Report ------ //
 
     public static function deleteReport($report_id){
@@ -237,6 +248,6 @@ class ReportDB {
         $row_count = $stm->execute();
 
         return $row_count;
-    }   
+    }
 
 }

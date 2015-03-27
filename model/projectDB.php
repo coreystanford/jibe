@@ -1,5 +1,11 @@
 <?php
 
+spl_autoload_register('ProjectDB::getProjects');
+spl_autoload_register('ProjectDB::getProjectByID');
+spl_autoload_register('ProjectDB::getProjectsByUserID');
+spl_autoload_register('ProjectDB::getFeedProjects');
+spl_autoload_register('ProjectDB::getExploreProjects');
+
 class ProjectDB {
     
 	public static function getProjects(){
@@ -13,41 +19,7 @@ class ProjectDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        $projects = array();
-
-        foreach ($result as $row) {
-
-            $category = new Category(
-                    $row['cat_title'],
-                    $row['cat_description'],
-                    $row['cat_icon']);
-            $category->setID($row['cat_id']);
-
-            $user = new User(
-                    $row['fname'],
-                    $row['lname'],
-                    $row['city'],
-                    $row['country'],
-                    $row['website'],
-                    $row['img_url'],
-                    $row['bio'],
-                    $row['specialty']);
-            $user->setID($row['user_id']);
-
-            $project = new Project(
-                    $user,
-                    $category,
-                    $row['proj_title'],
-                    $row['proj_description'],
-                    $row['proj_thumb'],
-                    $row['proj_date'],
-                    $row['featured']);
-            $project->setID($row['proj_id']);
-
-            $projects[] = $project;
-
-        }
-        return $projects;
+        
 
 	}
 
@@ -90,9 +62,7 @@ class ProjectDB {
                     $row['featured']);
             $project->setID($row['proj_id']);
 
-        //var_dump($project);
         return $project;
-
     }
 
     public static function getProjectsByUserID($user_id){
@@ -151,41 +121,7 @@ class ProjectDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        $projects = array();
-
-        foreach ($result as $row) {
-
-            $category = new Category(
-                    $row['cat_title'],
-                    $row['cat_description'],
-                    $row['cat_icon']);
-            $category->setID($row['cat_id']);
-
-            $user = new User(
-                    $row['fname'],
-                    $row['lname'],
-                    $row['city'],
-                    $row['country'],
-                    $row['website'],
-                    $row['img_url'],
-                    $row['bio'],
-                    $row['specialty']);
-            $user->setID($row['user_id']);
-
-            $project = new Project(
-                    $user,
-                    $category,
-                    $row['proj_title'],
-                    $row['proj_description'],
-                    $row['proj_thumb'],
-                    $row['proj_date'],
-                    $row['featured']);
-            $project->setID($row['proj_id']);
-
-            $projects[] = $project;
-
-        }
-        return $projects;
+        return self::processProjects($result);
 
     }
 
@@ -207,6 +143,14 @@ class ProjectDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
+        return self::processProjects($result);
+
+    }
+
+    // ------ Helper - Process Projects ------ //
+
+    private static function processProjects($result){
+
         $projects = array();
 
         foreach ($result as $row) {
@@ -241,8 +185,8 @@ class ProjectDB {
             $projects[] = $project;
 
         }
-        return $projects;
 
+        return $projects;
     }
 
 }

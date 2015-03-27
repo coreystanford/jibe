@@ -195,19 +195,6 @@
             $projects = HomepageDB::getUnfeatured();
             include 'unfeatured.php';
 
-            //$home = HomepageDB::getHomeInfo();
-            //$projects = HomepageDB::getFeatured();
-//
-            //$main = $home['main_text'];
-            //$sub = $home['sub_text'];
-            //$btn_text = $home['button_text'];
-            //$btn_link = $home['button_link'];
-            //$img = $home['main_img_url'];
-//
-            //include 'text.php';
-            //include 'image.php';
-            //include 'projects.php';
-
         break;
 
         // ------ Remove a Featured Project ------ //

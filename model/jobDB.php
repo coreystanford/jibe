@@ -1,5 +1,14 @@
 <?php
 
+spl_autoload_register('JobDB::getJobs');
+spl_autoload_register('JobDB::getCitiesList');
+spl_autoload_register('JobDB::getCountriesList');
+spl_autoload_register('JobDB::getCategoriesWithJobs');
+spl_autoload_register('JobDB::getJobByFilter');
+spl_autoload_register('JobDB::getJobById');
+spl_autoload_register('JobDB::deleteJob');
+spl_autoload_register('JobDB::addJob');
+spl_autoload_register('JobDB::updateJob');
 
 /**
  * Description of jobDB
