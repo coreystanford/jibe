@@ -179,8 +179,6 @@
 
         case 'unfeatured':
 
-            $projects = HomepageDB::getUnfeatured();
-
             include 'unfeatured.php';
 
         break;

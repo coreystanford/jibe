@@ -15,7 +15,7 @@ var modal = (function () {
                 data: {id: id}, // POST the ID to 'modal.php'
                 beforeSend:function(){ // "loading icon"
                     $('#modal').css('display', 'block');
-                    $('#modal').load('../model/loading.php');
+                    $('#modal').load('./loading.php');
                 },
                 success:function(response){
 

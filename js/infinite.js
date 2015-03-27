@@ -1,5 +1,5 @@
 var loads = 1;
-var limit = 1;
+var limit = 10;
 var offset;
 
 $(function(){
@@ -9,11 +9,19 @@ $(function(){
         url: "infinite.php", // Process request here
         data: {limit: limit, offset: 0},
 		beforeSend: function(){ // "loading icon"
-            $('.feed').load('../model/loading.php');
+            $('.feed').load('./loading.php');
         },
 		success: function(response){
-			$('.feed').empty().append(response);
-			feedModal.initialize(); // load initializer from feed-modal-init.js
+			
+            $('.feed').empty().append(response);
+
+            // Source http://stackoverflow.com/questions/6813227/how-do-i-check-if-an-html-element-is-empty-using-jquery
+            if($.trim($('.feed').html()) == ""){
+                $('.feed').load('nofeed.php');
+                $('.load-more').remove();
+            } else {
+                feedModal.initialize(); // load initializer from feed-modal-init.js
+            }
 		}
 
 	});

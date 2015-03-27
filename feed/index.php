@@ -41,11 +41,7 @@
 
         case 'default':
 
-            //if(count($projects) < 1){
-            //    include 'nofeed.php';
-            //} else {
-                include 'feed.php';
-            //}
+            include 'feed.php';
 
         break;
 

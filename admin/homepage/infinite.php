@@ -1,18 +1,20 @@
-	<?php include '../view/header.php'; ?>
+<?php
 
-	<section role=main>
+    require '../../model/autoload.php';
 
-		<div class="main-admin">
-			
-			<h1>Homepage</h1>
+	if(!isset($_POST['limit'])){
+		header('Location: .');
+	}
 
-			<div class="featured-proj">
-			
-				<a href="../homepage" class="edit"><i class="fa fa-arrow-left fa-lg"></i> Return </a>
+	$limit = $_POST['limit'];
+	$offset = $_POST['offset'];
+	
+    $projects = HomepageDB::getUnfeatured($offset, $limit);
 
-				<h2>Add Featured Projects: </h2>
+?>
 
-				<?php foreach ($projects as $project) : ?>
+
+					<?php foreach ($projects as $project) : ?>
 
 						<div class="feature">
 
@@ -32,10 +34,3 @@
 						</div><!-- END featured -->
 
 					<?php endforeach; ?>
-
-			</div>
-		</div>
-
-	</section><!-- END main section -->
-	
-	<?php include '../view/footer.php'; ?>

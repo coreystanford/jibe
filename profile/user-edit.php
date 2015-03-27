@@ -11,13 +11,13 @@
 					<input type="hidden" name="action" value="user-update"/>
 
 					<div class="name">
-						<h1><input type="text" name="fname" value="<?php echo htmlspecialchars($fname); ?>"/> <input type="text" name="lname" value="<?php echo htmlspecialchars($lname); ?>"/></h1>
-						<h3><input type="text" name="specialty" value="<?php echo htmlspecialchars($specialty); ?>"/></h3>
-						<h4><input type="text" name="website" value="<?php echo htmlspecialchars($website); ?>"/></h4>
-						<h4><input type="text" name="city" value="<?php echo htmlspecialchars($city); ?>" />, <input type="text" name="country" value="<?php echo htmlspecialchars($country); ?>" /></h4>
+						<h1><input type="text" name="fname" placeholder="First Name" value="<?php echo htmlspecialchars($fname); ?>"/> <input type="text" name="lname" placeholder="Last Name" value="<?php echo htmlspecialchars($lname); ?>"/></h1>
+						<h3><input type="text" name="specialty" placeholder="Specialty" value="<?php echo htmlspecialchars($specialty); ?>"/></h3>
+						<h4><input type="text" name="website" placeholder="Website URL" value="<?php echo htmlspecialchars($website); ?>"/></h4>
+						<h4><input type="text" name="city" placeholder="City" value="<?php echo htmlspecialchars($city); ?>" />, <input type="text" name="country" placeholder="Country" value="<?php echo htmlspecialchars($country); ?>" /></h4>
 					</div>
 					<div class="bio">
-						<p><textarea type="text" name="bio"  rows="4" cols="50"><?php echo htmlspecialchars($bio); ?></textarea></p>
+						<p><textarea type="text" name="bio"  rows="4" cols="50" placeholder="Personal Bio"><?php echo htmlspecialchars($bio); ?></textarea></p>
 					</div>
 
 					<div class="cluster">

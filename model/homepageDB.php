@@ -109,13 +109,14 @@ class HomepageDB {
 
     // ------ Get All Unfeatured Projects ------ //
 
-    public static function getUnfeatured(){
+    public static function getUnfeatured($offset, $limit){
 
         $db = Database::getDB();
         $query = "SELECT * FROM projects p 
                 JOIN category c ON p.cat_id = c.cat_id 
                 JOIN users u ON p.user_id = u.user_id 
-                WHERE featured = 0";
+                WHERE featured = 0 
+                LIMIT $offset, $limit";
         $stm = $db->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);

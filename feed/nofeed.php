@@ -1,15 +1,14 @@
-		<?php include '../view/header.php'; ?>
-
-		<section role=main>
-			
-			<div class="nofeed">
 				
-				<h1>Well, darn. It looks like you haven't followed anyone yet!</h1>
+				<div class="cluster">
+					<div class="cluster">
+						<h1>Bummer!</h1>
+					</div>
+					<div class="cluster">
+						<h2>It looks like you haven't followed anyone yet.</h2>
+					</div>
+					<div class="cluster">
+						<a href="../explore/" class="btn submit">Find people to follow   <i class="fa fa-chevron-right"></i></a>
+					</div>
+				</div>
 
-				<a href="../explore/"><h3>Find people to follow</h3></a>
-
-			</div>
-
-		</section><!-- END main section -->
-		
-		<?php include '../view/footer.php'; ?>
+			
