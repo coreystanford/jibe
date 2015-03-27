@@ -1,12 +1,6 @@
 <?php 
 
-require '../model/database.php';
-require '../model/user.php';
-require '../model/category.php';
-require '../model/project.php';
-require '../model/content.php';
-require '../model/projectDB.php';
-require '../model/followDB.php';
+require '../model/autoload.php';
 
 if(isset($_SESSION['id'])){
     $SESSION_ID = $_SESSION['id'];

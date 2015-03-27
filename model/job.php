@@ -70,7 +70,5 @@ class Job {
         $date = new DateTime($this->job_date);
         return $date->format('Y-m-d');
     }
-    
-    
-    
+
 }

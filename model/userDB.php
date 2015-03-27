@@ -120,4 +120,6 @@ class userDB {
 
         return $row_count;                 
     }
+
 }
+

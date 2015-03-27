@@ -1,7 +1,6 @@
 <?php
 
 include '../view/header.php'; 
-require_once '../model/followDB.php';
 
 $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 

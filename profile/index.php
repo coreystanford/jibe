@@ -1,14 +1,6 @@
 <?php
 
-	require_once '../model/database.php';
-	require_once '../model/fields.php';
-	require_once '../model/validate.php';
-	require_once '../model/category.php';
-    require_once '../model/file_upload.php';
-	require_once '../model/user.php';
-    require_once '../model/userDB.php';
-	require_once '../model/project.php';
-	require_once '../model/projectDB.php';
+    include '../model/autoload.php';
 
  	// -------------------------------------- //
     // ------ Determine Current Action ------ //

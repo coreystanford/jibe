@@ -218,4 +218,8 @@ class HomepageDB {
         return $row_count; 
     }
 
+    public static function autoload($class) {
+        include(__DIR__ . "/" . $class . ".php");
+    }
+
 }

@@ -360,4 +360,8 @@ class Validate {
 
 	}
 
+    public static function autoload($class) {
+        include(__DIR__ . "/" . $class . ".php");
+    }
+
 }

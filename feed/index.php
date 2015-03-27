@@ -1,12 +1,6 @@
-	<?php 
-    require_once '../model/database.php';
-    include '../model/category.php';
-	include '../model/user.php';
-	include '../model/project.php';
-    require_once '../model/projectDB.php';
-    require_once '../model/report.php';
-    require_once '../model/reportDB.php';
-    include '../model/functions.php';
+<?php 
+
+    require '../model/autoload.php';
 
     // -------------------------------------- //
     // ------ Determine Current Action ------ //

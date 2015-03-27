@@ -1,8 +1,6 @@
 <?php 
 
-require '../model/database.php';
-require '../model/follow.php';
-require '../model/followDB.php';
+require '../model/autoload.php';
 
 if(isset($_SESSION['id'])){
     $SESSION_ID = $_SESSION['id'];

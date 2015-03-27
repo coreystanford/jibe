@@ -1,10 +1,6 @@
 <?php
 
-    require_once '../model/database.php';
-    include '../model/category.php';
-	include '../model/user.php';
-	include '../model/project.php';
-    require_once '../model/projectDB.php';
+    require '../model/autoload.php';
 
     if(isset($_SESSION['id'])){
 	    $SESSION_ID = $_SESSION['id'];

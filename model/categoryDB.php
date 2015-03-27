@@ -163,4 +163,5 @@ class CategoryDB {
         $row_count = $stm->execute();
         return $row_count;
     }
+
 }

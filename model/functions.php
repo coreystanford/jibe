@@ -1,102 +1,105 @@
 <?php 
 
-function displayList($name, $array, $type = ""){
-    
-    $result = '';
+class Functions {
 
-    if($type == 'checkbox'){
+    public static function displayList($name, $array, $type = ""){
+        
+        $result = '';
 
-        foreach ($array as $key => $value){
-        if (isset($_POST[$name]) && in_array($value, $_POST[$name])) {
-                $result .= '<input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '" checked />' . $value;
-            }
-            else {
-                $result .= '<input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '"  />' . $value;
-            }
-        }
-        return $result;
-
-    } else if($type == 'checkboxlist'){
-
-        $result .= '<ul>';
+        if($type == 'checkbox'){
 
             foreach ($array as $key => $value){
             if (isset($_POST[$name]) && in_array($value, $_POST[$name])) {
-                    $result .= '<li><input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '" checked />' . $value . '</li>';
+                    $result .= '<input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '" checked />' . $value;
                 }
                 else {
-                    $result .= '<li><input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '"  />' . $value . '</li>';
+                    $result .= '<input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '"  />' . $value;
                 }
             }
+            return $result;
 
-        $result .= '</ul>';
+        } else if($type == 'checkboxlist'){
 
-        return $result;
+            $result .= '<ul>';
 
-    } else if($type == 'radio'){
+                foreach ($array as $key => $value){
+                if (isset($_POST[$name]) && in_array($value, $_POST[$name])) {
+                        $result .= '<li><input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '" checked />' . $value . '</li>';
+                    }
+                    else {
+                        $result .= '<li><input type="checkbox" name="' . $name . '[]' . '" value="' . $value . '"  />' . $value . '</li>';
+                    }
+                }
 
-        foreach ($array as $key => $value){
-        if (isset($_POST[$name]) && $_POST[$name] == $value) {
-                $result .= '<input type="radio" name="' . $name . '" value="' . $value . '" checked  />' . $value;
-            } else {
-                $result .= '<input type="radio" name="' . $name . '" value="' . $value . '"  />' . $value;
-            }
-        }
-        return $result;
+            $result .= '</ul>';
 
-    } else if($type == 'radiolist'){
+            return $result;
 
-        $result .= '<ul>';
+        } else if($type == 'radio'){
 
             foreach ($array as $key => $value){
             if (isset($_POST[$name]) && $_POST[$name] == $value) {
-                    $result .= '<li><input type="radio" name="' . $name . '" value="' . $value . '" checked  />' . $value . '</li>';
+                    $result .= '<input type="radio" name="' . $name . '" value="' . $value . '" checked  />' . $value;
                 } else {
-                    $result .= '<li><input type="radio" name="' . $name . '" value="' . $value . '"  />' . $value . '</li>';
+                    $result .= '<input type="radio" name="' . $name . '" value="' . $value . '"  />' . $value;
                 }
             }
+            return $result;
 
-        $result .= '<ul>';
+        } else if($type == 'radiolist'){
 
-        return $result;
+            $result .= '<ul>';
 
-    } else if($type == 'multiple'){
-
-        $result .= "<select ".$type." name='".$name."[]'>";
-
-            foreach ($array as $key => $value){   
-            if (isset($_POST[$name]) && in_array($value, $_POST[$name])) {
-                    $result .= '<option value="' . $value . '" selected>' . $value . '</option>';
-                }
-                else {
-                    $result .= "<option value='".$value."'>".$value."</option>";
-                }
-            }
-
-        $result .= "</select>";
-
-        return $result;
-
-    } else {
-
-        array_unshift($array, 'Select');
-
-        $result .= "<select name='".$name."'>";
-
-            foreach ($array as $key => $value){
+                foreach ($array as $key => $value){
                 if (isset($_POST[$name]) && $_POST[$name] == $value) {
-                    $result .= "<option value='".$value."' selected>".$value."</option>";
-                } else {
-                    $result .= "<option value='".$value."'>".$value."</option>";
+                        $result .= '<li><input type="radio" name="' . $name . '" value="' . $value . '" checked  />' . $value . '</li>';
+                    } else {
+                        $result .= '<li><input type="radio" name="' . $name . '" value="' . $value . '"  />' . $value . '</li>';
+                    }
                 }
-            }
-            
-        $result .= "</select>";
 
-        return $result;
+            $result .= '<ul>';
+
+            return $result;
+
+        } else if($type == 'multiple'){
+
+            $result .= "<select ".$type." name='".$name."[]'>";
+
+                foreach ($array as $key => $value){   
+                if (isset($_POST[$name]) && in_array($value, $_POST[$name])) {
+                        $result .= '<option value="' . $value . '" selected>' . $value . '</option>';
+                    }
+                    else {
+                        $result .= "<option value='".$value."'>".$value."</option>";
+                    }
+                }
+
+            $result .= "</select>";
+
+            return $result;
+
+        } else {
+
+            array_unshift($array, 'Select');
+
+            $result .= "<select name='".$name."'>";
+
+                foreach ($array as $key => $value){
+                    if (isset($_POST[$name]) && $_POST[$name] == $value) {
+                        $result .= "<option value='".$value."' selected>".$value."</option>";
+                    } else {
+                        $result .= "<option value='".$value."'>".$value."</option>";
+                    }
+                }
+                
+            $result .= "</select>";
+
+            return $result;
+
+        }
 
     }
 
 }
 
-?>
