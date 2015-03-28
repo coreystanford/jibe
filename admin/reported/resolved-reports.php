@@ -35,9 +35,9 @@
 
 							<td><?php echo $report['reporter']->getFName(); ?> <?php echo $report['reporter']->getLName(); ?></td>
 
-							<td class="edit-td"><a href="./?action=options&id=<?php echo $report['id']; ?>" title="Options"><i class="fa fa-cog fa-lg"></i></a></td>
+							<td class="edit-td"><a href="./?action=details&id=<?php echo $report['id']; ?>" title="Details"><i class="fa fa-info-circle fa-lg"></i></a></td>
 							<td class="delete-td"><a href="./?action=unresolve&id=<?php echo $report['id']; ?>" title="Unresolve Report"><i class="fa fa-times fa-lg"></i></a></td>
-							<td class="delete-td"><a href="./?action=delete&id=<?php echo $report['id']; ?>" title="Delete Report"><i class="fa fa-trash fa-lg"></i></a></td>
+							<td class="delete-td"><a href="./?action=delete-report&id=<?php echo $report['id']; ?>" title="Delete Report"><i class="fa fa-trash fa-lg"></i></a></td>
 
 						</tr>
 

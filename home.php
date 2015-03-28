@@ -28,7 +28,7 @@
 
 			</div>
 
-			<img class="off" id="invisible" src="./images/<?php echo $img ?>" />
+			<img class="off" id="invisible" src="./images_upload/<?php echo $img ?>" />
 
 		</section><!-- END main section -->
 		

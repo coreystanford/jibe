@@ -2,16 +2,17 @@
 
 				<div id="featured-img" class="clearfix">
 
-					<form action="." method="post" enctype="multipart/form-data">
+					<form action="./#featured-img" method="post" enctype="multipart/form-data">
 
 						<input type="hidden" name="action" value="image-update"/>
 
 						<h2>Featured Image: </h2>
 
-						<img src="../../images/<?php echo $img; ?>" />
+						<img src="../../images_upload/<?php echo $img; ?>" />
 
 						<div class="cluster">
 							<input type="file" name="main-img"/>
+							<?php echo $imgfields->getField('main-img')->getHTML(); ?>
 						</div>
 
 						<div class="cluster">

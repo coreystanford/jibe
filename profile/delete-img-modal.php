@@ -9,8 +9,6 @@ $img = $_POST['img'];
 	
 	<h2>Delete Your Profile Image?</h2>
 
-	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
-
 	<form action="." method="post">
 		<input type="hidden" name="action" value="img-delete">
 		<input type="hidden" name="user_id" value="<?php echo $id ?>">

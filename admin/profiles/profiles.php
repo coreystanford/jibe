@@ -16,8 +16,8 @@
 
 							<h2><?php echo $profile->getFName(); ?> <?php echo $profile->getLName(); ?></h2>
 
-							<a href="./?action=edit&id=<?php echo $profile->getID(); ?>" class="edit" title="Profile Options"><i class="fa fa-cog fa-lg"></i></a>
-							<a href="./?action=delete&id=<?php echo $profile->getID(); ?>" class="delete" title="Delete Profile"><i class="fa fa-trash-o fa-lg"></i></a>
+							<a href="../../profile?id=<?php echo $profile->getID(); ?>" class="edit" title="Profile" target="_blank"><i class="fa fa-user fa-lg"></i></a>
+							<a href="./?action=delete-user&id=<?php echo $profile->getID(); ?>" class="delete" title="Delete Profile"><i class="fa fa-trash-o fa-lg"></i></a>
 
 						</div><!-- END cat-title-options -->
 

@@ -590,7 +590,7 @@ header {
 
 /*  -----MODAL WINDOW-----  */
 
-#modal {
+#modal, .open-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -599,8 +599,15 @@ header {
     z-index: 4;
     background: rgba(250, 250, 250, 0.4);
     overflow: hidden;
-    display: none;
     cursor: zoom-out;
+}
+
+#modal {
+    display: none;
+}
+
+.open-modal {
+    display: block;
 }
 
     #modal-loading {
@@ -1152,7 +1159,8 @@ header {
 
         #img-content form {
             margin: 0 auto;
-            width: 50%;
+            width: 90%;
+            text-align: center;
         }
 
 

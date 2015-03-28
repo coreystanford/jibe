@@ -54,6 +54,10 @@
     $textfields->addField('bio');
     $textfields->addField('specialty');
 
+    $imgValidate = new Validate;
+    $imgfields = $imgValidate->getFields();
+    $imgfields->addField('pro_thumb');
+
 	// ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //
@@ -132,14 +136,6 @@
 
 			if($textfields->hasErrors()){
 
-                $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
-                $city = $_POST['city'];
-                $country = $_POST['country'];
-                $website = $_POST['website'];
-                $bio = $_POST['bio'];
-                $specialty = $_POST['specialty'];
-
 				$user = userDB::getUserById($GET_ID);
                 $projects = ProjectDB::getProjectsByUserID($GET_ID);
 
@@ -179,25 +175,6 @@
 
         case 'img-update':
 
-            if (!empty($_FILES['pro_thumb'])) { 
-
-                $fileupload = new FileUpload;
-                $fileupload->setFilename($_FILES['pro_thumb']['name']);
-                //echo $fileupload->displayErrors();
-                $fileupload->uploadFile($_FILES['pro_thumb']);
-                $fileuploaderrors = $fileupload->_fm_error;
-        
-                if (!empty($fileuploaderrors)) {
-                    $fileuploaderrors . "<br />";
-                } else {
-                    $img = $_FILES['pro_thumb']['name'];
-                    userDB::updateImagePath($SESSION_ID, $img);
-                }
-
-            } else {
-                echo "No file to upload!";
-            }
-
             $user = userDB::getUserById($SESSION_ID);
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
 
@@ -211,9 +188,29 @@
             $bio = $user->getBio();
             $specialty = $user->getSpecialty();
 
-            include 'slider.php';
-            include 'user-info.php';
-            include 'tabs.php';            
+            $imgValidate->upload('pro_thumb', $_FILES['pro_thumb']);
+
+            if($imgfields->hasErrors()){
+                
+                include 'slider.php';
+                include 'user-info.php';
+                include 'tabs.php'; 
+                include 'edit-error.php';
+
+            } else { 
+
+                $fileupload = new FileUpload;
+                $fileupload->setFilename($_FILES['pro_thumb']['name']);
+                $fileupload->uploadFile($_FILES['pro_thumb']);
+        
+                $img = $_FILES['pro_thumb']['name'];
+                userDB::updateImagePath($SESSION_ID, $img);
+
+                include 'slider.php';
+                include 'user-info.php';
+                include 'tabs.php';
+
+            }
 
         break;
 

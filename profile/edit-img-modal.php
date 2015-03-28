@@ -9,8 +9,6 @@ $img = $_POST['img'];
 	
 	<h2>Update Your Profile Image</h2>
 
-	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
-
 	<form action="." method="post" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="img-update">
 		<input type="hidden" name="id" value="<?php echo $id ?>">

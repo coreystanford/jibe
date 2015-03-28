@@ -35,6 +35,10 @@
     $textfields->addField('btn-text');
     $textfields->addField('btn-link');
 
+    $imgValidate = new Validate;
+    $imgfields = $imgValidate->getFields();
+    $imgfields->addField('main-img');
+
 	// ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //
@@ -152,57 +156,38 @@
 
         case 'image-update':
 
-            $fileuploaderrors = "";
+            $home = HomepageDB::getHomeInfo();
+            $projects = HomepageDB::getFeatured();
+            
+            $main = $home['main_text'];
+            $sub = $home['sub_text'];
+            $btn_text = $home['button_text'];
+            $btn_link = $home['button_link'];
+            $img = $home['main_img_url'];
 
-            if (!empty($_FILES['main-img'])) { 
+            $imgValidate->upload('main-img', $_FILES['main-img']);
+
+            if($imgfields->hasErrors()){
+                
+                include 'text.php';
+                include 'image-edit.php';
+                include 'projects.php';
+
+            } else { 
 
                 $fileupload = new FileUpload;
                 $fileupload->setTarget('../../images_upload/');
                 $fileupload->setFilename($_FILES['main-img']['name']);
-                echo $fileupload->displayErrors();
                 $fileupload->uploadFile($_FILES['main-img']);
-                $fileuploaderrors = $fileupload->_fm_error;
+
+                $img = $_FILES['main-img']['name'];
+                HomepageDB::updateImage($img);
+
+                include 'text.php';
+                include 'image.php';
+                include 'projects.php';
 
             }
-
-                if (empty($fileuploaderrors)) {
-
-                    $img = $_FILES['main-img']['name'];
-                    HomepageDB::updateImage($img);
-
-                    $home = HomepageDB::getHomeInfo();
-                    $projects = HomepageDB::getFeatured();
-
-                    $main = $home['main_text'];
-                    $sub = $home['sub_text'];
-                    $btn_text = $home['button_text'];
-                    $btn_link = $home['button_link'];
-                    $img = $home['main_img_url'];
-
-                    include 'text.php';
-                    include 'image.php';
-                    include 'projects.php';
-
-                } else {
-
-                    $fileuploaderrors . "<br />";
-
-                    $home = HomepageDB::getHomeInfo();
-                    $projects = HomepageDB::getFeatured();
-                    
-                    $main = $home['main_text'];
-                    $sub = $home['sub_text'];
-                    $btn_text = $home['button_text'];
-                    $btn_link = $home['button_link'];
-                    $img = $home['main_img_url'];
-                    
-                    include 'text.php';
-                    include 'image-edit.php';
-                    include 'projects.php';
-
-                }
-
-            
 
         break;
 

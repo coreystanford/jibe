@@ -360,8 +360,43 @@ class Validate {
 
 	}
 
-    public static function autoload($class) {
-        include(__DIR__ . "/" . $class . ".php");
-    }
+	// -- 13 --//
+	// ------ File Upload ------ //
+
+	public function upload($name, $value, $required = true, $max_size = '3145728', $ext = array('jpg', 'gif', 'png', 'jpeg')) {
+
+		$field = $this->fields->getField($name);
+
+		if(!$required && empty($value['name'])) {
+			$field->clearErrorMessage();
+			return;
+		}
+
+		if($required && empty($value['name'])){
+
+			$field->setErrorMessage('Required');
+			
+		} else if($value['size'] > $max_size){
+
+			$field->setErrorMessage('File size is too large.');
+			
+		} else if(!in_array($this->getExtension($value), $ext)){
+
+			$field->setErrorMessage('Incorrect file type');
+			
+		} else {
+
+			$field->clearErrorMessage();
+
+		}
+
+	}
+		// ------ File Upload - Helper ------ //
+	
+		public function getExtension($value){
+	        $filename_full = $value['name'];
+	        $extension = pathinfo($filename_full, PATHINFO_EXTENSION);
+	        return $extension;
+	    }
 
 }

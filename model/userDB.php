@@ -5,6 +5,7 @@ spl_autoload_register('userDB::getUserById');
 spl_autoload_register('userDB::updateUser');
 spl_autoload_register('userDB::updateImagePath');
 spl_autoload_register('userDB::deleteImagePath');
+spl_autoload_register('userDB::deleteUser');
 
 class userDB {
 
@@ -67,14 +68,14 @@ class userDB {
         $specialty = $user->getSpecialty();
 
         $query = "UPDATE users SET 
-                    fname = '$fname', 
-                    lname = '$lname', 
-                    city = '$city', 
-                    country = '$country', 
-                    website = '$website', 
-                    bio = '$bio', 
-                    specialty = '$specialty' 
-                    WHERE user_id = :user_id";
+                  fname = '$fname', 
+                  lname = '$lname', 
+                  city = '$city', 
+                  country = '$country', 
+                  website = '$website', 
+                  bio = '$bio', 
+                  specialty = '$specialty' 
+                  WHERE user_id = :user_id";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
@@ -89,8 +90,8 @@ class userDB {
         $db = Database::getDB();
 
         $query = "UPDATE users SET 
-                    img_url = '$img' 
-                    WHERE user_id = :user_id";
+                  img_url = '$img' 
+                  WHERE user_id = :user_id";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
@@ -105,8 +106,23 @@ class userDB {
         $db = Database::getDB();
 
         $query = "UPDATE users SET 
-                    img_url = 'default.jpg' 
-                    WHERE user_id = :user_id";
+                  img_url = 'default.jpg' 
+                  WHERE user_id = :user_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+        $row_count = $stm->execute();
+
+        return $row_count;                 
+    }
+
+    public static function deleteUser($user_id){
+
+        $db = Database::getDB();
+
+        $query = "DELETE FROM users 
+                  WHERE user_id = :user_id";
 
         $stm = $db->prepare($query);
         $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);

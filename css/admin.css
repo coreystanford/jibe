@@ -147,6 +147,34 @@ section {
     clear: both;
 }
 
+.cluster-third {
+    margin: 10px 0;
+    display: inline-block;
+    width: 31%;
+    vertical-align: top;
+}
+
+.cluster-center {
+    margin: 10px 0;
+    clear: both;
+    text-align: center;
+}
+
+.cluster-left {
+    margin: 10px 0;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+.cluster-right {
+    margin: 10px 0;
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    text-align: right;
+}
+
 .cluster:after {
     content: " ";
     visibility: hidden;
@@ -154,6 +182,7 @@ section {
     height: 0;
     clear: both;
 }
+
 
 input[type="text"] {
     font-size: 16px;
@@ -211,6 +240,18 @@ textarea {
 .deletebtn:hover {
     background: #ee4141;
     color: #fff;
+}
+
+.right {
+    float: right!important;
+}
+
+.nofloat {
+    float: none!important;
+}
+
+.projectwidth {
+    width: 93%;
 }
 
 .labels {
@@ -796,6 +837,125 @@ a {
         color: #3d8cd9;
     }
 
+    #feed-content {
+        position: relative;
+        width: 100%;
+        margin: 20px auto;
+        background: #0f0f0f;
+        cursor: default;
+        border: 5px solid #26272a;
+    }
+
+    .load-more {
+        position: relative;
+        height: 120px;
+        width: 100%;
+        padding-bottom: 50px;
+    }
+
+        #load-more, .end {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+            #load-more span, .end span {
+                line-height: 90px;
+                font-size: 1.25rem;
+            }
+
+                #load-more span .loading {
+                    line-height: 90px;
+                }
+
+            #load-more:hover {
+                background: #3e3e40;
+            }
+
+        #head {
+            height: 140px;
+            width: 100%;
+            background: #26272a;
+        }
+
+            #proj-thumb {
+                width: 140px;
+                height: 140px;
+                overflow: hidden;
+                float: left;
+            }
+
+                #proj-thumb img {
+                    width: 100%;
+                }
+
+            #proj-details {
+                float: left;
+                width: calc(100% - 140px);
+            }
+
+                #feed-content h2 {
+                    display: block;
+                    padding: 10px 40px 10px 20px;
+                }
+
+                #feed-content p {
+                    display: block;
+                    padding: 10px 20px;
+                }
+
+        #content {
+            min-height: 400px;
+        }
+
+    /* ---- DELETE USER PROFILE ---- */
+
+.user {
+    padding: 8px 0;
+    position: relative;
+    background: #26272a;
+}
+
+    .user .photo {
+        width: 225px;
+        float: left;
+        margin: 10px 20px;
+        position: relative;
+    }
+
+        .user .photo img {
+            width: 100%;
+        }
+
+    .user div.name {
+        float: left;
+        padding: 10px 20px;
+    }
+
+        .user div.name h3 {
+            padding: 5px 0;
+        }
+
+        .user div.name h4 {
+            padding: 5px 0;
+        }
+
+    .user div.bio {
+        display: table;
+        height: 179px;
+        padding: 5px 25px;
+        max-width: 700px;
+        min-width: 315px;
+    }
+
+        .user div.bio p {
+            display: table-cell;
+            vertical-align: middle;
+        }
 
 /*  -------------FOOTER-------------  */
 

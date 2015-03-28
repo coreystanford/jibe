@@ -40,5 +40,30 @@
             include 'profiles.php';
 
         break;
+
+        // ------ Show Delete ------ //
+
+        case 'delete-user':
+            
+            $id = $_GET['id'];
+            $reported = userDB::getUserById($id);
+
+            include 'delete-user.php';
+
+        break;
+
+        // ------ Perform Delete ------ //
+
+        case 'confirm-delete-user':
+            
+            $id = $_POST['id'];
+            userDB::deleteUser($id);
+
+            $reports = ReportDB::getResolvedReports();
+            $sum = getList($reports);
+
+            include 'profiles.php';
+
+        break;
 	
 	}

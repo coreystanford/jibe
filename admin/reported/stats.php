@@ -27,12 +27,12 @@
 							
 							<tr>
 
-							<td class="bkgd-red"><?php echo $report['reported']->getFname(); ?> <?php echo $report['reported']->getLname(); ?></td>
+							<td class="bkgd-red"><?php echo $report['reported']->getFName(); ?> <?php echo $report['reported']->getLName(); ?></td>
 
 							<td class="center bkgd-red"><?php echo $report['num']; ?></td>
 
-							<td class="edit-td bkgd-red"><a href="./?action=options&id=<?php echo $report['id']; ?>" title="Options"><i class="fa fa-cog fa-lg"></i></a></td>
-							<td class="delete-td bkgd-red"><a href="./?action=resolve&id=<?php echo $report['id']; ?>" title="Resolve Report"><i class="fa fa-trash fa-lg"></i></a></td>
+							<td class="edit-td bkgd-red"><a href="../../profile?id=<?php echo $report['reported']->getID(); ?>" title="User Profile" target="_blank"><i class="fa fa-user fa-lg"></i></a></td>
+							<td class="delete-td bkgd-red"><a href="./?action=delete-user&id=<?php echo $report['reported']->getID(); ?>" title="Delete Profile"><i class="fa fa-trash fa-lg"></i></a></td>
 
 						</tr>
 
@@ -40,12 +40,12 @@
 
 						<tr>
 
-							<td class="bkgd"><?php echo $report['reported']->getFname(); ?> <?php echo $report['reported']->getLname(); ?></td>
+							<td class="bkgd"><?php echo $report['reported']->getFName(); ?> <?php echo $report['reported']->getLName(); ?></td>
 
 							<td class="center bkgd"><?php echo $report['num']; ?></td>
 
-							<td class="edit-td"><a href="./?action=options&id=<?php echo $report['id']; ?>" title="Options"><i class="fa fa-cog fa-lg"></i></a></td>
-							<td class="delete-td"><a href="./?action=resolve&id=<?php echo $report['id']; ?>" title="Resolve Report"><i class="fa fa-trash fa-lg"></i></a></td>
+							<td class="edit-td"><a href="../../profile?id=<?php echo $report['reported']->getID(); ?>" title="User Profile" target="_blank"><i class="fa fa-user fa-lg"></i></a></td>
+							<td class="delete-td"><a href="./?action=delete-user&id=<?php echo $report['reported']->getID(); ?>" title="Delete Profile"><i class="fa fa-trash fa-lg"></i></a></td>
 
 						</tr>
 
@@ -72,12 +72,12 @@
 
 						<tr>
 
-							<td class="bkgd-red"><?php echo $report['reporter']->getFname(); ?> <?php echo $report['reporter']->getLname(); ?></td>
+							<td class="bkgd-red"><?php echo $report['reporter']->getFName(); ?> <?php echo $report['reporter']->getLName(); ?></td>
 
 							<td class="center bkgd-red"><?php echo $report['num']; ?></td>
 
-							<td class="edit-td bkgd-red"><a href="./?action=options&id=<?php echo $report['id']; ?>" title="Options"><i class="fa fa-cog fa-lg"></i></a></td>
-							<td class="delete-td bkgd-red"><a href="./?action=resolve&id=<?php echo $report['id']; ?>" title="Resolve Report"><i class="fa fa-trash fa-lg"></i></a></td>
+							<td class="edit-td bkgd-red"><a href="../../profile?id=<?php echo $report['reporter']->getID(); ?>" title="User Profile" target="_blank"><i class="fa fa-user fa-lg"></i></a></td>
+							<td class="delete-td bkgd-red"><a href="./?action=delete-user&id=<?php echo $report['reporter']->getID(); ?>" title="Delete Profile"><i class="fa fa-trash fa-lg"></i></a></td>
 
 						</tr>
 
@@ -85,12 +85,12 @@
 
 						<tr>
 
-							<td class="bkgd"><?php echo $report['reporter']->getFname(); ?> <?php echo $report['reporter']->getLname(); ?></td>
+							<td class="bkgd"><?php echo $report['reporter']->getFName(); ?> <?php echo $report['reporter']->getLName(); ?></td>
 
 							<td class="center bkgd"><?php echo $report['num']; ?></td>
 
-							<td class="edit-td"><a href="./?action=options&id=<?php echo $report['id']; ?>" title="Options"><i class="fa fa-cog fa-lg"></i></a></td>
-							<td class="delete-td"><a href="./?action=resolve&id=<?php echo $report['id']; ?>" title="Resolve Report"><i class="fa fa-trash fa-lg"></i></a></td>
+							<td class="edit-td"><a href="../../profile?id=<?php echo $report['reporter']->getID(); ?>" title="User Profile" target="_blank"><i class="fa fa-user fa-lg"></i></a></td>
+							<td class="delete-td"><a href="./?action=delete-user&id=<?php echo $report['reporter']->getID(); ?>" title="Delete Profile"><i class="fa fa-trash fa-lg"></i></a></td>
 
 						</tr>
 

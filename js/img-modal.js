@@ -67,19 +67,27 @@ $(document).ready(function () {
                     $('#modal').css('display', 'none');
                 });
 
-                $('#modal').on( 'click', function ( e ) {
-                    if ( $(e.target).closest('#img-content').length === 0 ) {
-                        e.preventDefault();
-                        // Remove content from the inner tag
-                        $('#img-content').remove();
-                        // Change CSS back to initial state of hidden
-                        $('#modal').css('display', 'none');
-                    }
-                });
-
             }
 
         });
+    });
+
+    $('#modal').on( 'click', function ( e ) {
+        if ( $(e.target).closest('#img-content').length === 0 ) {
+            e.preventDefault();
+            // Remove content from the inner tag
+            $('#img-content').remove();
+            // Change CSS back to initial state of hidden
+            $('#modal').css('display', 'none');
+        }
+    });
+
+    $('.open-modal').on( 'click', function ( e ) {
+        if ( $(e.target).closest('#img-content').length === 0 ) {
+            e.preventDefault();
+            // Remove content from the inner tag
+            $('.open-modal').remove();
+        }
     });
 
     // ESC key - close the modal window on keydown
@@ -90,6 +98,7 @@ $(document).ready(function () {
             $('#img-content').remove();
             // Change CSS back to initial state of hidden
             $('#modal').css('display', 'none');
+            $('.open-modal').remove();
         }
     });
 
