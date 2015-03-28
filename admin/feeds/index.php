@@ -24,6 +24,14 @@
 	    $action = 'default';
 	}
 
+    // ------------------------------------- //
+    // ------ Setup Validation Fields ------ //
+    // ------------------------------------- //
+
+    $validate = new Validate;
+    $fields = $validate->getFields();
+    $fields->addField('limit');
+    $fields->addField('loads');
 
 	// ---------------------------- //
     // ------ Perform Switch ------ //
@@ -51,7 +59,12 @@
             $limit = $_POST['limit'];
             $loads = $_POST['loads'];
 
-            FeedDB::updateLimitAndLoads($limit, $loads);
+            $validate->range('limit', $limit, 1, 50);
+            $validate->range('loads', $loads, 1, 10);
+
+            if(!$fields->hasErrors()){
+                FeedDB::updateLimitAndLoads($limit, $loads);
+            }
 
             include 'feed-info.php';
 

@@ -19,7 +19,7 @@ class ProjectDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        
+        return self::processProjects($result);
 
 	}
 
