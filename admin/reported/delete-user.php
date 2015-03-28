@@ -7,7 +7,7 @@
                 <div class="user clearfix">
 
                     <div class="photo" >
-                        <img src="../../images/<?php echo $reported->getImgURL(); ?>"  />
+                        <img src="../../images_upload/profiles/<?php echo $reported->getImgURL(); ?>"  />
                     </div>
                     <div class="name">
                         <h1><?php echo $reported->getFName(); ?> <?php echo $reported->getLName(); ?></h1>
@@ -32,7 +32,7 @@
 
 				<form action="." method="post" id="delete_form">
 					<div class="cluster">
-	                    <input type="hidden" name="action" value="confirmed-delete-user" />
+	                    <input type="hidden" name="action" value="confirm-delete-user" />
 	                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
 	                    <input type="submit" class="btn deletebtn" value="Delete" />
 	                    <h5><a href="../reported" class="btn submit">Cancel</a></h5>

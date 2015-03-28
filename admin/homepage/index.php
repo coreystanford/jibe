@@ -195,6 +195,10 @@
 
         case 'unfeatured':
 
+            $feed = FeedDB::getLimitAndLoads();
+            $limit = $feed['feed_limit'];
+            $loads = $feed['feed_loads'];
+
             include 'unfeatured.php';
 
         break;
@@ -206,7 +210,10 @@
         	$id = $_POST['id'];
             HomepageDB::addFeature($id);
 
-            //$projects = HomepageDB::getUnfeatured();
+            $feed = FeedDB::getLimitAndLoads();
+            $limit = $feed['feed_limit'];
+            $loads = $feed['feed_loads'];
+
             include 'unfeatured.php';
 
         break;

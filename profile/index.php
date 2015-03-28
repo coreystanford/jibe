@@ -196,7 +196,7 @@
                 include 'slider.php';
                 include 'user-info.php';
                 include 'tabs.php'; 
-                include 'edit-error.php';
+                include '../errors/img-error-modal.php';
 
             } else { 
 

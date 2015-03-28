@@ -25,6 +25,9 @@
 			</div>
 		</div>
 
+		<input type="hidden" name="limit" id="limit" value="<?php echo $limit; ?>"/>
+		<input type="hidden" name="loads" id="loads" value="<?php echo $loads; ?>"/>
+
 	</section><!-- END main section -->
 	
 	<?php include '../view/footer.php'; ?>

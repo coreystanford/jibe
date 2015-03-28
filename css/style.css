@@ -606,9 +606,61 @@ header {
     display: none;
 }
 
-.open-modal {
+.block-modal {
     display: block;
 }
+
+    #block-modal-content {
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        width: 500px;
+        height: 200px;
+        margin-left: -250px;
+        background: transparent;
+        overflow: hidden;
+        cursor: default;
+        background: #0f0f0f;
+        text-align: center;
+        padding-top: 45px;
+    }
+        
+        #block-modal-content h2 {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #block-modal-content form {
+            margin: 0 auto;
+            width: 90%;
+            text-align: center;
+        }
+
+    #img-content {
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        width: 500px;
+        height: 200px;
+        margin-left: -250px;
+        background: transparent;
+        overflow: hidden;
+        cursor: default;
+        background: #0f0f0f;
+        text-align: center;
+        padding-top: 25px;
+    }
+        
+        #img-content h2 {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #img-content form {
+            margin: 0 auto;
+            width: 90%;
+            text-align: center;
+        }
 
     #modal-loading {
         position: absolute;
@@ -679,7 +731,7 @@ header {
 
     .load-more {
         position: relative;
-        height: 120px;
+        height: 100px;
         width: 100%;
         padding-bottom: 50px;
     }
@@ -688,7 +740,7 @@ header {
             position: absolute;
             top: 30px;
             right: 0;
-            bottom: 0;
+            bottom: 50px;
             left: 0;
             text-align: center;
             font-family: 'Montserrat', sans-serif;
@@ -1138,32 +1190,6 @@ header {
         .follow-profile:hover, .unfollow-profile:hover {
             background: #26272a;
         }
-
-    #img-content {
-        position: absolute;
-        left: 50%;
-        top: 100px;
-        width: 500px;
-        height: 200px;
-        margin-left: -250px;
-        background: transparent;
-        overflow: hidden;
-        cursor: default;
-        background: #0f0f0f;
-    }
-        
-        #img-content h2 {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        #img-content form {
-            margin: 0 auto;
-            width: 90%;
-            text-align: center;
-        }
-
-
 
 /*  ------PROFILE TABS------  */
 

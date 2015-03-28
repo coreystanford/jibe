@@ -82,14 +82,6 @@ $(document).ready(function () {
         }
     });
 
-    $('.block-modal').on( 'click', function ( e ) {
-        if ( $(e.target).closest('#img-content').length === 0 ) {
-            e.preventDefault();
-            // Remove content from the inner tag
-            $('.block-modal').remove();
-        }
-    });
-
     // ESC key - close the modal window on keydown
     $(document).on( 'keydown', function ( e ) {
         if ( e.keyCode === 27 ) {

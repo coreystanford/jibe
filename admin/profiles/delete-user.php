@@ -7,7 +7,7 @@
                 <div class="user clearfix">
 
                     <div class="photo" >
-                        <img src="../../images/<?php echo $reported->getImgURL(); ?>"  />
+                        <img src="../../images_upload/profiles/<?php echo $reported->getImgURL(); ?>"  />
                     </div>
                     <div class="name">
                         <h1><?php echo $reported->getFName(); ?> <?php echo $reported->getLName(); ?></h1>

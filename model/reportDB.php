@@ -48,7 +48,8 @@ class ReportDB {
         $db = Database::getDB();
 
         $query = "SELECT * FROM reports 
-                WHERE resolved = 1";
+                WHERE resolved = 1 
+                ORDER BY report_id DESC";
 
         $stm = $db->prepare($query);
         $stm->execute();

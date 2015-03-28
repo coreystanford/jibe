@@ -47,7 +47,7 @@
 
 				<form action="." method="post">
 					<div class="cluster">
-	                    <input type="hidden" name="action" value="confirmed-delete-project" />
+	                    <input type="hidden" name="action" value="confirm-delete-project" />
 	                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
 	                    <input type="submit" class="btn deletebtn" value="Delete" />
 	                    <h5><a href="../reported" class="btn submit">Cancel</a></h5>

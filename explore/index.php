@@ -41,6 +41,11 @@
 
         case 'default':
 
+            $feed = FeedDB::getLimitAndLoads();
+
+            $limit = $feed['feed_limit'];
+            $loads = $feed['feed_loads'];
+
             include 'explore.php';
 
         break;
@@ -49,15 +54,26 @@
 
         case 'report':
 
+            $feed = FeedDB::getLimitAndLoads();
+
+            $limit = $feed['feed_limit'];
+            $loads = $feed['feed_loads'];
+
             $reporter_id = $SESSION_ID;
             $reported_id = $_POST['reported_id'];
             $proj_id = $_POST['proj_id'];
 
             $report = new Report ($reporter_id, $reported_id, $proj_id);
             
-            ReportDB::insertReport($report);
-
-            include 'reported.php';
+            if(ReportDB::insertReport($report)){
+                include 'explore.php';
+                include 'reported-modal.php';
+            } else {
+                include 'explore.php';
+                include '../errors/report-error-modal.php';
+            }
 
         break;
     }
+
+

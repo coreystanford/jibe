@@ -61,10 +61,10 @@
 
 				<form action="." method="post">
 					<div class="cluster">
-	                    <input type="hidden" name="action" value="confirmed-delete-report" />
+	                    <input type="hidden" name="action" value="confirm-delete-report" />
 	                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
 	                    <input type="submit" class="btn deletebtn" value="Delete" />
-	                    <h5><a href="../reported" class="btn submit">Cancel</a></h5>
+	                    <h5><a href="../reported?action=resolved" class="btn submit">Cancel</a></h5>
 	                </div>
                 </form>                
 

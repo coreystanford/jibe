@@ -1,5 +1,6 @@
+var limit = $('#limit').attr('value');
+var maxLoads = $('#loads').attr('value');
 var loads = 1;
-var limit = 10;
 var offset;
 
 $(function(){
@@ -46,7 +47,7 @@ $(function(){
 	        },
             success:function(response){
                 // On success, change span text of button
-                if(loads > 5){
+                if(loads > maxLoads){
                     $('.load-more span').html('Fully Loaded');
                 } else {
                     $('.load-more span').html('Load More <i class="fa fa-chevron-down fa-lg"></i>');

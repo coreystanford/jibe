@@ -163,14 +163,14 @@ section {
 .cluster-left {
     margin: 10px 0;
     display: inline-block;
-    width: 50%;
+    width: 49%;
     vertical-align: top;
 }
 
 .cluster-right {
     margin: 10px 0;
     display: inline-block;
-    width: 49%;
+    width: 50%;
     vertical-align: top;
     text-align: right;
 }
@@ -248,6 +248,10 @@ textarea {
 
 .nofloat {
     float: none!important;
+}
+
+.fullwidth {
+    width: 100%;
 }
 
 .projectwidth {
@@ -845,37 +849,7 @@ a {
         cursor: default;
         border: 5px solid #26272a;
     }
-
-    .load-more {
-        position: relative;
-        height: 120px;
-        width: 100%;
-        padding-bottom: 50px;
-    }
-
-        #load-more, .end {
-            position: absolute;
-            top: 30px;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-            #load-more span, .end span {
-                line-height: 90px;
-                font-size: 1.25rem;
-            }
-
-                #load-more span .loading {
-                    line-height: 90px;
-                }
-
-            #load-more:hover {
-                background: #3e3e40;
-            }
-
+    
         #head {
             height: 140px;
             width: 100%;

@@ -1,5 +1,5 @@
 <div class="block-modal">
-	<div id="img-content">
+	<div id="block-modal-content">
 		
 		<h2>Update Your Profile Image</h2>
 

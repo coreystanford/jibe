@@ -10,7 +10,7 @@
 					
 					<div class="category">
 
-						<img src="../../images/<?php echo $profile->getImgURL(); ?>"/></span>
+						<img src="../../images_upload/profiles/<?php echo $profile->getImgURL(); ?>"/></span>
 
 						<div class="cat-title-options">
 

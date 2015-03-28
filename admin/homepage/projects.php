@@ -13,7 +13,7 @@
 
 							<a href="#featured-proj" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
 							<div class="info">
-								<img src="../../images/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
+								<img src="../../images_upload/thumbs/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
 
 								<form action="./#featured-proj" method="post">
 				                    <input type="hidden" name="action" value="remove-project" />
