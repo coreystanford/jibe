@@ -175,23 +175,24 @@
 
         case 'img-update':
 
-            $user = userDB::getUserById($SESSION_ID);
+            
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
-
-            $id = $user->getID();
-            $fname = $user->getFName();
-            $lname = $user->getLName();
-            $city = $user->getCity();
-            $country = $user->getCountry();
-            $website = $user->getWebsite();
-            $pro_img = $user->getImgURL();
-            $bio = $user->getBio();
-            $specialty = $user->getSpecialty();
 
             $imgValidate->upload('pro_thumb', $_FILES['pro_thumb']);
 
             if($imgfields->hasErrors()){
                 
+                $user = userDB::getUserById($SESSION_ID);
+                $id = $user->getID();
+                $fname = $user->getFName();
+                $lname = $user->getLName();
+                $city = $user->getCity();
+                $country = $user->getCountry();
+                $website = $user->getWebsite();
+                $pro_img = $user->getImgURL();
+                $bio = $user->getBio();
+                $specialty = $user->getSpecialty();
+
                 include 'slider.php';
                 include 'user-info.php';
                 include 'tabs.php'; 
@@ -202,9 +203,22 @@
                 $fileupload = new FileUpload;
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
                 $fileupload->uploadFile($_FILES['pro_thumb']);
-        
+                $fileupload->createProfileThumbs($_FILES['pro_thumb']['name']);
+                //$fileupload->deleteFile($_FILES['pro_thumb']);
+
                 $img = $_FILES['pro_thumb']['name'];
                 userDB::updateImagePath($SESSION_ID, $img);
+
+                $user = userDB::getUserById($SESSION_ID);
+                $id = $user->getID();
+                $fname = $user->getFName();
+                $lname = $user->getLName();
+                $city = $user->getCity();
+                $country = $user->getCountry();
+                $website = $user->getWebsite();
+                $pro_img = $user->getImgURL();
+                $bio = $user->getBio();
+                $specialty = $user->getSpecialty();
 
                 include 'slider.php';
                 include 'user-info.php';

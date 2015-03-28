@@ -35,7 +35,7 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 			<div id="user" class="user clearfix">
 
 				<div class="photo" >
-					<img src="../images/<?php echo $pro_img; ?>"  />
+					<img src="../images_upload/profiles/<?php echo $pro_img; ?>"  />
 				</div>
 				<div class="name">
 					<h1><?php echo $fname; ?> <?php echo $lname; ?></h1>

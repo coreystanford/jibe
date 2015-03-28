@@ -1,4 +1,4 @@
-<div class="open-modal">
+<div class="block-modal">
 	<div id="img-content">
 		
 		<h2>Update Your Profile Image</h2>
