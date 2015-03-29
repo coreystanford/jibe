@@ -1,6 +1,8 @@
 <?php
 
-	require '../../model/autoload.php';
+	require '../../config.php';
+    require '../../errors/errorhandler.php';
+    require '../../model/autoload.php';
 
  	// -------------------------------------- //
     // ------ Determine Current Action ------ //
@@ -36,7 +38,7 @@
         case 'default':
 
         	$profiles = userDB::getUsers();
-
+            
             include 'profiles.php';
 
         break;

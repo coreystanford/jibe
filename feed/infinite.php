@@ -28,7 +28,6 @@
 				<span class="category" title="<?php echo $project->getCat()->getTitle(); ?>"><i class='fa <?php echo $project->getCat()->getIcon(); ?>'></i></span>
 				<span class="approvals"><i class="fa fa-check"></i> 15</span>
 			</div>
-			<input type="hidden" id="openInit" value="true" />
 		</div>
 
 	<?php endforeach ?>

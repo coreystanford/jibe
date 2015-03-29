@@ -1,5 +1,8 @@
 <?php 
-    require_once '../model/autoload.php';
+
+    require '../config.php';
+    require '../errors/errorhandler.php';
+    require '../model/autoload.php';
 
     // -------------------------------------- //
     // ------ Determine Current Action ------ //

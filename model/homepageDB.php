@@ -160,7 +160,7 @@ class HomepageDB {
 
     // ------ Helper - Process Projects ------ //
 
-    private function processProjects($result){
+    private static function processProjects($result){
 
         $projects = array();
 

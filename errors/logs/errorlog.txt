@@ -1,0 +1,45 @@
+Error Report
+	DateTime: 2015-03-29 01:19:49
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: test
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/reported/index.php
+	Line Number: 42
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/reported/index.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 01:24:01
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: test2
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/profiles/index.php
+	Line Number: 41
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/profiles/index.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 01:25:38
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: test
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/reported/index.php
+	Line Number: 42
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/reported/index.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 01:33:48
+	Error Number: 2
+	Error Type: Warning
+	Error Message: include(testinclude.php): failed to open stream: No such file or directory
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/index.php
+	Line Number: 75
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/index.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 01:33:48
+	Error Number: 2
+	Error Type: Warning
+	Error Message: include(): Failed opening 'testinclude.php' for inclusion (include_path='.:/Applications/XAMPP/xamppfiles/lib/php')
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/index.php
+	Line Number: 75
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/index.php
+End Error Report
