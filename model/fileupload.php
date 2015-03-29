@@ -34,6 +34,12 @@ class FileUpload {
     public function setSizeLimit($sizelimit){
         $this->_sizelimit = $sizelimit;
     }
+
+    //function to change default filename
+    public function getFilename(){
+        return $this->_filename;
+    }
+
     //function to change default filename
     public function setFilename($filename){
         $this->_filename = $filename;
@@ -126,10 +132,52 @@ class FileUpload {
         self::resize_crop_image(106, 80, $image_path, $image_path_feed);
     }
 
+    public function createNewProfileThumbs($filename, $dir = "../images_upload") {
+        // Set up the variables
+        $dir = $dir . DIRECTORY_SEPARATOR;
+        $i = strrpos($filename, '.');
+        $image_name = substr($filename, 0, $i);
+        $ext = substr($filename, $i);
+
+        // Set up the path
+        $image_path = $dir . $filename;
+
+        $pro_path = $dir . "profiles/" . $image_name . $ext;
+        $thumb_path = $dir . "thumbs/" . $image_name . $ext;
+
+        // Set up the write paths
+        // Check for filename, auto-increment filename if name already exists
+        if(file_exists($pro_path)){
+            $i = 1;
+            while(file_exists($pro_path)){
+                $pro_path = $dir . "profiles/" . $image_name . $i . $ext;
+                $thumb_path = $dir . "thumbs/" . $image_name . $i . $ext;
+
+                $imgname = $image_name . $i . $ext;
+                self::setFilename($imgname);
+
+                $i++;
+            }
+        } else if (file_exists($thumb_path)) {
+            $i = 1;
+            while(file_exists($thumb_path)){
+                $pro_path = $dir . "profiles/" . $image_name . $i . $ext;
+                $thumb_path = $dir . "thumbs/" . $image_name . $i . $ext;
+
+                $imgname = $image_name . $i . $ext;
+                self::setFilename($imgname);
+
+                $i++;
+            }
+        }
+
+        self::resizeCropImage(225, 169, $image_path, $pro_path); // Profile Image
+        self::resizeCropImage(106, 80, $image_path, $thumb_path); // Feed Thumbnail
+    }
+
     // http://polyetilen.lt/en/resize-and-crop-image-from-center-with-php
 
-    //resize and crop image by center
-    public function resize_crop_image($max_width, $max_height, $source_file, $dst_dir, $quality = 80){
+    public function resizeCropImage($max_width, $max_height, $source_file, $dst_dir, $quality = 80){
         $imgsize = getimagesize($source_file);
         $width = $imgsize[0];
         $height = $imgsize[1];
@@ -167,7 +215,6 @@ class FileUpload {
         if($width_new > $width){
             //cut point by height
             $h_point = (($height - $height_new) / 2);
-            //copy image
             imagecopyresampled($dst_img, $src_img, 0, 0, 0, $h_point, $max_width, $max_height, $width, $height_new);
         }else{
             //cut point by width

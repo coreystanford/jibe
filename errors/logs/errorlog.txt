@@ -43,3 +43,39 @@ Error Report
 	Line Number: 75
 	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/index.php
 End Error Report
+Error Report
+	DateTime: 2015-03-29 06:15:34
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: pro_file
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+	Line Number: 120
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 06:15:34
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: thumb_file
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+	Line Number: 127
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 06:15:43
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: pro_file
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+	Line Number: 120
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 06:15:43
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: thumb_file
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+	Line Number: 127
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+End Error Report

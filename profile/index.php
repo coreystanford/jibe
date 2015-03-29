@@ -205,10 +205,10 @@
                 $fileupload = new FileUpload;
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
                 $fileupload->uploadFile($_FILES['pro_thumb']);
-                $fileupload->createProfileThumbs($_FILES['pro_thumb']['name']);
+                $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
                 //$fileupload->deleteFile($_FILES['pro_thumb']);
 
-                $img = $_FILES['pro_thumb']['name'];
+                $img = $fileupload->getFilename();
                 userDB::updateImagePath($SESSION_ID, $img);
 
                 $user = userDB::getUserById($SESSION_ID);
