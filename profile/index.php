@@ -237,10 +237,13 @@
             $user_id = $_POST['user_id'];
             $img = $_POST['img'];
 
-            $fileupload = new FileUpload;
-            $fileupload->deleteFile($img);
+            $imgname = explode("/", $img);
 
-            userDB::deleteImagePath($user_id);
+            if($imgname[3] != 'default.jpg'){
+                $fileupload = new FileUpload;
+                $fileupload->deleteFile($img);
+                userDB::deleteImagePath($user_id);
+            }
 
             $user = userDB::getUserById($user_id);
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);

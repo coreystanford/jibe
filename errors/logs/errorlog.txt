@@ -79,3 +79,21 @@ Error Report
 	Line Number: 127
 	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
 End Error Report
+Error Report
+	DateTime: 2015-03-29 07:29:44
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Array to string conversion
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+	Line Number: 95
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 07:29:44
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Array to string conversion
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+	Line Number: 102
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
+End Error Report

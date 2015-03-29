@@ -147,26 +147,23 @@ class FileUpload {
 
         // Set up the write paths
         // Check for filename, auto-increment filename if name already exists
+        $i = 1;
         if(file_exists($pro_path)){
-            $i = 1;
             while(file_exists($pro_path)){
                 $pro_path = $dir . "profiles/" . $image_name . $i . $ext;
                 $thumb_path = $dir . "thumbs/" . $image_name . $i . $ext;
 
                 $imgname = $image_name . $i . $ext;
                 self::setFilename($imgname);
-
                 $i++;
             }
         } else if (file_exists($thumb_path)) {
-            $i = 1;
             while(file_exists($thumb_path)){
                 $pro_path = $dir . "profiles/" . $image_name . $i . $ext;
                 $thumb_path = $dir . "thumbs/" . $image_name . $i . $ext;
-
+                
                 $imgname = $image_name . $i . $ext;
                 self::setFilename($imgname);
-
                 $i++;
             }
         }
