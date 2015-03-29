@@ -9,26 +9,27 @@ if(!isset($category)){
 	<section role=main>
 
 		<div class="main-admin">
-			<div class="main-admin">
-				<h1>Delete <?php echo $category->getTitle(); ?>?</h1>
-			
-				<h3>This cannot be undone.</h3>
 
-				<form action="." method="post" id="delete_form">
+			<h1>Delete <?php echo $category->getTitle(); ?>?</h1>
+		
+			<h3>This cannot be undone.</h3>
 
-					<div class="cluster">
-	                    <input type="hidden" name="action" value="confirmed-delete" />
-	                    <input type="hidden" name="id" value="<?php echo $category->getID(); ?>" />
-	                    <input type="submit" value="Delete" class="btn deletebtn" />
-	                    <h5><a href="../categories" class="btn submit">Cancel</a></h5>
-	                </div>
-	                
-                </form>
+			<form action="." method="post">
 
-			</div><!-- END cat-container -->
+				<!-- form controller action -->
+				<input type="hidden" name="action" value="confirmed-delete" />
+				<!-- category id -->
+                <input type="hidden" name="id" value="<?php echo $category->getID(); ?>" />
+
+				<div class="cluster">
+                    <input type="submit" value="Delete" class="btn deletebtn" />
+                    <h5><a href="../categories" class="btn submit">Cancel</a></h5>
+                </div><!-- end cluster -->
+                
+            </form><!-- end form -->
 
 		</div><!-- END main-admin -->
 
 	</section><!-- END main section -->
 
-<?php include '../view/footer.php';
+<?php include '../view/footer.php'; ?>

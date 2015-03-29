@@ -18,15 +18,26 @@
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
 </head>
+
 	<body>
+
 		<div id="wrapper">
-		<header id="header"role=banner>
-			<h1 class="outline">PHP Project</h1>
-                        <figure id="logo-anon"><a href="#"><img src="./images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
-			<nav id="nav" role="navigation">
-			    <div id="right-nav-anon">
-	        	<h4><a href="#"><i class="fa fa-user-plus"></i>Register</a></h4>
-	           <h4><a href="#"><i class="fa fa-sign-in"></i>Login</a></h4>
-	        </div>
-			</nav><!-- END navigation -->
-		</header><!-- END header -->
+
+  		<header id="header"role=banner>
+
+  			<h1 class="outline">PHP Project</h1>
+
+        <figure id="logo-anon"><a href="#"><img src="./images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+
+  			<nav id="nav" role="navigation">
+
+  			    <div id="right-nav-anon">
+
+  	        	<h4><a href="#"><i class="fa fa-user-plus"></i>Register</a></h4>
+  	          <h4><a href="#"><i class="fa fa-sign-in"></i>Login</a></h4>
+
+  	        </div><!-- end right-nav-anon -->
+
+  			</nav><!-- end navigation -->
+
+  		</header><!-- end header -->

@@ -9,11 +9,14 @@ if(!isset($categories)){
 	<section role=main>
 
 		<div class="main-admin">
+
 			<div class="cat-container">
+
 				<h1>Categories</h1>
+
 				<a href="./?action=insert" class="edit"><i class="fa fa-plus fa-lg"></i> Add a Category </a>
 			
-
+				<!-- loop through each category -->
 				<?php foreach ($categories as $category) : ?>
 					
 					<div class="category">
@@ -25,19 +28,22 @@ if(!isset($categories)){
 							<h2><?php echo $category->getTitle(); ?></h2>
 
 							<span class="cat-count"><i class="fa fa-briefcase"></i><?php echo $category->getProjCount(); ?></span>
+
 							<a href="./?action=edit&id=<?php echo $category->getID(); ?>" class="edit" title="Edit Category"><i class="fa fa-pencil fa-lg"></i></a>
+							
 							<a href="./?action=delete&id=<?php echo $category->getID(); ?>" class="delete" title="Delete Category"><i class="fa fa-trash-o fa-lg"></i></a>
 
-						</div><!-- END cat-title-options -->
+						</div><!-- end cat-title-options -->
 
-					</div><!-- END category -->
+					</div><!-- end category -->
 
 				<?php endforeach; ?>
+				<!-- end loop -->
 
-			</div><!-- END cat-container -->
+			</div><!-- end cat-container -->
 
-		</div><!-- END main-admin -->
+		</div><!-- end main-admin -->
 
-	</section><!-- END main section -->
+	</section><!-- end main section -->
 
-<?php include '../view/footer.php';
+<?php include '../view/footer.php'; ?>

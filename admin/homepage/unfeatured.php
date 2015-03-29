@@ -12,22 +12,22 @@
 
 				<h2>Add Featured Projects: </h2>
 
-				<div class="feed">
-
-				</div>
+				<div class="feed"></div><!-- end feed -->
 				
 				<div class="load-more clearfix">
 
 					<a href="#" id="load-more"><span>Load More <i class="fa fa-chevron-down fa-lg"></i></span></a>
 
-				</div>
+				</div><!-- end load-more -->
 
-			</div>
-		</div>
+			</div><!-- end featured-proj -->
 
+		</div><!-- end main-admin -->
+
+		<!-- hold 'limit' and 'load' information from the database for AJAX -->
 		<input type="hidden" name="limit" id="limit" value="<?php echo $limit; ?>"/>
 		<input type="hidden" name="loads" id="loads" value="<?php echo $loads; ?>"/>
 
-	</section><!-- END main section -->
+	</section><!-- end main section -->
 	
 	<?php include '../view/footer.php'; ?>

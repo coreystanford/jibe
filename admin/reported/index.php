@@ -37,7 +37,7 @@
         case 'default':
 
             $reports = ReportDB::getUnresolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'reports.php';
 
@@ -48,7 +48,7 @@
         case 'resolved':
 
             $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'resolved-reports.php';
 
@@ -115,7 +115,7 @@
             ReportDB::resolveReport($id);
 
             $reports = ReportDB::getUnresolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'reports.php';
 
@@ -129,13 +129,11 @@
             ReportDB::unresolveReport($id);
 
             $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'resolved-reports.php';
 
         break;
-
-        
 
         // ------ Show Delete for Reports ------ //
 
@@ -164,7 +162,7 @@
             ReportDB::deleteReport($id);
 
             $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'resolved-reports.php';
 
@@ -189,7 +187,7 @@
             ProjectDB::deleteProject($id);
 
             $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'resolved-reports.php';
 
@@ -214,7 +212,7 @@
             userDB::deleteUser($id);
 
             $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports);
+            $sum = getList($reports); // Helper at bottom
 
             include 'resolved-reports.php';
 

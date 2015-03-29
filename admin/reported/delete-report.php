@@ -7,69 +7,90 @@
 				<h1>Remove this report?</h1>
 				
 				<div class="cluster-center">
+
                     <h3>Report ID: <?php echo $id; ?></h3>
-                </div>
+
+                </div><!-- end cluster-center -->
 
                 <div class="cluster-left">
+
                     <h3>Reported User:</h3>
+
                     <div class="cluster">
+
                         <a href="../../profile?id=<?php echo $reported->getID(); ?>" target="_blank"><h2><?php echo $reported->getFName(); ?> <?php echo $reported->getLName(); ?></h2></a>
-                    </div>
-                </div>
+                    
+                    </div><!-- end cluster -->
+
+                </div><!-- end cluster-left -->
+
                 <div class="cluster-right">
+
                     <h3>Reported By:</h3>
+
                     <div class="cluster">
+
                         <a href="../../profile?id=<?php echo $reporter->getID(); ?>" target="_blank"><h2><?php echo $reporter->getFName(); ?> <?php echo $reporter->getLName(); ?></h2></a>
-                    </div>
-                </div>
+
+                    </div><!-- end cluster -->
+
+                </div><!-- end cluster-right -->
 
                 <div id="feed-content">
 
                     <div id="head" class="clearfix">
                         
                         <div id="proj-thumb">
+
                             <img src="../../images/<?php echo $project->getProjThumb(); ?>" />
-                        </div>
+
+                        </div><!-- end proj-thumb -->
 
                         <div id="proj-details">
+
                             <h2><?php echo $project->getProjTitle(); ?></h2>
                             <p><?php echo $project->getProjDesc(); ?></p>
-                        </div>
 
-                    </div>
+                        </div><!-- end proj-details -->
+
+                    </div><!-- end head -->
 
                     <div id="content" class="clearfix">
 
                         
-                        
 
-                    </div>
+                    </div><!-- end content -->
 
                     <div id="comments" class="clearfix">
 
                         
-                        
 
-                    </div>
+                    </div><!-- end comments -->
 
-                </div><!-- END feed-content -->
+                </div><!-- end feed-content -->
 
-				
 				<div class="cluster">
+
 					<h3>This cannot be undone.</h3>
-				</div>
+
+				</div><!-- end cluster -->
 
 				<form action="." method="post">
+
+                    <!-- form controller action -->
+                    <input type="hidden" name="action" value="confirm-delete-report" />
+                    <!-- report id -->
+                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
+
 					<div class="cluster">
-	                    <input type="hidden" name="action" value="confirm-delete-report" />
-	                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
 	                    <input type="submit" class="btn deletebtn" value="Delete" />
 	                    <h5><a href="../reported?action=resolved" class="btn submit">Cancel</a></h5>
 	                </div>
-                </form>                
 
-		</div><!-- END main-admin -->
+                </form><!-- end form -->
 
-	</section><!-- END main section -->
+		</div><!-- end main-admin -->
 
-<?php include '../view/footer.php';
+	</section><!-- end main section -->
+
+<?php include '../view/footer.php'; ?>

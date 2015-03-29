@@ -25,6 +25,7 @@
 						<th> </th>
 					</tr>
 
+					<!-- loop through reports -->
 					<?php foreach ($sum as $report) : ?>
 						
 						<tr>
@@ -43,13 +44,14 @@
 						</tr>
 
 					<?php endforeach; ?>
+					<!-- end loop -->
 
-				</table>
+				</table><!-- end table -->
 
-			</div><!-- END report-container -->
+			</div><!-- end report-container -->
 
-		</div><!-- END main-admin -->
+		</div><!-- end main-admin -->
 
-	</section><!-- END main section -->
+	</section><!-- end main section -->
 
-<?php include '../view/footer.php';
+<?php include '../view/footer.php'; ?>

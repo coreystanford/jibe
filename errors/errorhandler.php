@@ -27,4 +27,16 @@ function errorHandler($errorno, $errormsg, $filename, $linenum, $vars){
 
 	error_log($error, 3, dirname(__FILE__) . "/logs/errorlog.txt");
 
+	switch($errortype){
+
+		case E_ERROR:
+			header("Location: /jibe/errors/error.php");
+		break;
+
+		case E_WARNING:
+			include "/jibe/errors/warning-modal.php";
+		break;
+
+	}
+
 }

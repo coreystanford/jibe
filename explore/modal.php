@@ -22,51 +22,63 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 	<div id="head" class="clearfix">
 		
 		<div id="proj-thumb">
+
 			<img src="../images/<?php echo $project->getProjThumb(); ?>" />
-		</div>
+
+		</div><!-- end proj-thumb -->
 
 		<div id="proj-details">
+
 			<h2><?php echo $project->getProjTitle(); ?></h2>
 			<p><?php echo $project->getProjDesc(); ?></p>
-		</div>
+
+		</div><!-- end proj-details -->
 
 		<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
 
-	</div>
+	</div><!-- end head -->
 
 	<div id="sub" class="clearfix">
 
+		<!-- if the session id is 'following' the project creator's id, then display this: -->
 		<?php if ($followStatus): ?>
 			
 			<a href="" rel="<?php echo $project->getUser()->getID(); ?>" class="unfollow-modal" ><span>Following</span></a>
 
+		<!-- else, display this: -->
 		<?php else: ?>
 
 			<a href="" rel="<?php echo $project->getUser()->getID(); ?>" class="follow-modal" ><span>Follow</span></a>
 
 		<?php endif ?>
+		<!-- end if -->
 
+		<!-- report user button (form) -->
 		<form method="post" action="." class="report-form">
-			<input type="hidden" name="action" value="report" />
-            <input type="hidden" name="reported_id" value="<?php echo $project->getUser()->getID(); ?>" />
-            <input type="hidden" name="proj_id" value="<?php echo $project->getID(); ?>" />
-            <input type="submit" value="Report" class="report" />
-		</form>
 
-	</div>
+			<!-- form controller action -->
+			<input type="hidden" name="action" value="report" />
+			<!-- user id -->
+            <input type="hidden" name="reported_id" value="<?php echo $project->getUser()->getID(); ?>" />
+            <!-- project id -->
+            <input type="hidden" name="proj_id" value="<?php echo $project->getID(); ?>" />
+
+            <input type="submit" value="Report" class="report" />
+
+		</form><!-- end report-form -->
+
+	</div><!-- end sub -->
 
     <div id="content" class="clearfix">
 
         
-        
 
-    </div>
+    </div><!-- end content -->
 
     <div id="comments" class="clearfix">
 
         
-        
 
-    </div>
+    </div><!-- end comments -->
 
-</div><!-- END feed-content -->
+</div><!-- end feed-content -->

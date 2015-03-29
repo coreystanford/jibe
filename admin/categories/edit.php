@@ -7,33 +7,40 @@
             <h1>Edit <?php echo $title; ?></h1>
 
             <form method="post" action="." >
-            
+
+                <!-- form controller action -->
                 <input type="hidden" name="action" value="update" />
+                <!-- category id -->
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
 
                 <div class="cluster">
 
                     <label for="title" class="bold-labels">Title: </label>
-                    <input type="text" name="title" value="<?php echo htmlspecialchars($title); ?>" /><?php echo $fields->getField('title')->getHTML(); ?>
+                    <input type="text" name="title" value="<?php echo htmlspecialchars($title); ?>" />
+                    <!-- validation message -->
+                    <?php echo $fields->getField('title')->getHTML(); ?>
 
                     <label for="desc" class="bold-labels">Description: </label>
                     <textarea type="text" name="desc"  rows="4" cols="50"><?php echo htmlspecialchars($desc); ?></textarea>
+                    <!-- validation message -->
                     <?php echo $fields->getField('desc')->getHTML(); ?>
 
                     <label for="icon" class="bold-labels">Icon: </label>
-                    <input type="text" name="icon" value="<?php echo htmlspecialchars($icon); ?>" /><?php echo $fields->getField('icon')->getHTML(); ?>
+                    <input type="text" name="icon" value="<?php echo htmlspecialchars($icon); ?>" />
+                    <!-- validation message -->
+                    <?php echo $fields->getField('icon')->getHTML(); ?>
 
-                </div>
+                </div><!-- end cluster -->
                 
                 <div class="cluster">
                     <input type="submit" name="submit" value="Update" class="btn submit" />
                     <h5><a href="../categories" class="btn submit">Cancel</a></h5>
-                </div>
+                </div><!-- end cluster -->
 
-            </form>
+            </form><!-- end form -->
 
-        </div>
+        </div><!-- end main-admin -->
 
-    </section>
+    </section><!-- end main section -->
 
 <?php include '../view/footer.php'; ?>

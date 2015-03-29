@@ -97,3 +97,21 @@ Error Report
 	Line Number: 102
 	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/model/FileUpload.php
 End Error Report
+Error Report
+	DateTime: 2015-03-29 16:59:58
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: id
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/categories/edit.php
+	Line Number: 12
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/categories/edit.php
+End Error Report
+Error Report
+	DateTime: 2015-03-29 17:00:05
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: id
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/categories/edit.php
+	Line Number: 12
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/categories/edit.php
+End Error Report

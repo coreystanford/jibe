@@ -3,44 +3,57 @@
 	<section role=main>
 
 		<div class="main-admin">
+
 			<div class="cat-container">
 
 				<h1>Feeds</h1>
 
-					<form method="post" action="." >
+				<form method="post" action="." >
+					
+					<!-- form controller action -->
 					<input type="hidden" name="action" value="update-feeds" />
 
-						<div class="cluster">
+					<div class="cluster">
+						
+						<div class="cluster-left">
 							
-							<div class="cluster-left">
-								
-								<h2>Projects Per Load: </h2>
-								<div class="cluster">
-									<input type="text" name="limit" value="<?php echo $limit; ?>" />
-									<div class="cluster">
-										<?php echo $fields->getField('limit')->getHTML(); ?>
-									</div>
-								</div>
-							</div>
-							<div class="cluster-left">
-								
-								<h2>Number of Loads: </h2>
-								<div class="cluster">
-									<input type="text" name="loads" value="<?php echo $loads; ?>" />
-									<div class="cluster">
-										<?php echo $fields->getField('loads')->getHTML(); ?>
-									</div>
-								</div>
-							</div>
+							<h2>Projects Per Load: </h2>
+
 							<div class="cluster">
-								
-								<input type="submit" name="submit" value="Update" class="btn submit fullwidth" />
 
-							</div>
+								<input type="text" name="limit" value="<?php echo $limit; ?>" />
 
-						</div>
+								<div class="cluster">
+									<?php echo $fields->getField('limit')->getHTML(); ?>
+								</div><!-- END cluster -->
 
-					</form>
+							</div><!-- END cluster -->
+
+						</div><!-- END cluster-left -->
+
+						<div class="cluster-left">
+							
+							<h2>Number of Loads: </h2>
+
+							<div class="cluster">
+
+								<input type="text" name="loads" value="<?php echo $loads; ?>" />
+
+								<div class="cluster">
+									<?php echo $fields->getField('loads')->getHTML(); ?>
+								</div><!-- END cluster -->
+
+							</div><!-- END cluster -->
+
+						</div><!-- END cluster-left -->
+
+						<div class="cluster">
+							<input type="submit" name="submit" value="Update" class="btn submit fullwidth" />
+						</div><!-- END cluster -->
+
+					</div><!-- END cluster -->
+
+				</form><!-- END form -->
 
 			</div><!-- END cat-container -->
 
@@ -48,4 +61,4 @@
 
 	</section><!-- END main section -->
 
-<?php include '../view/footer.php';
+<?php include '../view/footer.php'; ?>

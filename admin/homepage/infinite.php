@@ -13,24 +13,33 @@
 
 ?>
 
+	<!-- loop through projects -->
+	<?php foreach ($projects as $project) : ?>
 
-		<?php foreach ($projects as $project) : ?>
+		<div class="feature">
 
-			<div class="feature">
+			<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
 
-				<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
-				<div class="info">
-					<img src="../../images_upload/thumbs/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
+			<div class="info">
 
-					<form action="." method="post">
-	                    <input type="hidden" name="action" value="add-project" />
-	                    <input type="hidden" name="id" value="<?php echo $project->getID(); ?>" />
-	                    <input type="submit" class="delete" value="" title="Add Featured Project"><i class="fa fa-plus fa-lg"></i></input>
-	                </form>
+				<img src="../../images_upload/thumbs/<?php echo $project->getUser()->getImgURL(); ?>" class="user-profile" />
 
-					<span class="approvals"><i class="fa fa-check"></i> 1020</span>
-				</div>
+				<form action="." method="post">
 
-			</div><!-- END featured -->
+					<!-- form controller action -->
+                    <input type="hidden" name="action" value="add-project" />
+                    <!-- project id -->
+                    <input type="hidden" name="id" value="<?php echo $project->getID(); ?>" />
 
-		<?php endforeach; ?>
+                    <input type="submit" class="delete" value="" title="Add Featured Project"><i class="fa fa-plus fa-lg"></i></input>
+
+                </form><!-- end form -->
+
+				<span class="approvals"><i class="fa fa-check"></i> 1020</span>
+
+			</div><!-- end info -->
+
+		</div><!-- end feature -->
+
+	<?php endforeach; ?>
+	<!-- end loop -->
