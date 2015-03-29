@@ -89,7 +89,7 @@ class HomepageDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        return self::processProjects($result);
+        return self::processProjects($result); //helper at bottom
     }
 
     // ------ Get Featured Project by ID for Homepage Modal ------ //
@@ -121,7 +121,7 @@ class HomepageDB {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        return self::processProjects($result);
+        return self::processProjects($result); // helper at bottom
     }
 
     // ------ Add A Featured Project------ //

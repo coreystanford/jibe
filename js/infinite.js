@@ -34,9 +34,6 @@ $(function(){
         loads++;
         offset = (loads * limit)  - limit;
 
-        console.log(limit);
-        console.log(offset);
-
         // Send AJAX Request
         $.ajax({
             type: "POST",
@@ -58,6 +55,3 @@ $(function(){
         });
     });
 });
-
-
-

@@ -32,211 +32,239 @@
 
     switch ($action){
         
-        // ------ Show Default ------ //
+        // ----------------------------- //
+        // ------ Show Unresolved ------ //
+        // ----------------------------- //
 
-        case 'default':
+            case 'default':
 
-            $reports = ReportDB::getUnresolvedReports();
-            $sum = getList($reports); // Helper at bottom
+                $reports = ReportDB::getUnresolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-            include 'reports.php';
+                include 'reports.php';
 
-        break;
+            break;
 
-        // ------ Show Resolved Reports ------ //
+        // --------------------------- //
+        // ------ Show Resolved ------ //
+        // --------------------------- //
 
-        case 'resolved':
+            case 'resolved':
 
-            $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports); // Helper at bottom
+                $reports = ReportDB::getResolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-            include 'resolved-reports.php';
+                include 'resolved-reports.php';
 
-        break;
+            break;
 
-        // ------ Show Options ------ //
+        // -------------------------- //
+        // ------ Show Details ------ //
+        // -------------------------- //
 
-        case 'details':
-        	
-			$id = $_GET['id'];
-            $report = ReportDB::getReportById($id);
+            case 'details':
+            	
+    			$id = $_GET['id'];
+                $report = ReportDB::getReportById($id);
 
-            $reporter_id = $report->getReporter();
-            $reported_id = $report->getReported();
-            $project_id = $report->getReportedProj();
+                $reporter_id = $report->getReporter();
+                $reported_id = $report->getReported();
+                $project_id = $report->getReportedProj();
 
-            $reporter = UserDB::getUserById($reporter_id);
-            $project = ProjectDB::getProjectByID($project_id);
-            $reported = $project->getUser();
+                $reporter = UserDB::getUserById($reporter_id);
+                $project = ProjectDB::getProjectByID($project_id);
+                $reported = $project->getUser();
 
-            include 'details.php';
+                include 'details.php';
 
-        break;
+            break;
 
+        // ----------------------------- //
         // ------ Show Statistics ------ //
+        // ----------------------------- //
 
-        case 'stats':
+            case 'stats':
 
-            $reported = ReportDB::getReported();
+                $reported = ReportDB::getReported();
 
-            $all_reported = array();
+                $all_reported = array();
 
-            foreach($reported as $report){
-                $rp = [
-                "reported" => UserDB::getUserById($report['reported']),
-                "num" => $report['num_reported']
-                ];
+                foreach($reported as $report){
+                    $rp = [
+                    "reported" => UserDB::getUserById($report['reported']),
+                    "num" => $report['num_reported']
+                    ];
 
-                $all_reported[] = $rp;
-            }
+                    $all_reported[] = $rp;
+                }
 
-            $reporters = ReportDB::getReporters();
+                $reporters = ReportDB::getReporters();
 
-            $all_reporters = array();
+                $all_reporters = array();
 
-            foreach($reporters as $reporter){
-                $rp = [
-                "reporter" => UserDB::getUserById($reporter['reporter']),
-                "num" => $reporter['num_reported']
-                ];
+                foreach($reporters as $reporter){
+                    $rp = [
+                    "reporter" => UserDB::getUserById($reporter['reporter']),
+                    "num" => $reporter['num_reported']
+                    ];
 
-                $all_reporters[] = $rp;
-            }
+                    $all_reporters[] = $rp;
+                }
 
-            include 'stats.php';
+                include 'stats.php';
 
-        break;
+            break;
 
-        // ------ Resolve A Report ------ //
+        // --------------------------------- //
+        // ------ RESOLVE / UNRESOLVE ------ //
+        // --------------------------------- //
 
-        case 'resolve':
-            
-            $id = $_GET['id'];
-            ReportDB::resolveReport($id);
+            // ------ Resolve A Report ------ //
 
-            $reports = ReportDB::getUnresolvedReports();
-            $sum = getList($reports); // Helper at bottom
+            case 'resolve':
+                
+                $id = $_GET['id'];
+                ReportDB::resolveReport($id);
 
-            include 'reports.php';
+                $reports = ReportDB::getUnresolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-        break;
+                include 'reports.php';
 
-        // ------ Unresolve A Report ------ //
+            break;
 
-        case 'unresolve':
-            
-            $id = $_GET['id'];
-            ReportDB::unresolveReport($id);
+            // ------ Unresolve A Report ------ //
 
-            $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports); // Helper at bottom
+            case 'unresolve':
+                
+                $id = $_GET['id'];
+                ReportDB::unresolveReport($id);
 
-            include 'resolved-reports.php';
+                $reports = ReportDB::getResolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-        break;
+                include 'resolved-reports.php';
 
-        // ------ Show Delete for Reports ------ //
+            break;
 
-        case 'delete-report':
-        	
-        	$id = $_GET['id'];
-            $report = ReportDB::getReportById($id);
+        // --------------------- //
+        // ------ REPORTS ------ //
+        // --------------------- //
 
-            $reporter_id = $report->getReporter();
-            $reported_id = $report->getReported();
-            $project_id = $report->getReportedProj();
+            // ------ Show Delete for Reports ------ //
 
-            $reporter = UserDB::getUserById($reporter_id);
-            $project = ProjectDB::getProjectByID($project_id);
-            $reported = $project->getUser();
+            case 'delete-report':
+            	
+            	$id = $_GET['id'];
+                $report = ReportDB::getReportById($id);
 
-            include 'delete-report.php';
+                $reporter_id = $report->getReporter();
+                $reported_id = $report->getReported();
+                $project_id = $report->getReportedProj();
 
-        break;
+                $reporter = UserDB::getUserById($reporter_id);
+                $project = ProjectDB::getProjectByID($project_id);
+                $reported = $project->getUser();
 
-        // ------ Perform Delete for Reports ------ //
+                include 'delete-report.php';
 
-        case 'confirm-delete-report':
-        	
-        	$id = $_POST['id'];
-            ReportDB::deleteReport($id);
+            break;
 
-            $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports); // Helper at bottom
+            // ------ Perform Delete for Reports ------ //
 
-            include 'resolved-reports.php';
+            case 'confirm-delete-report':
+            	
+            	$id = $_POST['id'];
+                ReportDB::deleteReport($id);
 
-        break;
+                $reports = ReportDB::getResolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-        // ------ Show Delete for Projects ------ //
+                include 'resolved-reports.php';
 
-        case 'delete-project':
-            
-            $id = $_GET['id'];
-            $project = ProjectDB::getProjectByID($id);
+            break;
 
-            include 'delete-project.php';
+        // ---------------------- //
+        // ------ PROJECTS ------ //
+        // ---------------------- //
 
-        break;
+            // ------ Show Delete for Projects ------ //
 
-        // ------ Perform Delete for Projects ------ //
+            case 'delete-project':
+                
+                $id = $_GET['id'];
+                $project = ProjectDB::getProjectByID($id);
 
-        case 'confirm-delete-project':
-            
-            $id = $_POST['id'];
-            ProjectDB::deleteProject($id);
+                include 'delete-project.php';
 
-            $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports); // Helper at bottom
+            break;
 
-            include 'resolved-reports.php';
+            // ------ Perform Delete for Projects ------ //
 
-        break;
+            case 'confirm-delete-project':
+                
+                $id = $_POST['id'];
+                ProjectDB::deleteProject($id);
 
-        // ------ Show Delete for Users ------ //
+                $reports = ReportDB::getResolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-        case 'delete-user':
-            
-            $id = $_GET['id'];
-            $reported = userDB::getUserById($id);
+                include 'resolved-reports.php';
 
-            include 'delete-user.php';
+            break;
 
-        break;
+        // ------------------- //
+        // ------ USERS ------ //
+        // ------------------- //
 
-        // ------ Perform Delete for Users ------ //
+            // ------ Show Delete for Users ------ //
 
-        case 'confirm-delete-user':
-            
-            $id = $_POST['id'];
-            userDB::deleteUser($id);
+            case 'delete-user':
+                
+                $id = $_GET['id'];
+                $reported = userDB::getUserById($id);
 
-            $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports); // Helper at bottom
+                include 'delete-user.php';
 
-            include 'resolved-reports.php';
+            break;
 
-        break;
+            // ------ Perform Delete for Users ------ //
 
-	}
+            case 'confirm-delete-user':
+                
+                $id = $_POST['id'];
+                userDB::deleteUser($id);
 
-    // ------ Helper Function - Get List of Reports ------ //
+                $reports = ReportDB::getResolvedReports();
+                $sum = getList($reports); // Helper at bottom
 
-    function getList($reports){
+                include 'resolved-reports.php';
 
-        $sum = array();
+            break;
 
-            foreach($reports as $report){
-                $rp = [
-                "id" => $report->getID(),
-                "reporter" => UserDB::getUserById($report->getReporter()),
-                "reported" => ProjectDB::getProjectByID($report->getReportedProj())
-                ];
+	} // end switch
 
-                $sum[] = $rp;
-            }
+    // --------------------- //
+    // ------ HELPERS ------ //
+    // --------------------- //
 
-        return $sum;
+        // ------ Get List of Reports ------ //
 
-    }
+        function getList($reports){
+
+            $sum = array();
+
+                foreach($reports as $report){
+                    $rp = [
+                    "id" => $report->getID(),
+                    "reporter" => UserDB::getUserById($report->getReporter()),
+                    "reported" => ProjectDB::getProjectByID($report->getReportedProj())
+                    ];
+
+                    $sum[] = $rp;
+                }
+
+            return $sum;
+
+        }
 
