@@ -1,0 +1,106 @@
+#msg-main {
+    margin: 0 auto;
+    width: 940px;
+    margin-top: 85px;
+    margin-bottom: 10px;
+}
+
+#msg-sidebar{
+    float: left;
+    width: 30%;
+    border: 1px solid black;
+    height: 100%;
+}
+
+    #msg-sidebar ul {
+        list-style: none;
+        padding: 0px;
+    }
+    
+        #msg-sidebar ul li {
+            margin: 10px;
+        }
+        
+            #msg-sidebar ul li a {
+                text-decoration: none;
+                display: block;
+                border: 1px solid black;
+                padding: 5px;
+                color: white;
+                background: rgba(255,15,10,0.5);
+            }
+
+#msg-content {
+    float: right;
+    width: 69%;
+    border: 1px solid black;
+    height: 100%;
+}
+
+    #msg-content ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+        #msg-content ul li {
+            display: block;
+            margin: 5px;
+        }
+
+        #msg-content .msg-me {
+            clear: both;
+            float: left;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background: rgba(255,100,0,0.5);
+        }
+
+        #msg-content .msg-you {
+            clear: both;
+            float: right;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background: rgba(100,100,255,0.5);
+        }
+        
+#msg-box {
+    clear: both;
+    text-align: center;
+    margin: 5px;
+    float: right;
+    width: 69%;
+}
+
+#msg-box textarea {
+    width: 85%;
+    display: block;
+    float: left;
+}
+
+#msg-box #send-btn {
+    float: left;
+    margin-left: 5px;
+    color: white;
+    font-weight: bolder;
+    display: block;
+    width: 13%;
+    padding: 10px 0;
+    background: rgba(100,100,100,0.5);
+}
+        
+footer {
+    //position: absolute;
+    bottom: 0;
+}
+            
+            
+            
+.clear-fix {
+    clear: both;
+}
+
+.line-space {
+    padding: 5px 0;
+}
