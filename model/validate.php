@@ -17,6 +17,7 @@
 //      -- 10 -- slug(2-3) - Slug Regex
 //      -- 11 -- email(2-3) - Email Filter
 //      -- 12 -- url(2-3) - URL Filter
+//      -- 13 -- upload(2-5) - File Upload
 
 class Validate {
 

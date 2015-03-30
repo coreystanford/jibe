@@ -49,6 +49,7 @@ class CategoryDB {
         $stm = $db->prepare($query);
         $stm->bindParam(":cat_id", $id, PDO::PARAM_INT);
         $stm->execute();
+        
         $row = $stm->fetch(PDO::FETCH_ASSOC);
 
             $category = new Category(

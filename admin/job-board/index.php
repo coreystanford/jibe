@@ -5,7 +5,6 @@ $css_path = $root_path."css/";
 $admin_path = $root_path."admin/";
 $model_path = $root_path."model/";
 
-//require($model_path . 'autoload.php');
 require($model_path . 'database.php');
 require($model_path . 'category.php');
 require($model_path . 'categoryDB.php');

@@ -1,15 +1,15 @@
 <?php
-require('../model/autoload.php');
-//require('../model/database.php');
-//require('../model/category.php');
-//require('../model/categoryDB.php');
-//require('../model/user.php');
-//require('../model/userDB.php');
-//require('../model/job.php');
-//require('../model/jobDB.php');
-//require('../model/file_upload.php');
 
-//$root_path = "/5202/jibe/";
+require('../model/database.php');
+require('../model/category.php');
+require('../model/categoryDB.php');
+require('../model/user.php');
+require('../model/userDB.php');
+require('../model/job.php');
+require('../model/jobDB.php');
+require('../model/file_upload.php');
+
+$root_path = "/5202/jibe/";
 
 
 $cities = JobDB::getCitiesList();
