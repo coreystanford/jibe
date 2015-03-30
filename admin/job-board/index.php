@@ -1,20 +1,20 @@
 <?php
+require '../../config.php';
 
-$root_path = "../../";
-$css_path = $root_path."css/";
-$admin_path = $root_path."admin/";
-$model_path = $root_path."model/";
+//require($model_path . 'database.php');
+//require($model_path . 'category.php');
+//require($model_path . 'categoryDB.php');
+//require($model_path . 'user.php');
+//require($model_path . 'userDB.php');
+//require($model_path . 'job.php');
+//require($model_path . 'jobDB.php');
+//require($model_path . 'fileupload.php');
+//require($model_path . 'fields.php');
+//require($model_path . 'validate.php');
 
-require($model_path . 'database.php');
-require($model_path . 'category.php');
-require($model_path . 'categoryDB.php');
-require($model_path . 'user.php');
-require($model_path . 'userDB.php');
-require($model_path . 'job.php');
-require($model_path . 'jobDB.php');
-require($model_path . 'fileupload.php');
-require($model_path . 'fields.php');
-require($model_path . 'validate.php');
+require(MODEL_PATH . 'autoload.php');
+
+
 
    
 // current user id
