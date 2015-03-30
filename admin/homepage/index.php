@@ -47,79 +47,37 @@
 
     switch ($action){
         
+        // -------------------------- //
         // ------ Show Default ------ //
+        // -------------------------- //
 
-        case 'default':
+            case 'default':
 
-        	$home = HomepageDB::getHomeInfo();
-        	$projects = HomepageDB::getFeatured();
-
-        	$main = $home['main_text'];
-        	$sub = $home['sub_text'];
-        	$btn_text = $home['button_text'];
-        	$btn_link = $home['button_link'];
-        	$img = $home['main_img_url'];
-
-            include 'text.php';
-            include 'image.php';
-            include 'projects.php';
-
-        break;
-
-        // ------ Show Text Update ------ //
-
-        case 'text-edit':
-
-            $home = HomepageDB::getHomeInfo();
-            $projects = HomepageDB::getFeatured();
-
-            $main = $home['main_text'];
-            $sub = $home['sub_text'];
-            $btn_text = $home['button_text'];
-            $btn_link = $home['button_link'];
-            $img = $home['main_img_url'];
-
-            include 'text-edit.php';
-            include 'image.php';
-            include 'projects.php';
-
-        break;
-
-        // ------ Perform Text Update ------ //
-
-        case 'text-update':
-
-        	$main = $_POST['main'];
-            $sub = $_POST['sub'];
-            $btn_text = $_POST['btn-text'];
-            $btn_link = $_POST['btn-link'];
-
-			$textValidate->text('main', $main);
-            $textValidate->text('sub', $sub);
-			$textValidate->text('btn-text', $btn_text, true, 1, 15);
-            $textValidate->url('btn-link', $btn_link);
-
-			if($textfields->hasErrors()){
-
-				$home = HomepageDB::getHomeInfo();
+            	$home = HomepageDB::getHomeInfo();
             	$projects = HomepageDB::getFeatured();
-                $img = $home['main_img_url'];
 
-                include 'text-edit.php';
-	            include 'image.php';
-	            include 'projects.php';
+            	$main = $home['main_text'];
+            	$sub = $home['sub_text'];
+            	$btn_text = $home['button_text'];
+            	$btn_link = $home['button_link'];
+            	$img = $home['main_img_url'];
 
-            } else {
+                include 'text.php';
+                include 'image.php';
+                include 'projects.php';
 
-	        	$text = ["main_text" => $main,
-                         "sub_text" => $sub,
-                         "button_text" => $btn_text,
-                         "button_link" => $btn_link];
+            break;
 
-	            HomepageDB::updateText($text);
+        // ------------------------- //
+        // ------ TEXT FIELDS ------ //
+        // ------------------------- //
 
-	            $home = HomepageDB::getHomeInfo();
-            	$projects = HomepageDB::getFeatured();
+            // ------ Show Text Update ------ //
+
+            case 'text-edit':
+
+                $home = HomepageDB::getHomeInfo();
+                $projects = HomepageDB::getFeatured();
 
                 $main = $home['main_text'];
                 $sub = $home['sub_text'];
@@ -127,120 +85,176 @@
                 $btn_link = $home['button_link'];
                 $img = $home['main_img_url'];
 
-	            include 'text.php';
-	            include 'image.php';
-	            include 'projects.php';
+                include 'text-edit.php';
+                include 'image.php';
+                include 'projects.php';
 
-        	}
+            break;
 
-        break;
+            // ------ Perform Text Update ------ //
 
-        // ------ Show Image Update ------ //
+            case 'text-update':
 
-        case 'image-edit':
-        	
-            $home = HomepageDB::getHomeInfo();
-            $projects = HomepageDB::getFeatured();
+            	$main = $_POST['main'];
+                $sub = $_POST['sub'];
+                $btn_text = $_POST['btn-text'];
+                $btn_link = $_POST['btn-link'];
 
-            $main = $home['main_text'];
-            $sub = $home['sub_text'];
-            $btn_text = $home['button_text'];
-            $btn_link = $home['button_link'];
-            $img = $home['main_img_url'];
+    			$textValidate->text('main', $main);
+                $textValidate->text('sub', $sub);
+    			$textValidate->text('btn-text', $btn_text, true, 1, 15);
+                $textValidate->url('btn-link', $btn_link);
 
-            include 'text.php';
-            include 'image-edit.php';
-            include 'projects.php';
+    			if($textfields->hasErrors()){
 
-        break;
+    				$home = HomepageDB::getHomeInfo();
+                	$projects = HomepageDB::getFeatured();
+                    $img = $home['main_img_url'];
 
-        // ------ Perform Image Update ------ //
+                    include 'text-edit.php';
+    	            include 'image.php';
+    	            include 'projects.php';
 
-        case 'image-update':
+                } else {
 
-            $home = HomepageDB::getHomeInfo();
-            $projects = HomepageDB::getFeatured();
-            
-            $main = $home['main_text'];
-            $sub = $home['sub_text'];
-            $btn_text = $home['button_text'];
-            $btn_link = $home['button_link'];
-            $img = $home['main_img_url'];
+    	        	$text = ["main_text" => $main,
+                             "sub_text" => $sub,
+                             "button_text" => $btn_text,
+                             "button_link" => $btn_link];
 
-            $imgValidate->upload('main-img', $_FILES['main-img']);
+    	            HomepageDB::updateText($text);
 
-            if($imgfields->hasErrors()){
-                
+    	            $home = HomepageDB::getHomeInfo();
+                	$projects = HomepageDB::getFeatured();
+
+                    $main = $home['main_text'];
+                    $sub = $home['sub_text'];
+                    $btn_text = $home['button_text'];
+                    $btn_link = $home['button_link'];
+                    $img = $home['main_img_url'];
+
+    	            include 'text.php';
+    	            include 'image.php';
+    	            include 'projects.php';
+
+            	}
+
+            break;
+
+        // ------------------------ //
+        // ------ MAIN IMAGE ------ //
+        // ------------------------ //
+
+            // ------ Show Image Update ------ //
+
+            case 'image-edit':
+            	
+                $home = HomepageDB::getHomeInfo();
+                $projects = HomepageDB::getFeatured();
+
+                $main = $home['main_text'];
+                $sub = $home['sub_text'];
+                $btn_text = $home['button_text'];
+                $btn_link = $home['button_link'];
+                $img = $home['main_img_url'];
+
                 include 'text.php';
                 include 'image-edit.php';
                 include 'projects.php';
 
-            } else { 
+            break;
 
-                $fileupload = new FileUpload;
-                $fileupload->setTarget('../../images_upload/');
-                $fileupload->setFilename($_FILES['main-img']['name']);
-                $fileupload->uploadFile($_FILES['main-img']);
+            // ------ Perform Image Update ------ //
 
-                $img = $_FILES['main-img']['name'];
-                HomepageDB::updateImage($img);
+            case 'image-update':
+
+                $home = HomepageDB::getHomeInfo();
+                $projects = HomepageDB::getFeatured();
+                
+                $main = $home['main_text'];
+                $sub = $home['sub_text'];
+                $btn_text = $home['button_text'];
+                $btn_link = $home['button_link'];
+                $img = $home['main_img_url'];
+
+                $imgValidate->upload('main-img', $_FILES['main-img']);
+
+                if($imgfields->hasErrors()){
+                    
+                    include 'text.php';
+                    include 'image-edit.php';
+                    include 'projects.php';
+
+                } else { 
+
+                    $fileupload = new FileUpload;
+                    $fileupload->setTarget('../../images_upload/');
+                    $fileupload->setFilename($_FILES['main-img']['name']);
+                    $fileupload->uploadFile($_FILES['main-img']);
+
+                    $img = $_FILES['main-img']['name'];
+                    HomepageDB::updateImage($img);
+
+                    include 'text.php';
+                    include 'image.php';
+                    include 'projects.php';
+
+                }
+
+            break;
+
+        // ---------------------- //
+        // ------ PROJECTS ------ //
+        // ---------------------- //
+
+            // ------ Show Unfeatured Projects ------ //
+
+            case 'unfeatured':
+
+                $feed = FeedDB::getLimitAndLoads();
+                $limit = $feed['feed_limit'];
+                $loads = $feed['feed_loads'];
+
+                include 'unfeatured.php';
+
+            break;
+
+            // ------ Add a Featured Project ------ //
+
+            case 'add-project':
+            	
+            	$id = $_POST['id'];
+                HomepageDB::addFeature($id);
+
+                $feed = FeedDB::getLimitAndLoads();
+                $limit = $feed['feed_limit'];
+                $loads = $feed['feed_loads'];
+
+                include 'unfeatured.php';
+
+            break;
+
+            // ------ Remove a Featured Project ------ //
+
+            case 'remove-project':
+            	
+            	$id = $_POST['id'];
+                HomepageDB::removeFeature($id);
+
+                $home = HomepageDB::getHomeInfo();
+                $projects = HomepageDB::getFeatured();
+
+                $main = $home['main_text'];
+                $sub = $home['sub_text'];
+                $btn_text = $home['button_text'];
+                $btn_link = $home['button_link'];
+                $img = $home['main_img_url'];
 
                 include 'text.php';
                 include 'image.php';
                 include 'projects.php';
 
-            }
-
-        break;
-
-        // ------ Show Unfeatured Projects ------ //
-
-        case 'unfeatured':
-
-            $feed = FeedDB::getLimitAndLoads();
-            $limit = $feed['feed_limit'];
-            $loads = $feed['feed_loads'];
-
-            include 'unfeatured.php';
-
-        break;
-
-        // ------ Add a Featured Project ------ //
-
-        case 'add-project':
-        	
-        	$id = $_POST['id'];
-            HomepageDB::addFeature($id);
-
-            $feed = FeedDB::getLimitAndLoads();
-            $limit = $feed['feed_limit'];
-            $loads = $feed['feed_loads'];
-
-            include 'unfeatured.php';
-
-        break;
-
-        // ------ Remove a Featured Project ------ //
-
-        case 'remove-project':
-        	
-        	$id = $_POST['id'];
-            HomepageDB::removeFeature($id);
-
-            $home = HomepageDB::getHomeInfo();
-            $projects = HomepageDB::getFeatured();
-
-            $main = $home['main_text'];
-            $sub = $home['sub_text'];
-            $btn_text = $home['button_text'];
-            $btn_link = $home['button_link'];
-            $img = $home['main_img_url'];
-
-            include 'text.php';
-            include 'image.php';
-            include 'projects.php';
-
-        break;
+            break;
 
 	}
 

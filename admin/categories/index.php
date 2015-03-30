@@ -42,116 +42,130 @@
 
     switch ($action){
         
+        // -------------------------- //
         // ------ Show Default ------ //
+        // -------------------------- //
 
-        case 'default':
+            case 'default':
 
-        	$categories = CategoryDB::getCategoriesWithCount();
-            include 'categories.php';
+            	$categories = CategoryDB::getCategoriesWithCount();
+                include 'categories.php';
 
-        break;
+            break;
+
+        // -------------------- //
+        // ------ INSERT ------ //
+        // -------------------- //
 	
-        // ------ Show Insert ------ //
+            // ------ Show Insert ------ //
 
-        case 'insert':
-        	
-            include 'insert.php';
-
-        break;
-
-        // ------ Perform Insert ------ //
-
-        case 'commit-insert':
-        	
-        	$title = $_POST['title']; 
-			$desc = $_POST['desc'];
-			$icon = $_POST['icon'];
-
-            $Validate->text('title', $title, true, 1, 50);
-            $Validate->text('desc', $desc, true, 1, 500);
-			$Validate->text('icon', $icon, true, 1, 200);
-
-			if($fields->hasErrors()){
-
+            case 'insert':
+            	
                 include 'insert.php';
 
-            } else {
+            break;
 
-	        	$category = new Category($title, $desc, $icon);
-	            CategoryDB::insertCategory($category);
-	            
-	            $categories = CategoryDB::getCategoriesWithCount();
-	            include 'categories.php';
+            // ------ Perform Insert ------ //
 
-        	}
+            case 'commit-insert':
+            	
+            	$title = $_POST['title']; 
+    			$desc = $_POST['desc'];
+    			$icon = $_POST['icon'];
 
-        break;
+                $Validate->text('title', $title, true, 1, 50);
+                $Validate->text('desc', $desc, true, 1, 500);
+    			$Validate->text('icon', $icon, true, 1, 200);
 
-        // ------ Show Update ------ //
+    			if($fields->hasErrors()){
 
-        case 'edit':
-        	
-			$id = $_GET['id'];
-            $category = CategoryDB::getCategoryByID($id);
+                    include 'insert.php';
 
-            $title = $category->getTitle();
-            $desc = $category->getDesc();
-            $icon = $category->getIcon();
+                } else {
 
-            include 'edit.php';
+    	        	$category = new Category($title, $desc, $icon);
+    	            CategoryDB::insertCategory($category);
+    	            
+    	            $categories = CategoryDB::getCategoriesWithCount();
+    	            include 'categories.php';
 
-        break;
+            	}
 
-        // ------ Perform Update ------ //
+            break;
 
-        case 'update':
-        	
-        	$cat_id = $_POST['id'];
-        	$title = $_POST['title'];
-			$desc = $_POST['desc'];
-			$icon = $_POST['icon'];
+        // -------------------- //
+        // ------ UDPATE ------ //
+        // -------------------- //
 
-			$Validate->text('title', $title);
-            $Validate->text('desc', $desc, true, 1, 500);
-			$Validate->text('icon', $icon, true, 1, 200);
+            // ------ Show Update ------ //
 
-			if($fields->hasErrors()){
+            case 'edit':
+            	
+    			$id = $_GET['id'];
+                $category = CategoryDB::getCategoryByID($id);
+
+                $title = $category->getTitle();
+                $desc = $category->getDesc();
+                $icon = $category->getIcon();
 
                 include 'edit.php';
 
-            } else {
+            break;
 
-	        	$category = new Category($title, $desc, $icon);
-	            CategoryDB::updateCategory($category, $cat_id);
+            // ------ Perform Update ------ //
 
-	            $categories = CategoryDB::getCategoriesWithCount();
-	            include 'categories.php';
+            case 'update':
+            	
+            	$cat_id = $_POST['id'];
+            	$title = $_POST['title'];
+    			$desc = $_POST['desc'];
+    			$icon = $_POST['icon'];
 
-        	}
+    			$Validate->text('title', $title);
+                $Validate->text('desc', $desc, true, 1, 500);
+    			$Validate->text('icon', $icon, true, 1, 200);
 
-        break;
+    			if($fields->hasErrors()){
 
-        // ------ Show Delete ------ //
+                    include 'edit.php';
 
-        case 'delete':
-        	
-        	$id = $_GET['id'];
-            $category = CategoryDB::getCategoryByID($id);
+                } else {
 
-            include 'delete.php';
+    	        	$category = new Category($title, $desc, $icon);
+    	            CategoryDB::updateCategory($category, $cat_id);
 
-        break;
+    	            $categories = CategoryDB::getCategoriesWithCount();
+    	            include 'categories.php';
 
-        // ------ Perform Delete ------ //
+            	}
 
-        case 'confirmed-delete':
-        	
-        	$id = $_POST['id'];
-            CategoryDB::deleteCategory($id);
+            break;
 
-            $categories = CategoryDB::getCategoriesWithCount();
-            include 'categories.php';
+        // -------------------- //
+        // ------ DELETE ------ //
+        // -------------------- //
 
-        break;
+            // ------ Show Delete ------ //
+
+            case 'delete':
+            	
+            	$id = $_GET['id'];
+                $category = CategoryDB::getCategoryByID($id);
+
+                include 'delete.php';
+
+            break;
+
+            // ------ Perform Delete ------ //
+
+            case 'confirmed-delete':
+            	
+            	$id = $_POST['id'];
+                CategoryDB::deleteCategory($id);
+
+                $categories = CategoryDB::getCategoriesWithCount();
+                include 'categories.php';
+
+            break;
 
 	}

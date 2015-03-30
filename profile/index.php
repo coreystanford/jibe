@@ -66,7 +66,9 @@
 
     switch ($action){
         
+        // -------------------------- //
         // ------ Show Default ------ //
+        // -------------------------- //
 
         case 'default':
 
@@ -93,7 +95,9 @@
 
         break;
 
-        // ------ Show User Info Update ------ //
+        // ------------------------------ //
+        // ------ Show User Update ------ //
+        // ------------------------------ //
 
         case 'user-edit':
 
@@ -116,7 +120,9 @@
 
         break;
 
-        // ------ Perform User Info Update ------ //
+        // --------------------------------- //
+        // ------ Perform User Update ------ //
+        // --------------------------------- //
 
         case 'user-update':
 
@@ -173,7 +179,9 @@
 
         break;
 
+        // ---------------------------------- //
         // ------ Update Profile Image ------ //
+        // ---------------------------------- //
 
         case 'img-update':
 
@@ -206,7 +214,7 @@
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
                 $fileupload->uploadFile($_FILES['pro_thumb']);
                 $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
-                //$fileupload->deleteFile($_FILES['pro_thumb']);
+                $fileupload->deleteFile($_FILES['pro_thumb']);
 
                 $img = $fileupload->getFilename();
                 userDB::updateImagePath($SESSION_ID, $img);
@@ -230,7 +238,9 @@
 
         break;
 
+        // ---------------------------------- //
         // ------ Delete Profile Image ------ //
+        // ---------------------------------- //
 
         case 'img-delete':
 
@@ -239,6 +249,7 @@
 
             $imgname = explode("/", $img);
 
+            // do not delete the image if it is the profile default
             if($imgname[3] != 'default.jpg'){
                 $fileupload = new FileUpload;
                 $fileupload->deleteFile($img);
