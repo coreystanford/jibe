@@ -4,6 +4,7 @@ $(document).ready(function () {
         if ( $(e.target).closest('#block-modal-content').length === 0 ) {
             e.preventDefault();
             // Remove content from the inner tag
+            $('#modal').css('display', 'none');
             $('.block-modal').remove();
         }
     });
@@ -11,6 +12,7 @@ $(document).ready(function () {
     $('.block-modal').on('click', '#modal-close', function (e) {
         e.preventDefault();
         // Change CSS back to initial state of hidden
+        $('#modal').css('display', 'none');
         $('.block-modal').remove();
     });
 

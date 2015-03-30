@@ -12,6 +12,12 @@ $(function(){
 		beforeSend: function(){ // "loading icon"
             $('.feed').load('./loading.php');
         },
+        timeout: 3000,
+        error: function(x, t, m){
+            if(t === 'timeout' || t === 'error' || t === 'abort' || t === 'parsererror'){
+                $('.feed').load('/errors/loading-error.php');
+            }
+        },
 		success: function(response){
 			
             $('.feed').empty().append(response);
@@ -23,6 +29,7 @@ $(function(){
             } else {
                 feedModal.initialize(); // load initializer from feed-modal-init.js
             }
+
 		}
 
 	});
@@ -42,6 +49,12 @@ $(function(){
             beforeSend: function(){ // "loading icon"
 	            $('#load-more span').html('<i class="fa fa-cog fa-spin fa-2x loading"></i>');
 	        },
+            timeout: 3000,
+            error: function(x, t, m){
+                if(t === 'timeout' || t === 'error' || t === 'abort' || t === 'parsererror'){
+                    $('.load-more').load('/errors/loading-error.php');
+                }
+            },
             success:function(response){
                 // On success, change span text of button
                 if(loads > maxLoads){

@@ -17,6 +17,12 @@ var modal = (function () {
                     $('#modal').css('display', 'block');
                     $('#modal').load('./loading.php');
                 },
+                timeout: 3000,
+                error: function(x, t, m){
+                    if(t === 'timeout' || t === 'error' || t === 'abort' || t === 'parsererror'){
+                        $('#modal').load('/errors/loading-error.php');
+                    }
+                },
                 success:function(response){
 
                     // Add the response from the server to the HTML
@@ -72,14 +78,17 @@ var modal = (function () {
                         $.ajax({
                             type: "POST",
                             url: "unfollow.php", // Process request here
-                            data: {id: unfollow_id}, // POST the iD
+                            data: {id: unfollow_id}, // POST the ID
+                            timeout: 3000,
+                            error: function(x, t, m){
+                                if(t === 'timeout' || t === 'error' || t === 'abort' || t === 'parsererror'){
+                                    // On failure, change span text of button
+                                    $('#modal').find('.unfollow-modal span').html('Error');
+                                }
+                            },
                             success:function(){
                                 // On success, change span text of button
                                 $('#modal').find('.unfollow-modal span').html('Unfollowed');
-                            },
-                            fail:function(){
-                                // On failure, change span text of button
-                                $('#modal').find('.unfollow-modal span').html('Error');
                             }
                         });
 
@@ -108,6 +117,7 @@ var modal = (function () {
                     });
 
                 }
+                
             });
 
         },

@@ -208,7 +208,7 @@
                 include 'tabs.php'; 
                 include '../errors/img-error-modal.php';
 
-            } else { 
+            } else {
 
                 $fileupload = new FileUpload;
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);

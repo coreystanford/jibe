@@ -17,7 +17,7 @@ $(document).ready(function () {
                 // On success, change span text of button
                 $('#user').find('.follow-profile span').html('Following');
             },
-            fail:function(){
+            error:function(){
                 // On failure, change span text of button
                 $('#user').find('.follow-profile span').html('Error');
             }
@@ -49,7 +49,7 @@ $(document).ready(function () {
                 // On success, change span text of button
                 $('#user').find('.unfollow-profile span').html('Unfollowed');
             },
-            fail:function(){
+            error:function(){
                 // On failure, change span text of button
                 $('#user').find('.unfollow-profile span').html('Error');
             }
