@@ -18,6 +18,8 @@
   <!-- Style -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/jobboard.css">
+  <link rel="stylesheet" href="../css/comments.css">
+
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
 </head>
