@@ -18,4 +18,6 @@
 	
 <?php include '../view/footer.php'; ?>
 
+<script type="text/javascript" src="../js/infinite.js"></script>
+
 <div id="modal"></div><!-- end modal -->

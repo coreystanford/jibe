@@ -18,12 +18,10 @@
 
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="../js/logo.js"></script>
-		<script type="text/javascript" src="../js/scroll.js"></script>
 		<script type="text/javascript" src="../js/slider.js"></script>
 		<script type="text/javascript" src="../js/tab.js"></script>
 		<script type="text/javascript" src="../js/feed-modal.js"></script>
 		<script type="text/javascript" src="../js/feed-modal-init.js"></script>
-		<script type="text/javascript" src="../js/infinite.js"></script>
 		<script type="text/javascript" src="../js/profile-follow.js"></script>
 		<script type="text/javascript" src="../js/img-modal.js"></script>
 

@@ -31,3 +31,5 @@
 	</section><!-- end main section -->
 	
 	<?php include '../view/footer.php'; ?>
+	
+	<script type="text/javascript" src="../../js/infinite.js"></script>
