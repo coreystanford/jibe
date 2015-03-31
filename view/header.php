@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/jobboard.css">
   <link rel="stylesheet" href="../css/comments.css">
+  <link rel="stylesheet" href="../css/messaging.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
@@ -40,7 +41,7 @@
 
 				        <h4><a href="../explore?id=1">Explore</a></h4>
 				        <h4><a href="../job-board" id="jobs">Jobs</a></h4>
-				        <a href="#" id="messages"><i class="fa fa-envelope-o"></i></a>
+                                        <a href="../messaging/index.php" id="messages"><i class="fa fa-envelope-o"></i></a>
 
 				    </div><!-- end left-nav -->
 
