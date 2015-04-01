@@ -109,7 +109,6 @@ a {
     padding: 80px 0 20px 0;
     width: 100%;
     text-align: center;
-    min-height: 0px;
 }
 
 .home-feed {
@@ -733,9 +732,10 @@ header {
     }
 
     .load-more {
-        position: relative;
+        position: absolute;
         height: 100px;
         width: 100%;
+        bottom: 0;
         padding-bottom: 70px;
     }
 
@@ -811,8 +811,12 @@ header {
                 cursor: pointer;
             }
 
-                .follow-modal:hover, .unfollow-modal:hover {
-                    background: #26272a;
+                .follow-modal:hover {
+                    background: #56af38;
+                }
+
+                .unfollow-modal:hover {
+                    background: #cd3232;
                 }
 
         #sub {
