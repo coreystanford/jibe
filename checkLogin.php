@@ -1,6 +1,7 @@
 <?php
 
-include '../model/database.php';
+//include '../model/database.php';
+   include 'config.php';
    
 //Define $username and $password 
 $email=$_POST['email']; 
@@ -10,7 +11,7 @@ $password=$_POST['password'];
    
     $sql = "SELECT * FROM user_info WHERE email='$email' and password='$password'";
     
-    $checkLogin = $db->query($sql);
+    $checkLogin = $db->prepare($sql);
     
     $row =$checkLogin->fetch();
     

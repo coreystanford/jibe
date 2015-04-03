@@ -13,5 +13,59 @@ $(document).ready(function () {
         });
 
     });
+    //open register mmodal once registerBtn clicked in anonymous header
+    console.log($('header'));
+    
+    $('#header #registerBtn').on('click', function (e) {
+        
+        e.preventDefault();
+        
+        modal.openRegister();
+    });
+    
+    //open login modal once loginBtn clicked in anonymous header
+    console.log($('header'));
+    
+    $('#header #loginBtn').on('click', function (e) {
+       
+        e.preventDefault();
+        
+        modal.openLogin();
+
+    });
+    
+    //open register modal once registerBtn clicked in login modal
+    console.log($('#login'));
+    
+    $('#login #registerBtn').on('click', function (e) {
+        
+        e.preventDefault();
+        
+        modal.openRegister();
+    
+    });   
+     
+    //open login modal once loginBtn clicked in register modal. 
+    console.log($('#register'));
+    
+    $('#register #loginBtn').on('click', function (e) {
+        
+       e.preventDefault();
+       
+       modal.openLogin();
+        
+    });
+    
+    //open project upload modal once addProjectBtn clicked in profile header
+    console.log($('#right-dropdown'));
+    
+    $('#right-dropdown #addProjectBtn').on('click', function (e) {
+        
+        e.preventDefault();
+        
+        modal.openProjectUpload();
+    });
 
 }());
+
+

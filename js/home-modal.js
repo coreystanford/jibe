@@ -77,8 +77,101 @@ var modal = (function () {
             // Change CSS back to initial state of hidden
             $('#modal').css('display', 'none');
 
-        }
+        },
+        
+        openProjectUpload: function () { 
+            $.ajax( {
+                type: "POST",
+                url: "projectUpload.php",
+                success: function(response) {
+                    $('#modal').css('display', 'block');
+                    $('#modal').empty().append(response);
+                    
+                    $('#modal-close').on('click', function (e) {
+                        e.preventDefault();
+                        modal.close();
+                    });
+                    $('modal').on('click', function (e) {
+                        if ($(e.target).closest('#projUpload').length === 0 ) {
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+                    $(document).on('keydown', function (e) {
+                        if (e.keycode === 27) {
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+                }
+            });
+        },
+        
+        openRegister: function () {
+            $.ajax( {
+                type: "POST",
+                url: "register.php", 
+                success: function(response) {
+                    $('#modal').css('display', 'block');
+                    $('#modal').empty().append(response);
+                    
+                    $('#modal-close').on('click', function (e) {
+                        e.preventDefault();
+                        modal.close();
+                    });
+                    $('#modal').on('click', function(e) {
+                        if ($(e.target).closest('#register').length === 0 ) {
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+                    $(document).on('keydown', function (e) {
+                        if (e.keyCode === 27) {
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+                }
+            });
+        },
+    
 
-    };
+        openLogin: function () {
+            
+            $.ajax({
+                type: "POST",
+                url: "login.php", // Process request here
+                success: function(response) {
+                    $('#modal').css('display', 'block');
+                    $('#modal').empty().append(response);
+                    
+                     $('#modal-close').on('click', function (e) {
+                        e.preventDefault();
+                        modal.close();
+                    });
+                    //Source http://stackoverflow.com/questions/9333531/hiding-a-div-with-esc-key-and-off-click-in-jquery
+
+                    // On click of anywhere in #modal tag, 
+                    // but outside the #feed-content tag, close window
+                    $('#modal').on( 'click', function ( e ) {
+                        if ( $(e.target).closest('#login').length === 0 ) {
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+
+                    // ESC key - close the modal window on keydown
+                    $(document).on( 'keydown', function ( e ) {
+                        if ( e.keyCode === 27 ) { // ESC
+                            e.preventDefault();
+                            modal.close();
+                        }
+                    });
+                        
+                }
+            });
+            
+        }
+    }
 
 }());

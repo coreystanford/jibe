@@ -849,6 +849,81 @@ header {
             min-height: 700px;
         }
 
+/* ----------Login/Logout modal--------*/
+
+#login {
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        width: 500px;
+        height: 250px;
+        margin-left: -250px;
+        background: transparent;
+        overflow: hidden;
+        cursor: default;
+        background: #0f0f0f;
+        text-align: center;
+        padding-top: 45px;
+
+/*            a:link {
+                color: #FF0000;
+            }
+
+            
+            a:visited {
+                color: #00FF00;
+            }
+
+            
+            a:hover {
+                color: #FF00FF;
+            }
+
+           
+            a:active {
+                color: #0000FF;
+            }*/
+}
+
+/*  ----------REGISTER MODAL----------  */
+
+#register {
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        width: 500px;
+        height: 300px;
+        margin-left: -250px;
+        background: transparent;
+        overflow: hidden;
+        cursor: default;
+        background: #0f0f0f;
+        text-align: center;
+        padding-top: 45px;
+}
+
+
+
+/*  ----------PROJECT UPLOAD MODAL----------  */
+
+
+#projUpload {
+      position: absolute;
+        left: 50%;
+        top: 100px;
+        width: 500px;
+        height: 250px;
+        margin-left: -250px;
+        background: transparent;
+        overflow: hidden;
+        cursor: default;
+        background: #0f0f0f;
+        text-align: center;
+        padding-top: 45px;
+}
+
+         
+                    
 /*  ----------PROJECT----------  */
 
 .project {

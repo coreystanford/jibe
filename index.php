@@ -5,7 +5,7 @@
     require './model/autoload.php';
 
  	// -------------------------------------- //
-    // ------ Determine Current Action ------ //
+    // -=------ Determine Current Action ------ //
     // -------------------------------------- //
 
     // ------ POST ------ //
