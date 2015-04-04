@@ -35,7 +35,7 @@ class FileUpload {
         $this->_sizelimit = $sizelimit;
     }
 
-    //function to change default filename
+    //function to get filename
     public function getFilename(){
         return $this->_filename;
     }
@@ -113,24 +113,6 @@ class FileUpload {
     }
 
     //Source Murach's PHP and MySQL Ch. 23
-
-    public function createProfileThumbs($filename, $dir = "../images_upload") {
-        // Set up the variables
-        $dir = $dir . DIRECTORY_SEPARATOR;
-        $i = strrpos($filename, '.');
-        $image_name = substr($filename, 0, $i);
-        $ext = substr($filename, $i);
-
-        // Set up the path
-        $image_path = $dir . $filename;
-
-        // Set up the write paths
-        $image_path_pro = $dir . "profiles/" . $image_name . $ext;
-        $image_path_feed = $dir . "thumbs/" . $image_name . $ext;
-
-        self::resize_crop_image(225, 169, $image_path, $image_path_pro);
-        self::resize_crop_image(106, 80, $image_path, $image_path_feed);
-    }
 
     public function createNewProfileThumbs($filename, $dir = "../images_upload") {
         // Set up the variables
