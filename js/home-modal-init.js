@@ -56,15 +56,7 @@ $(document).ready(function () {
         
     });
     
-    //open project upload modal once addProjectBtn clicked in profile header
-    console.log($('#right-dropdown'));
-    
-    $('#right-dropdown #addProjectBtn').on('click', function (e) {
-        
-        e.preventDefault();
-        
-        modal.openProjectUpload();
-    });
+
 
 }());
 

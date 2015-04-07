@@ -157,7 +157,32 @@ class HomepageDB {
         
         return $row_count; 
     }
-
+    //function and SQL Query for User Login 
+    public static function userLogin() {
+        $db = Database::getDB();
+        
+        $query = "SELECT * FROM user_info WHERE email='$email' AND password='$password'";        
+        
+        $stm = $db->prepare($query);
+	$stm->execute();
+        $row_count = $stm->fetch(PDO::FETCH_ASSOC);
+        
+        return $row_count;   
+        
+    }
+    
+    public static function userRegister($email, $password) {
+        $db = Database::getDB();
+        
+        $query = "INSERT INTO user_info VALUES('$email', '$password, 0)";
+        
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $row_count = $stm->fetch(PDO::FETCH_ASSOC);
+        
+        return $row_count;
+    }
+    
     // ------ Helper - Process Projects ------ //
 
     private static function processProjects($result){

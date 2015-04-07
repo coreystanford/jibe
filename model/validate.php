@@ -9,7 +9,7 @@
 //      -- 2 -- range(4-5) - Ranges
 //      -- 3 -- username(2-3) - Username Regex
 //      -- 4 -- password(2-3) - Password Regex
-//	    -- 5 -- confirmPassword(3-4) - Confirm Password
+//      -- 5 -- confirmPassword(3-4) - Confirm Password
 //      -- 6 -- name(2-3) - Name Regex
 //      -- 7 -- phone(2-3) - Phone Numbers Regex
 //      -- 8 -- address(2-3) - Address Regex

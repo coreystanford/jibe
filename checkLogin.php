@@ -1,7 +1,7 @@
 <?php
 
-//include '../model/database.php';
-   include 'config.php';
+require_once  './model/database.php';
+ 
    
 //Define $username and $password 
 $email=$_POST['email']; 

@@ -50,4 +50,24 @@
 
         break;
 	
+        case 'login':
+                
+                
+            
+            
+            
+            
+        break;
+    
+    
+        case 'register':
+            
+            
+            
+        break;
+    
+    
+    
 	}
+        
+        

@@ -79,33 +79,7 @@ var modal = (function () {
 
         },
         
-        openProjectUpload: function () { 
-            $.ajax( {
-                type: "POST",
-                url: "projectUpload.php",
-                success: function(response) {
-                    $('#modal').css('display', 'block');
-                    $('#modal').empty().append(response);
-                    
-                    $('#modal-close').on('click', function (e) {
-                        e.preventDefault();
-                        modal.close();
-                    });
-                    $('modal').on('click', function (e) {
-                        if ($(e.target).closest('#projUpload').length === 0 ) {
-                            e.preventDefault();
-                            modal.close();
-                        }
-                    });
-                    $(document).on('keydown', function (e) {
-                        if (e.keycode === 27) {
-                            e.preventDefault();
-                            modal.close();
-                        }
-                    });
-                }
-            });
-        },
+    
         
         openRegister: function () {
             $.ajax( {

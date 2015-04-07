@@ -112,8 +112,9 @@ class FileUpload {
         } else {return '';}
     }
 
+    
     //Source Murach's PHP and MySQL Ch. 23
-
+    
     public function createNewProfileThumbs($filename, $dir = "../images_upload") {
         // Set up the variables
         $dir = $dir . DIRECTORY_SEPARATOR;
@@ -205,6 +206,18 @@ class FileUpload {
      
         if($dst_img)imagedestroy($dst_img);
         if($src_img)imagedestroy($src_img);
+        
+    
     }
     
+    public function uploadProject ($filename, $dir = "../images_upload/projects") {
+        
+        
+        
+        
+        
+    }
+    
+    
 }
+

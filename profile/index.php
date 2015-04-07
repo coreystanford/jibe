@@ -134,9 +134,9 @@
             $bio = $_POST['bio'];
             $specialty = $_POST['specialty'];
 
-			$textValidate->text('fname', $fname, true, 1, 50);
+            $textValidate->text('fname', $fname, true, 1, 50);
             $textValidate->text('lname', $lname, true, 1, 50);
-			$textValidate->text('city', $city, false, 1, 50);
+            $textValidate->text('city', $city, false, 1, 50);
             $textValidate->text('country', $country, false, 1, 50);
             $textValidate->text('website', $website, false, 1, 60);
             $textValidate->text('bio', $bio, false, 1, 220);

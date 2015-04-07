@@ -2,8 +2,11 @@
     
     <button role="button" id="modal-close"><i class="fa fa-times"></i></button>
     
-   
-      <form name="form1" method="post" action="checklogin.php">
+
+        
+        <form action="." method="POST">
+        
+        <input type="hidden" name="action" value="login"/><!--for case in index-->
         
         <label id="email">Email:</label>
         <input name="email" type="text" id="email">
@@ -16,6 +19,8 @@
        </form><!--end login form-->
        <br /><br />
 
+       
+   
        
     <h2>Are you not yet a member?</h2>
    <br />

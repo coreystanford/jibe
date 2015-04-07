@@ -3,8 +3,11 @@
     <button role="button" id="modal-close"><i class="fa fa-times"></i></button>
     
    
-      <form name="registerForm" method="post" action="processRegistration.php">
+      <form action="." method="POST">
         
+          <input type="hidden" name="action" value="register"/><!--for case in index-->
+          
+          
         <label id="email">Email:</label>
         <input name="email" type="text" id="email">
             <br/><br/>
