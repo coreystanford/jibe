@@ -24,6 +24,7 @@
 		<script type="text/javascript" src="../js/feed-modal-init.js"></script>
 		<script type="text/javascript" src="../js/profile-follow.js"></script>
 		<script type="text/javascript" src="../js/img-modal.js"></script>
+                <script type="text/javascript" src="../../js/job-board.js"></script>
 
 	</body><!-- end body -->
 	
