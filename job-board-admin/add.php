@@ -1,4 +1,4 @@
-<?php include $admin_path . 'view/header.php'; ?>
+<?php include  '../view/header.php'; ?>
 <?php
 $allcountries = array(
     'Canada',
@@ -8,7 +8,7 @@ $allcountries = array(
 ?>
 <section role=main>
 
-    <div class="main-admin">
+    <div class="slim clearfix">
 
         <h1>Add a job</h1>
 

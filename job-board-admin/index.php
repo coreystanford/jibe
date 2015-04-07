@@ -1,5 +1,5 @@
 <?php
-require '../../config.php';
+require '../config.php';
 
 //require($model_path . 'database.php');
 //require($model_path . 'category.php');
@@ -112,7 +112,7 @@ case 'edit_job' :
         // convert Job Title into file name - conversion function found here
         // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
         
-                $upload_directory = '../../images_upload/';
+                $upload_directory = '../images_upload/';
 
                 $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
                 $job_logo = $newfilename . "." . pathinfo($_FILES['upd_job_logo']['name'],PATHINFO_EXTENSION);
@@ -249,7 +249,7 @@ case 'add_job' :
                 //$job_logo = $tempfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION);
             // convert Job Title into file name - conversion function found here
             // http://www.zyxware.com/articles/3019/how-to-generate-filenames-from-a-given-string-by-replacing-spaces-and-special-characters-using-php-preg-replace   
-                $upload_directory = "../../images_upload/";
+                $upload_directory = "../images_upload/";
 
                 $newfilename = "job_logo_" . strtolower(trim(preg_replace('#\W+#', '_', $job_company), '_'));
                 $job_logo = $newfilename . "." . pathinfo($_FILES['job_logo']['name'],PATHINFO_EXTENSION);
