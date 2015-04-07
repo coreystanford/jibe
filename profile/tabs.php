@@ -50,7 +50,7 @@
 
 				<div class="stats">
 
-
+					<?php include '../stats/'; ?> 
 					
 				</div><!-- end stats -->
 
