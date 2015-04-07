@@ -8,7 +8,7 @@ $allcountries = array(
 ?>
 <section role=main>
 
-    <div class="main-admin">
+    <div class="slim clearfix">
 
 
         <h1>Edit a job posting <?php echo $job_title; ?>
@@ -68,7 +68,7 @@ $allcountries = array(
                     </div>
                     <div class="job-form-input job-right">
                         <div class="job-logo">
-                        <img src="../../<?php echo $job_logo; ?>" />
+                        <img src="../<?php echo $job_logo; ?>" />
                         </div>
                         <input type="hidden" name="job_logo" id="job_logo" value="<?php echo $job_logo; ?>" />
                         <input type="file" name="upd_job_logo" id="upd_job_logo" >

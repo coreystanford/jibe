@@ -11,7 +11,9 @@ require '../config.php';
 //require(MODEL_PATH . 'jobDB.php');
 //require(MODEL_PATH . 'fileupload.php');
 
-require(MODEL_PATH . 'autoload.php');
+    require '../config.php';
+    require '../errors/errorhandler.php';
+    require '../model/autoload.php';
 
 
 $cities = JobDB::getCitiesList();

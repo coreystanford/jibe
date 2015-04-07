@@ -12,8 +12,8 @@ require '../config.php';
 //require($model_path . 'fields.php');
 //require($model_path . 'validate.php');
 
-require(MODEL_PATH . 'autoload.php');
-
+    require '../errors/errorhandler.php';
+    require '../model/autoload.php';
 
 
    
