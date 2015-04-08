@@ -1,10 +1,7 @@
-<?php
+<?php include './view/header.php'; ?>
 
-require_once '/model/database.php';
+<h1>You're Logged Out!</h1>
 
+<a href="." >Home</a>
 
-session_start();
-session_destroy();
-
-header('location:index.php');
-?>
+<?php include './view/footer.php'; ?>

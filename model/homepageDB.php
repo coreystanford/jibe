@@ -157,7 +157,8 @@ class HomepageDB {
         
         return $row_count; 
     }
-    //function and SQL Query for User Login 
+    
+    // ------ Function for logging previously registered user into the site  ------ //
     public static function userLogin() {
         $db = Database::getDB();
         
@@ -171,6 +172,7 @@ class HomepageDB {
         
     }
     
+    // ------ Function for registering a new user with an account for the site. ------ //
     public static function userRegister($email, $password) {
         $db = Database::getDB();
         
