@@ -77,7 +77,7 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
     <div id="comments" class="clearfix">
 
-        
+        <?php include '../comments/index.php'; ?>
 
     </div><!-- end comments -->
 

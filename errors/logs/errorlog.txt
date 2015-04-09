@@ -115,3 +115,21 @@ Error Report
 	Line Number: 12
 	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/admin/categories/edit.php
 End Error Report
+Error Report
+	DateTime: 2015-04-07 16:50:03
+	Error Number: 2
+	Error Type: Warning
+	Error Message: include(../stats/): failed to open stream: No such file or directory
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/tabs.php
+	Line Number: 53
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/tabs.php
+End Error Report
+Error Report
+	DateTime: 2015-04-07 16:50:03
+	Error Number: 2
+	Error Type: Warning
+	Error Message: include(): Failed opening '../stats/' for inclusion (include_path='.:/Applications/XAMPP/xamppfiles/lib/php')
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/tabs.php
+	Line Number: 53
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/tabs.php
+End Error Report

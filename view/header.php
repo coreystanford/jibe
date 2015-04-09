@@ -59,7 +59,7 @@
 
 			                	<h5><a href="../profile?id=1"><i class="fa fa-user"></i>View Profile</a></h5>
 			                	<h5><a href="#" id="addProjectBtn"><i class="fa fa-plus"></i>Add Project</a></h5>
-                                                
+                                <h5><a href="../job-board-admin/" id="addProjectBtn"><i class="fa fa-briefcase"></i>My Jobs</a></h5>
 			                	<h5><a href="#"><i class="fa fa-sign-out"></i>Logout</a></h5>
 
 			                </div><!-- end div -->
