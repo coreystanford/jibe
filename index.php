@@ -3,8 +3,7 @@
     require './config.php';
     require './errors/errorhandler.php';
     require './model/autoload.php';
-    require './model/homepageDB.php';
-    require './model/fields.php';
+    
 
     // -------------------------------------- //
     // ------ Determine Current Action ------ //
@@ -29,22 +28,7 @@
 	}
 
 
-          // ------------------------------ //
-    // ------ Setup Validation ------ //
-    // ------------------------------ //
-
-    $lValidate = new Validate;
-    $lFields = $lValidate->getFields();
-    $lFields->addField('invalid');
-    $lFields->addField('email');
-    $lFields->addField('password');
-
-    $rValidate = new Validate;
-    $rFields = $rValidate->getFields();
-    $rFields->addField('email');
-    $rFields->addField('password');
-    $rFields->addField('confirmPassword');
-        
+    
     // ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //
@@ -68,105 +52,7 @@
 
         break;
 	
-      // ------ Validate Login ------ //
     
-        case 'login':
-
-            session_start();
-
-            $username = trim($_POST['email']);
-            $password = trim($_POST['password']);
-
-            $lFields->getField('invalid')->clearErrorMessage();
-            $lValidate->email('email', $email);
-            $lValidate->password('password', $password);
-
-            if($lFields->hasErrors()){
-
-                include 'login.php';
-
-            } else {
-
-                $result = HomepageDB::userLogin($email);
-
-                if($result < 1){
-
-                    $lFields->getField('invalid')->setErrorMessage('Invalid email or password');
-                    include 'login.php';
-                    die();
-
-                } else {
-
-                    $hash = $result['password'];
-
-                    if(password_verify($password, $hash)) {
-
-                        $userid = $result['id'];
-                        setSession($userid);
-                        include 'secure-page.php';
-
-                    } else {
-
-                        $lFields->getField('invalid')->setErrorMessage('Invalid email or password');
-                        include 'login.php';
-                        die();
-
-                    }
-
-                }
-
-            }
-
-        break;
-
-       // ------ Show Registration ------ //
-
-        case 'register':
-
-            include 'register.php';
-
-        break;
-
-        // ------ Validate Registration ------ //
-
-        case 'new_user':
-
-            //if(isset($_POST['submit'])){
-                $email = trim($_POST['email']);
-                $password = trim($_POST['password']);
-                $confirmPassword = trim($_POST['confirmPassword']);
-                $fname = trim($_POST['fname']);
-                $lname = trim($_POST['lname']);
-            //}
-            
-//            $rValidate->email('email', $email);
-//            $rValidate->password('password', $password);
-//            $rValidate->confirmPassword('confirmPassword', $password, $confirmPassword);
-//
-            //if($rFields->hasErrors()){
-
-              //  include 'register.php';
-
-            //} else {
-
-                $hash = password_hash($password, PASSWORD_BCRYPT);
-
-                HomepageDB::userRegister($fname, $lname, $email, $hash);
-
-                include 'registered.php';
-
-            //}
-
-        break;
-
-        // ------ Logout ------ //
-
-        case 'logout':
-
-            logout();
-            include 'logout.php';
-
-        break;
 
     }
 

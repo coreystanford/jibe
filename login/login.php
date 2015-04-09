@@ -18,23 +18,17 @@
             <br/><br/>
         
         <label id="password">Password:</label>
-        <input name="password" type="text" id="password" value="<?php echo $password ?>" />
+        <input name="password" type="password" id="password" value="<?php echo $password ?>" />
         <?php echo $lFields->getField('password')->getHTML(); ?>
         
             <br/><br/>
         
-         <input type="submit" name="Submit" value="Login">
+         <input type="submit" name="submit" value="Login">
        </form><!--end login form-->
        <br /><br />
 
        
-   
-       
-    <h2>Are you not yet a member?</h2>
-    <br />
-    <a href=".?action=register">Register Now</a>
-    <br/>
-    <a href="./secure-page.php">Secure Page</a>
+
 
     
 </div><!--end login div-->

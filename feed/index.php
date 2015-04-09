@@ -30,8 +30,8 @@
     // ------ Session ID ------ //
     // ------------------------ //
 
-        if(isset($_SESSION['id'])){
-            $SESSION_ID = $_SESSION['id'];
+        if(isset($_SESSION['user_id'])){
+            $SESSION_ID = $_SESSION['user_id'];
         } else {
             $SESSION_ID = 1;
         }

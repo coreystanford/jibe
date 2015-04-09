@@ -159,10 +159,10 @@ class HomepageDB {
     }
     
     // ------ Function for logging previously registered user into the site  ------ //
-    public static function userLogin() {
+    public static function userLogin($email, $password) {
         $db = Database::getDB();
         
-        $query = "SELECT * FROM user_info WHERE email='$email' AND password='$password'";        
+        $query = "SELECT * FROM user_info WHERE email='$email'";        
         
         $stm = $db->prepare($query);
 	$stm->execute();
