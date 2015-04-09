@@ -173,11 +173,27 @@ class HomepageDB {
     }
     
     // ------ Function for registering a new user with an account for the site. ------ //
-    public static function userRegister($email, $password) {
+    
+    public static function userRegister($fname, $lname, $email, $password) {
         $db = Database::getDB();
         
-        $query = "INSERT INTO user_info VALUES('$email', '$password, 0)";
+        $query = "INSERT INTO users 
+                    (fname, 
+                    lname) 
+                    VALUES('$fname', '$lname')";
         
+        $stm = $db->prepare($query);
+        $stm->execute();      
+        
+        $user_id = $db->lastinsertid();
+
+        $query = "INSERT INTO user_info 
+                    (user_id, 
+                    email, 
+                    password, 
+                    role) 
+                    VALUES('$user_id', '$email', '$password', '0')";
+        var_dump($query);
         $stm = $db->prepare($query);
         $stm->execute();
         $row_count = $stm->fetch(PDO::FETCH_ASSOC);

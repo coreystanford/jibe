@@ -3,9 +3,11 @@
     require './config.php';
     require './errors/errorhandler.php';
     require './model/autoload.php';
+    require './model/homepageDB.php';
+    require './model/fields.php';
 
- 	// -------------------------------------- //
-    // -=------ Determine Current Action ------ //
+    // -------------------------------------- //
+    // ------ Determine Current Action ------ //
     // -------------------------------------- //
 
     // ------ POST ------ //
@@ -95,7 +97,6 @@
 
                 } else {
 
-                  
                     $hash = $result['password'];
 
                     if(password_verify($password, $hash)) {
@@ -130,29 +131,31 @@
 
         case 'new_user':
 
-            if(isset($_POST['submit'])){
+            //if(isset($_POST['submit'])){
                 $email = trim($_POST['email']);
                 $password = trim($_POST['password']);
                 $confirmPassword = trim($_POST['confirmPassword']);
-            }
+                $fname = trim($_POST['fname']);
+                $lname = trim($_POST['lname']);
+            //}
+            
+//            $rValidate->email('email', $email);
+//            $rValidate->password('password', $password);
+//            $rValidate->confirmPassword('confirmPassword', $password, $confirmPassword);
+//
+            //if($rFields->hasErrors()){
 
-            $rValidate->email('email', $email);
-            $rValidate->password('password', $password);
-            $rValidate->confirmPassword('confirmPassword', $password, $confirmPassword);
+              //  include 'register.php';
 
-            if($rFields->hasErrors()){
-
-                include 'register.php';
-
-            } else {
+            //} else {
 
                 $hash = password_hash($password, PASSWORD_BCRYPT);
 
-                HomepageDB::userRegister($email, $hash);
+                HomepageDB::userRegister($fname, $lname, $email, $hash);
 
                 include 'registered.php';
 
-            }
+            //}
 
         break;
 
