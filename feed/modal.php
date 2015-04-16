@@ -5,7 +5,7 @@
 	if(isset($_SESSION['id'])){
 	    $SESSION_ID = $_SESSION['id'];
 	} else {
-	    $SESSION_ID = 1;
+	    $SESSION_ID = 24;
 	}
 
 	$proj_id = $_POST['id'];

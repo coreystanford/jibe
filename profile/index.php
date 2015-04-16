@@ -33,13 +33,13 @@
         if(isset($_SESSION['id'])){
             $SESSION_ID = $_SESSION['id'];
         } else {
-            $SESSION_ID = 1;
+            $SESSION_ID = 24;
         }
 
         if(isset($_GET['id'])){
             $GET_ID = $_GET['id'];
         } else {
-            $GET_ID = 1;
+            $GET_ID = 24;
         }
 
     // ------------------------------ //

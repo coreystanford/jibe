@@ -12,11 +12,11 @@
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
   <!-- Icons -->
-  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/jibe/css/font-awesome/css/font-awesome.min.css">
   <!-- Style -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/jibe/css/style.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
+  <link rel="shortcut icon" type="/jibe/image/png" href="./images/favicon.png">
 </head>
 
 	<body>
@@ -27,7 +27,7 @@
 
   			<h1 class="outline">PHP Project</h1>
 
-                        <figure id="logo-anon"><a href="#"><img src="./images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+                        <figure id="logo-anon"><a href="#"><img src="/jibe/images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 
   			<nav id="nav" role="navigation">
 
