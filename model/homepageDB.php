@@ -172,7 +172,7 @@ class HomepageDB {
         
     }
      // ------ function to set session for user logged into account------ //
-    public static function setSession($email) {
+    public static function setSession($userid) {
         session_regenerate_id();
         $_SESSION['valid'] = 1;
         $_SESSION['user_id'] = $userid;

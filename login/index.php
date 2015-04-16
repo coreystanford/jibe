@@ -110,7 +110,7 @@
 
             HomepageDB::userLogout();
           
-            require '.';
+            header("Location: ../");
             
 
         break;

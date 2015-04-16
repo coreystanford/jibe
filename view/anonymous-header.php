@@ -33,8 +33,8 @@
 
   			    <div id="right-nav-anon">
 
-  	        	<h4><a href="./register/"><i class="fa fa-user-plus"></i>Register</a></h4>
-  	          <h4><a href="./login/"><i class="fa fa-sign-in"></i>Login</a></h4>
+  	        	<h4><a href="/jibe/register/"><i class="fa fa-user-plus"></i>Register</a></h4>
+  	          <h4><a href="/jibe/login/"><i class="fa fa-sign-in"></i>Login</a></h4>
 
   	        </div><!-- end right-nav-anon -->
 
