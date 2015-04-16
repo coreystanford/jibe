@@ -171,6 +171,20 @@ class HomepageDB {
         return $row_count;   
         
     }
+     // ------ function to set session for user logged into account------ //
+    public static function setSession($email) {
+        session_regenerate_id();
+        $_SESSION['valid'] = 1;
+        $_SESSION['user_id'] = $userid;
+    }
+    
+    // ------ function for logging registered and loggout in user out of their account ------ //
+    public static function userLogout() {
+        //$db = Database::getDB();
+        
+        $_SESSION = array();
+        session_destroy();
+    }
     
     // ------ Function for registering a new user with an account for the site. ------ //
     

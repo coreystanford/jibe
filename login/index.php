@@ -55,7 +55,7 @@
     
         case 'login':
 
-            //session_start();
+            session_start($user_id);
 
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
@@ -93,7 +93,7 @@
 
                         $lFields->getField('invalid')->setErrorMessage('Invalid email or password');
                         include 'login.php';
-                        //die();
+                        die();
 
                     }
 
@@ -108,8 +108,9 @@
 
         case 'logout':
 
-            logout();
-            include 'logout.php';
+            HomepageDB::userLogout();
+          
+            require '.';
             
 
         break;

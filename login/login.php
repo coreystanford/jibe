@@ -1,5 +1,5 @@
         <?php 
-        include './view/anonymous-header.php'; 
+        include '../view/anonymous-header.php'; 
         ?>
 
 <div id="login" >
@@ -34,5 +34,5 @@
 </div><!--end login div-->
 
   <?php 
-        include './view/anonymous-footer.php'; 
+        include '../view/anonymous-footer.php'; 
         ?>

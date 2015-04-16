@@ -133,3 +133,30 @@ Error Report
 	Line Number: 53
 	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/profile/tabs.php
 End Error Report
+Error Report
+	DateTime: 2015-04-15 13:51:43
+	Error Number: 2
+	Error Type: Warning
+	Error Message: date(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
+	Line Number: 16
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
+End Error Report
+Error Report
+	DateTime: 2015-04-15 13:54:37
+	Error Number: 2
+	Error Type: Warning
+	Error Message: date(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
+	Line Number: 16
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
+End Error Report
+Error Report
+	DateTime: 2015-04-15 13:56:53
+	Error Number: 2
+	Error Type: Warning
+	Error Message: date(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
+	Line Number: 16
+	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
+End Error Report

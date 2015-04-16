@@ -1,10 +1,8 @@
    <?php 
-        include './view/anonymous-header.php'; 
+        include '../view/anonymous-header.php'; 
         ?>
 
 <div id="register" >
-    
-
       <form action="." method="POST">
         
           <input type="hidden" name="action" value="new_user"/><!--for case in index-->
@@ -43,5 +41,5 @@
 </div><!--end register div-->
 
   <?php 
-        include './view/anonymous-footer.php'; 
+        include '../view/anonymous-footer.php'; 
         ?>
