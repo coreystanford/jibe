@@ -188,7 +188,7 @@ class Validate {
 
 			// Source http://stackoverflow.com/questions/2370015/regular-expression-for-password-validation
 
-		$message = "Password must contain one capital letter, one number, one special character and be 8 charcters total";
+		$message = "Follow pattern: Q!eT+9zx";
 
 		$this->pattern($name, $value, $pattern, $message, $required);
 

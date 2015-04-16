@@ -1,6 +1,6 @@
 
  <?php
-     require_once '../view/header.php';
+    require_once '../view/header.php';
     require_once '../model/fileupload.php'; 
     require_once '../model/database.php'; 
     
@@ -11,7 +11,7 @@
 
       <h2>Upload New Project</h2>
     
-      
+      <br /><br />
    <form action="processupload.php" method="post" enctype="multipart/form-data">
       
       

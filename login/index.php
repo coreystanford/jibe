@@ -75,8 +75,8 @@
                 if($result <= 1){
 
                     $lFields->getField('invalid')->setErrorMessage('Invalid email or password');
-                    include 'login.php';
-                    //die();
+                    include '../login/login.php';
+                    die();
 
                 } else {
 
@@ -85,7 +85,7 @@
                     if(password_verify($password, $hash)) {
 
                         $userid = $result['user_id'];
-                        //setSession($userid);
+                        setSession($userid);
 
                         header("Location: ../feed/");
 
