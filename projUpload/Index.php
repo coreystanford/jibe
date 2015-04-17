@@ -58,8 +58,19 @@
             }else{
                 
                 FileUpload::uploadProject($_FILES['upfile']['name']);
-
                 
+                //new instance of file upload class
+                $fileupload = new FileUpload;
+                $fileupload->setFilename($_FILES['upfile']['name']);
+                $fileupload->uploadFile($_FILES['upfile']);
+                
+                //$fileupload->deleteFile($_FILES['pro_thumb']);
+                
+                
+//                $img = $fileupload->getFilename();
+//                FileUpload::updateImagePath($SESSION_ID, $img);
+              
+                //insert to database 
                 
                 
                 header('Location: ../profile/');
