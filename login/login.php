@@ -23,7 +23,7 @@
         
             <br/><br/>
         
-         <input type="submit" name="submit" value="Login">
+        <input type="submit" name="submit" value="Login">
        </form><!--end login form-->
        <br /><br />
 

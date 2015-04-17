@@ -188,7 +188,7 @@ class HomepageDB {
         session_destroy();
     }
     
-    // ------ function for keeping secure sessions. ------ //
+// ------ function for keeping secure sessions. ------ //
     
 //    function isLoggedIn() {
 //        if(isset($_SESSION['valid']) && $_SESSION['valid'])

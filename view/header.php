@@ -58,7 +58,7 @@
 			                <div id="right-dropdown">
 
 			                	<h5><a href="../profile"><i class="fa fa-user"></i>View Profile</a></h5>
-                                                <h5><a href="../projUpload/?action=openUpload" id="addProjectBtn"><i class="fa fa-plus"></i>Add Project</a></h5>
+                                                <h5><a href="../projUpload/" id="addProjectBtn"><i class="fa fa-plus"></i>Add Project</a></h5>
                                 <h5><a href="../job-board-admin/" id="addProjectBtn"><i class="fa fa-briefcase"></i>My Jobs</a></h5>
 			                	<h5><a href="../login/?action=logout"><i class="fa fa-sign-out"></i>Logout</a></h5>
 
