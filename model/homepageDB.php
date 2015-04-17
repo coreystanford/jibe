@@ -188,6 +188,13 @@ class HomepageDB {
         session_destroy();
     }
     
+    // ------ function for keeping secure sessions. ------ //
+    
+//    function isLoggedIn() {
+//        if(isset($_SESSION['valid']) && $_SESSION['valid'])
+//            return true;
+//        return false;
+//    }
     // ------ Function for registering a new user with an account for the site. ------ //
     
     public static function userRegister($fname, $lname, $email, $password) {

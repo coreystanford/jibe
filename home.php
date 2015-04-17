@@ -10,7 +10,7 @@
 
 						<h1><?php echo $main; ?></h1>
 						<h2><?php echo $sub; ?></h2>
-						<a href="<?php echo $btn_link; ?>" class="btn link"><?php echo $btn_text; ?>   <i class="fa fa-arrow-right fa-lg"></i></a>
+						<a href="/jibe/register/" class="btn link"><?php echo $btn_text; ?>   <i class="fa fa-arrow-right fa-lg"></i></a>
 
 					</div><!-- end jibe-msg -->
 

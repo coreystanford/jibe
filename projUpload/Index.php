@@ -42,7 +42,7 @@
         
             
         case 'openUpload';
-            
+            require 'projectUpload.php';
             
         break;
     
