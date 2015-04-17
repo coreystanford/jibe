@@ -55,7 +55,7 @@
     
         case 'login':
 
-            session_start($user_id);
+            session_start();
 
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
@@ -72,10 +72,10 @@
 
                 $result = HomepageDB::userLogin($email);
 
-                if($result <= 1){
+                if($result < 1){
 
                     $lFields->getField('invalid')->setErrorMessage('Invalid email or password');
-                    include '../login/login.php';
+                    include 'login.php';
                     die();
 
                 } else {
@@ -83,15 +83,15 @@
                     $hash = $result['password'];
 
                     if(password_verify($password, $hash)) {
-
                         $userid = $result['user_id'];
-                        setSession($userid);
-
+                        HomepageDB::setSession($userid);
                         header("Location: ../feed/");
 
                     } else {
 
                         $lFields->getField('invalid')->setErrorMessage('Invalid email or password');
+                        
+                        
                         include 'login.php';
                         die();
 
