@@ -1,21 +1,11 @@
 <?php
 require '../config.php';
 
-//require($model_path . 'database.php');
-//require($model_path . 'category.php');
-//require($model_path . 'categoryDB.php');
-//require($model_path . 'user.php');
-//require($model_path . 'userDB.php');
-//require($model_path . 'job.php');
-//require($model_path . 'jobDB.php');
-//require($model_path . 'fileupload.php');
-//require($model_path . 'fields.php');
-//require($model_path . 'validate.php');
 
     require '../errors/errorhandler.php';
     require '../model/autoload.php';
 
-
+//echo 'hello world';
    
 // current user id
 $user_id = 1;
@@ -119,7 +109,7 @@ case 'edit_job' :
                 $fileupload = new FileUpload;
                 $fileupload->setTarget($upload_directory);
                 //$filemanager->setExtensions(array('jpg'));
-                $fileupload->deleteFile($job_logo);
+                //$fileupload->deleteFile($job_logo);
                 $fileupload->setFilename($job_logo);
                 echo $fileupload->displayErrors();
                 $fileupload->uploadFile($_FILES['upd_job_logo']);
@@ -158,7 +148,8 @@ case 'edit_job' :
                 } else {
                     $message_success = 'Job listing was updated successfully!';
                     $jobs = JobDB::getJobs($user_id);
-                    include('list.php');   
+                    header("Location:index.php");
+                    //include('list.php');   
                 }
             } else {
                 echo $anyerrors;

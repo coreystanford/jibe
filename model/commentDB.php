@@ -46,21 +46,17 @@ class CommentDB {
             return $comment;
     }
     //-- function to get all comments for selected user
-    public static function getComments($user_id, $proj_id = -1){
+    //---proj_id adds filter by project id
+    public static function getComments($proj_id){
 
         $db = Database::getDB();
         $query = "SELECT * FROM comments "
                 . "JOIN users ON comments.user_id = users.user_id "
                 . "JOIN projects ON comments.proj_id = projects.proj_id "
-                . "WHERE comments.user_id = :user_id";
-        if($proj_id >= 0){
+                . "WHERE comments.proj_id = :proj_id";
             $stm = $db->prepare($query . " AND comments.proj_id = :proj_id");
-            $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
             $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
-        } else {
-            $stm = $db->prepare($query);
-            $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-        }
+       
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -73,17 +69,15 @@ class CommentDB {
     }
     
     //-function to get last added comment
-    public static function getLastComment($user_id, $proj_id){
+    public static function getLastComment($proj_id){
 
         $db = Database::getDB();
         $query = "SELECT * FROM comments "
                 . "JOIN users ON comments.user_id = users.user_id "
                 . "JOIN projects ON comments.proj_id = projects.proj_id "
-                . "WHERE comments.user_id = :user_id "
-                . "AND comments.proj_id = :proj_id "
+                . "WHERE comments.proj_id = :proj_id "
                 . "ORDER BY cmt_id DESC LIMIT 1";
             $stm = $db->prepare($query);
-            $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
             $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
         
         $stm->execute();

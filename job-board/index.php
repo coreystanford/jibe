@@ -11,7 +11,6 @@ require '../config.php';
 //require(MODEL_PATH . 'jobDB.php');
 //require(MODEL_PATH . 'fileupload.php');
 
-    require '../config.php';
     require '../errors/errorhandler.php';
     require '../model/autoload.php';
 
