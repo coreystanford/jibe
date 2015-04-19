@@ -40,30 +40,48 @@ class StatsDB {
             return $view;
     }
     
-    public static function getViews($user_id, $proj_id = -1){
-         $db = Database::getDB();
-        $query = "SELECT * FROM views "
-                . "JOIN projects ON views.proj_id = projects.proj_id "
-                . "JOIN users ON projects.user_id = users.user_id "
-                . "WHERE users.user_id = :user_id "
-                . "ORDER BY views.proj_id";
-        if($proj_id >= 0){
-            $stm = $db->prepare($query . " AND views.proj_id = :proj_id");
-            $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-            $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
-        } else {
-            $stm = $db->prepare($query);
-            $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-        }
+    // Graph function - get array of views for ALL projects
+    
+    public static function getAllViews(){
+        $db = Database::getDB();
+        $query = "SELECT projects.proj_title, views.num_views FROM projects "
+               . "LEFT JOIN views ON projects.proj_id = views.proj_id "
+                . " ORDER BY projects.proj_title";
+        $stm = $db->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-
-        $views = array();
-
-        foreach ($result as $row) {
-            $views[] = StatsDB::populateView($row);
-        }
-        return $views;
+        return $result;
     }
     
+    // Graph function - get array of likes for ALL projects
+    
+    public static function getAllLikes(){
+        $db = Database::getDB();
+        $query = "SELECT p.proj_title, IFNULL(l.count,0) AS count FROM projects AS p "
+                . " LEFT JOIN ( "
+                . " SELECT proj_id, COUNT(*) AS count "
+                . " FROM likes GROUP BY proj_id) AS l "
+                . " ON p.proj_id = l.proj_id "
+                . " ORDER BY p.proj_title ASC";
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    
+    // Graph function - get array of comments for ALL projects
+    
+    public static function getAllComments(){
+        $db = Database::getDB();
+        $query = "SELECT p.proj_title, IFNULL(c.count,0) AS count FROM projects AS p "
+                . " LEFT JOIN ( "
+                . " SELECT proj_id, COUNT(*) AS count "
+                . " FROM comments GROUP BY proj_id) AS c "
+                . " ON p.proj_id = c.proj_id "
+                . " ORDER BY p.proj_title ASC";
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

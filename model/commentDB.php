@@ -128,9 +128,9 @@ class CommentDB {
     }
     
     //---function to publish comment
-    public static function publishComment($cmt_id){
-        
-    }
+//    public static function publishComment($cmt_id){
+//        
+//    }
    
     
 }

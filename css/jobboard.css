@@ -353,7 +353,8 @@ ul.job-top-nav li{
                     line-height: 70px;
                 }
 
-
+.likes-list li{display: inline-block; margin: 5px;}
+.stats-project-container {padding: 15px; width: 100%; margin: 10px; background: #26272a; }
 
 
 @media only screen and (max-width: 525px) {
