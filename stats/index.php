@@ -4,17 +4,20 @@ require '../errors/errorhandler.php';
 require '../model/autoload.php';
 
 
-if(isset($_SESSION['id'])){
-	    $SESSION_ID = $_SESSION['id'];
-	} else {
-	    $SESSION_ID = 1;
-	}
-        
+session_start();
+
+// current user id
+    
 if(isset($_GET['id'])){
-           $GET_ID = $_GET['id'];
-       } else {
-           $GET_ID = 1;
+            $user_id = $_GET['id'];       
+}
+elseif(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+     
+} else {
+            $user_id = 1;
         }
+        
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -23,8 +26,8 @@ if (isset($_POST['action'])) {
 } else {
     $action = 'list_stats';
 }
-$user_id = $GET_ID;
-     //$user_id = $id;   
+
+
 switch ($action){
 
     case 'list_stats':

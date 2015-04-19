@@ -11,6 +11,11 @@ if(isset($_SESSION['id'])){
 $proj_id = $_POST['id'];
 $project = ProjectDB::getProjectByID($proj_id);
 
+// ------------increases number of views-----------------------
+
+ViewDB::addView($proj_id);
+
+//-------------------------------------------------------------
 $id = $project->getUser()->getID();
 
 $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
@@ -52,6 +57,13 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
 		<?php endif ?>
 		<!-- end if -->
+                
+                <!-- "Like" button   -->
+                
+                        <?php include '../likes/form.php'; ?>
+
+                
+                <!-- end "Like"  -->
 
 		<!-- report user button (form) -->
 		<form method="post" action="." class="report-form">

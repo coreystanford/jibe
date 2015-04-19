@@ -20,8 +20,23 @@
 //} else {
 //    $proj_id = $project->getID();
 //}
+//if(isset($_SESSION['id'])){
+//    $SESSION_ID = $_SESSION['id'];
+//} else {
+//    $SESSION_ID = 24;
+//}
 
-$user_id = $id;
+// current user id
+    if(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+    }
+    elseif(isset($_GET['id'])){
+            $user_id = $_GET['id'];       
+           
+    } else {
+            $user_id = 1;
+        }
+//$user_id = $SESSION_ID;
 //$proj_id = 5;
 $now_date = new DateTime();
 $cmt_date = $now_date->format('Y-m-d H:i:s');
@@ -50,21 +65,21 @@ if (isset($_POST['submit_comment'])){
 
             if (CommentDB::addComment($new_comment) != 1) {
                 $message_fail = "Failed to add the comment";
-                $comments = CommentDB::getComments($user_id, $proj_id);
+                $comments = CommentDB::getComments($proj_id);
                 include 'form.php';
                 include 'list.php';
             } else {
                 $message_success = "New comment added successfully!";
-                $comments = CommentDB::getComments($user_id, $proj_id);
+                $comments = CommentDB::getComments($proj_id);
                 include('list.php');   
             }
     } 
 } else {
     //if no form was submitted
 
-    $comments = CommentDB::getComments($user_id, $proj_id);
-    echo $user_id . "<br/>";
-    echo $proj_id . "<br/>";
+    $comments = CommentDB::getComments($proj_id);
+    echo "User id:" . $user_id . "<br/>";
+    echo "Project id:" . $proj_id . "<br/>";
    // var_dump($comments);
         if(!empty($comments)){
         //  --if comments exist, load comments

@@ -47,12 +47,12 @@ $newcommentfields->addField('cmt_msg');
 
             if (CommentDB::addComment($new_comment) != 1) {
                 $message_fail = "Failed to add the comment";
-                $comments = CommentDB::getComments($user_id, $proj_id);
+                $comments = CommentDB::getComments($proj_id);
                 include 'form.php';
                 include 'list.php';
             } else {
                 $message_success = "New comment added successfully!";
-                $lastcomment = CommentDB::getLastComment($user_id, $proj_id);
+                $lastcomment = CommentDB::getLastComment($proj_id);
                 include('success.php');   
             }
     } 

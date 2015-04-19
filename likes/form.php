@@ -1,8 +1,24 @@
+<?php 
+session_start();
+
+// current user id
+    if(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+    }
+    elseif(isset($_GET['id'])){
+            $user_id = $_GET['id'];       
+           
+    } else {
+            $user_id = 1;
+        }
+        ?>
+
 <div id="like">
+    user: <?php echo $user_id; ?>
 <form method="post" name="submit-like" id="submit_like" class="submit_like">
-    <input type="hidden" name="user_id" class="user_id" value="<?php echo $id; ?>" />
+    <input type="hidden" name="user_id" class="user_id" value="<?php echo $user_id; ?>" />
     <input type="hidden" name="proj_id" class="proj_id" value="<?php echo $proj_id; ?>" />
-    <?php $like_id = LikeDB::checkUserLikesProject($id, $proj_id);
+    <?php $like_id = LikeDB::checkUserLikesProject($user_id, $proj_id);
     if(is_null($like_id)){
         $action = "Like";
     }
