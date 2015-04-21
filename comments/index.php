@@ -81,13 +81,8 @@ if (isset($_POST['submit_comment'])){
     echo "User id:" . $user_id . "<br/>";
     echo "Project id:" . $proj_id . "<br/>";
    // var_dump($comments);
-        if(!empty($comments)){
-        //  --if comments exist, load comments
-            include 'list.php';
+        
             include 'form.php';
-        } else {
-        // -- load form
-            include 'form.php';
-        }
+       
 }
 

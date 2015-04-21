@@ -49,8 +49,9 @@
 			<div class="tab-panel on" id="tab-3">
 
 				<div class="stats">
-
-					<?php include '../stats/'; ?> 
+                                    
+                                    <a href="../stats/">Stats are temporary located here</a>
+                                    <?php include '../stats/' ; ?>
 					
 				</div><!-- end stats -->
 

@@ -53,7 +53,9 @@ $newcommentfields->addField('cmt_msg');
             } else {
                 $message_success = "New comment added successfully!";
                 $lastcomment = CommentDB::getLastComment($proj_id);
-                include('success.php');   
+                $comments = CommentDB::getComments($proj_id);
+                include 'success.php';
+                include 'list.php';
             }
     } 
 

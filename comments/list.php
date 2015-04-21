@@ -2,7 +2,7 @@
 
  <?php foreach ($comments as $comment) : ?>
     <div class="comment-wrap">
-        <img src = "../images_upload/profiles/<?php echo $comment->getUser()->getImgURL(); ?>" 
+        <img src = "../images_upload/thumbs/<?php echo $comment->getUser()->getImgURL(); ?>" 
              alt = "<?php echo $comment->getUser()->getFName(); ?> 
                     <?php echo $comment->getUser()->getLName(); ?>"
               class ="comment-profile-img"      />

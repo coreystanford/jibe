@@ -1,4 +1,13 @@
-<p id="result">
+<div id="result">
+<div id="orig_list" >
+   <?php
+    if(!empty($comments)){
+        //  --if comments exist, load comments
+            include 'list.php';
+    }
+    ?>
+</div>
+</div>
 <form method="post" name="submit-comment" id="submit_comment" class="submit_comment">
     <input type="hidden" name="user_id" class="user_id" value="<?php echo $user_id; ?>" />
     <input type="hidden" name="proj_id" class="proj_id" value="<?php echo $proj_id; ?>" />
@@ -9,14 +18,16 @@
     <button type="submit" name="btn_submit_comment" id="btn_submit_comment" class="btn submit" >Submit</button>
 </form>
 
-
 <script type="text/javascript">
 jQuery(document).ready(function () {
-    if($('input#cmt_msg').empty()){
+        var comment = $.trim($('#cmt_msg').val());
+        
+    if(comment.length <= 0 )
+        {
         $('#btn_submit_comment').disabled = true;
         $('#btn_submit_comment').css("opacity", "0.5");
-    }
-    if(!$('input#cmt_msg').empty()){
+        }
+    if(!comment.length > 0){
         $('#btn_submit_comment').css("opacity", "1");
     }
     $("#submit_comment").submit(function () {
@@ -25,7 +36,9 @@ jQuery(document).ready(function () {
             url: "../comments/submit_comment.php",
             data: $('form.submit_comment').serialize(),
             success: function (result) {
-                $("#result").html(result)
+                $("#orig_list").html('');
+
+                $("#comments").html(result);
                 $('form#submit_comment')[0].reset();
                 //$('form.cmt_msg').empty();
             },
@@ -38,4 +51,3 @@ jQuery(document).ready(function () {
     });
 });               
 </script>
-</p>
