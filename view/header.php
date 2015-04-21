@@ -47,7 +47,7 @@
 
 				    <div id="right-nav">
 
-				    	<a href="#" id="search"><i class="fa fa-search"></i></a>
+				    	<a href="../search/index.php" id="search"><i class="fa fa-search"></i></a>
 
 			        	<h4><a href="../feed?id=24">Feed</a></h4>
 
