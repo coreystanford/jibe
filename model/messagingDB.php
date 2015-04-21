@@ -59,9 +59,12 @@ class Messaging {
     public static function getMessagesBySenderReceiver($me,$you){
 
         $db = Database::getDB();
-        $query = "SELECT * FROM messaging" 
-                . " WHERE ( user_sender=" . $me . " AND user_receiver=" . $you . " ) "
-                . "OR ( user_sender=" . $you . " AND user_receiver=" . $me . " ); ";
+        $query = "SELECT * FROM ("
+                    ."SELECT * FROM messaging" 
+                        . " WHERE ( user_sender=" . $me . " AND user_receiver=" . $you . " ) "
+                        . "OR ( user_sender=" . $you . " AND user_receiver=" . $me . " ) "
+                    ."ORDER BY time_sent DESC LIMIT 8) temp "
+                ."ORDER BY time_sent ASC; ";
         $stm = $db->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);

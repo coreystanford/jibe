@@ -12,7 +12,8 @@
     width: 20%;
 /*    border: 1px solid black;*/
     height: 75%;
-    overflow-y: scroll;
+/*    overflow-y: scroll;*/
+    background-color: rgba(30,30,30,1);
 }
 
     #msg-sidebar ul {
@@ -39,7 +40,8 @@
     width: 50%;
     /*border: 1px solid black;*/
     height: 65%;
-    overflow-y: scroll;
+/*    overflow-y: scroll;*/
+    background-color: rgba(30,30,30,1);
 }
 
     #msg-content ul {
@@ -79,15 +81,18 @@
     clear: both;
     position: fixed;
     right: 12%;
-    bottom: 15%;
+    bottom: 12%;
     text-align: center;
     width: 50%;
+    background-color: rgba(30,30,30,1);
+    padding: 15px 0 15px 0;
 }
 
 #msg-box textarea {
-    width: 85%;
+    width: 80%;
     display: block;
     float: left;
+    margin-left: 20px;
 }
 
 #msg-box #send-btn {
@@ -123,30 +128,3 @@
 }
 
 
-
-
-/*Scrollbar CSS*/
-
-/* Let's get this party started */
-::-webkit-scrollbar {
-    width: 15px;
-}
- 
-/* Track */
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: 2px solid black;
-    background: rgba(0,0,0,0.5); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255,0,0,0.4); 
-}

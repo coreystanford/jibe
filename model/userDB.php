@@ -2,6 +2,7 @@
 
 spl_autoload_register('userDB::getUsers');
 spl_autoload_register('userDB::getUserById');
+spl_autoload_register('userDB::getUsersForSearch');
 spl_autoload_register('userDB::updateUser');
 spl_autoload_register('userDB::updateImagePath');
 spl_autoload_register('userDB::deleteImagePath');
@@ -53,6 +54,32 @@ class userDB {
                     $row['specialty']);
             $user->setID($row['user_id']);
         return $user;
+    }
+    
+    public static function getUsersForSearch($searchQuery){
+        $db = Database::getDB();
+        $searchQuery = strtolower($searchQuery);
+        $query = "SELECT * FROM users "
+                ."WHERE LOWER(fname) like LOWER('%".$searchQuery."%') OR LOWER(lname) like LOWER('%".$searchQuery."%')"
+                . "ORDER BY fname";
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+        $users = array();
+            foreach ($result as $row) {
+                $user = new User(
+                    $row['fname'],
+                    $row['lname'],
+                    $row['city'],
+                    $row['country'],
+                    $row['website'],
+                    $row['img_url'],
+                    $row['bio'],
+                    $row['specialty']);
+                $user->setID($row['user_id']);
+                $users[] = $user;
+                }
+        return $users;
     }
 
     public static function updateUser($user, $user_id){

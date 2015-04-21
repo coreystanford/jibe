@@ -8,18 +8,19 @@
 
     $messages;
 
-    $messages = Messaging::getMessagesBySenderReceiver(1,$_GET['id']);
+    $messages = Messaging::getMessagesBySenderReceiver(1,$_GET['user-id']);
     
 ?>
 
-<div id="msg-ajax">
+<!--<div id="msg-ajax">-->
     <div id="msg-sidebar">
         <ul>
             <?php
                 foreach ($users as $user) {
-                    echo '<li><a href="?action=view&id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
+                    echo '<li><a href="?user-action=view&user-id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
                 }
             ?>
+            <li><a href="?user-action=new-conversation">New Conversation</a></li>
         </ul>
     </div>
     <div id="msg-content">
@@ -36,4 +37,4 @@
             ?>
         </ul>
     </div>
-</div>
+<!--</div>-->

@@ -8,10 +8,10 @@
                 <?php
 
                     foreach ($users as $user) {
-                        echo '<li><a href="?action=view&id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
+                        echo '<li><a href="?user-action=view&user-id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
                     }
-
                 ?>
+                <li><a href="?user-action=new-conversation">New Conversation</a></li>
 
             </ul>
         </div>

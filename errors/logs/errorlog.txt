@@ -160,3 +160,102 @@ Error Report
 	Line Number: 16
 	File Name: /Applications/XAMPP/xamppfiles/htdocs/jibe/view/anonymous-footer.php
 End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:30
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:32
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:37
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:43
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:46
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:48
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:51
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:04:57
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:05:27
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:05:28
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 08:05:35
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: user-id
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+	Line Number: 61
+	File Name: C:\xampp\htdocs\jibe\messaging\index.php
+End Error Report
