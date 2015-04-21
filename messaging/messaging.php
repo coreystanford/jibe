@@ -12,7 +12,7 @@
                         }
                     }
                 ?>
-                <li><a href="?user-action=new-conversation">New Conversation</a></li>
+                <li class="new-conv-btn"><a href="?user-action=new-conversation">New Conversation</a></li>
 
             </ul>
         </div>

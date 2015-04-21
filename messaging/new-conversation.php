@@ -15,7 +15,7 @@
                 if(isset($userList)) {
                     $listHtml = '<ul>';
                     foreach ($userList as $user) {
-                        $listHtml .= '<li><a href="?user-action=new-conversation&user-id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
+                        $listHtml .= '<li class="new-conv-btn"><a href="?user-action=new-conversation&user-id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
                     }
                     $listHtml .= '</ul>';
                     echo $listHtml;
