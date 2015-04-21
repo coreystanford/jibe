@@ -11,7 +11,16 @@
             
         <div class="cat-container" >
             <h1>Current listings by <?php echo $current_user->getFName(); ?></h1>
-            <a href="?action=add_job" class="edit">
+            
+            <?php if(isset($_GET['id'])): ?>
+            
+                <a href="?action=add_job&id=<?php echo $_GET['id']; ?>" class="edit">
+                
+            <?php else: ?>
+ 
+                <a href="?action=add_job" class="edit">
+
+            <?php endif; ?>
                 <i class="fa fa-plus fa-lg"></i>
                 Add new job
             </a>

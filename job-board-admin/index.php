@@ -5,26 +5,20 @@ require '../config.php';
     require '../errors/errorhandler.php';
     require '../model/autoload.php';
 
-//echo 'hello world';
    
 // current user id
 session_start();
-    if(isset($_SESSION['id'])){
-            $user_id = $_SESSION['id'];
-    }
-    elseif(isset($_GET['id'])){
+   if(isset($_GET['id'])){
             $user_id = $_GET['id'];       
-           
-    } else {
+}
+elseif(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+     
+} else {
             $user_id = 1;
         }
 
-//        if(isset($_GET['id'])){
-//            $GET_ID = $_GET['id'];
-//        } else {
-//            $GET_ID = 1;
-//        }
-//$user_id = $SESSION_ID;
+
 $message_success = '';
 $message_fail = '';
 

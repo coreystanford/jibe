@@ -43,7 +43,7 @@
                     </form>
                    
                     <?php echo $stats_comment->getComment(); ?>
-                    <br/> - <em>by <?php echo $stats_comment->getUser()->getLName(); ?></em>
+                     - <em>by <?php echo $stats_comment->getUser()->getFName(); ?> <?php echo $stats_comment->getUser()->getLName(); ?></em>
                     
                     
                 </li>
