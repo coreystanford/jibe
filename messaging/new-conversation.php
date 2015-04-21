@@ -4,9 +4,12 @@
         <div id="msg-sidebar">
             <form action="?user-action=search-user" method="post">
 <!--                <input type="hidden" name="user-action" id="user-action" value="search-user">-->
+                <br/>
                 <label>Search for user</label>
+                <br/><br/>
                 <input type="text" name="user-name" id="user-name">
-                <input type="submit" value="Search">
+                <br/><br/>
+                <input type="submit" value="Search" id="search-btn">
             </form>
             <?php 
                 if(isset($userList)) {

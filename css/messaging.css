@@ -14,6 +14,7 @@
     height: 75%;
 /*    overflow-y: scroll;*/
     background-color: rgba(30,30,30,1);
+    text-align: center;
 }
 
     #msg-sidebar ul {
@@ -32,6 +33,16 @@
                 padding: 5px;
                 color: white;
                 background: rgba(255,15,10,0.5);
+            }
+            
+            #msg-sidebar #search-btn {
+                color: white;
+                font-weight: bolder;
+                display: block;
+                width: 40%;
+                padding: 10px 0;
+                background: rgba(100,100,100,0.5);
+                margin: 0 auto;
             }
 
 #msg-content {

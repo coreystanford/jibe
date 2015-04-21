@@ -35,7 +35,7 @@
             <?php
                 if(isset($messages)) {
                     foreach($messages as $message) {
-                        if($message->user_sender == 1) {
+                        if($message->user_sender == $this_user_id) {
                                 echo '<li class="msg-me">' . $message->message . '<br/><p class="time-sent">' . date_format(date_create($message->time_sent), 'G:i A \, jS F') . '</p></li>';
                             }
                             else {
