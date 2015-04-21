@@ -2,10 +2,8 @@
 
 	require '../model/autoload.php';
 
-	if(isset($_SESSION['id'])){
-	    $SESSION_ID = $_SESSION['id'];
-	} else {
-	    $SESSION_ID = 24;
+	if(isset($_SESSION['user_id'])){
+	    $SESSION_ID = $_SESSION['user_id'];
 	}
 
 	$proj_id = $_POST['id'];

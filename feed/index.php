@@ -32,8 +32,6 @@
 
         if(isset($_SESSION['user_id'])){
             $SESSION_ID = $_SESSION['user_id'];
-        } else {
-            $SESSION_ID = 24;
         }
 
 

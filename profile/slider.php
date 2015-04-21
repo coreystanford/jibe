@@ -1,4 +1,17 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php'; 
+
+	
+	require '../model/autoload.php';
+	if (!isset($_SESSION)){
+        session_start();
+    }
+
+    if(!HomepageDB::isLoggedIn()){
+        header("Location: ../");
+        die();
+    }
+
+?>
 
 	<section role=main>
 		

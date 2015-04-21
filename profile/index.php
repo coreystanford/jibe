@@ -30,14 +30,21 @@
     // ------ Session ID + $_GET ------ //
     // -------------------------------- //
 
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        if(!HomepageDB::isLoggedIn()){
+            header("Location: ../");
+            die();
+        }
+
         if(isset($_SESSION['user_id'])){
             $SESSION_ID = $_SESSION['user_id'];
         }
 
         if(isset($_GET['id'])){
             $GET_ID = $_GET['id'];
-        } else {
-            $GET_ID = 24;
         }
 
     // ------------------------------ //
