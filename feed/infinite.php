@@ -2,13 +2,18 @@
 
     require '../model/autoload.php';
 
-    if(isset($_SESSION['user_id'])){
-	    $SESSION_ID = $_SESSION['user_id'];
-	}
+    if (!isset($_SESSION)){
+        session_start();
+    }
 
-	if(!isset($_POST['limit'])){
-		header('Location: .');
-	}
+    if(!HomepageDB::isLoggedIn()){
+        header("Location: ../");
+        die();
+    }
+
+    if(isset($_SESSION['user_id'])){
+        $SESSION_ID = $_SESSION['user_id'];
+    }
 
 	$limit = $_POST['limit'];
 	$offset = $_POST['offset'];

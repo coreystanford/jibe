@@ -30,6 +30,15 @@
     // ------ Session ID + $_GET ------ //
     // -------------------------------- //
 
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        if(!HomepageDB::isLoggedIn()){
+            header("Location: ../");
+            die();
+        }
+
         if(isset($_SESSION['user_id'])){
             $SESSION_ID = $_SESSION['user_id'];
         }
