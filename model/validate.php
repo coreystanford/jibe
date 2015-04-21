@@ -177,7 +177,8 @@ class Validate {
 			return;
 		}
 
-		$pattern = "/^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? ']).*$/";
+		//$pattern = "/^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? ']).*$/";
+                $pattern = "/^[a-zA-Z]\w{3,14}$/";
 
 			// ^.*              : Start
 			// (?=.{8,})        : Length
@@ -188,7 +189,7 @@ class Validate {
 
 			// Source http://stackoverflow.com/questions/2370015/regular-expression-for-password-validation
 
-		$message = "Follow pattern: Q!eT+9zx";
+		$message = "Please enter a strong password";
 
 		$this->pattern($name, $value, $pattern, $message, $required);
 

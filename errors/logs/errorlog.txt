@@ -304,3 +304,12 @@ Error Report
 	Line Number: 53
 	File Name: C:\xampp\htdocs\jibe\profile\tabs.php
 End Error Report
+Error Report
+	DateTime: 2015-04-21 18:53:37
+	Error Number: 2
+	Error Type: Warning
+	Error Message: session_destroy(): Trying to destroy uninitialized session
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 188
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
