@@ -1,3 +1,17 @@
+<?php 
+require './model/autoload.php';
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if(!HomepageDB::isLoggedIn()) {
+    header('../');
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
