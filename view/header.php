@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../css/jobboard.css">
   <link rel="stylesheet" href="../css/comments.css">
   <link rel="stylesheet" href="../css/messaging.css">
+  <link rel="stylesheet" href="../css/search.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
