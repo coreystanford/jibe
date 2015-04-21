@@ -1,9 +1,14 @@
 <?php
+
+    session_start();
+
     require_once '../model/database.php';
     require_once '../model/message.php';
     require_once '../model/user.php';
     require_once '../model/messagingDB.php';
 
+    $this_user_id = $_SESSION['user_id'];
+    
     $users = Messaging::getConversationsByUser($this_user_id);
 
     $messages;
