@@ -5,11 +5,19 @@
     require_once '../model/userDB.php';
     require_once '../model/project.php';
     require_once '../model/projectDB.php';
+    require_once '../model/category.php';
+    require_once '../model/categoryDB.php';
     
     if(isset($_GET['search-query'])) {
         $searchQuery = $_GET['search-query'];
-        $users = userDB::getUsersForSearch($searchQuery);
-        $projects = ProjectDB::getProjectsForSearch($searchQuery);
+        $searchFilter = $_GET['search-filter'];
+        if($searchFilter == "all" || $searchFilter == "users") {
+            $users = userDB::getUsersForSearch($searchQuery);
+        }
+        if($searchFilter == "all" || $searchFilter == "projects") {
+            //$projects = ProjectDB::getProjectsForSearch($searchQuery);
+            $projects = ProjectDB::getProjects();
+        }
     }
     require_once 'search.php';
     

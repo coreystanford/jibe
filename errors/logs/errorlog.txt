@@ -322,3 +322,102 @@ Error Report
 	Line Number: 162
 	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
 End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:41
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:41
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: GET_ID
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 80
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:41
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: GET_ID
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 81
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:41
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: GET_ID
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 93
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:51
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:51
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\projectDB.php
+	Line Number: 97
+	File Name: C:\xampp\htdocs\jibe\model\projectDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:14:51
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\projectDB.php
+	Line Number: 97
+	File Name: C:\xampp\htdocs\jibe\model\projectDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:25:01
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:25:26
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:25:26
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\projectDB.php
+	Line Number: 97
+	File Name: C:\xampp\htdocs\jibe\model\projectDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:26:39
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
