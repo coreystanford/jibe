@@ -1,22 +1,28 @@
 <?php
+    
+    session_start();
+
     require_once '../model/database.php';
     require_once '../model/message.php';
     require_once '../model/user.php';
     require_once '../model/messagingDB.php';
     require_once '../model/userDB.php';
 
-    $users = Messaging::getConversationsByUser(1);
+    $this_user_id = $_SESSION['user_id'];
+    
+    $users = Messaging::getConversationsByUser($this_user_id);
 
     $messages;
 
     if(!isset($_GET['user-action']) && !isset($_POST['user-action'])) {
-        $messages = Messaging::getMessagesBySenderReceiver(1,$users[0]->getID());
+        if(isset($users))
+            $messages = Messaging::getMessagesBySenderReceiver($this_user_id,$users[0]->getID());
         require_once 'messaging.php';
     }
     else if(isset ($_POST['user-action']) && $_POST['user-action'] == 'add-msg') {
-        $message = new Message(1, $_GET['user-id'], $_POST['msg-txt']);
+        $message = new Message($this_user_id, $_GET['user-id'], $_POST['msg-txt']);
         Messaging::addMessage($message);
-        $messages = Messaging::getMessagesBySenderReceiver(1,$_GET['user-id']);
+        $messages = Messaging::getMessagesBySenderReceiver($this_user_id,$_GET['user-id']);
         require_once 'messaging.php';
     }
     else if(isset ($_GET['user-action']) && $_GET['user-action'] == 'search-user') {
@@ -33,7 +39,7 @@
         require_once 'new-conversation.php';
     }
     else {
-        $messages = Messaging::getMessagesBySenderReceiver(1,$_GET['user-id']);
+        $messages = Messaging::getMessagesBySenderReceiver($this_user_id,$_GET['user-id']);
         require_once 'messaging.php';
     }
 
