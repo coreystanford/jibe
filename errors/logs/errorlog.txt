@@ -286,3 +286,21 @@ Error Report
 	Line Number: 162
 	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
 End Error Report
+Error Report
+	DateTime: 2015-04-21 17:24:14
+	Error Number: 2
+	Error Type: Warning
+	Error Message: include(C:\xampp\htdocs\jibe\stats): failed to open stream: Permission denied
+	File Name: C:\xampp\htdocs\jibe\profile\tabs.php
+	Line Number: 53
+	File Name: C:\xampp\htdocs\jibe\profile\tabs.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 17:24:14
+	Error Number: 2
+	Error Type: Warning
+	Error Message: include(): Failed opening '../stats/' for inclusion (include_path='.;C:\xampp\php\PEAR')
+	File Name: C:\xampp\htdocs\jibe\profile\tabs.php
+	Line Number: 53
+	File Name: C:\xampp\htdocs\jibe\profile\tabs.php
+End Error Report

@@ -76,7 +76,7 @@
             xmlhttp.open("GET",url,true);
             xmlhttp.send();
             
-        },5000);
+        },3000);
     });
 
 </script>
