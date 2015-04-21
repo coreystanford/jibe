@@ -313,3 +313,12 @@ Error Report
 	Line Number: 188
 	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
 End Error Report
+Error Report
+	DateTime: 2015-04-21 21:40:24
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::userLogin(), called in C:\xampp\htdocs\jibe\login\index.php on line 73 and defined
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 162
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report

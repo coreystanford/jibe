@@ -3,6 +3,7 @@
 spl_autoload_register('ProjectDB::getProjects');
 spl_autoload_register('ProjectDB::getProjectByID');
 spl_autoload_register('ProjectDB::getProjectsByUserID');
+spl_autoload_register('ProjectDB::getProjectsForSearch');
 spl_autoload_register('ProjectDB::getFeedProjects');
 spl_autoload_register('ProjectDB::getExploreProjects');
 
@@ -101,6 +102,23 @@ class ProjectDB {
 
         }
         return $projects;
+
+    }
+    
+    public static function getProjectsForSearch($searchQuery){
+
+        $db = Database::getDB();
+        $query = "SELECT * FROM projects "
+                . "JOIN category ON projects.cat_id = category.cat_id "
+                . "JOIN users ON projects.user_id = users.user_id "
+                . "JOIN user_info ON users.user_id = user_info.user_id"
+                . "WHERE LOWER(proj_title) like LOWER('%".$searchQuery."%') OR LOWER(proj_description) like LOWER('%".$searchQuery."%')"
+                . "ORDER BY proj_title";
+        $stm = $db->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+        return self::processProjects($result); // helper at bottom
 
     }
 
