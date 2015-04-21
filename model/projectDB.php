@@ -109,8 +109,8 @@ class ProjectDB {
         $query = "SELECT * FROM projects "
                 . "JOIN category ON projects.cat_id = category.cat_id "
                 . "JOIN users ON projects.user_id = users.user_id "
-                . "JOIN user_info ON users.user_id = user_info.user_id"
-                . "WHERE LOWER(proj_title) like LOWER('%".$searchQuery."%') OR LOWER(proj_description) like LOWER('%".$searchQuery."%')"
+                . "JOIN user_info ON users.user_id = user_info.user_id "
+                . "WHERE LOWER(proj_title) like LOWER('%".$searchQuery."%') OR LOWER(proj_description) like LOWER('%".$searchQuery."%') "
                 . "ORDER BY proj_title";
         $stm = $db->prepare($query);
         $stm->execute();

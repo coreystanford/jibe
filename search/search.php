@@ -25,10 +25,11 @@
         <div id="user-results">
             <?php
                 if(isset($users) && !empty($users)) {
-                    echo '<h3>User Results<h3/>';
+                    echo '<h2>User Results</h2>';
                     echo '<ul>';
                     foreach ($users as $user) {
-                        echo '<li><a href="../profile/?id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
+                        //echo '<li><a href="../profile/?id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
+                        echo '<li><a href="../profile/?id='.$user->getID().'" title="'.$user->getFName().' '.$user->getLName().'"><img src="../images_upload/profiles/'.$user->getImgURL().'"</a></li>';
                     }
                     echo '</ul>';
                 }
@@ -37,10 +38,10 @@
         <div id="project-results">
             <?php
                 if(isset($projects) && !empty($projects)) {
-                    echo '<h3>Project Results<h3/>';
+                    echo '<h2>Project Results</h2>';
                     echo '<ul>';
                     foreach ($projects as $project) {
-                        echo '<li><a href="../project/?id='.$project->getID.'">'. $project->getProjTitle() . ' ' . $project->getProjDesc() . '</a></li>';
+                        echo '<li class="project"><a href="#modal" class="open-modal" rel="'.$project->getID().'" title="'.$project->getProjDesc().'"><img src="../Images/'.$project->getProjThumb().'" /></a></li>';
                     }
                     echo '</ul>';
                 }
@@ -50,5 +51,10 @@
     
 </div>
 
+<div id="modal"></div>
 
 <?php include '../view/footer.php'; ?>
+
+<script>
+    feedModal.initialize();
+</script>

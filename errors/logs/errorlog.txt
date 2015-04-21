@@ -421,3 +421,75 @@ Error Report
 	Line Number: 37
 	File Name: C:\xampp\htdocs\jibe\profile\index.php
 End Error Report
+Error Report
+	DateTime: 2015-04-21 23:42:35
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-21 23:48:48
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-22 00:31:43
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-22 01:01:58
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-22 01:02:08
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-22 01:03:19
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-22 01:06:28
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report
+Error Report
+	DateTime: 2015-04-22 01:26:47
+	Error Number: 2048
+	Error Type: 
+	Error Message: Non-static method HomepageDB::isLoggedIn() should not be called statically
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+	Line Number: 37
+	File Name: C:\xampp\htdocs\jibe\profile\index.php
+End Error Report

@@ -15,8 +15,8 @@
             $users = userDB::getUsersForSearch($searchQuery);
         }
         if($searchFilter == "all" || $searchFilter == "projects") {
-            //$projects = ProjectDB::getProjectsForSearch($searchQuery);
-            $projects = ProjectDB::getProjects();
+            $projects = ProjectDB::getProjectsForSearch($searchQuery);
+            //$projects = ProjectDB::getProjects();
         }
     }
     require_once 'search.php';
