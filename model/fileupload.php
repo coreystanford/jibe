@@ -206,8 +206,6 @@ class FileUpload {
      
         if($dst_img)imagedestroy($dst_img);
         if($src_img)imagedestroy($src_img);
-        
-    
     }
     
     public function uploadProject ($filename, $dir = "../images_upload/projects") {

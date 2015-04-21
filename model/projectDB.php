@@ -188,5 +188,10 @@ class ProjectDB {
 
         return $projects;
     }
+    
+    private static function insertProjectImage() {
+        
+    }
+    
 
 }

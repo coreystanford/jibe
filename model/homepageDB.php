@@ -177,7 +177,7 @@ class HomepageDB {
         session_regenerate_id();
         $_SESSION['valid'] = 1;
         $_SESSION['user_id'] = $userid;
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
     }
     
     // ------ function for logging registered and loggout in user out of their account ------ //

@@ -1,5 +1,7 @@
 
- <?php require_once '../view/header.php'; ?>
+ <?php require_once '../view/header.php';
+       require_once '../model/autoload.php';
+ ?>
 
 
 <div id="projUpload">
@@ -11,6 +13,10 @@
           
        <input type="hidden" name="action" value="validateProject"/><!--for switch-case in index-->
       
+       <label for="categoryDropdown" class="bold-labels">Categories: </label>
+       <?php echo Functions::displayList("categories", $categories); ?>
+       <?php echo $uFields->getField('categories')->getHTML(); ?>
+       
         <label id="proj_title" >Project Title : </label>
         <input type="text" name="proj_title" id="title" value="<?php echo $title ?>" />
         <?php echo $uFields->getField('proj_title')->getHTML(); ?>
