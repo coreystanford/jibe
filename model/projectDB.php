@@ -243,7 +243,7 @@ class ProjectDB {
         
     }
     
-    public static function insertProjectInfo($proj_id) {
+    public static function getMediaByProjId($proj_id) {
         $db = Database::getDB();
      
         $query = "SELECT file_url, file_attribute FROM media m 

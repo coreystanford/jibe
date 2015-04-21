@@ -106,9 +106,10 @@ a {
 
 .feed, .nofeed {
     margin: 0 auto;
-    padding: 80px 0 20px 0;
+    padding: 80px 0 200px 0;
     width: 100%;
     text-align: center;
+    overflow-y: auto;
 }
 
 .home-feed {
@@ -1038,6 +1039,7 @@ header {
             left: 53px;
             text-align: center;
             background: #3e3e40;
+            margin: 0;
         }
 
             /* -- CATEGORY TOOLTIP -- */
