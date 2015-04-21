@@ -6,7 +6,7 @@
             <ul>
 
                 <?php
-                    if(isset($users)) {
+                    if(isset($users) && !empty($users)) {
                         foreach ($users as $user) {
                             echo '<li><a href="?user-action=view&user-id='.$user->getID().'">'. $user->getFName() . ' ' . $user->getLName() . '</a></li>';
                         }
@@ -21,7 +21,7 @@
 
                 <?php 
 
-                    if(isset($messages)) {
+                    if(isset($messages) && !empty($messages)) {
                         foreach($messages as $message) {
 
                             if($message->user_sender == $this_user_id) {

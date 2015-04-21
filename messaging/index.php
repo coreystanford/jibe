@@ -15,9 +15,14 @@
     $messages;
 
     if(!isset($_GET['user-action']) && !isset($_POST['user-action'])) {
-        if(isset($users))
+        if(!empty($users)) {
             $messages = Messaging::getMessagesBySenderReceiver($this_user_id,$users[0]->getID());
-        require_once 'messaging.php';
+            require_once 'messaging.php';
+        }
+        else {
+            require_once 'new-conversation.php';
+        }
+        
     }
     else if(isset ($_POST['user-action']) && $_POST['user-action'] == 'add-msg') {
         $message = new Message($this_user_id, $_GET['user-id'], $_POST['msg-txt']);
