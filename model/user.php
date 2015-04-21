@@ -4,7 +4,7 @@ class User {
 
 	private $id, $fname, $lname, $city, $country, $website, $img_url, $bio, $specialty, $email;
 
-	public function __construct($fname, $lname, $city = '', $country = '', $website = '', $img_url = '', $bio = '', $specialty = ''){
+	public function __construct($fname, $lname, $city = '', $country = '', $website = '', $img_url = 'default.jpg', $bio = '', $specialty = ''){
 		$this->fname = $fname;
 		$this->lname = $lname;
 		$this->city = $city;
