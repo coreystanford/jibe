@@ -21,6 +21,7 @@
                 <a href="?action=add_job" class="edit">
 
             <?php endif; ?>
+                    
                 <i class="fa fa-plus fa-lg"></i>
                 Add new job
             </a>

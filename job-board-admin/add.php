@@ -11,8 +11,17 @@ $allcountries = array(
     <div class="slim clearfix">
 
         <h1>Add a job</h1>
+        
+        <?php if(isset($_GET['id'])): ?>
+            
+            <form action="?action=add_job&id=<?php echo $_GET['id']; ?>" id="add-job" name="add-job" method="post" enctype="multipart/form-data">       
+                
+            <?php else: ?>
+ 
+            <form action="?action=add_job" id="add-job" name="add-job" method="post" enctype="multipart/form-data">       
 
-        <form action="?action=add_job" id="add-job" name="add-job" method="post" enctype="multipart/form-data">       
+            <?php endif; ?>
+
 
             <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
             <input type="hidden" name="job_date" value="<?php echo $job_date; ?>" />
