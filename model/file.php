@@ -2,11 +2,10 @@
 
 class File {
 
-	private $id, $url, $tag, $attribute;
+	private $id, $url, $attribute;
 
-	public function __construct($url, $tag = '', $attribute = ''){
+	public function __construct($url, $attribute = ''){
 		$this->url = $url;
-		$this->tag = $tag;
 		$this->attribute = $attribute;
 	}
 
@@ -24,14 +23,6 @@ class File {
 
     public function setURL($value) {
         return $this->url = $value;
-    }
-
-    public function getTag() {
-        return $this->tag;
-    }
-
-    public function setTag($value) {
-        return $this->tag = $value;
     }
 
     public function getAttribute() {

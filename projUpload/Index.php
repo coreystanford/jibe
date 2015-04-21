@@ -51,6 +51,11 @@
         $uFields->addField('proj_description');
         $uFields->addField('proj_thumb');
         
+        $iValidate = new Validate;
+        $iFields = $iValidate->getFields();
+        $iFields->addField('proj_attribute');
+        $iFields->addField('proj_image');
+        
         
     // ------ START SWITCH  ------ //
     
@@ -116,20 +121,48 @@
                 
                 $project = new Project($user_id, $cat_id, $title, $description, $thumb);
                 
-                ProjectDB::insertProjectInfo($project);
-                
-                include 'projectUpload.php';
+                $max_proj_id = ProjectDB::insertProjectInfo($project);
                 
                 
+                
+                include 'contentUpdate.php';
+
             }
-            
-            
-            
+
            break; 
           
             // ------ upload image to project ----- //
         case 'uploadImages';
+
+            $max_proj_id = $_POST['max_proj_id'];
+            $attribute = $_POST['proj_attribute'];
+            $proj_image = $_FILES['proj_image'];
+
+            $iValidate->text('proj_attribute', $attribute);
+            $iValidate->upload('proj_image', $proj_image);
+
             
+            if($iFields->hasErrors()){
+
+                include 'contentUpdate.php';
+                
+            }else{
+
+                $fileupload = new FileUpload;
+                $fileupload->setTarget("../images_upload/projects/");
+                $fileupload->setFilename($_FILES['proj_image']['name']);
+                $fileupload->uploadFile($_FILES['proj_image']);
+
+                $url = $fileupload->getFilename();
+                
+                $image = new File($url, $attribute);
+                FileDB::insertImagesToProject($image, $max_proj_id);
+                
+                
+                
+                include 'projectUpload.php';
+                
+            }
             
             break;
            

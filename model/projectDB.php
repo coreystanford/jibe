@@ -230,8 +230,33 @@ class ProjectDB {
         $stm = $db->prepare($query);
         $row_count = $stm->execute();
 
+        if($row_count){
+            $query = "SELECT MAX(proj_id) as max_id from projects";
+            $stm = $db->prepare($query);
+            $stm->execute();
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            return $result['max_id'];
+        }
+        
         return $row_count;
 
+        
+    }
+    
+    public static function insertProjectInfo($proj_id) {
+        $db = Database::getDB();
+     
+        $query = "SELECT file_url, file_attribute FROM media m 
+                JOIN proj_media pm ON pm.file_id = m.file_id 
+                WHERE pm.proj_id = :pro
+                
+                ";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_STR);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+        
         
     }
     
