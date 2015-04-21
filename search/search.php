@@ -1,5 +1,5 @@
 <?php include '../view/header.php'; ?>
-<div class="slim">
+<div class="search-slim">
     <div id="search-main">
 
         <div id="search-box">
