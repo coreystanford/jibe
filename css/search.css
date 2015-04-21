@@ -1,9 +1,8 @@
 #search-main {
-    position: fixed;
     top: 100px;
-    left: 15%;
+    display: block;
+    margin: auto;
     width: 70%;
-    height: 75%;
 }
 
 #search-box {
