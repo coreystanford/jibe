@@ -2,15 +2,14 @@
 
 class Project {
 
-	private $proj_id, $user_id, $cat_id, $title, $desc, $thumb, $date, $featured;
+	private $proj_id, $user_id, $cat_id, $title, $desc, $thumb, $featured;
 
-	public function __construct($user_id, $cat_id, $title, $desc, $thumb, $date, $featured = 0){
+	public function __construct($user_id, $cat_id, $title, $desc, $thumb, $featured = 0){
 		$this->user_id = $user_id;
 		$this->cat_id = $cat_id;
 		$this->title = $title;
 		$this->desc = $desc;
 		$this->thumb = $thumb;
-		$this->date = $date;
 		$this->featured = $featured;
 	}
 
@@ -60,14 +59,6 @@ class Project {
 
     public function setProjThumb($value) {
         return $this->thumb = $value;
-    }
-
-    public function getProjDate() {
-        return $this->date;
-    }
-
-    public function setProjDate($value) {
-        return $this->date = $value;
     }
 
     public function getFeatured() {

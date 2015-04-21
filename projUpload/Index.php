@@ -23,6 +23,25 @@
 	else {
 	    $action = 'openUpload';
 	}
+        
+        
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        if(!HomepageDB::isLoggedIn()){
+            header("Location: ../");
+            die();
+        }
+        
+        if(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+        }
+        
+        //var_dump($_SESSION);
+        
+        
+        
     // ------ Project Upload Validation ------ //
         
         $uValidate = new Validate;
@@ -30,7 +49,7 @@
         $uFields->addField('categories');
         $uFields->addField('proj_title');
         $uFields->addField('proj_description');
-        $uFields->addField('upfile');
+        $uFields->addField('proj_thumb');
         
         
     // ------ START SWITCH  ------ //
@@ -60,42 +79,62 @@
    // ------ validate project upload form ------ //   
             
         case 'validateProject';
-            
+
             $categories = $_POST['categories'];
-            $email = trim($_POST['proj_title']);
-            $phone = trim($_POST['proj_description']);
+            $title = $_POST['proj_title'];
+            $description = $_POST['proj_description'];
             
-            $validate->lists('categories', $categories);
-            $uValidate->proj_title('proj_title', $proj_title);
-            $uValidate->proj_description('proj_description', $proj_description);
-            //$uValidate->upfile('upfile', $upfile);
-      
+            $uValidate->lists('categories', $categories);
+            $uValidate->text('proj_title', $title);
+            $uValidate->text('proj_description', $description);
+            $uValidate->upload('proj_thumb', $_FILES['proj_thumb']);
+             
             if($uFields->hasErrors()){
+                
+                $categoriesFromDB = CategoryDB::getCategories();
+
+                $categories = array();
+                foreach ($categoriesFromDB as $category) {
+                    $cat = $category->getTitle();
+                    $categories[] = $cat;
+                }
                 
                 include 'projectUpload.php';
                 
             }else{
 
-                //new instance of file upload class
-                //$fileupload = new FileUpload;
-                //$fileupload->setFilename($_FILES['upfile']['name']);
-                //$fileupload->uploadFile($_FILES['upfile']);
-
-                //$img = $fileupload->getFilename();
-                //FileUpload::updateImagePath($SESSION_ID, $img);
- 
+                $cat_id = CategoryDB::getCategoryIdFromString($categories);
+                //var_dump("FILES: ".$_FILES['proj_thumb']['name']);
                 
-                header('Location: ../profile/');
+                $fileupload = new FileUpload;
+                $fileupload->setFilename($_FILES['proj_thumb']['name']);
+                $fileupload->uploadFile($_FILES['proj_thumb']);
+                $fileupload->createProjectThumb($_FILES['proj_thumb']['name']);
+                //$fileupload->deleteFile($_FILES['proj_thumb']);
+
+                $thumb = $fileupload->getFilename();
+                
+                $project = new Project($user_id, $cat_id, $title, $description, $thumb);
+                
+                ProjectDB::insertProjectInfo($project);
+                
+                include 'projectUpload.php';
+                
                 
             }
             
             
-           break; 
-       
-    
-    
-  
             
+           break; 
+          
+            // ------ upload image to project ----- //
+        case 'uploadImages';
+            
+            
+            break;
+           
+           
+           
     // ------ delete project ----- //
         case 'deleteProject';
            

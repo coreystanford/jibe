@@ -208,6 +208,39 @@ class FileUpload {
         if($src_img)imagedestroy($src_img);
     }
     
+
+    // ---- Project ---- //
+    
+    public function createProjectThumb ($filename, $dir = "../images_upload/projectthumbs") {
+        
+         // Set up the variables
+        $dir = $dir . DIRECTORY_SEPARATOR;
+        $i = strrpos($filename, '.');
+        $image_name = substr($filename, 0, $i);
+        $ext = substr($filename, $i);
+
+        // Set up the path
+        $image_path = $dir . $filename;
+
+        $pro_path = $dir . "projectthumbs/" . $image_name . $ext;
+        
+        // Set up the write paths
+        // Check for filename, auto-increment filename if name already exists
+        $i = 1;
+        if(file_exists($pro_path)){
+            while(file_exists($pro_path)){
+                $pro_path = $dir . "projectthumbs/" . $image_name . $i . $ext;
+                //auto-incrementing the file name if the file already exists
+                $imgname = $image_name . $i . $ext;
+                self::setFilename($imgname);
+                $i++;
+            }
+        }
+        self::resizeCropImage(225, 225, $image_path, $pro_path); // Project Images 
+        
+        
+    }
+    
     public function uploadProject ($filename, $dir = "../images_upload/projects") {
          // Set up the variables
         $dir = $dir . DIRECTORY_SEPARATOR;
@@ -225,7 +258,7 @@ class FileUpload {
         $i = 1;
         if(file_exists($pro_path)){
             while(file_exists($pro_path)){
-                $pro_path = $dir . "projetcs/" . $image_name . $i . $ext;
+                $pro_path = $dir . "projects/" . $image_name . $i . $ext;
                 //auto-incrementing the file name if the file already exists
                 $imgname = $image_name . $i . $ext;
                 self::setFilename($imgname);

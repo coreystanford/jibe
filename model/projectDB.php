@@ -59,7 +59,6 @@ class ProjectDB {
                     $row['proj_title'],
                     $row['proj_description'],
                     $row['proj_thumb'],
-                    $row['proj_date'],
                     $row['featured']);
             $project->setID($row['proj_id']);
 
@@ -94,7 +93,6 @@ class ProjectDB {
                     $row['proj_title'],
                     $row['proj_description'],
                     $row['proj_thumb'],
-                    $row['proj_date'],
                     $row['featured']);
             $project->setID($row['proj_id']);
 
@@ -196,7 +194,6 @@ class ProjectDB {
                     $row['proj_title'],
                     $row['proj_description'],
                     $row['proj_thumb'],
-                    $row['proj_date'],
                     $row['featured']);
             $project->setID($row['proj_id']);
 
@@ -207,7 +204,34 @@ class ProjectDB {
         return $projects;
     }
     
-    private static function insertProjectImage() {
+    public static function insertProjectInfo($project) {
+        $db = Database::getDB();
+        
+        $user_id = $project->getUser();
+        $cat_id = $project->getCat();
+        $title = $project->getProjTitle();
+        $desc = $project->getProjDesc();
+        $thumb = $project->getProjThumb();
+        
+        $query = "INSERT INTO projects
+                   (user_id,
+                    cat_id,
+                    proj_title,
+                    proj_description, 
+                    proj_thumb) 
+                    VALUES(
+                        '$user_id',
+                        '$cat_id',
+                        '$title', 
+                        '$desc', 
+                        '$thumb'
+                        )";
+
+        $stm = $db->prepare($query);
+        $row_count = $stm->execute();
+
+        return $row_count;
+
         
     }
     

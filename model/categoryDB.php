@@ -61,6 +61,27 @@ class CategoryDB {
              
         return $category;
     }
+    
+    // ------ Get A Category By String ------ //
+    
+    public static function getCategoryIdFromString($string){
+        
+        $db = Database::getDB();
+
+        $query = "SELECT * FROM category "
+                . "WHERE cat_title = '$string'";
+
+        $stm = $db->prepare($query);
+        $stm->execute();
+
+        $row = $stm->fetch(PDO::FETCH_ASSOC);
+        
+        $category = $row['cat_id'];
+ 
+        return $category;
+        
+    }
+    
 
     // ------ Get Category With Project Count ------ //
 
