@@ -29,7 +29,7 @@
 		
 		<div id="proj-thumb">
 
-			<img src="../images_upload/projects/<?php echo $project->getProjThumb(); ?>" />
+			<img src="../images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" />
 
 		</div><!-- end proj-thumb -->
 

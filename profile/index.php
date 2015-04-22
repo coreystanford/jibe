@@ -1,7 +1,7 @@
 <?php
 
     require '../config.php';
-    require '../errors/errorhandler.php';
+    //require '../errors/errorhandler.php';
     require '../model/autoload.php';
 
  	// -------------------------------------- //
@@ -40,7 +40,6 @@
         if(isset($_SESSION['user_id'])){
             $SESSION_ID = $_SESSION['user_id'];
         }
-        //var_dump($_GET);
         if(isset($_GET['id'])){
             $GET_ID = $_GET['id'];
         }
@@ -74,28 +73,45 @@
         // -------------------------- //
 
         case 'default':
-
-        	$user = userDB::getUserById($GET_ID);
-            $projects = ProjectDB::getProjectsByUserID($GET_ID);
-
-            $id = $user->getID();
-            $fname = $user->getFName();
-            $lname = $user->getLName();
-            $city = $user->getCity();
-            $country = $user->getCountry();
-            $website = $user->getWebsite();
-            $pro_img = $user->getImgURL();
-            $bio = $user->getBio();
-            $specialty = $user->getSpecialty();
-            
-            var_dump("get: ".$GET_ID."  session: ".$SESSION_ID);
            
-            if(!isset($_GET) || $GET_ID == $SESSION_ID){
+            if(isset($GET_ID)){
+
+                $user = userDB::getUserById($GET_ID);
+                $projects = ProjectDB::getProjectsByUserID($GET_ID);
+                $images = SliderImageDB::getImagesByUser($GET_ID);
+                
+                $id = $user->getID();
+                $fname = $user->getFName();
+                $lname = $user->getLName();
+                $city = $user->getCity();
+                $country = $user->getCountry();
+                $website = $user->getWebsite();
+                $pro_img = $user->getImgURL();
+                $bio = $user->getBio();
+                $specialty = $user->getSpecialty();
+
+                include 'view-user.php';
+
+            } else {
+                
+                $user = userDB::getUserById($SESSION_ID);
+                $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
+                $images = SliderImageDB::getImagesByUser($SESSION_ID);
+                
+                $id = $user->getID();
+                $fname = $user->getFName();
+                $lname = $user->getLName();
+                $city = $user->getCity();
+                $country = $user->getCountry();
+                $website = $user->getWebsite();
+                $pro_img = $user->getImgURL();
+                $bio = $user->getBio();
+                $specialty = $user->getSpecialty();
+                
                 include 'slider.php';
                 include 'user-info.php';
                 include 'tabs.php';
-            } else {
-                include 'view-user.php';
+                
             }
 
         break;

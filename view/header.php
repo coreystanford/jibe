@@ -50,7 +50,7 @@
 
 				    	<a href="../search/index.php" id="search"><i class="fa fa-search"></i></a>
 
-			        	<h4><a href="../feed?id=24">Feed</a></h4>
+			        	<h4><a href="../feed/">Feed</a></h4>
 
 			            <h4>
 
@@ -58,7 +58,7 @@
 
 			                <div id="right-dropdown">
 
-			                	<h5><a href="../profile"><i class="fa fa-user"></i>View Profile</a></h5>
+			                	<h5><a href="../profile/"><i class="fa fa-user"></i>View Profile</a></h5>
                                                 <h5><a href="../projUpload/" id="addProjectBtn"><i class="fa fa-plus"></i>Add Project</a></h5>
                                 <h5><a href="../job-board-admin/" id="addProjectBtn"><i class="fa fa-briefcase"></i>My Jobs</a></h5>
 			                	<h5><a href="../login/?action=logout"><i class="fa fa-sign-out"></i>Logout</a></h5>
