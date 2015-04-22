@@ -1,5 +1,7 @@
 <?php include '../view/header.php'; ?>
 
+      <h2>Add your profile image and information</h2>
+
       <div class="photo" >
 
         <img src="../images_upload/profiles/<?php echo $pro_img; ?>"  />
@@ -10,7 +12,7 @@
       
       <form action="./#user" method="post">
 
-        <input type="hidden" name="action" value="user-update"/>
+        <input type="hidden" name="action" value="setup-user"/>
 
         <div class="name">
 
@@ -49,7 +51,7 @@
 
         <div class="cluster">
           <input type="submit" name="submit" value="Update" class="btn submit" />
-              <a href="../profile/?id=<?php echo $SESSION_ID; ?>#user" class="btn submit">Cancel</a>
+              <a href="../profile/" class="btn submit">Cancel</a>
         </div><!-- end cluster -->
 
       </form><!-- end form -->

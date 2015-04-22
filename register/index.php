@@ -94,7 +94,7 @@
 
                 HomepageDB::userRegister($fname, $lname, $email, $hash);
 
-                header("Location: ../profile/");
+                header("Location: ../profile/?action=setup-user");
 
             }
 

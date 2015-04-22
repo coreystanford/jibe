@@ -167,6 +167,7 @@
 
 				$user = userDB::getUserById($GET_ID);
                 $projects = ProjectDB::getProjectsByUserID($GET_ID);
+                $images = SliderImageDB::getImagesByUser($SESSION_ID);
 
                 $pro_img = $user->getImgURL();
 
@@ -181,6 +182,7 @@
 
 	            $user = userDB::getUserById($SESSION_ID);
                 $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
+                $images = SliderImageDB::getImagesByUser($SESSION_ID);
 
                 $id = $user->getID();
                 $fname = $user->getFName();
@@ -205,7 +207,6 @@
         // ---------------------------------- //
 
         case 'img-update':
-
             
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
 
@@ -214,6 +215,8 @@
             if($imgfields->hasErrors()){
                 
                 $user = userDB::getUserById($SESSION_ID);
+                $images = SliderImageDB::getImagesByUser($SESSION_ID);
+
                 $id = $user->getID();
                 $fname = $user->getFName();
                 $lname = $user->getLName();
@@ -235,12 +238,14 @@
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
                 $fileupload->uploadFile($_FILES['pro_thumb']);
                 $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
-                $fileupload->deleteFile($_FILES['pro_thumb']);
+                //$fileupload->deleteFile($_FILES['pro_thumb']);
 
                 $img = $fileupload->getFilename();
                 userDB::updateImagePath($SESSION_ID, $img);
 
                 $user = userDB::getUserById($SESSION_ID);
+                $images = SliderImageDB::getImagesByUser($SESSION_ID);
+
                 $id = $user->getID();
                 $fname = $user->getFName();
                 $lname = $user->getLName();
@@ -279,6 +284,7 @@
 
             $user = userDB::getUserById($user_id);
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
+            $images = SliderImageDB::getImagesByUser($SESSION_ID);
 
             $id = $user->getID();
             $fname = $user->getFName();
