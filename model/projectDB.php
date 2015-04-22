@@ -243,9 +243,7 @@ class ProjectDB {
         
     }
     
-
     public static function getMediaByProjId($proj_id) {
-
 
         $db = Database::getDB();
      
