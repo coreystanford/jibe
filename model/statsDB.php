@@ -41,12 +41,15 @@ class StatsDB {
     
     // Graph function - get array of views for ALL projects
     
-    public static function getAllViews(){
+    public static function getAllViews($user_id){
         $db = Database::getDB();
         $query = "SELECT projects.proj_title, views.num_views FROM projects "
-               . "LEFT JOIN views ON projects.proj_id = views.proj_id "
+                . " LEFT JOIN views ON projects.proj_id = views.proj_id "
+                . " WHERE projects.user_id = :user_id "
                 . " ORDER BY projects.proj_title";
         $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -54,15 +57,18 @@ class StatsDB {
     
     // Graph function - get array of likes for ALL projects
     
-    public static function getAllLikes(){
+    public static function getAllLikes($user_id){
         $db = Database::getDB();
         $query = "SELECT p.proj_title, IFNULL(l.count,0) AS count FROM projects AS p "
                 . " LEFT JOIN ( "
                 . " SELECT proj_id, COUNT(*) AS count "
                 . " FROM likes GROUP BY proj_id) AS l "
                 . " ON p.proj_id = l.proj_id "
+                . " WHERE p.user_id = :user_id "
                 . " ORDER BY p.proj_title ASC";
         $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -70,15 +76,18 @@ class StatsDB {
     
     // Graph function - get array of comments for ALL projects
     
-    public static function getAllComments(){
+    public static function getAllComments($user_id){
         $db = Database::getDB();
         $query = "SELECT p.proj_title, IFNULL(c.count,0) AS count FROM projects AS p "
                 . " LEFT JOIN ( "
                 . " SELECT proj_id, COUNT(*) AS count "
                 . " FROM comments GROUP BY proj_id) AS c "
                 . " ON p.proj_id = c.proj_id "
+                . " WHERE p.user_id = :user_id "
                 . " ORDER BY p.proj_title ASC";
         $stm = $db->prepare($query);
+        $stm->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;

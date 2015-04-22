@@ -74,7 +74,7 @@
     </ul>
 <?php endif;?>
 <!--    <a href="#modal" class="open-modal" rel="modal" title="">View graph</a>-->
-<a href="#" onclick='window.open("graph.php","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
+<a href="#" onclick='window.open("graph.php?id=<?php echo $user_id; ?>","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
     <h3>View graph and compare your stats with others</h3></a>
 
     </div>

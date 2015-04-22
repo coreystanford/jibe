@@ -7,10 +7,24 @@ require_once ('../jpgraph/jpgraph_bar.php');
     require '../model/autoload.php';
     require_once ('../model/statsDB.php');
 
+session_start();
 
-$views = StatsDB::getAllViews();
-$likes = StatsDB::getAllLikes();
-$comments = StatsDB::getAllComments();
+// current user id
+    
+if(isset($_GET['id'])){
+            $user_id = $_GET['id'];       
+}
+elseif(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+     
+}
+else {
+            $user_id = 1;
+        }    
+
+$views = StatsDB::getAllViews($user_id);
+$likes = StatsDB::getAllLikes($user_id);
+$comments = StatsDB::getAllComments($user_id);
 
 $data1y = array();
 $yaxis_labels = array();
