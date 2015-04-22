@@ -211,7 +211,7 @@ class FileUpload {
 
     // ---- Project ---- //
     
-    public function createProjectThumb($filename, $dir = "../images_upload/projectthumbs") {
+    public function createProjectThumb($filename, $dir = "../images_upload/") {
         
          // Set up the variables
         $dir = $dir . DIRECTORY_SEPARATOR;
