@@ -26,8 +26,8 @@
            <input type="submit" value="Upload Another Image" />
 
        </form>
-
-        <a href="../profile/">Finish Project</a>
+            <br />
+        <button><a href="../profile/">Finish Project</a></button>
         
     </div><!--end projUpdate div--> 
     
