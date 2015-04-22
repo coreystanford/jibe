@@ -14,7 +14,7 @@
         ?>
 
 <div id="like">
-    user: <?php echo $user_id; ?>
+    <!--user: <?php echo $user_id; ?>-->
 <form method="post" name="submit-like" id="submit_like" class="submit_like">
     <input type="hidden" name="user_id" class="user_id" value="<?php echo $user_id; ?>" />
     <input type="hidden" name="proj_id" class="proj_id" value="<?php echo $proj_id; ?>" />
@@ -28,7 +28,7 @@
         ?>
     <input type="hidden" name="action" class="action" id="action" value="<?php echo $action; ?>" />
 
-    <button type="submit" name="btn_submit_like" id="btn_submit_like" class="btn submit" style="display: inline" ><?php echo $action; ?></button>
+    <button type="submit" name="btn_submit_like" id="btn_submit_like" class="btn submit btn_like" ><?php echo $action; ?></button>
 </form>
     <span id="result"></span>
 <script type="text/javascript">

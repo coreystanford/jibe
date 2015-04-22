@@ -78,8 +78,8 @@ if (isset($_POST['submit_comment'])){
     //if no form was submitted
 
     $comments = CommentDB::getComments($proj_id);
-    echo "User id:" . $user_id . "<br/>";
-    echo "Project id:" . $proj_id . "<br/>";
+    //echo "User id:" . $user_id . "<br/>";
+    //echo "Project id:" . $proj_id . "<br/>";
    // var_dump($comments);
         
             include 'form.php';
