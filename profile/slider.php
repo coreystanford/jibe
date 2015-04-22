@@ -1,15 +1,15 @@
 <?php include '../view/header.php'; 
 
-	
+	var_dump($SESSION_ID);
 	require '../model/autoload.php';
 	if (!isset($_SESSION)){
         session_start();
     }
-
     if(!HomepageDB::isLoggedIn()){
         header("Location: ../");
         die();
     }
+	
 
 ?>
 
