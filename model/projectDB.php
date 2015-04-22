@@ -243,11 +243,9 @@ class ProjectDB {
         
     }
     
-<<<<<<< Updated upstream
-    public static function getMediaByProjId($proj_id) {
-=======
+
     public static function getMediaByProjectID($proj_id) {
->>>>>>> Stashed changes
+
         $db = Database::getDB();
      
         $query = "SELECT file_url, file_attribute FROM media m 
