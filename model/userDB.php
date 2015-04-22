@@ -60,8 +60,10 @@ class userDB {
         $db = Database::getDB();
         $searchQuery = strtolower($searchQuery);
         $query = "SELECT * FROM users "
-                ."WHERE LOWER(fname) like LOWER('%".$searchQuery."%') OR LOWER(lname) like LOWER('%".$searchQuery."%')"
-                . "ORDER BY fname";
+                ."WHERE LOWER(fname) like LOWER('%".$searchQuery."%') "
+                ."OR LOWER(lname) like LOWER('%".$searchQuery."%') "
+                ."OR LOWER(CONCAT(fname, ' ', lname)) like LOWER('%".$searchQuery."%') "
+                ."ORDER BY fname";
         $stm = $db->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
