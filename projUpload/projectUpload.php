@@ -30,7 +30,7 @@
         <?php echo $uFields->getField('proj_description')->getHTML(); ?>
     
         <br /><br />
-
+        <label id="proj_thumb" class="bold-labels" >Project Thumbnail : </label>
        <input type="file" name="proj_thumb" id="upfile"/>
        <?php $uFields->getField('proj_thumb')->getHTML(); ?>
        

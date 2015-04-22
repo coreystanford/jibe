@@ -18,7 +18,7 @@
             <?php echo $iFields->getField('proj_attribute')->getHTML(); ?>
 
             <br /><br />
-
+           <label id="proj_image" class="bold-labels" >New Image : </label>
            <input type="file" name="proj_image" id="upfile"/>
            <?php $iFields->getField('proj_image')->getHTML(); ?>
 
