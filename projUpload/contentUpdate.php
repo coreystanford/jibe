@@ -24,11 +24,11 @@
 
            <br /><br />
            <input type="submit" value="Upload Another Image" />
-
+           
        </form>
             <br />
-        <button><a href="../profile/">Finish Project</a></button>
-        
+        <a href="../profile/">Finish Project</a>
+            <br /><br />
     </div><!--end projUpdate div--> 
     
     <div>
