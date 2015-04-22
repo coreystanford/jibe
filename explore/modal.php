@@ -34,7 +34,7 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 		
 		<div id="proj-thumb">
 
-			<img src="../images/<?php echo $project->getProjThumb(); ?>" />
+			<img src="../images_upload/projects/<?php echo $project->getProjThumb(); ?>" />
 
 		</div><!-- end proj-thumb -->
 

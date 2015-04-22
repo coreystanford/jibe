@@ -28,7 +28,7 @@
 				
 		<div class="project">
 
-			<a href="#modal" class="open-modal" rel="<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="../images/<?php echo $project->getProjThumb(); ?>" /></a>
+			<a href="#modal" class="open-modal" rel="<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="../images_upload/projects/<?php echo $project->getProjThumb(); ?>" /></a>
 
 			<div class="info">
 
