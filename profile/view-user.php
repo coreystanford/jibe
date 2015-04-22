@@ -3,6 +3,16 @@
 	include '../view/header.php'; 
 
 	$followStatus = FollowDB::checkFollow($id, $SESSION_ID);
+        
+        require_once '../model/autoload.php';
+        require_once '../model/sliderImage.php';
+        require_once '../model/sliderImageDB.php';
+        
+        $images;
+        if(isset($_GET['id'])) {
+            $user_id = $_GET['id'];
+            $images = SliderImageDB::getImagesByUser($user_id);
+        }
 
 ?>
 
@@ -14,18 +24,24 @@
 
 			<div class="slider">
 				<div class="slide-group">
-					<div class="slide">
-						<img src="../images/slide2.jpg">
-					</div>
-					<div class="slide">
-						<img src="../images/slide1.jpg">
-					</div>
-					<div class="slide">
-						<img src="../images/slide3.jpg">
-					</div>
-					<div class="slide">
-						<img src="../images/slide4.jpg">
-					</div>
+					<?php
+                                        
+                                            if(isset($images) or !empty($images)) {
+                                                echo 
+                                                    '<div class="slide">'
+                                                        .'<img src="../images_upload/slider-images/default.jpg">'
+                                                    .'</div>';
+                                            }
+                                            else {
+                                                foreach ($images as $image) {
+                                                    echo 
+                                                        '<div class="slide">'
+                                                            .'<img src="../images_upload/slider-images/'.$image->getImgName().'">'
+                                                        .'</div>';
+                                                }
+                                            }
+                                        
+                                        ?>
 				</div>
 			</div>
 			<div class="slide-buttons"></div>

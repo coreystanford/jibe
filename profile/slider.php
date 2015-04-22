@@ -1,15 +1,26 @@
 <?php include '../view/header.php'; 
 
-	var_dump($SESSION_ID);
+	
 	require '../model/autoload.php';
+        require_once '../model/sliderImage.php';
+        require_once '../model/sliderImageDB.php';
+        
 	if (!isset($_SESSION)){
         session_start();
     }
+
     if(!HomepageDB::isLoggedIn()){
         header("Location: ../");
         die();
     }
-	
+    
+    
+    $images;
+    if(isset($_GET['id'])) {
+        $user_id = $_GET['id'];
+        $images = SliderImageDB::getImagesByUser($user_id);
+    }
+    
 
 ?>
 
@@ -19,6 +30,26 @@
 			
 			<div class="slider">
 				<div class="slide-group">
+                                    
+                                        <?php
+                                        
+                                            if(isset($images) or !empty($images)) {
+                                                echo 
+                                                    '<div class="slide">'
+                                                        .'<img src="../images_upload/slider-images/default.jpg">'
+                                                    .'</div>';
+                                            }
+                                            else {
+                                                foreach ($images as $image) {
+                                                    echo 
+                                                        '<div class="slide">'
+                                                            .'<img src="../images_upload/slider-images/'.$image->getImgName().'">'
+                                                        .'</div>';
+                                                }
+                                            }
+                                        
+                                        ?>
+                                    
 					<div class="slide">
 						<img src="../images/slide2.jpg">
 					</div>
