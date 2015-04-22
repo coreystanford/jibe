@@ -628,3 +628,48 @@ Error Report
 	Line Number: 8
 	File Name: C:\xampp\htdocs\jibe\profile\view-user.php
 End Error Report
+Error Report
+	DateTime: 2015-04-23 00:37:20
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 258
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 00:37:20
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 258
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 00:37:20
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 258
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 00:37:20
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 258
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 00:37:20
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined index: proj_date
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 258
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
