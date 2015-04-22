@@ -33,16 +33,14 @@
         if (!isset($_SESSION)){
             session_start();
         }
-
         if(!HomepageDB::isLoggedIn()){
             header("Location: ../");
             die();
         }
-
         if(isset($_SESSION['user_id'])){
             $SESSION_ID = $_SESSION['user_id'];
         }
-
+        //var_dump($_GET);
         if(isset($_GET['id'])){
             $GET_ID = $_GET['id'];
         }
@@ -89,8 +87,10 @@
             $pro_img = $user->getImgURL();
             $bio = $user->getBio();
             $specialty = $user->getSpecialty();
-
-            if($GET_ID == $SESSION_ID){
+            
+            var_dump("get: ".$GET_ID."  session: ".$SESSION_ID);
+           
+            if(!isset($_GET) || $GET_ID == $SESSION_ID){
                 include 'slider.php';
                 include 'user-info.php';
                 include 'tabs.php';
