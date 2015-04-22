@@ -189,7 +189,7 @@ class HomepageDB {
     }
     
     // ------ function for keeping secure sessions. ------ // 
-    function isLoggedIn() {
+    public static function isLoggedIn() {
         if(isset($_SESSION['valid']) && $_SESSION['valid'])
             return true;
         return false;
