@@ -31,7 +31,9 @@
 
 			<a href="../profile?id=<?php echo $project->getUser()->getID(); ?>" class="user-profile" title="<?php echo $project->getUser()->getFName(); ?> <?php echo $project->getUser()->getLName(); ?>"><img src="../images_upload/thumbs/<?php echo $project->getUser()->getImgURL(); ?>"  /></a>
 			<span class="category" title="<?php echo $project->getCat()->getTitle(); ?>"><i class='fa <?php echo $project->getCat()->getIcon(); ?>'></i></span>
-			<span class="approvals"><i class="fa fa-check"></i> 15</span>
+			<span class="approvals"><i class="fa fa-check"></i>
+                            <?php echo (count(LikeDB::getLikesByProjId($project->getID()))); ?>
+                        </span>
 
 		</div><!-- end info -->
 

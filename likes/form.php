@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 
 // current user id
     if(isset($_SESSION['user_id'])){
