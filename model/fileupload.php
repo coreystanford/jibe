@@ -211,7 +211,7 @@ class FileUpload {
 
     // ---- Project ---- //
     
-    public function createProjectThumb ($filename, $dir = "../images_upload/projectthumbs") {
+    public function createProjectThumb($filename, $dir = "../images_upload/projectthumbs") {
         
          // Set up the variables
         $dir = $dir . DIRECTORY_SEPARATOR;
@@ -236,7 +236,7 @@ class FileUpload {
                 $i++;
             }
         }
-        self::resizeCropImage(225, 225, $image_path, $pro_path); // Project Images 
+        self::resizeCropImage(225, 225, $image_path, $pro_path); // Project thumbnail resize 
         
         
     }
