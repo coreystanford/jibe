@@ -65,6 +65,26 @@
                 left: 0;
                 width: 100%;
             }
+            
+            
+            /* -- DESCRIPTION HOVER (TOOLTIP) -- */
+
+            #user-results ul li > a:hover:after {
+                position: absolute;
+                background: #000;
+                background: rgba(0,0,0,0.4);
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
+                color: #fff;
+                content: attr(title);
+                z-index: 2;
+                padding: 20px;
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
 #project-results {
     clear: both;
