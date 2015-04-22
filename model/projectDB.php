@@ -243,25 +243,29 @@ class ProjectDB {
         
     }
     
-<<<<<<< Updated upstream
+
     public static function getMediaByProjId($proj_id) {
-=======
-    public static function getMediaByProjectID($proj_id) {
->>>>>>> Stashed changes
+
+
         $db = Database::getDB();
      
         $query = "SELECT file_url, file_attribute FROM media m 
                 JOIN proj_media pm ON pm.file_id = m.file_id 
-                WHERE pm.proj_id = :pro
-                
-                ";
-
+                WHERE pm.proj_id = :proj_id";
+        
         $stm = $db->prepare($query);
-        $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_STR);
+        $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         
+        $images = array();
         
+        foreach($result as $row) {
+            $image = new File($row['file_url'], $row['file_attribute']);
+            $images[] = $image;
+        }
+        
+        return $images;
     }
     
 

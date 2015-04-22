@@ -123,7 +123,7 @@
                 
                 $max_proj_id = ProjectDB::insertProjectInfo($project);
                 
-                
+                $images = ProjectDB::getMediaByProjId($max_proj_id);
                 
                 include 'contentUpdate.php';
 
@@ -144,6 +144,7 @@
             
             if($iFields->hasErrors()){
 
+                $images = ProjectDB::getMediaByProjId($max_proj_id);
                 include 'contentUpdate.php';
                 
             }else{
@@ -158,9 +159,8 @@
                 $image = new File($url, $attribute);
                 FileDB::insertImagesToProject($image, $max_proj_id);
                 
-                
-                
-                include 'projectUpload.php';
+                $images = ProjectDB::getMediaByProjId($max_proj_id);
+                include 'contentUpdate.php';
                 
             }
             

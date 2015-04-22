@@ -8,6 +8,7 @@ if(isset($_SESSION['user_id'])){
 
 $proj_id = $_POST['id'];
 $project = ProjectDB::getProjectByID($proj_id);
+$images = ProjectDB::getMediaByProjId($proj_id);
 
 // ------------increases number of views-----------------------
 
@@ -81,7 +82,11 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
     <div id="content" class="clearfix">
 
-        
+        <?php foreach($images as $image): ?>
+
+            <img src="../images_upload/projects/<?php echo $image->getURL(); ?>" alt="<?php echo $image->getAttribute(); ?>" />
+
+        <?php endforeach; ?>
 
     </div><!-- end content -->
 

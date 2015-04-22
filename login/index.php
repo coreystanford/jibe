@@ -62,7 +62,7 @@
 
             $lFields->getField('invalid')->clearErrorMessage();
             $lValidate->email('email', $email);
-            $lValidate->password('password', $password);
+            $lValidate->text('password', $password, true, 1, 64);
 
             if($lFields->hasErrors()){
 

@@ -21,6 +21,15 @@ class FileDB {
         $stm = $db->prepare($query);
         $row_count = $stm->execute();
         
+        if($row_count){
+            $query = "SELECT MAX(file_id) as max_id from media";
+            $stm = $db->prepare($query);
+            $stm->execute();
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $file_id = $result['max_id'];
+        } else {
+            return $row_count;
+        }
         
         $query = "INSERT INTO proj_media
                    (file_id,
@@ -30,6 +39,9 @@ class FileDB {
                         '$file_id',
                         '$proj_id'  
                         )";
+        
+        $stm = $db->prepare($query);
+        $row_count = $stm->execute();
         
         return $row_count;
    
