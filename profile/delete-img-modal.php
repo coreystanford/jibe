@@ -20,7 +20,7 @@
 
 			<div class="cluster">
 				<input type="submit" value="Delete" class="btn submit">
-				<a href="../profile/?id=<?php echo $id; ?>" class="btn submit">Cancel</a>
+				<a href="../profile/" class="btn submit">Cancel</a>
 			</div><!-- end cluster -->
 
 		</form><!-- end form -->

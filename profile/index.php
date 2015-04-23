@@ -79,7 +79,7 @@
                 $user = userDB::getUserById($GET_ID);
                 $projects = ProjectDB::getProjectsByUserID($GET_ID);
                 $images = SliderImageDB::getImagesByUser($GET_ID);
-                
+
                 $id = $user->getID();
                 $fname = $user->getFName();
                 $lname = $user->getLName();
@@ -90,7 +90,13 @@
                 $bio = $user->getBio();
                 $specialty = $user->getSpecialty();
 
-                include 'view-user.php';
+                if($GET_ID == $SESSION_ID){
+                    include 'slider.php';
+                    include 'user-info.php';
+                    include 'tabs.php';
+                } else {
+                    include 'view-user.php';
+                }
 
             } else {
                 
@@ -124,6 +130,7 @@
 
             $user = userDB::getUserById($SESSION_ID);
             $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
+            $images = SliderImageDB::getImagesByUser($SESSION_ID);
 
             $id = $user->getID();
             $fname = $user->getFName();
@@ -165,8 +172,8 @@
 
 			if($textfields->hasErrors()){
 
-				$user = userDB::getUserById($GET_ID);
-                $projects = ProjectDB::getProjectsByUserID($GET_ID);
+				$user = userDB::getUserById($SESSION_ID);
+                $projects = ProjectDB::getProjectsByUserID($SESSION_ID);
                 $images = SliderImageDB::getImagesByUser($SESSION_ID);
 
                 $pro_img = $user->getImgURL();
@@ -236,7 +243,7 @@
 
                 $fileupload = new FileUpload;
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
-                $fileupload->uploadFile($_FILES['pro_thumb']);
+                //$fileupload->uploadFile($_FILES['pro_thumb']);
                 $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
                 //$fileupload->deleteFile($_FILES['pro_thumb']);
 
@@ -308,7 +315,17 @@
 
         case 'setup':
 
-            
+            $fname = "";
+            $lname = "";
+            $city = "";
+            $country = "";
+            $website = "";
+            $bio = "";
+            $specialty = "";
+
+            $user = userDB::getUserById($SESSION_ID);
+
+            include 'setup.php';
 
         break;
 
@@ -317,6 +334,48 @@
         // ---------------------------------- //
 
         case 'submit-setup':
+
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $city = $_POST['city'];
+            $country = $_POST['country'];
+            $website = $_POST['website'];
+            $bio = $_POST['bio'];
+            $specialty = $_POST['specialty'];
+
+            $textValidate->text('fname', $fname, true, 1, 50);
+            $textValidate->text('lname', $lname, true, 1, 50);
+            $textValidate->text('city', $city, false, 1, 50);
+            $textValidate->text('country', $country, false, 1, 50);
+            $textValidate->text('website', $website, false, 1, 60);
+            $textValidate->text('bio', $bio, false, 1, 220);
+            $textValidate->text('specialty', $specialty, false, 1, 100);
+            $imgValidate->upload('pro_thumb', $_FILES['pro_thumb']);
+
+            if($textfields->hasErrors()){
+
+                $user = userDB::getUserById($SESSION_ID);
+                $pro_img = $user->getImgURL();
+
+                include 'setup.php';
+
+            } else {
+
+                $user = new User($fname, $lname, $city, $country, $website, null, $bio, $specialty);
+                userDB::updateUser($user, $SESSION_ID);
+
+                $fileupload = new FileUpload;
+                $fileupload->setFilename($_FILES['pro_thumb']['name']);
+                $fileupload->uploadFile($_FILES['pro_thumb']);
+                $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
+                //$fileupload->deleteFile($_FILES['pro_thumb']);
+
+                $img = $fileupload->getFilename();
+                userDB::updateImagePath($SESSION_ID, $img);
+
+                header("Location: ../image-slider/");
+
+            }
 
             
 
