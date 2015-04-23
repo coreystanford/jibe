@@ -40,10 +40,10 @@ class SliderImageDB {
         $db = Database::getDB();
 
         $query =
-            "INSERT INTO slider_images
-                 (user_id, img_name)
-             VALUES
-                 ('$image->user_id', '$image->img_name')";
+            "INSERT INTO slider_images "
+                 ."user_id, img_name "
+             ."VALUES "
+                 ."(".$image->getUserID().", '".$image->getImgName()."')';";
 
         $row_count = $db->exec($query);
         return $row_count;

@@ -22,10 +22,18 @@ if (isset($_POST['send']) && $_POST['action'] == 'validate-image') {
     $iValidate->upload('image_input', $imageInput);
     
     if(!$iFields->hasErrors()) {
-        //$fileupload = new FileUpload;
-        //$fileupload->setFilename($_FILES['proj_thumb']['name']);
-        //$fileupload->uploadFile($_FILES['proj_thumb']);
-        //$fileupload->createProjectThumb($_FILES['proj_thumb']['name']);
+        //File upload
+        $fileupload = new FileUpload;
+        $fileupload->setFilename($_FILES['image_input']['name']);
+        $fileupload->uploadSliderImage($_FILES['image_input'], "../images_upload/slider-images/".$_FILES['image_input']['name']);
+        //$fileupload->createSliderImage($_FILES['image_input']['name']);
+        
+        //Add to database
+        $img_name = $fileupload->getFilename();
+        $image = new SliderImage($user_id,$img_name);
+        SliderImageDB::addImage($image);
+        
+        
     }
     
 }

@@ -242,5 +242,59 @@ class FileUpload {
     }
     
     
+    
+    // function to upload slider Image
+    public function uploadSliderImage($file, $destination){
+        $this->validateFile($file);
+        if(!empty($this->_fm_error)){
+            echo $this->_fm_error ;
+        }
+        else {
+            if(!move_uploaded_file($file['tmp_name'], $destination)){
+                $this->_fm_error .= 'Error uploading file';
+            }
+            
+            //echo $file['tmp_name'].'<br />';
+            //echo $this->_target.$this->_filename;
+
+            if($this->_fm_error ){
+                echo $this->_fm_error ;
+            }
+        }
+    }
+    
+    public function createSliderImage($filename, $dir = "../images_upload/slider-images/") {
+        
+         // Set up the variables
+        $dir = $dir . DIRECTORY_SEPARATOR;
+        $i = strrpos($filename, '.');
+        $image_name = substr($filename, 0, $i);
+        $ext = substr($filename, $i);
+
+        // Set up the path
+        $image_path = $dir . $filename;
+
+        $pro_path = $dir . $image_name . $ext;
+        
+        // Set up the write paths
+        // Check for filename, auto-increment filename if name already exists
+        $i = 1;
+        if(file_exists($pro_path)){
+            while(file_exists($pro_path)){
+                $pro_path = $dir . $image_name . $i . $ext;
+                //auto-incrementing the file name if the file already exists
+                $imgname = $image_name . $i . $ext;
+                self::setFilename($imgname);
+                $i++;
+            }
+        }
+        self::resizeCropImage(1300, 486, $image_path, $pro_path); // Project thumbnail resize 
+        
+        
+    }
+    
+    
 }
+
+
 

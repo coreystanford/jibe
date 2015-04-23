@@ -8,7 +8,7 @@
 class SliderImage {
     private $id, $user_id, $img_name;
     
-    function __construct($user_id,$img_name) {
+    public function __construct($user_id,$img_name) {
         $this->user_id = $user_id;
         $this->img_name = $img_name;
     }
