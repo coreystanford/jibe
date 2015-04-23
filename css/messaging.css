@@ -1,3 +1,7 @@
+/*
+Author: Wilston Dsouza
+*/
+
 #msg-main {
     position: fixed;
     top: 100px;
@@ -10,9 +14,7 @@
     position: fixed;
     left: 12%;
     width: 20%;
-/*    border: 1px solid black;*/
     height: 75%;
-/*    overflow-y: scroll;*/
     background-color: rgba(30,30,30,1);
     text-align: center;
 }
@@ -29,7 +31,6 @@
             #msg-sidebar ul li a {
                 text-decoration: none;
                 display: block;
-/*                border: 1px solid black;*/
                 padding: 5px;
                 color: white;
                 background: rgba(255,15,10,0.5);
@@ -53,9 +54,7 @@
     position: fixed;
     right: 12%;
     width: 50%;
-    /*border: 1px solid black;*/
     height: 65%;
-/*    overflow-y: scroll;*/
     background-color: rgba(30,30,30,1);
 }
 
@@ -103,37 +102,28 @@
     padding: 15px 0 15px 0;
 }
 
-#msg-box textarea {
-    width: 80%;
-    display: block;
-    float: left;
-    margin-left: 20px;
-}
+    #msg-box textarea {
+        width: 80%;
+        display: block;
+        float: left;
+        margin-left: 20px;
+    }
 
-#msg-box #send-btn {
-    float: left;
-    margin-left: 5px;
-    color: white;
-    font-weight: bolder;
-    display: block;
-    width: 13%;
-    padding: 10px 0;
-    background: rgba(100,100,100,0.5);
-}
-        
-/*footer {
-    position: absolute;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    background: #26272a;
-    overflow: hidden;
-    z-index: 2;
-    color: #e1e1e1;
-}*/
-            
-            
-            
+    #msg-box #send-btn {
+        float: left;
+        margin-left: 5px;
+        color: white;
+        font-weight: bolder;
+        display: block;
+        width: 13%;
+        padding: 10px 0;
+        background: rgba(100,100,100,0.5);
+    }
+
+/*
+Helper Classes
+*/
+    
 .clear-fix {
     clear: both;
 }
