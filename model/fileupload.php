@@ -117,7 +117,7 @@ class FileUpload {
     
     public function createNewProfileThumbs($filename, $dir = "../images_upload") {
         // Set up the variables
-        $dir = $dir . DIRECTORY_SEPARATOR;
+        $dir = $dir."/";
         $i = strrpos($filename, '.');
         $image_name = substr($filename, 0, $i);
         $ext = substr($filename, $i);

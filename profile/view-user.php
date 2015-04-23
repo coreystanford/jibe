@@ -95,11 +95,11 @@
 
 						<div class="project">
 
-							<a href="#<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="../images/<?php echo $project->getProjThumb(); ?>" /></a>
+							<a href="#<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="../images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" /></a>
 
 							<div class="info">
 
-								<img src="../images/<?php echo $project->getProjThumb(); ?>" class="user-profile" />
+								<img src="../images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" class="user-profile" />
 								<span class="category" title="<?php echo $project->getCat()->getTitle(); ?>"><i class='fa <?php echo $project->getCat()->getIcon(); ?>'></i></span>
 								<span class="approvals"><i class="fa fa-check"></i> 15</span>
 
