@@ -72,6 +72,12 @@
 
 		<?php endif ?>
 		<!-- end if -->
+                <!-- "Like" button   -->
+                
+                        <?php include '../likes/form.php'; ?>
+
+                
+                <!-- end "Like"  -->
 
 	</div><!-- end sub -->
 

@@ -28,24 +28,24 @@ require(MODEL_PATH . 'fields.php');
 
         if(isset($_POST['action']) && $_POST['action'] == "Like"){
             if (LikeDB::likeProject($user_id, $proj_id) != 1) {
-                echo "Failed to like";
+                //echo "Failed to like";
                 //$countLikes = LikeDB::countLikes($proj_id);
                 
             } else {
                 $total_likes = LikeDB::getLikesByProjId($proj_id);
                 
-                echo "Thank you! Now " . count($total_likes). " awesome person(s) like my work." ;
+                //echo "Thank you! Now " . count($total_likes). " awesome person(s) like my work." ;
                 //$countLikes = LikeDB::countLikes($proj_id);
                 //include('success.php');   
             }
         }    
         if(isset($_POST['action']) && $_POST['action'] == "Unlike"){
             if (LikeDB::unlikeProject($user_id, $proj_id) != 1) {
-                echo "Failed to unlike";
+                //echo "Failed to unlike";
                 //$countLikes = LikeDB::countLikes($proj_id);
                 
             } else {
-                echo "Sorry to let you down!";
+                //echo "Sorry to let you down!";
                 //$countLikes = LikeDB::countLikes($proj_id);
                 //include('success.php');   
             }
