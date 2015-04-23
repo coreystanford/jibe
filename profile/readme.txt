@@ -88,7 +88,7 @@
 
 	/profile/ - all files, most content
 
-	/view/
+	/view/ - all files, most content
 
 	home.php
 	index.php

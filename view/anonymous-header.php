@@ -12,11 +12,11 @@
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
   <!-- Icons -->
-  <link rel="stylesheet" href="http://jibe.wikiplay.ca/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/jibe/css/font-awesome/css/font-awesome.min.css">
   <!-- Style -->
-  <link rel="stylesheet" href="http://jibe.wikiplay.ca/css/style.css">
+  <link rel="stylesheet" href="/jibe/css/style.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="http://jibe.wikiplay.ca/images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/jibe/images/favicon.png">
 </head>
 
 	<body>
@@ -27,14 +27,14 @@
 
   			<h1 class="outline">PHP Project</h1>
 
-                        <figure id="logo-anon"><a href="http://jibe.wikiplay.ca"><img src="http://jibe.wikiplay.ca/images_upload/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+                        <figure id="logo-anon"><a href="."><img src="/jibe/images_upload/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="/jibe" /></a></figure>
 
   			<nav id="nav" role="navigation">
 
   			    <div id="right-nav-anon">
 
-  	        	<h4><a href="http://jibe.wikiplay.ca/register/"><i class="fa fa-user-plus"></i>Register</a></h4>
-  	          <h4><a href="http://jibe.wikiplay.ca/login/"><i class="fa fa-sign-in"></i>Login</a></h4>
+  	        	<h4><a href="/jibe/register/"><i class="fa fa-user-plus"></i>Register</a></h4>
+  	          <h4><a href="/jibe/login/"><i class="fa fa-sign-in"></i>Login</a></h4>
 
   	        </div><!-- end right-nav-anon -->
 
