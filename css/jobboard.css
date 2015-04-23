@@ -353,8 +353,19 @@ ul.job-top-nav li{
                     line-height: 70px;
                 }
 
-.likes-list li{display: inline-block; margin: 5px;}
-.stats-project-container {padding: 15px; width: 100%; margin: 10px; background: #26272a; }
+.likes-list li{display:inline-table; margin: 5px;}
+.stats-list li.stats-container { 
+    display: inline-block; 
+    width: 30%; 
+    margin: 10px 10px 10px 0; 
+    vertical-align: text-top;
+}
+.stats-project-container {
+    padding: 15px; 
+    background: #26272a; 
+    box-sizing: border-box; 
+    text-align: left;
+}
 .btn_like {display: inline; margin-top: 0; height: 40px; background-color: green;}
 
 @media only screen and (max-width: 525px) {
@@ -372,5 +383,7 @@ ul.job-top-nav li{
     padding: 10px 10px;
     
 }
+.stats-project-container { width: 100%; margin: 10px 0; }
+
 }
 

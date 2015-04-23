@@ -5,9 +5,9 @@
     <div class="slim clearfix">-->
 
 <?php if(count($stats_projects)> 0) : ?>
-    <ul>
+    <ul class="stats-list">
     <?php foreach( $stats_projects as $stats_proj ): ?>
-        <li>
+        <li class="stats-container">
             <div class="stats-project-container">
             <h3><?php echo $stats_proj->getProjTitle();?> (<?php echo $stats_proj->getID();?>)</h3>
             
@@ -77,7 +77,7 @@
 
 <?php if(count(ProjectDB::getProjectsByUserID($user_id)) > 0): ?>
 <a href="#" onclick='window.open("../stats/graph.php?id=<?php echo $user_id; ?>","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
-    <h3>View graph and compare your stats with others</h3></a>
+    <h3>View graph and your projects</h3></a>
 <?php endif; ?>
 <!--    </div>
 </section>-->

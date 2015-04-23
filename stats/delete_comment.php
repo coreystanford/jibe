@@ -17,10 +17,6 @@ elseif(isset($_SESSION['user_id'])){
         
 
 
-        //$stats_projects = ViewDB::getUsersProjects($user_id); //list projects by user_id.
-        //$user = UserDB::getUserById($user_id); //get user information
-        
-
         $message_success = '';
         $message_fail = '';
         $proj_id_sel = '';
@@ -30,7 +26,7 @@ elseif(isset($_SESSION['user_id'])){
         $user_id = $_POST['user_id'];
         $proj_id_sel = $_POST['proj_id'];
         
-        var_dump($_POST);
+        //var_dump($_POST);
            if(CommentDB::deleteComment($_POST['comment_id']) == 1){
            $message_success = "comment deleted";
         }
