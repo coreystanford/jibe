@@ -14,7 +14,7 @@ $(document).ready(function() {
 	});
 
 	$('#seeFeed').click(function(){
-	    $('html, body').animate({
+	    $('body,html,document').animate({
 	        scrollTop: $( $.attr(this, 'href') ).offset().top
 	    }, 500);
 	    return false;

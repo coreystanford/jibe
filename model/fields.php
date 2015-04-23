@@ -65,24 +65,4 @@ class Fields {
 		return false;
 	}
 
-	public function getSummary($array){
-		$summary = null;
-		$summary .= "<ul>";
-		foreach($array as $key=>$value){
-    		if(is_array($value)){
-    			$summary .= "<ul>";
-		           foreach ($value as $in){
-		                $summary .= "<li>".$in."</li>";
-		           }
-	           $summary .= "</ul>";
-    		}
-    		else
-    		{
-    			$summary .= "<li>".$value."</li>";
-    		}
-    	}
-    	$summary .= "</ul";
-    	return $summary;  
-	}
-
 }

@@ -19,7 +19,7 @@ if(isset($_SESSION['user_id'])){
 
       <h2>Add your profile image and information</h2>
 
-      <h3>Profile Photo: </h3>
+      
 
       <form action="." method="post" enctype="multipart/form-data">
 
@@ -34,25 +34,25 @@ if(isset($_SESSION['user_id'])){
 
         <div class="name">
 
-          <input type="hidden" name="fname" value="<?php echo htmlspecialchars($fname); ?>"/>
-          <input type="hidden" name="lname" value="<?php echo htmlspecialchars($lname); ?>"/>
+          <input type="hidden" name="fname" value="<?php echo $fname ?>"/>
+          <input type="hidden" name="lname" value="<?php echo $lname ?>"/>
 
-          <h3>Specialty: </h3>
+          <h3 class="labels">Specialty: </h3>
           <h3><input type="text" name="specialty" value="<?php echo htmlspecialchars($specialty); ?>"/></h3>
           <!-- validation message -->
           <?php echo $textfields->getField('specialty')->getHTML(); ?>
 
-          <h3>Website: </h3>
+          <h3 class="labels">Website: </h3>
           <input type="text" name="website" value="<?php echo htmlspecialchars($website); ?>"/>
           <!-- validation message -->
           <?php echo $textfields->getField('website')->getHTML(); ?>
 
-          <h3>City: </h3>
+          <h3 class="labels">City: </h3>
           <input type="text" name="city" value="<?php echo htmlspecialchars($city); ?>" /> 
           <!-- validation message -->
           <?php echo $textfields->getField('city')->getHTML(); ?>
 
-          <h3>Country: </h3>
+          <h3 class="labels">Country: </h3>
           <input type="text" name="country" value="<?php echo htmlspecialchars($country); ?>" />
           <!-- validation message -->
           <?php echo $textfields->getField('country')->getHTML(); ?>
@@ -61,7 +61,7 @@ if(isset($_SESSION['user_id'])){
 
         <div class="bio">
 
-          <h3>Short Bio: </h3>
+          <h3 class="labels">Short Bio: </h3>
           <p><textarea type="text" name="bio"  rows="4" cols="50"><?php echo htmlspecialchars($bio); ?></textarea></p>
           <!-- validation message -->
           <?php echo $textfields->getField('bio')->getHTML(); ?>

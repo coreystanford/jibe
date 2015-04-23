@@ -84,7 +84,6 @@ h1, h2, h3, h4, h5, h6, footer, .error {
 body {
     font-family: 'Arvo', serif;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
     color: #e1e1e1;
     background: #0f0f0f;
     height: 100%;
@@ -499,7 +498,7 @@ header {
 
 .featured {
     width: 100%;
-    background: url('../images/slide1.jpg') no-repeat;
+    background: url('../images_upload/slide1.jpg') no-repeat;
     background-size: cover;
     background-position: 50%;
     height: 600px;
