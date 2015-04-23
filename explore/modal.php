@@ -47,6 +47,20 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
 		<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
 
+		<!-- report user button (form) -->
+		<form method="post" action="." class="report-form">
+
+			<!-- form controller action -->
+			<input type="hidden" name="action" value="report" />
+			<!-- user id -->
+            <input type="hidden" name="reported_id" value="<?php echo $project->getUser()->getID(); ?>" />
+            <!-- project id -->
+            <input type="hidden" name="proj_id" value="<?php echo $project->getID(); ?>" />
+
+            <input type="submit" value="Report" class="report" />
+
+		</form><!-- end report-form -->
+
 	</div><!-- end head -->
 
 	<div id="sub" class="clearfix">
@@ -70,20 +84,6 @@ $followStatus = FollowDB::checkFollow($id, $SESSION_ID);
 
                 
                 <!-- end "Like"  -->
-
-		<!-- report user button (form) -->
-		<form method="post" action="." class="report-form">
-
-			<!-- form controller action -->
-			<input type="hidden" name="action" value="report" />
-			<!-- user id -->
-            <input type="hidden" name="reported_id" value="<?php echo $project->getUser()->getID(); ?>" />
-            <!-- project id -->
-            <input type="hidden" name="proj_id" value="<?php echo $project->getID(); ?>" />
-
-            <input type="submit" value="Report" class="report" />
-
-		</form><!-- end report-form -->
 
 	</div><!-- end sub -->
 

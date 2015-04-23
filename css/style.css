@@ -773,6 +773,7 @@ header {
             height: 140px;
             width: 100%;
             background: #26272a;
+            position: relative;
         }
 
             #proj-thumb {
@@ -832,10 +833,9 @@ header {
         }
 
             .report-form {
-                width: 60px;
-                height: 40px;
-                float: right;
-                line-height: 40px;
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
             }
 
                 .report {
@@ -844,7 +844,7 @@ header {
                     border: none;
                     outline: none;
                     font-size: 12px;
-                    background: #26272a;
+                    background: #3e3e40;
                     cursor: pointer;
                 }
 
@@ -1371,13 +1371,6 @@ header {
                         top: 0;
                         left: 53px;
                     }
-
-                /*  --ACTIVITY TAB--  */
-
-
-
-                /*  --MESSAGING TAB--  */
-
 
 
 /*  --------------------------  */

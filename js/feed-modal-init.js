@@ -11,7 +11,7 @@ var feedModal = (function () {
 
 		    	// find the specific project ID
 		    	var id = $(this).find('.open-modal').attr('rel');
-                        console.log(id);
+
 		    	// remove click event from any projects already in the feed (creates havoc if not removed)
 		    	$(this).off('click', '.open-modal');
 		    	// add click event for all projects in the feed
