@@ -21,6 +21,8 @@ if(isset($_SESSION['user_id'])){
 
       <h3>Profile Photo: </h3>
 
+      <form action="." method="post" enctype="multipart/form-data">
+
         <!-- form controller action -->
         <input type="hidden" name="action" value="submit-setup">
 
@@ -29,22 +31,11 @@ if(isset($_SESSION['user_id'])){
           <input type="file" name="pro_thumb" />
 
         </div><!-- end cluster -->
-      
-      <form action="./#user" method="post">
-
-        <input type="hidden" name="action" value="setup-user"/>
 
         <div class="name">
 
-          <h3>First Name: </h3>
-          <input type="text" name="fname" value="<?php echo htmlspecialchars($fname); ?>"/>
-          <!-- validation message -->
-          <?php echo $textfields->getField('fname')->getHTML(); ?> 
-
-          <h3>Last Name: </h3>
-          <input type="text" name="lname" value="<?php echo htmlspecialchars($lname); ?>"/>
-          <!-- validation message -->
-          <?php echo $textfields->getField('lname')->getHTML(); ?>
+          <input type="hidden" name="fname" value="<?php echo htmlspecialchars($fname); ?>"/>
+          <input type="hidden" name="lname" value="<?php echo htmlspecialchars($lname); ?>"/>
 
           <h3>Specialty: </h3>
           <h3><input type="text" name="specialty" value="<?php echo htmlspecialchars($specialty); ?>"/></h3>
@@ -78,8 +69,7 @@ if(isset($_SESSION['user_id'])){
         </div><!-- end bio -->
 
         <div class="cluster">
-          <input type="submit" name="submit" value="Submit" class="btn submit" />
-              <a href="../profile/" class="btn submit">Cancel</a>
+          <input type="submit" name="submit" value="Proceed" class="btn submit" />
         </div><!-- end cluster -->
 
       </form><!-- end form -->

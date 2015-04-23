@@ -96,7 +96,7 @@
 
                 if($new_user_id){
                     session_start();
-                    setSession($new_user_id);
+                    HomepageDB::setSession($new_user_id);
                 }
 
                 header("Location: ../profile/?action=setup");

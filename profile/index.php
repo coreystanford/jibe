@@ -62,6 +62,14 @@
     $imgfields = $imgValidate->getFields();
     $imgfields->addField('pro_thumb');
 
+    $setupValidate = new Validate;
+    $setupfields = $setupValidate->getFields();
+    $setupfields->addField('city');
+    $setupfields->addField('country');
+    $setupfields->addField('website');
+    $setupfields->addField('bio');
+    $setupfields->addField('specialty');
+
 	// ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //
@@ -243,9 +251,7 @@
 
                 $fileupload = new FileUpload;
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
-                //$fileupload->uploadFile($_FILES['pro_thumb']);
                 $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
-                //$fileupload->deleteFile($_FILES['pro_thumb']);
 
                 $img = $fileupload->getFilename();
                 userDB::updateImagePath($SESSION_ID, $img);
@@ -315,15 +321,16 @@
 
         case 'setup':
 
-            $fname = "";
-            $lname = "";
-            $city = "";
-            $country = "";
-            $website = "";
-            $bio = "";
-            $specialty = "";
-
             $user = userDB::getUserById($SESSION_ID);
+
+            $fname = $user->getFName();
+            $lname = $user->getLName();
+            $city = $user->getCity();
+            $country = $user->getCountry();
+            $website = $user->getWebsite();
+            $pro_img = $user->getImgURL();
+            $bio = $user->getBio();
+            $specialty = $user->getSpecialty();            
 
             include 'setup.php';
 
@@ -343,16 +350,13 @@
             $bio = $_POST['bio'];
             $specialty = $_POST['specialty'];
 
-            $textValidate->text('fname', $fname, true, 1, 50);
-            $textValidate->text('lname', $lname, true, 1, 50);
-            $textValidate->text('city', $city, false, 1, 50);
-            $textValidate->text('country', $country, false, 1, 50);
-            $textValidate->text('website', $website, false, 1, 60);
-            $textValidate->text('bio', $bio, false, 1, 220);
-            $textValidate->text('specialty', $specialty, false, 1, 100);
-            $imgValidate->upload('pro_thumb', $_FILES['pro_thumb']);
+            $setupValidate->text('city', $city, false, 1, 50);
+            $setupValidate->text('country', $country, false, 1, 50);
+            $setupValidate->text('website', $website, false, 1, 60);
+            $setupValidate->text('bio', $bio, false, 1, 220);
+            $setupValidate->text('specialty', $specialty, false, 1, 100);
 
-            if($textfields->hasErrors()){
+            if($setupfields->hasErrors()){
 
                 $user = userDB::getUserById($SESSION_ID);
                 $pro_img = $user->getImgURL();
@@ -364,14 +368,19 @@
                 $user = new User($fname, $lname, $city, $country, $website, null, $bio, $specialty);
                 userDB::updateUser($user, $SESSION_ID);
 
-                $fileupload = new FileUpload;
-                $fileupload->setFilename($_FILES['pro_thumb']['name']);
-                $fileupload->uploadFile($_FILES['pro_thumb']);
-                $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
-                //$fileupload->deleteFile($_FILES['pro_thumb']);
+                if(!isset($_FILES['pro_thumb'])){
+                    $fileupload = new FileUpload;
+                    $fileupload->setFilename($_FILES['pro_thumb']['name']);
+                    $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
 
-                $img = $fileupload->getFilename();
+                    $img = $fileupload->getFilename();
+
+                } else {
+                    $img = "default.jpg";
+                }
+
                 userDB::updateImagePath($SESSION_ID, $img);
+                
 
                 header("Location: ../image-slider/");
 
