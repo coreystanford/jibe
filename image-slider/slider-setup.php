@@ -1,5 +1,12 @@
 <?php include '../view/header.php'; ?>
-
+<?php
+/*
+    Author: Wilston Dsouza
+    This files is the view page for the image slider set up.
+    Lets user add images to the silder of their profile page
+    or delete already existing ones from it.
+*/
+?>
 <div id="slider-main" class="search-slim">
     <br/>
     <h2>Setup your image slider</h2>
@@ -7,7 +14,6 @@
     <div id="img-upload">
         <form action="." method="POST" enctype="multipart/form-data">
             <input type="hidden" name="action" value="validate-image"/><!--for switch-case in index-->
-<!--            <label id="lbl-add-image" class="bold-labels" >Choose an image</label>-->
             Choose an image: 
             <input type="file" name="image_input" id="image_input"/>
             <?php echo $iFields->getField('image_input')->getHTML(); ?>

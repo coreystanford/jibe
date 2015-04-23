@@ -1,3 +1,8 @@
+<!--
+    Author: Wilston Dsouza
+    This is the view to start new conversations
+-->
+
 <?php include '../view/header.php'; ?>
 
 <div id="msg-main">

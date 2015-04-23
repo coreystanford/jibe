@@ -1,5 +1,10 @@
 <?php include '../view/header.php'; ?>
 
+<!--
+Author: Wilston Dsouza
+This files serves as the view for the messaging feature
+-->
+
 <div id="msg-main">
     <div id="msg-ajax">
         <div id="msg-sidebar">

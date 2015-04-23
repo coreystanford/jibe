@@ -1,23 +1,10 @@
-$(document).ready(function() {
+//Author: Wilston Dsouza
+//jQuery AJAX code to check for new messages from the database
 
-//        var element = document.getElementById("msg-content");
-//        var scrollPos = element.scrollTop;
-//        
-//        
-//       
-//        $("#msg-content").on('scroll', function(){
-//            scrollPos = element.scrollTop;
-//            alert(scrollPos);
-//        });
-//        
-//        setInterval(function() {
-//            scrollPos = element.scrollTop;
-//        }, 1);
+$(document).ready(function() {
 
         setInterval(function()
         {
-
-//            scrollPos = element.scrollTop;
 
             var xmlhttp;
             if (window.XMLHttpRequest)
@@ -36,13 +23,9 @@ $(document).ready(function() {
                 }
             }
 
-
-            //var url = "index.php?action=view&id=<?=$_GET['id']?>";
             var url = "messaging-ajax.php?id=<?=$_GET['id']?>";
             xmlhttp.open("GET",url,true);
             xmlhttp.send();
-
-//            element.scrollTop = scrollPos;
 
         },5000);
     });

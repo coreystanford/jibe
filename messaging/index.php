@@ -1,21 +1,20 @@
 <?php
-    
-    
-
-//    require '../config.php';
-//    require '../errors/errorhandler.php';
+/*    
+    Author: Wilston Dsouza
+    This file is the contoller for the messaing system
+*/
     require '../model/autoload.php';
-//    
+    
+    //Start session
     if (!isset($_SESSION)){
         session_start();
     }
 
+    //If not logged in, redirect user to login page
     if(!HomepageDB::isLoggedIn()){
         header("Location: ../");
         die();
     }
-    
-//    var_dump($_SESSION['user_id']);
     
     require_once '../model/database.php';
     require_once '../model/message.php';
@@ -25,6 +24,7 @@
 
     $this_user_id = $_SESSION['user_id'];
     
+    //Get conversations for the user
     $users = Messaging::getConversationsByUser($this_user_id);
 
     $messages;
@@ -64,7 +64,11 @@
     }
 
 ?>
-
+<!-- 
+    Script with AJAX call to refresh message window. 
+    Causes conflict if included from external. 
+    Hence used here.
+-->
 <script>
     $(document).ready(function() {
         

@@ -1,5 +1,12 @@
 <?php
 
+/*
+    Author: Wilston Dsouza
+    This file acts as the controller for the image slider.
+    It serves all the requests by getting all the required 
+    data from the database, and rendering the appropriate view
+*/
+
 require '../config.php';
 require '../errors/errorhandler.php';
 require '../model/autoload.php';
