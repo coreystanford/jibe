@@ -124,7 +124,7 @@ class FileUpload {
 
         // Set up the path
         $image_path = $dir . $filename;
-
+        
         $pro_path = $dir . "profiles/" . $image_name . $ext;
         $thumb_path = $dir . "thumbs/" . $image_name . $ext;
 

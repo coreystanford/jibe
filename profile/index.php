@@ -251,7 +251,9 @@
 
                 $fileupload = new FileUpload;
                 $fileupload->setFilename($_FILES['pro_thumb']['name']);
+                $fileupload->uploadFile($_FILES['pro_thumb']);
                 $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
+                //$fileupload->deleteFile($_FILES['pro_thumb']);
 
                 $img = $fileupload->getFilename();
                 userDB::updateImagePath($SESSION_ID, $img);
