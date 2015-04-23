@@ -1,5 +1,11 @@
 <?php
-  
+
+/*
+ * Author: Wilston Dsouza
+ * This files acts as the controller for the
+ * search system.
+ */
+
     require '../config.php';
     require '../errors/errorhandler.php';
     require '../model/autoload.php';
@@ -12,14 +18,6 @@
         header("Location: ../");
         die();
     }
-
-    //require_once '../model/database.php';
-    //require_once '../model/user.php';
-    //require_once '../model/userDB.php';
-    //require_once '../model/project.php';
-    //require_once '../model/projectDB.php';
-    //require_once '../model/category.php';
-    //require_once '../model/categoryDB.php';
     
     if(isset($_GET['search-query'])) {
         $searchQuery = $_GET['search-query'];

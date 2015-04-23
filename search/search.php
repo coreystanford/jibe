@@ -1,4 +1,12 @@
 <?php include '../view/header.php'; ?>
+
+<!--
+
+    Author: Wilston Dsouza
+    View for the search functionality
+
+-->
+
 <div class="search-slim">
     <div id="search-main">
 

@@ -1,5 +1,7 @@
 <?php 
 
+//Modal file to load the project details
+
 require '../model/autoload.php';
 
 $proj_id = $_POST['id'];
