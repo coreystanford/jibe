@@ -1,5 +1,8 @@
 <?php
 
+//  Author: Wilston Dsouza
+//  Message class
+
 class Message {
     
     public $msg_id, $user_sender, $user_receiver, $message, $time_sent, $msr_read;

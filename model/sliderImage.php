@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Description of sliderImage
+ * Description of sliderImage: 
+ * This class represents the an image slider file
  *
  * @author Wilston
  */

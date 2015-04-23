@@ -3,7 +3,9 @@
 require_once 'sliderImage.php';
 
 /**
- * Description of sliderImageDB
+ * Description of sliderImageDB:
+ * This class contains functions to work 
+ * with SliderImage objects
  *
  * @author Wilston
  */

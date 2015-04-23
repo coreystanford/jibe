@@ -1,5 +1,9 @@
 <?php
 
+// Author: Wilstom Dsouza
+//         This class contains methods that 
+//         operate on the message class objects
+
 class Messaging {
     
     public static function addMessage($message) {
