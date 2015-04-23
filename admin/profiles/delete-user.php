@@ -44,7 +44,7 @@
 				<form action="." method="post">
 
                     <!-- form controller action -->
-                    <input type="hidden" name="action" value="confirmed-delete-user" />
+                    <input type="hidden" name="action" value="confirm-delete-user" />
                     <!-- user id -->
                     <input type="hidden" name="id" value="<?php echo $id; ?>" />
 

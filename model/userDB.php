@@ -158,6 +158,12 @@ class userDB {
 
         $row_count = $stm->execute();
 
+        $query = "DELETE FROM reports WHERE reporter_id = :user_id OR reported_id = :user_id";
+
+        $stm = $db->prepare($query);
+        $stm->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
         return $row_count;                 
     }
 

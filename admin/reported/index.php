@@ -206,10 +206,10 @@
                 $id = $_POST['id'];
                 ProjectDB::deleteProject($id);
 
-                $reports = ReportDB::getResolvedReports();
+                $reports = ReportDB::getUnresolvedReports();
                 $sum = getList($reports); // Helper at bottom
 
-                include 'resolved-reports.php';
+                include 'reports.php';
 
             break;
 
@@ -235,10 +235,10 @@
                 $id = $_POST['id'];
                 userDB::deleteUser($id);
 
-                $reports = ReportDB::getResolvedReports();
+                $reports = ReportDB::getUnresolvedReports();
                 $sum = getList($reports); // Helper at bottom
 
-                include 'resolved-reports.php';
+                include 'reports.php';
 
             break;
 

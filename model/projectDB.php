@@ -163,6 +163,28 @@ class ProjectDB {
 
     }
 
+    public static function deleteProject($proj_id){
+
+        $db = Database::getDB();
+
+        $project = self::getProjectByID($proj_id);
+        $user_id = $project->getUser()->getID();
+
+        $query = "DELETE FROM reports WHERE reporter_id = :user_id OR reported_id = :user_id";
+        $stm = $db->prepare($query);
+        $stm->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
+        $query = "DELETE FROM projects 
+                  WHERE proj_id = :proj_id";
+        $stm = $db->prepare($query);
+        $stm->bindParam(":proj_id", $proj_id, PDO::PARAM_INT);
+        $row_count = $stm->execute();
+
+        return $row_count;
+
+    }
+
     // ------ Helper - Process Projects ------ //
 
     private static function processProjects($result){

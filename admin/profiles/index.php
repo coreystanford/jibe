@@ -61,8 +61,7 @@
             $id = $_POST['id'];
             userDB::deleteUser($id);
 
-            $reports = ReportDB::getResolvedReports();
-            $sum = getList($reports);
+            $profiles = userDB::getUsers();
 
             include 'profiles.php';
 
