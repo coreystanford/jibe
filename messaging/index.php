@@ -1,7 +1,22 @@
 <?php
     
-    session_start();
+    
 
+//    require '../config.php';
+//    require '../errors/errorhandler.php';
+    require '../model/autoload.php';
+//    
+    if (!isset($_SESSION)){
+        session_start();
+    }
+
+    if(!HomepageDB::isLoggedIn()){
+        header("Location: ../");
+        die();
+    }
+    
+//    var_dump($_SESSION['user_id']);
+    
     require_once '../model/database.php';
     require_once '../model/message.php';
     require_once '../model/user.php';

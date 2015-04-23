@@ -736,3 +736,300 @@ Error Report
 	Line Number: 162
 	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
 End Error Report
+Error Report
+	DateTime: 2015-04-23 04:50:24
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::userLogin(), called in C:\xampp\htdocs\jibe\login\index.php on line 73 and defined
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 162
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:13
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'main_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 45
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:13
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'sub_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 46
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:13
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 47
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:13
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_link'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 48
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:13
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::getUnfeatured()
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 112
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:13
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: limit
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 119
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:20
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'main_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 45
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:20
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'sub_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 46
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:20
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 47
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:20
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_link'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 48
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:20
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::getUnfeatured()
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 112
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:20
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: limit
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 119
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:31
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'main_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 45
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:31
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'sub_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 46
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:31
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 47
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:31
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_link'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 48
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:31
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::getUnfeatured()
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 112
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:52:31
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: limit
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 119
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:53:44
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'main_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 45
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:53:44
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'sub_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 46
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:53:44
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 47
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:53:44
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_link'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 48
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:53:44
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::getUnfeatured()
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 112
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:53:44
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: limit
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 119
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:54:54
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'main_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 45
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:54:54
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'sub_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 46
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:54:54
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_text'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 47
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:54:54
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Illegal string offset 'button_link'
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 48
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:54:54
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::getUnfeatured()
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 112
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:54:54
+	Error Number: 8
+	Error Type: Notice
+	Error Message: Undefined variable: limit
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 119
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 04:59:06
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::userLogin(), called in C:\xampp\htdocs\jibe\login\index.php on line 73 and defined
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 162
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report
+Error Report
+	DateTime: 2015-04-23 05:00:38
+	Error Number: 2
+	Error Type: Warning
+	Error Message: Missing argument 2 for HomepageDB::userLogin(), called in C:\xampp\htdocs\jibe\login\index.php on line 73 and defined
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+	Line Number: 162
+	File Name: C:\xampp\htdocs\jibe\model\homepageDB.php
+End Error Report

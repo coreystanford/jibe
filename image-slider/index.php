@@ -1,7 +1,17 @@
 <?php
 
 require '../config.php';
+require '../errors/errorhandler.php';
 require '../model/autoload.php';
+
+if (!isset($_SESSION)){
+    session_start();
+}
+
+if(!HomepageDB::isLoggedIn()){
+    header("Location: ../");
+    die();
+}
 
 if (!isset($_SESSION)) {
     session_start();
