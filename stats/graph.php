@@ -22,9 +22,9 @@ else {
             $user_id = 1;
         }    
 
-$views = StatsDB::getAllViews($user_id);
-$likes = StatsDB::getAllLikes($user_id);
-$comments = StatsDB::getAllComments($user_id);
+$views = StatsDB::getAllViews(35);
+$likes = StatsDB::getAllLikes(35);
+$comments = StatsDB::getAllComments(35);
 
 $data1y = array();
 $yaxis_labels = array();
@@ -38,17 +38,34 @@ foreach ($views as $view){
     
 }
 
-$max_views = max($data1y);
-$max_y = ceil($max_views / 10) * 10;
+//var_dump($data1y);
+
 
 $tick_array = array();
 $halftick_array = array();
 
-for($i = 0; $i <= $max_y; $i += 10){
-    $tick_array[] = $i;
-    if($i < $max_y) {$halftick_array[] = $i + 5;}
+$max_views = max($data1y);
+$max_y = ceil($max_views / 10) * 10;
+//echo $max_views;
+//echo $max_y;
+
+if($max_y <= 10){
+    for($i = 0; $i <= $max_y; $i += 4){
+        $tick_array[] = $i;
+        if($i < $max_y) {$halftick_array[] = $i + 2;}
+    }
+    
 }
 
+else{
+    for($i = 0; $i <= $max_y; $i += 10){
+        $tick_array[] = $i;
+        if($i < $max_y) {$halftick_array[] = $i + 5;}
+    }
+}
+
+//var_dump($tick_array);
+//var_dump($halftick_array);
 
 $data2y = array();
 
@@ -56,11 +73,15 @@ foreach ($likes as $like){
     $data2y[] = $like['count'];
 }
 
+//var_dump($data2y);
+
 $data3y = array();
 
 foreach ($comments as $comment) {
     $data3y[] = $comment['count'];
 }
+
+//var_dump($data3y);
 
 // Create the graph. These two calls are always required
 $graph = new Graph(950,400,'auto');

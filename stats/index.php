@@ -1,10 +1,10 @@
 <?php
-require '../config.php';
-require '../errors/errorhandler.php';
-require '../model/autoload.php';
-
-
-session_start();
+//require '../config.php';
+//require '../errors/errorhandler.php';
+//require '../model/autoload.php';
+//
+//
+//session_start();
 
 // current user id
     
@@ -40,6 +40,8 @@ switch ($action){
     case 'delete_comment' :
         $message_success = '';
         $message_fail = '';
+        $proj_id_sel = '';
+
         if(isset($_POST['comment_id'])){
         if(CommentDB::deleteComment($_POST['comment_id']) == 1){
             $message_success = "comment deleted";

@@ -1,10 +1,9 @@
-<?php include '../view/header.php'; ?>
+<?php //include '../view/header.php'; ?>
 
-<section role=main>
+<!--<section role=main>
 
-    <div class="slim clearfix">
-<h2>USER : <?php echo $user->getFName(); ?> <?php echo $user->getLName(); ?> (<?php echo $user_id; ?>)
-</h2>
+    <div class="slim clearfix">-->
+
 <?php if(count($stats_projects)> 0) : ?>
     <ul>
     <?php foreach( $stats_projects as $stats_proj ): ?>
@@ -23,15 +22,16 @@
             <?php 
             $stats_comments = CommentDB::getComments($stats_proj_id); 
             if(count($stats_comments)> 0) :?>
+            <div id="comments">
             <h4>Comments: <?php echo count($stats_comments); ?></h4>
-            <?php if($stats_proj_id == $proj_id_sel): ?>
+            <?php if(isset($proj_id_sel) && $stats_proj_id == $proj_id_sel): ?>
             <span class="job-success"><?php echo $message_success;?></span>
             <span class="job-failure"><?php echo $message_fail;?></span>
             <?php endif; ?>
             <ul>
             <?php foreach($stats_comments as $stats_comment) : ?>
                 <li>
-                    <form name="delete_comment" method="post" action="?action=delete_comment">
+                    <form name="delete_comment" class="delete_comment"  onsubmit="return submitForm(this);">
                     <input type="hidden" name="comment_id" value="<?php echo $stats_comment->getID(); ?>" />
                     <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
                     <input type="hidden" name="proj_id" value="<?php echo $stats_proj_id; ?>" />
@@ -50,6 +50,7 @@
             
             <?php endforeach;?>
             </ul>
+            </div>
             <?php endif;?>
 
             <!------ List likes for this project ------------>
@@ -73,19 +74,31 @@
     <?php endforeach; ?>
     </ul>
 <?php endif;?>
-<!--    <a href="#modal" class="open-modal" rel="modal" title="">View graph</a>-->
-<a href="#" onclick='window.open("graph.php?id=<?php echo $user_id; ?>","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
-    <h3>View graph and compare your stats with others</h3></a>
 
-    </div>
-</section>
-<script type="text/javascript" src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<?php if(count(ProjectDB::getProjectsByUserID($user_id)) > 0): ?>
+<a href="#" onclick='window.open("../stats/graph.php?id=<?php echo $user_id; ?>","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
+    <h3>View graph and compare your stats with others</h3></a>
+<?php endif; ?>
+<!--    </div>
+</section>-->
+
 <script type="text/javascript">
-$("#remove").submit( function() {
-    //var form = $("#filter-jobs");
-    //$("#submitfilter").click();
-});
+    function submitForm(deleteForm) {
+    $.ajax({
+        type:'POST',            
+        url: "../stats/delete_comment.php",
+        data: $(deleteForm).serialize(), 
+        success: function(response) {
+        $('.stats').html(response);
+        },
+        error: function () {
+                alert("failure");
+            }
+    });
+
+    return false;
+}
 </script>
-<?php include '../view/footer.php'; ?>    
+<?php// include '../view/footer.php'; ?>    
 
    

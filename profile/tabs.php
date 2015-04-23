@@ -50,8 +50,7 @@
 
 				<div class="stats">
                                     
-                                    <a href="../stats/">Stats are temporary located here</a>
-                                    <?php include '../stats/' ; ?>
+                                    <?php include '../stats/index.php' ; ?>
 					
 				</div><!-- end stats -->
 

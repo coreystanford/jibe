@@ -99,7 +99,6 @@ class viewDB {
                     $row['proj_title'],
                     $row['proj_description'],
                     $row['proj_thumb'],
-                    $row['proj_date'],
                     $row['featured']
                     );
             $project->setID($row['proj_id']);
