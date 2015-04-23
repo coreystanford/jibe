@@ -370,7 +370,9 @@
                 $user = new User($fname, $lname, $city, $country, $website, null, $bio, $specialty);
                 userDB::updateUser($user, $SESSION_ID);
 
-                if(!isset($_FILES['pro_thumb'])){
+                var_dump($_FILES);
+
+                if($_FILES['pro_thumb']['name']){
                     $fileupload = new FileUpload;
                     $fileupload->setFilename($_FILES['pro_thumb']['name']);
                     $fileupload->createNewProfileThumbs($_FILES['pro_thumb']['name']);
