@@ -183,7 +183,7 @@ class HomepageDB {
     // ------ function for logging registered and loggout in user out of their account ------ //
     public static function userLogout() {
         //$db = Database::getDB();
-        
+        session_start();
         $_SESSION = array();
         session_destroy();
     }
@@ -216,11 +216,22 @@ class HomepageDB {
                     password, 
                     role) 
                     VALUES('$user_id', '$email', '$password', '0')";
-        var_dump($query);
-        $stm = $db->prepare($query);
-        $stm->execute();
-        $row_count = $stm->fetch(PDO::FETCH_ASSOC);
         
+        $stm = $db->prepare($query);
+        $row_count = $stm->execute();
+        
+        if($row_count){
+            $query = "SELECT MAX(user_id) as max_id from users";
+            $stm = $db->prepare($query);
+            $stm->execute();
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            return $result['max_id'];
+        } else {
+            return $row_count;
+        }
+
+
+
         return $row_count;
     }
     

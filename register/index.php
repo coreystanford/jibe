@@ -92,7 +92,9 @@
 
                 $hash = password_hash($password, PASSWORD_BCRYPT);
 
-                HomepageDB::userRegister($fname, $lname, $email, $hash);
+                $new_user_id = HomepageDB::userRegister($fname, $lname, $email, $hash);
+
+
 
                 header("Location: ../profile/?action=setup");
 
