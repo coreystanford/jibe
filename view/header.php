@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="../css/comments.css">
   <link rel="stylesheet" href="../css/messaging.css">
   <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/slider.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
