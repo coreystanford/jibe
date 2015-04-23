@@ -9,7 +9,7 @@
 
 				<div class="feature">
 
-					<a href="#featured-proj" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images/<?php echo $project->getProjThumb(); ?>" /></a>
+					<a href="#featured-proj" title="<?php echo $project->getProjDesc(); ?>"><img src="../../images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" /></a>
 
 					<div class="info">
 

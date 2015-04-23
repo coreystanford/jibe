@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="../css/slider.css">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="../images_upload/favicon.png">
 </head>
 
 	<body>
@@ -35,7 +35,7 @@
 
 				<h1 class="outline">PHP Project</h1>
 
-	            <figure id="logo"><a href="../explore"><img src="/images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+	            <figure id="logo"><a href="../explore"><img src="/images_upload/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 
 				<nav id="nav" role="navigation">
 

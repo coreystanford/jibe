@@ -26,6 +26,21 @@
 	    $action = 'default';
 	}
 
+    // --------------------- //
+    // ------ SESSION ------ //
+    // --------------------- //
+
+     if (!isset($_SESSION)){
+        session_start();
+    }
+    if(!HomepageDB::isLoggedIn()){
+        header("Location: ../");
+        die();
+    }
+    if(isset($_SESSION['user_id'])){
+        $SESSION_ID = $_SESSION['user_id'];
+    }
+
 	// ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //
@@ -74,6 +89,8 @@
                 $reporter = UserDB::getUserById($reporter_id);
                 $project = ProjectDB::getProjectByID($project_id);
                 $reported = $project->getUser();
+
+                $images = ProjectDB::getMediaByProjId($project_id);
 
                 include 'details.php';
 
@@ -166,6 +183,8 @@
                 $project = ProjectDB::getProjectByID($project_id);
                 $reported = $project->getUser();
 
+                $images = ProjectDB::getMediaByProjId($project_id);
+
                 include 'delete-report.php';
 
             break;
@@ -194,6 +213,7 @@
                 
                 $id = $_GET['id'];
                 $project = ProjectDB::getProjectByID($id);
+                $images = ProjectDB::getMediaByProjId($project->getID());
 
                 include 'delete-project.php';
 

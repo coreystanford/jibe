@@ -27,7 +27,7 @@
 
 					<div class="home-project">
 
-						<a href="#modal" rel="<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="./images/<?php echo $project->getProjThumb(); ?>" /></a>
+						<a href="#modal" rel="<?php echo $project->getID(); ?>" title="<?php echo $project->getProjDesc(); ?>"><img src="./images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" /></a>
 
 					</div><!-- end featured -->
 

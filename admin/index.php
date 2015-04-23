@@ -1,5 +1,7 @@
 <?php
 
+    require '../model/autoload.php';
+
  	// -------------------------------------- //
     // ------ Determine Current Action ------ //
     // -------------------------------------- //
@@ -22,7 +24,18 @@
 	    $action = 'default';
 	}
 
+	// --------------------- //
+    // ------ SESSION ------ //
+    // --------------------- //
 
+     if (!isset($_SESSION)){
+        session_start();
+    }
+    if(!HomepageDB::isLoggedIn()){
+        header("Location: ../");
+        die();
+    }
+    
 	// ---------------------------- //
     // ------ Perform Switch ------ //
     // ---------------------------- //

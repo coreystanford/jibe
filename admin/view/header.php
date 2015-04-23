@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="../../css/admin.css">
   <link rel="stylesheet" href="../../css/jobboard.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="../../images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="../../images_upload/favicon.png">
 </head>
 
 	<body>
@@ -26,7 +26,7 @@
 
 			<h1 class="outline">Jibe Content Management System</h1>
 
-			<figure id="logo"><a href="../homepage"><img src="../../images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+			<figure id="logo"><a href="../homepage"><img src="../../images_upload/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 
 			<nav id="nav" role="navigation">
 
@@ -39,6 +39,6 @@
 
 			</nav><!-- end navigation -->
 
-      <h4 id="go-to-site"><a href="../"><i class="fa fa-chevron-left"></i>Go to Site</a></h4>
+      <h4 id="go-to-site"><a href="/jibe/explore/"><i class="fa fa-chevron-left"></i>Go to Site</a></h4>
 
 		</header><!-- end header -->

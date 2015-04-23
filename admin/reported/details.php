@@ -58,7 +58,7 @@
                         
                         <div id="proj-thumb">
 
-                            <img src="../../images/<?php echo $project->getProjThumb(); ?>" />
+                            <img src="../../images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" />
 
                         </div><!-- end proj-thumb -->
 
@@ -73,7 +73,11 @@
 
                     <div id="content" class="clearfix">
 
-                        
+                        <?php foreach($images as $image): ?>
+
+                            <img src="../../images_upload/projects/<?php echo $image->getURL(); ?>" alt="<?php echo $image->getAttribute(); ?>" />
+
+                        <?php endforeach; ?>
 
                     </div><!-- end content -->
 

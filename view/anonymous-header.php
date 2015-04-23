@@ -27,7 +27,7 @@
 
   			<h1 class="outline">PHP Project</h1>
 
-                        <figure id="logo-anon"><a href="#"><img src="/jibe/images/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
+                        <figure id="logo-anon"><a href="#"><img src="/jibe/images_upload/logo.png" alt="JIBE Logo" title="A Creative sharing site" id="jibe" /></a></figure>
 
   			<nav id="nav" role="navigation">
 

@@ -17,7 +17,7 @@
 
 						<div class="project own">
 
-							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../images/<?php echo $project->getProjThumb(); ?>" /></a>
+							<a href="#" title="<?php echo $project->getProjDesc(); ?>"><img src="../images_upload/projectthumbs/<?php echo $project->getProjThumb(); ?>" /></a>
 
 							<div class="info">
 
