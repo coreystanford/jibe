@@ -1,0 +1,53 @@
+.search-slim {
+    text-align: center;
+}
+
+#img-upload {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#img-upload .submit-btn {
+    color: white;
+    font-weight: bolder;
+    display: inline-block;
+    width: 13%;
+    padding: 10px 0;
+    background: rgba(100,100,100,0.5);
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid rgba(100,100,100,0.5);;
+}
+
+#imgs-uploaded {
+    width: 100%;
+    padding-top: 40px;
+    border-top: 1px solid rgba(100,100,100,0.5);
+}
+
+#imgs-uploaded ul {
+    width: 100%;
+}
+
+#imgs-uploaded ul li {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+#imgs-uploaded ul li img {
+    margin: 5px 5px 0px 5px;
+    width: 90%;
+    height: 100%;
+}
+
+#imgs-uploaded ul li form {
+    
+}
+
+.delete-btn {
+    color: white;
+    border: 1px solid rgba(100,100,100,1);
+    background-color: rgba(255,10,10,1);
+    border-radius: 5px;
+}
