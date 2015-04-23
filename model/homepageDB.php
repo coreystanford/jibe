@@ -230,8 +230,6 @@ class HomepageDB {
             return $row_count;
         }
 
-
-
         return $row_count;
     }
     
