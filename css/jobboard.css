@@ -358,11 +358,11 @@ ul.job-top-nav li{
 .stats-list li.stats-container { 
     display: inline-block; 
     width: 30%; 
-    margin: 10px; 
+    margin: 10px 5px; 
     vertical-align: text-top;
 /*    background: #26272a; */
     outline: #26272a thin solid;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
 
 }
 .stats-project-container {
@@ -370,6 +370,13 @@ ul.job-top-nav li{
     text-align: left;
 }
 .btn_like {display: inline; margin-top: 0; height: 40px; background-color: green;}
+
+@media only screen and (max-width: 625px) {
+.stats-list li.stats-container {width: 100%; display: block;}
+.stats-project-container { width: 100%; margin: 10px 0; display: block;}
+
+    
+}
 
 @media only screen and (max-width: 525px) {
 .job-form-input, .job-form-label {
@@ -386,8 +393,6 @@ ul.job-top-nav li{
     padding: 10px 10px;
     
 }
-.stats-list{}
-.stats-project-container { width: 100%; margin: 10px 0; display: list-item;}
 
 }
 

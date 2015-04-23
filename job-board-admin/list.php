@@ -11,6 +11,10 @@
             
         <div class="cat-container" >
             <h1>Current listings by <?php echo $current_user->getFName(); ?></h1>
+    
+     <!----------link to add new job--------------------
+     has an option to add user id from GET request    
+     used for demo purposes to demonstrate creating jobs by different users  --------->
             
             <?php if(isset($_GET['id'])): ?>
             
@@ -45,6 +49,8 @@
                         <div class="cat-title-options">
                             <h5>Job <?php echo $job->getJobTitle(); ?> will be permanently deleted</h5>
 
+        <!------form to delete job-------------------->                    
+                            
                             <form name="delete-form" method="post" action="?action=delete_job">
                                 <input type="hidden" name="job_id" value="<?php echo $job->getID(); ?>" />
                                 <button type="submit" name="deletejob" class="fa fa-check fa-lg" />

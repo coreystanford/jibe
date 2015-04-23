@@ -22,12 +22,16 @@ else {
             $user_id = 1;
         }    
 
-$views = StatsDB::getAllViews(35);
-$likes = StatsDB::getAllLikes(35);
-$comments = StatsDB::getAllComments(35);
+// get lists of views, likes comments and project titles (within views array)        
+        
+$views = StatsDB::getAllViews($user_id);
+$likes = StatsDB::getAllLikes($user_id);
+$comments = StatsDB::getAllComments($user_id);
 
 $data1y = array();
 $yaxis_labels = array();
+
+// asign values to graph labels, and views array
 
 foreach ($views as $view){
     if(is_null($view['num_views'])){
@@ -38,16 +42,17 @@ foreach ($views as $view){
     
 }
 
-//var_dump($data1y);
-
+//  declare arrays for full and half Y-axis ticks
 
 $tick_array = array();
 $halftick_array = array();
 
+//  make grid Yaxis dynamic height to accomodate any veiws number
+
 $max_views = max($data1y);
 $max_y = ceil($max_views / 10) * 10;
-//echo $max_views;
-//echo $max_y;
+
+//  if views number is really low, we create a graph with ticks every 2
 
 if($max_y <= 10){
     for($i = 0; $i <= $max_y; $i += 4){
@@ -57,6 +62,8 @@ if($max_y <= 10){
     
 }
 
+//  for more views we create a grid with tick every
+
 else{
     for($i = 0; $i <= $max_y; $i += 10){
         $tick_array[] = $i;
@@ -64,8 +71,7 @@ else{
     }
 }
 
-//var_dump($tick_array);
-//var_dump($halftick_array);
+//  populating array for likes
 
 $data2y = array();
 
@@ -73,7 +79,7 @@ foreach ($likes as $like){
     $data2y[] = $like['count'];
 }
 
-//var_dump($data2y);
+//   populating array for comments
 
 $data3y = array();
 
@@ -81,7 +87,6 @@ foreach ($comments as $comment) {
     $data3y[] = $comment['count'];
 }
 
-//var_dump($data3y);
 
 // Create the graph. These two calls are always required
 $graph = new Graph(950,400,'auto');
@@ -90,12 +95,14 @@ $graph->SetScale("textlin");
 $theme_class=new UniversalTheme;
 $graph->SetTheme($theme_class);
 
-//$graph->yaxis->SetTickPositions(array(0,10,20,30,40,50), array(5,15,25,35,45));
+//$graph->yaxis->
 $graph->yaxis->SetTickPositions($tick_array,$halftick_array);
 $graph->SetBox(false);
 
 $graph->ygrid->SetFill(false);
-//$graph->xaxis->SetTickLabels(array('A','B','C','D'));
+
+// assigning array of project titles to create graph labels
+
 $graph->xaxis->SetTickLabels($yaxis_labels);
 $graph->yaxis->HideLine(false);
 $graph->yaxis->HideTicks(false,false);

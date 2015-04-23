@@ -12,6 +12,9 @@ $allcountries = array(
 
         <h1>Add a job</h1>
         
+        <!-------------two ways to add user id to the job form. $_GET['id']
+                      for the demo purposed--------------------->
+        
         <?php if(isset($_GET['id'])): ?>
             
             <form action="?action=add_job&id=<?php echo $_GET['id']; ?>" id="add-job" name="add-job" method="post" enctype="multipart/form-data">       
@@ -31,6 +34,9 @@ $allcountries = array(
                         <label for="job_cat" >Select Category: </label>
                     </div>
                     <div class="job-form-input job-right">
+                        
+            <!-----Category ------------------------------>            
+                        
                         <select name="job_cat">
                             <option value="allcategories">--Select Category--</option>
                             <?php
@@ -46,16 +52,22 @@ $allcountries = array(
                         <?php echo $newjobfields->getField('job_cat')->getHTML(); ?>
                     </div>       
                 </li>
+                
                 <li>
                     <div class="job-form-label job-left">
                         <label for="job_title" >Job Title: </label>
                     </div>
                     <div class="job-form-input job-right">
+                        
+            <!---Job Title -------------------------->
                         <input type="text" name="job_title" class="job-text" value="<?php echo htmlspecialchars($job_title); ?>" />
                         <?php echo $newjobfields->getField('job_title')->getHTML(); ?>
 
                     </div>
                 </li>
+                
+            <!-----------------Company hiring --------------------------->    
+                
                 <li>
                     <div class="job-form-label job-left">
                         <label for="job_company" >Company Hiring: </label>  
@@ -65,6 +77,9 @@ $allcountries = array(
                         <?php echo $newjobfields->getField('job_company')->getHTML(); ?>
                     </div>
                 </li>
+                
+            <!--------------Adding company logo ---------------------------->
+            
                 <li>
                     <div class="job-form-label job-left">
                         <label for="job_logo" >Company Logo (recommended size 100px X 100px) : </label>
@@ -73,6 +88,10 @@ $allcountries = array(
                         <input type="file" name="job_logo" id="job_logo" >
                         <?php echo $fileuploaderrors; ?>
                     </div>
+                </li>
+                
+            <!--------City-------------------------------->
+            
                 <li>
                     <div class="job-form-label job-left">
                         <label for="job_city" >City: </label>
@@ -82,6 +101,8 @@ $allcountries = array(
                         <?php echo $newjobfields->getField('job_city')->getHTML(); ?>
                     </div>
                 </li>
+                
+            <!-------------Country ------------------------------>    
                 <li>
                     <div class="job-form-label job-left">
                         <label for="job_country" >Country: </label>
@@ -103,6 +124,8 @@ $allcountries = array(
 
                     </div>
                 </li>
+                
+            <!--------------Job description-------------------------->
                 <li>
                     <div class="job-form-label job-full">
                         <label for="job_description">Job Description: </label>

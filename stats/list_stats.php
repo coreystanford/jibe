@@ -1,8 +1,3 @@
-<?php //include '../view/header.php'; ?>
-
-<!--<section role=main>
-
-    <div class="slim clearfix">-->
 
 <?php if(count($stats_projects)> 0) : ?>
     <ul class="stats-list">
@@ -75,14 +70,18 @@
     </ul>
 <?php endif;?>
 
+<!----link to graph ---->
+
 <?php if(count(ProjectDB::getProjectsByUserID($user_id)) > 0): ?>
 <a href="#" onclick='window.open("../stats/graph.php?id=<?php echo $user_id; ?>","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
     <h3>View graph and compare your projects</h3></a>
 <?php endif; ?>
-<!--    </div>
-</section>-->
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+
+<!--  equalizer function to even out list item heights  --->
+
 <script type="text/javascript">
     function equalize() {
             
@@ -103,7 +102,8 @@
                  $(".stats-container").css('height', 'auto');
            }
         }
-    
+  
+//   -------function to submit delete form and process it through ajax call ---------------  
     
     function submitForm(deleteForm) {
     $.ajax({
@@ -121,6 +121,7 @@
     return false;
     }
 
+// calling equalizer function on loading document and on window resize
 
 $(document).ready(function(){
            
@@ -136,7 +137,5 @@ $(document).ready(function(){
 
 </script>
 
-
-<?php// include '../view/footer.php'; ?>    
 
    

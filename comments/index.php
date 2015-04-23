@@ -1,30 +1,6 @@
 <?php
- //require '../config.php';
-
-//require(MODEL_PATH . 'database.php');
-//require(MODEL_PATH . 'user.php');
-//require(MODEL_PATH . 'userDB.php');
-//require(MODEL_PATH . 'project.php');
-//require(MODEL_PATH . 'projectDB.php');
-//require(MODEL_PATH . 'category.php');
-//require(MODEL_PATH . 'categoryDB.php');
-//require(MODEL_PATH . 'comment.php');
-//require(MODEL_PATH . 'commentDB.php');
-//require(MODEL_PATH . 'fields.php');
-//require('MODEL_PATH' . 'validate.php');
-
-//if (isset($_POST['proj_id']) && (!empty($_POST['proj_id']))) {
-//    $proj_id = $_POST['proj_id'];
-//} else if (isset($_GET['proj_id']) && (!empty($_GET['proj_id']))) {
-//    $proj_id = $_GET['proj_id'];
-//} else {
-//    $proj_id = $project->getID();
-//}
-//if(isset($_SESSION['id'])){
-//    $SESSION_ID = $_SESSION['id'];
-//} else {
-//    $SESSION_ID = 24;
-//}
+// all the calls to include model classes are made in the modal window
+// comments widget is located below project images
 
 // current user id
     if(isset($_SESSION['user_id'])){
@@ -78,8 +54,8 @@ if (isset($_POST['submit_comment'])){
     //if no form was submitted
 
     $comments = CommentDB::getComments($proj_id);
-    //echo "User id:" . $user_id . "<br/>";
-    //echo "Project id:" . $proj_id . "<br/>";
+   //echo "User id:" . $user_id . "<br/>";
+   //echo "Project id:" . $proj_id . "<br/>";
    // var_dump($comments);
         
             include 'form.php';

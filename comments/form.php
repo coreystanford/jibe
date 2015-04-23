@@ -1,3 +1,5 @@
+<!-- function to display a list of comments for the project and a form to submit new comment -->
+
 <div id="result">
 <div id="orig_list" >
    <?php
@@ -8,6 +10,9 @@
     ?>
 </div>
 </div>
+
+<!-- form to submit new comment  --->
+
 <form method="post" name="submit-comment" id="submit_comment" class="submit_comment">
     <input type="hidden" name="user_id" class="user_id" value="<?php echo $user_id; ?>" />
     <input type="hidden" name="proj_id" class="proj_id" value="<?php echo $proj_id; ?>" />
@@ -17,6 +22,8 @@
     <?php echo $newcommentfields->getField('cmt_msg')->getHTML(); ?>
     <button type="submit" name="btn_submit_comment" id="btn_submit_comment" class="btn submit" >Submit</button>
 </form>
+
+<!--- ajax call to process new comment --->
 
 <script type="text/javascript">
 jQuery(document).ready(function () {

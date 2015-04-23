@@ -12,13 +12,7 @@ require(MODEL_PATH . 'commentDB.php');
 require(MODEL_PATH . 'fields.php');
 require(MODEL_PATH . 'validate.php');
 
-//if (isset($_POST['proj_id']) && (!empty($_POST['proj_id']))) {
-//    $proj_id = $_POST['proj_id'];
-//} else if (isset($_GET['proj_id']) && (!empty($_GET['proj_id']))) {
-//    $proj_id = $_GET['proj_id'];
-//} else {
-//    $proj_id = $project->getID();
-//}
+// file to process form
 
 
 
@@ -31,11 +25,15 @@ $newcommentfields->addField('cmt_msg');
     $message_fail = '';
     $message_success = '';
     
+// retrieving POST data from the submitted form    
+    
     $user_id = $_POST['user_id'];
     $proj_id = $_POST['proj_id'];
     $now_date = new DateTime();
     $cmt_date = $now_date->format('Y-m-d H:i:s');
     $cmt_msg = $_POST['cmt_msg'];
+    
+    //---validating a single field----------
 
     $newCommentValidate->text('cmt_msg', $cmt_msg, true, 1, 350);
 
@@ -45,6 +43,7 @@ $newcommentfields->addField('cmt_msg');
         $new_comment = new Comment($user, $project, $cmt_msg, $cmt_date);
        // var_dump($new_comment);
 
+    // adding a comment----------------------
             if (CommentDB::addComment($new_comment) != 1) {
                 $message_fail = "Failed to add the comment";
                 $comments = CommentDB::getComments($proj_id);

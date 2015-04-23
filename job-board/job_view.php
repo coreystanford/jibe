@@ -20,15 +20,7 @@
             <p>Listed by: <?php echo $job_listing->getUser()->getFName() . " " . $job_listing->getUser()->getLName(); ?>
                 <em>Posted on: <?php echo $job_listing->getJobDate(); ?></em></p>
             <p><b>Description:</b> <?php echo $job_listing->getJobDescription(); ?></p>
-            <!--            
-                        <form action="<?php // echo '../cart'  ?>" method="post">
-                            <input type="hidden" name="action" value="add" />
-                            <input type="hidden" name="project_id"
-                                   value="<?php //echo $project->getID();  ?>" />
-                            <b>Quantity:</b>
-                            <input type="text" name="quantity" value="1" size="2" />
-                            <input type="submit" value="Add to Cart" />
-                        </form>-->
+            
         </div>
     </div>
 </section>

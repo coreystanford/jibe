@@ -1,5 +1,8 @@
 <?php include '../view/header.php'; ?>
 <?php
+
+// countries allowed for job postings-----------
+
 $allcountries = array(
     'Canada',
     'USA',
@@ -14,10 +17,13 @@ $allcountries = array(
         <h1>Edit a job posting <?php echo $job_title; ?>
            
         </h1>
+        
+        <!---------- form to update a job listing ----------->
 
         <form action="?action=edit_job" id="edit-job" name="edit-job" method="post" enctype="multipart/form-data">       
 
-
+        <!-- some hidden fields to store data populated from the code---------->
+        
             <input type="hidden" name="job_id" value="<?php echo $job_id; ?>" />
             <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
             <input type="hidden" name="job_date" value="<?php echo $job_date; ?>" />
@@ -28,6 +34,9 @@ $allcountries = array(
                         <label for="job_cat" >Select Category: </label>
                     </div>
                     <div class="job-form-input job-right">
+                        
+        <!--------Select job category------------------------------------->
+        
                         <select name="job_cat">
                             <option value="allcategories">--Select Category--</option>
                             <?php
@@ -45,6 +54,9 @@ $allcountries = array(
                     </div>       
                 </li>
                 <li>
+                    
+        <!----job title------------------->
+        
                     <div class="job-form-label job-left">
                         <label for="job_title" >Job Title: </label>
                     </div>
@@ -54,6 +66,9 @@ $allcountries = array(
                     </div>
                 </li>
                 <li>
+                    
+        <!---------------Company hiring ---------------->
+        
                     <div class="job-form-label job-left">
                         <label for="job_company" >Company Hiring: </label>  
                     </div>
@@ -66,6 +81,9 @@ $allcountries = array(
                     <div class="job-form-label job-left">
                         <label for="job_logo" >Company Logo: </label>
                     </div>
+                    
+        <!-----------updating company logo-------------------------->            
+                    
                     <div class="job-form-input job-right">
                         <div class="job-logo">
                         <img src="../<?php echo $job_logo; ?>" />
@@ -76,6 +94,9 @@ $allcountries = array(
                     </div>
                 </li>
                 <li>
+                    
+        <!------------Updating city---------------->
+        
                     <div class="job-form-label job-left">
                         <label for="job_city" >City: </label>
                     </div>
@@ -84,6 +105,9 @@ $allcountries = array(
                         <?php echo $newjobfields->getField('job_city')->getHTML(); ?>
                     </div>
                 </li>
+                
+        <!-----------updating country------------------->
+                
                 <li>
                     <div class="job-form-label job-left">
                         <label for="job_country" >Country: </label>
@@ -104,6 +128,9 @@ $allcountries = array(
                         <?php echo $newjobfields->getField('job_country')->getHTML(); ?>
                     </div>
                 </li>
+                
+        <!----------updating job description ----------------------------->        
+                
                 <li>
                     <div class="job-form-label job-full">
                         <label for="job-description">Job Description: </label>

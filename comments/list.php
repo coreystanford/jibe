@@ -1,5 +1,7 @@
 <h4>Comments</h4>
 
+<!--displaying a list of comments  ---->
+
  <?php foreach ($comments as $comment) : ?>
     <div class="comment-wrap">
         <img src = "../images_upload/thumbs/<?php echo $comment->getUser()->getImgURL(); ?>" 
