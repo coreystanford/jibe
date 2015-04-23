@@ -293,6 +293,21 @@ class FileUpload {
         
     }
     
+    public function deleteSliderImage($file, $dir='../images_upload/silder-images/'){
+        if(file_exists($dir.$file)) {
+            $delete_result = unlink($dir.$file);
+            if(!$delete_result){
+                $this->_fm_error  .= 'Image file ' . $file . ' exists but was not deleted';
+            }
+        }
+        else {
+            $this->_fm_error  .= 'Image file ' . $file . ' does not exist';
+        }
+        if($this->_fm_error ){
+            echo $this->_fm_error ;
+        }
+    }
+    
     
 }
 

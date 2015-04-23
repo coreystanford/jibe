@@ -37,6 +37,6 @@
                                     ?>
 
 				</div>
-				<a href="#" class="edit" id="sliderEdit"><i class="fa fa-pencil fa-lg"></i> Edit</a>
+                            <a href="../image-slider/" class="edit" id="sliderEdit"><i class="fa fa-pencil fa-lg"></i> Edit</a>
 			</div>
 			<div class="slide-buttons"></div>

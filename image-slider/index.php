@@ -37,6 +37,10 @@ if (isset($_POST['send']) && $_POST['action'] == 'validate-image') {
     }
     
 }
+else if (isset($_POST['delete']) && $_POST['action'] == 'delete-image') {
+    $img_id = $_POST['img_id'];
+    SliderImageDB::deleteImage($img_id);
+}
 
 $images = SliderImageDB::getImagesByUser($user_id);
 

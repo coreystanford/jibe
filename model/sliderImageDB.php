@@ -48,4 +48,14 @@ class SliderImageDB {
         return $row_count;
     }
     
+    public static function deleteImage($id) {
+        $db = Database::getDB();
+
+        $query =
+            "DELETE FROM slider_images WHERE id = ".$id.";";
+             
+        $row_count = $db->exec($query);
+        return $row_count;
+    }
+    
 }
