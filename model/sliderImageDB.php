@@ -41,9 +41,8 @@ class SliderImageDB {
 
         $query =
             "INSERT INTO slider_images "
-                 ."user_id, img_name "
              ."VALUES "
-                 ."(".$image->getUserID().", '".$image->getImgName()."')';";
+                 ."( null, ".$image->getUserID().", '".$image->getImgName()."');";
 
         $row_count = $db->exec($query);
         return $row_count;

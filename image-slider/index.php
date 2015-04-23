@@ -38,5 +38,7 @@ if (isset($_POST['send']) && $_POST['action'] == 'validate-image') {
     
 }
 
+$images = SliderImageDB::getImagesByUser($user_id);
+
 require_once 'slider-setup.php';
 ?>
