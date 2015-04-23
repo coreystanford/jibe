@@ -77,12 +77,34 @@
 
 <?php if(count(ProjectDB::getProjectsByUserID($user_id)) > 0): ?>
 <a href="#" onclick='window.open("../stats/graph.php?id=<?php echo $user_id; ?>","Graph","directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=950,height=400,top=120");'>
-    <h3>View graph and your projects</h3></a>
+    <h3>View graph and compare your projects</h3></a>
 <?php endif; ?>
 <!--    </div>
 </section>-->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 <script type="text/javascript">
+    function equalize() {
+            
+            if ($(window).width() > 525) {
+                $(".stats-container").css('height', 'auto');
+                var list_array = $(".stats-container");
+                var maxHeight = 0;
+                $.each(list_array, function(){
+                    if($(this).height() > maxHeight){
+                        maxHeight = $(this).height();
+                    }
+                });
+                
+                $(".stats-container").css('height', maxHeight);
+                
+            }
+            else {
+                 $(".stats-container").css('height', 'auto');
+           }
+        }
+    
+    
     function submitForm(deleteForm) {
     $.ajax({
         type:'POST',            
@@ -97,8 +119,24 @@
     });
 
     return false;
-}
+    }
+
+
+$(document).ready(function(){
+           
+            equalize();
+            $(window).resize(function(){
+                // calling the function on resize
+                
+                equalize();
+            });
+});// end of document. ready
+
+ 
+
 </script>
+
+
 <?php// include '../view/footer.php'; ?>    
 
    
